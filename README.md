@@ -1,5 +1,5 @@
 # grupo_6_comamos
-Proyecto intergador E-commerce
+Proyecto intergador E-commerce //
 Temática elegida: Reserva de lugares en espacios gastronómicos con compra de platos ofrecidos por los restaurantes. 
 Se ofrecerán diferentes propuestas de restaurantes de acuerdo a categoría, nombre del restaurante y nombre del plato. A su vez, habrá recomendaciones relacionadas a la geolocalización y ocasiones especiales.
 Cada cliente tendrá que tener un usuario (Membership) para proceder a la reserva y posterior compra del plato en el restaurante elegido. Por el lado del restaurante, este también deberá contar con un "Usuario de negocio" para gestionar las reservas, los platos y la habilitación de mesas dentro del local.
