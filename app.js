@@ -5,7 +5,7 @@ const publicFolder = path.resolve(__dirname, './public');
 app.use(express.static(publicFolder));
 
 app.listen(8000, () => {
-    console.log('Servidor Funcionando en el puerto 3000');
+    console.log('Servidor Funcionando en el puerto 8000');
 })
 
 app.get('/', (req, res) => {
