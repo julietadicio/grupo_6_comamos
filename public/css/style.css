@@ -27,6 +27,7 @@ body header section {
     position: absolute;  
     width: 95%;
     margin-top: 1%;
+    padding: 5px;
 }
 #logo {
     max-width: 100%;
@@ -75,8 +76,8 @@ body header section {
     display: inline-flex;
     width: 100%;
     padding: 5px;
-    position: absolute;
-    top: 14%;
+    /*position: absolute;
+    top: 14%;*/
 }
 footer div ul li a {
     color: white;
