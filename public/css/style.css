@@ -6,6 +6,7 @@
 }
 #background-img {
     background-image:inherit;
+    background-attachment: fixed;
 }
 body header {
     width: 100%;
