@@ -4,6 +4,10 @@
     margin: 0px;
     padding: 0px;
 }
+body section {
+    display: flex;
+    justify-content: center;
+}
 #background-img {
     background-image:inherit;
 }
@@ -18,9 +22,11 @@ body header section {
     background-color: #e2ddddbe;
     color: #ED1B24;
     display: flex;
-    border-radius: 5%;
+    border-radius: 10px;
     border: solid 1px grey;
     position: absolute;  
+    width: 95%;
+    margin-top: 1%;
 }
 #logo {
     max-width: 100%;
@@ -37,7 +43,7 @@ body header section {
     width: 85%;
 }
 .title {
-    width: 40%;
+    width: 85%;
 }
 .style-title {
     text-align: center;
@@ -47,7 +53,11 @@ body header section {
     justify-content: center;
     font-weight: bold;
     font-family: 'Pacifico', cursive;
-    font-size: 30px;
+    font-size: 16px;
+}
+.burger-bar {
+    display: inline-flex;
+    align-items: center;
 }
 .format-menu {
     width: 25%;
@@ -60,10 +70,37 @@ body header section {
 .box-mobile {
     display: none;
 }
+.footer {
+    background-color: rgba(237, 27, 36, 75%);
+    display: inline-flex;
+    width: 100%;
+    padding: 5px;
+    position: absolute;
+    top: 14%;
+}
+footer div ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 8px;
+}
+footer div ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 33.33%;
+}
 @media (min-width: 768px) {
     .box-mobile {
         display: inline-flex;
         width: 60%;
     }
-
+    .title {
+        width: 40%;
+    }
+    .style-title {
+        font-size: 40px;
+    }
+    .burger-bar {
+        display: none;
+    }
 }
