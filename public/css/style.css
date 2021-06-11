@@ -20,11 +20,11 @@ body header section {
     position: relative;
 }
 .box-header {
-    background-color: #e2ddddbe;
+    background-color: rgb(226, 221, 221, 75%);
     color: #ED1B24;
     display: flex;
     border-radius: 10px;
-    border: solid 1px grey;
+    border: solid 1px rgb(112, 112, 112);
     position: absolute;  
     width: 95%;
     margin-top: 1%;
@@ -77,19 +77,40 @@ body header section {
     display: inline-flex;
     width: 100%;
     padding: 5px;
-    /*position: absolute;
-    top: 14%;*/
+    position: absolute;
+    bottom: 0px;
+}
+#center-footer {
+    text-align: center;
+    color: white;
+    font-size: 7px;
+    margin-top: 10px;
 }
 footer div ul li a {
     color: white;
     text-decoration: none;
-    font-size: 8px;
+    font-size: 6px;
+    display: flex;
+    vertical-align: middle; 
 }
-footer div ul {
+#copyright {
+    color: white;
+    font-size: 7px;
+    text-align: center;
+    margin-top: 10px;
+}
+footer div div {
+    display: flex;
+}
+footer div ul, footer div div {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     width: 33.33%;
+}
+.footer-logo {
+    height: 15px;
+    width: 15px;
+    margin-left: 85%;
 }
 @media (min-width: 768px) {
     .box-mobile {
@@ -104,5 +125,23 @@ footer div ul {
     }
     .burger-bar {
         display: none;
+    }
+    footer div ul li a {
+        font-size: 12px;
+    }
+    #copyright {
+        font-size: 13px;
+    }
+    .footer-logo {
+        height: 30px;
+        width: 30px;
+    }
+    .footer {
+        padding: 15px;
+    }
+    .format-menu {
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 15px;
     }
 }
