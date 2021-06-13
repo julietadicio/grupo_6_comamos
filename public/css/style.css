@@ -68,3 +68,14 @@ body header section {
     }
 
 }
+
+.input-product-detail {
+    width: 100%;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;      
+    height: 100%;
+}
