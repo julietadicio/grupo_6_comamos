@@ -4,13 +4,12 @@
     margin: 0px;
     padding: 0px;
 }
+body {
+    background-image: url(/img/fondo\ cargado.jpg);
+}
 body section {
     display: flex;
     justify-content: center;
-}
-#background-img {
-    background-image:inherit;
-    background-attachment: fixed;
 }
 body header {
     width: 100%;
