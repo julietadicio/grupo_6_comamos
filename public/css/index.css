@@ -97,10 +97,24 @@ body {
     text-align: center;
     font-weight: 800;
     line-height: 11px;
-    margin-top: 1px;
+    margin-top: 2px;
     padding: 1px;
 }
 
+.opcion-7, .opcion-8, .opcion-9 {
+    display: none;
+    width: 15vw;
+    height: 12vh;
+    border: 1px black solid;
+    background-color: white;
+    border-radius: 13%;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 11px;
+    margin-top: 2px;
+    padding: 1px;
+    justify-content: center;
+}
 
 .contenedor-2 {
     display: flex;
@@ -123,4 +137,27 @@ body {
     font-size: 15px;
     cursor: pointer;
     margin: -1%;
+}
+
+@media (min-width:740px) {
+    .arrow {
+    margin: 0%;
+    }
+
+    .los-mas-elegidos {
+        width: 80vw;
+    }
+
+    .nuestras-sugerencias {
+        width: 80vw;
+    }
+
+    .opcion-1, .opcion-2, .opcion-3, .opcion-4, .opcion-5, .opcion-6 {
+    width: 15vw;
+    }
+
+    .opcion-7, .opcion-8, .opcion-9 {
+    display: flex;
+    }
+
 }
