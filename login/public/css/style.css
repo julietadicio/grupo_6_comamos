@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.centro{
+    text-align: center;
+    }
+
+    .contenedor {
+        margin: 100px;
+        position: relative;
+        height: 300px;
+       }
+    
+       @media (min-width: 768px) {
+        .box-mobile {
+            display: inline-flex;
+            width: 60%;
+        }
+    
+    }
+
+   
+
+    form {
+        width:300px;
+	padding:16px;
+	border-radius:28px;
+	margin:auto;
+	background-color:#ccc;
+    }
+
+    .exit {
+        text-align: right;
+    }
+
+    .subrayado {
+        text-decoration: underline;
+    }
+
+
+    .padding {
+        margin-top: 0px;
+    }
