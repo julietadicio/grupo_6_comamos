@@ -157,6 +157,11 @@ footer div ul, footer div div {
         line-height: 15px;
     }
 }
+@media (min-width: 1024px) {
+    .icon-user {
+        font-size: 20px;
+    }
+}
 
 
 
