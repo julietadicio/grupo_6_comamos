@@ -25,17 +25,18 @@
                     <form action="/carrito" method="POST">
 
                         <label for="busqueda0"></label>
-                        <input type="text" name="busqueda0" id="busqueda0" placeholder="¿Dónde querés comer?">
+                        <input type="text" name="busqueda0" id="busqueda0" placeholder="¿Dónde querés comer?"
+                            class="hide-mobile">
 
                         <label for="busqueda1"></label>
                         <input type="text" name="busqueda1" id="busqueda1" placeholder="Restaurante, tipo de comida..."
-                            class="box-mobile">
+                            class="box-mobile box1">
 
                         <label for="busqueda2"></label>
                         <input type="text" name="busqueda2" id="busqueda2" placeholder="Cerca de mi dirección"
-                            class="box-mobile">
+                            class="box-mobile box2">
 
-                        <select name="filtrar" id="filtrar" class="box-mobile">
+                        <select name="filtrar" id="filtrar" class="box-mobile box3">
                             <option value="filtra">Filtra tu búsqueda</option>
                         </select>
 
@@ -44,6 +45,9 @@
                 </div>
                 <div class="burger-bar">
                     <i class="fas fa-bars format-burgerbar"></i>
+                </div>
+                <div class="icon-user">
+                    <i class="fas fa-user"></i>
                 </div>
             </div>
         </section>
