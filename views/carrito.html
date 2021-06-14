@@ -10,7 +10,7 @@
         href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;1,200&family=Pacifico&display=swap"
         rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/carrito.css">
     <title>Inicio-Comamos</title>
 </head>
 
@@ -22,16 +22,28 @@
                     <img src="/img/Logo.png" id="logo" width="80%" alt="Logo Comamos">
                 </div>
                 <div id="align-header">
-                    <h1 class="title style-title">Comamos</h1>
-                    <ul class="box-mobile">
-                        <li class="format-menu">Registrate</li>
-                        <li class="format-menu">Registrá tu Restaurante</li>
-                        <li class="format-menu">Ingresá a tu cuenta</li>
-                        <li class="format-menu">Ingresá a tu cuenta de negocio</li>
-                    </ul>
-                    <div class="burger-bar">
-                        <i class="fas fa-bars"></i>
-                    </div>
+                    <form action="/carrito" method="POST">
+
+                        <label for="busqueda0"></label>
+                        <input type="text" name="busqueda0" id="busqueda0" placeholder="¿Dónde querés comer?">
+
+                        <label for="busqueda1"></label>
+                        <input type="text" name="busqueda1" id="busqueda1" placeholder="Restaurante, tipo de comida..."
+                            class="box-mobile">
+
+                        <label for="busqueda2"></label>
+                        <input type="text" name="busqueda2" id="busqueda2" placeholder="Cerca de mi dirección"
+                            class="box-mobile">
+
+                        <select name="filtrar" id="filtrar" class="box-mobile">
+                            <option value="filtra">Filtra tu búsqueda</option>
+                        </select>
+
+                        <button type="submit" name="buscar" id="boton-buscar">Buscar</button>
+                    </form>
+                </div>
+                <div class="burger-bar">
+                    <i class="fas fa-bars format-burgerbar"></i>
                 </div>
             </div>
         </section>

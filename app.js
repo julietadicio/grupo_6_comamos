@@ -11,3 +11,6 @@ app.listen(8000, () => {
 app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/home.html'))
 });
+app.get('/carrito', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/carrito.html'))
+});
