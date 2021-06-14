@@ -14,7 +14,8 @@ body section {
 }
 body header {
     width: 100%;
-    
+    display: flex;
+    justify-content: center;
 }
 body header section {
     position: relative;
@@ -22,15 +23,41 @@ body header section {
 form {
     width: 100%;
 }
+body main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+h1 {
+    font-size: 20px;
+    color: black;
+}
+h2 {
+    font-size: 18px;
+    color: black;
+}
+h3 {
+    font-size: 16px;
+    color: black;
+    width: 100%;
+}
+h3 div p {
+    font-size: 16px;
+    color: black;
+    font-style: italic;
+}
+article {
+    display: flex;
+    justify-content: space-around;
+}
 .box-header {
     background-color: rgb(226, 221, 221, 75%);
     color: #ED1B24;
     display: flex;
     border-radius: 10px;
     border: solid 1px rgb(112, 112, 112);
-    position: absolute;
     width: 95%;
-    margin-top: 1%;
+    margin-top: 5%;
     padding: 5px;
     flex-wrap: wrap;
     align-items: center;
@@ -64,6 +91,19 @@ form {
 }
 .icon-user {
     display: none;
+}
+.box-main {
+    background-color: rgb(226, 221, 221, 75%);
+    color: #ED1B24;
+    display: flex;
+    border-radius: 10px;
+    border: solid 1px rgb(112, 112, 112);
+    width: 95%;
+    margin-top: 10%;
+    padding: 5px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: baseline;
 }
 .footer {
     background-color: rgba(237, 27, 36, 75%);
