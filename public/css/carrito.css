@@ -22,6 +22,7 @@ body header section {
 }
 form {
     width: 100%;
+    text-align: center;
 }
 body main {
     width: 100%;
@@ -75,6 +76,9 @@ article {
 #align-header {
     width: 75%;
 }
+.hide-mobile {
+    text-align: center;
+}
 .box-mobile {
     display: none;
 }
@@ -104,6 +108,13 @@ article {
     flex-wrap: wrap;
     flex-direction: column;
     align-items: baseline;
+}
+article a {
+    text-decoration: none;
+    color: blue;
+}
+.map-style {
+    margin-top: 30px;
 }
 .footer {
     background-color: rgba(237, 27, 36, 75%);
@@ -146,6 +157,9 @@ footer div ul, footer div div {
     margin-left: 85%;
 }
 @media (min-width: 768px) {
+    .box-header {
+        margin-top: 2%;
+    }
     #align-header {
         width: 80%;
     }
@@ -177,6 +191,13 @@ footer div ul, footer div div {
         align-content: center;
         justify-content: center;
         align-items: center;
+    }
+    .box-main {
+        margin-top: 3%;
+        padding: 15px;
+    }
+    .land-view {
+        display: flex;
     }
     footer div ul li a {
         font-size: 12px;
