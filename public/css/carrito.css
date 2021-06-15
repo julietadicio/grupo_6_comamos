@@ -103,7 +103,7 @@ article {
     border-radius: 10px;
     border: solid 1px rgb(112, 112, 112);
     width: 95%;
-    margin-top: 10%;
+    margin-top: 5%;
     padding: 5px;
     flex-wrap: wrap;
     flex-direction: column;
@@ -157,6 +157,10 @@ footer div ul, footer div div {
     margin-left: 85%;
 }
 @media (min-width: 768px) {
+    body section {
+        width: 40%;
+        flex-direction: column;
+    }
     .box-header {
         margin-top: 2%;
     }
@@ -195,9 +199,15 @@ footer div ul, footer div div {
     .box-main {
         margin-top: 3%;
         padding: 15px;
+        height: 60vh;
     }
     .land-view {
         display: flex;
+    }
+    .map-style {
+        width: 60%;
+        height: 75%;
+        margin-top: 0;
     }
     footer div ul li a {
         font-size: 12px;
