@@ -19,3 +19,7 @@ app.get('/home', (req, res) => {
 app.get('/producto', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/product-detail.html'))
 });
+
+app.get('/producto2', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/product-comamos.html'))
+});
