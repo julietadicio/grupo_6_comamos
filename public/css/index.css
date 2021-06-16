@@ -11,6 +11,7 @@
 }
 body {
     background-image: url(/img/fondo\ cargado.jpg);
+    background-repeat: repeat;
     background-size: cover;
 }
 body section {
@@ -151,8 +152,23 @@ footer div ul, footer div div {
     }
 }
 
+.frase-elegi {
+    text-align: center;
+    margin-top: -4px;
+    position: relative;
+    bottom: -10vh;
+    font-size: larger;
+}
+
+.form-busqueda {
+    width: 85vw;
+    display: flex;
+    align-items: center;
+}
+
 .search {
     display: flex;
+    width: 100%;
     flex-direction: row;
     justify-content: center;
     flex-wrap: nowrap;
@@ -162,7 +178,7 @@ footer div ul, footer div div {
 }
 
 #busqueda1, #busqueda2 {
-    width: 44%;
+    width: 50%;
     height: 60%;
     padding: 1% 3%;
     font-style: italic;
@@ -175,10 +191,11 @@ footer div ul, footer div div {
 #boton-buscar {
     color: aliceblue;
     background-color: red;
-    width: 25%;
+    width: 30%;
     height: 60%;
     cursor: pointer;
-    transition: all 1000ms;
+    font-size: 116%;
+    transition: background-color 1000ms;
 }
 
 #boton-buscar:hover {
@@ -188,6 +205,7 @@ footer div ul, footer div div {
 #filtrar {
     height: 60%;
     opacity: 74%;
+    width: 20%;
     cursor: pointer;
 }
 
@@ -238,10 +256,24 @@ footer div ul, footer div div {
     text-align: center;
     font-weight: 800;
     line-height: 11px;
-    margin-top: 1px;
+    margin-top: 2px;
     padding: 1px;
 }
 
+.opcion-7, .opcion-8, .opcion-9 {
+    display: none;
+    width: 15vw;
+    height: 12vh;
+    border: 1px black solid;
+    background-color: white;
+    border-radius: 13%;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 11px;
+    margin-top: 2px;
+    padding: 1px;
+    justify-content: center;
+}
 
 .contenedor-2 {
     display: flex;
@@ -264,4 +296,31 @@ footer div ul, footer div div {
     font-size: 15px;
     cursor: pointer;
     margin: -1%;
+}
+
+@media (min-width:740px) {
+    .arrow {
+    margin: 0%;
+    }
+
+    .form-busqueda {
+        width: 75vw;
+    }
+
+    .los-mas-elegidos {
+        width: 80vw;
+    }
+
+    .nuestras-sugerencias {
+        width: 80vw;
+    }
+
+    .opcion-1, .opcion-2, .opcion-3, .opcion-4, .opcion-5, .opcion-6 {
+    width: 15vw;
+    }
+
+    .opcion-7, .opcion-8, .opcion-9 {
+    display: flex;
+    }
+
 }
