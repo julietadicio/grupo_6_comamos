@@ -9,8 +9,6 @@ body {
     background-size: cover;
 }
 body section {
-    display: flex;
-    justify-content: space-between;
     width: 100%;
 }
 body header {
@@ -29,28 +27,6 @@ body main {
     width: 90vw;
     display: flex;
     margin: auto;
-}
-h1 {
-    font-size: 20px;
-    color: black;
-}
-h2 {
-    font-size: 18px;
-    color: black;
-}
-h3 {
-    font-size: 16px;
-    color: black;
-    width: 100%;
-}
-h3 div p {
-    font-size: 16px;
-    color: black;
-    font-style: italic;
-}
-article {
-    display: flex;
-    justify-content: space-around;
 }
 .box-header {
     background-color: rgb(226, 221, 221, 75%);
@@ -103,28 +79,12 @@ article {
     display: flex;
     border-radius: 10px;
     border: solid 1px rgb(112, 112, 112);
-    width: 45%;
+    width: 100%;
     margin-top: 5%;
     padding: 5px;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: baseline;
-}
-article a {
-    text-decoration: none;
-    color: blue;
-}
-.map-style {
-    margin-top: 30px;
-}
-.pay-button {
-    width: 100%;
-    margin-top: 5%;
-    width: 100%;
-}
-.button {
-    padding: 3px;
-    border-radius: 5px;
 }
 .footer {
     background-color: rgba(237, 27, 36, 75%);
@@ -179,15 +139,6 @@ footer div ul, footer div div {
     .box-mobile {
         display: inline-flex;
     }
-    .box1 {
-        width: 35%;
-    }
-    .box2 {
-        width: 25%;
-    }
-    .box3 {
-        width: 25%;
-    }
     .hide-mobile {
         display: none;
     }
@@ -212,16 +163,6 @@ footer div ul, footer div div {
     }
     .land-view {
         display: flex;
-    }
-    .map-style {
-        width: 60%;
-        height: 60%;
-    }
-    .pay-button {
-        width: 0;
-    }
-    .button {
-        width: 120px;
     }
     footer div ul li a {
         font-size: 12px;
