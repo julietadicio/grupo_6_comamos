@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+rel="stylesheet" />
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;1,200&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <title>Comamos</title>
+</head>
+<body>
+  <header>
+    <section>
+        <div class="box-header">
+            <div class="logo-conteiner">
+                <img src="/img/Logo.png" id="logo" width="80%" alt="Logo Comamos">
+            </div>
+            <div id="align-header">
+                <h1 class="title style-title">Comamos</h1>
+                <ul class="box-mobile">
+                    <li class="format-menu">Registrate</li>
+                    <li class="format-menu">Registrá tu Restaurante</li>
+                    <li class="format-menu">Ingresá a tu cuenta</li>
+                    <li class="format-menu">Ingresá a tu cuenta de negocio</li>
+                </ul>
+                <div class="burger-bar">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+        <div id="background-img">
+            <img src="/img/fondo cargado.jpg" width="100%" height="100%" alt="background">
+        </div>
+    </section>
+  </header>
+
+  <div style= "background-image:url('/img/fondo-cargado.jpg'); width:auto; height:auto; background-size: cover;" >
+
+    <div class="centro">
+       
+
+        <form action="/login" method="POST">
+          
+          <div class="exit">
+         <i class="fas fa-times"></i>
+        </div>
+      
+          
+          <h2 class="close" id="padding">Login</h2> <div></div>
+            <p>
+              <label class="alejar">Usuario del negocio</label><div></div>
+              <input type= "text" name= "usuario" id= "usuario">
+            </p>
+            
+            <p>
+              <label>Contraseña</label><div></div>
+              <input type= "password" name= "password" id= "contraseña">
+              </p>
+    
+              <p class="alejar">
+                
+                    <input class="center" type="submit" value="Login"> </input>
+                    <div></div>
+                    <input type="checkbox" value="Recordarme" name= "Recordarme" checked> 
+                    <label>Recordar usuario </label>
+                </p>
+    
+                <p class="subrayado">Restablecer contraseña</p>
+                <div></div>
+    
+          </form>
+        
+    </div>
+
+
+<footer>
+  <div class="footer">
+      <ul type="none">
+          <li><a href="">Acerca de Nosotros</a></li>
+          <li><a href="">Contacto</a></li>
+          <li><a href="">Términos y condiciones</a></li>
+      </ul>
+      <ul type="none">
+          <li><a href="">Registrá tu restaurante</a></li>
+          <li><a href="">Programá tus descuentos</a></li>
+          <li id="copyright">©️ Comamos - 2021</li>
+      </ul>
+      <div>
+          <div class="footer-logo">
+              <img src="/img/facebook.png" alt="logo-facebook">
+          </div>
+          <div class="footer-logo">
+              <img src="/img/instagram.png" alt="logo-facebook">
+          </div>
+      </div>
+</footer>
+
+    
+</body>
+</html>
