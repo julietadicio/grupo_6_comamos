@@ -6,13 +6,7 @@
 }
 body {
     background-image: url(/img/fondo-cargado.jpg);
-    background-repeat: repeat;
     background-size: cover;
-}
-#background-img {
-    background-image:inherit;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
 }
 body section {
     display: flex;
@@ -21,6 +15,8 @@ body section {
 }
 body header {
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 body header section {
     position: relative;
@@ -34,8 +30,24 @@ body main {
     display: flex;
     justify-content: center;
 }
-
-
+h1 {
+    font-size: 20px;
+    color: black;
+}
+h2 {
+    font-size: 18px;
+    color: black;
+}
+h3 {
+    font-size: 16px;
+    color: black;
+    width: 100%;
+}
+h3 div p {
+    font-size: 16px;
+    color: black;
+    font-style: italic;
+}
 article {
     display: flex;
     justify-content: space-around;
@@ -52,12 +64,10 @@ article {
     flex-wrap: wrap;
     align-items: center;
 }
-
 #logo {
     max-width: 100%;
     max-height: 100%; 
 }
-
 .logo-conteiner {
     width: 15%;
     display: flex;
@@ -90,7 +100,7 @@ article {
 .box-main {
     background-color: rgb(226, 221, 221, 75%);
     color: #ED1B24;
-    display:block;
+    display: flex;
     border-radius: 10px;
     border: solid 1px rgb(112, 112, 112);
     width: 95%;
@@ -99,9 +109,6 @@ article {
     flex-wrap: wrap;
     flex-direction: column;
     align-items: baseline;
-    margin-top: 3%;
-    padding: 15px;
-    height: 60vh;
 }
 article a {
     text-decoration: none;
@@ -110,8 +117,11 @@ article a {
 .map-style {
     margin-top: 30px;
 }
-
-
+.pay-button {
+    width: 100%;
+    margin-top: 5%;
+    width: 100%;
+}
 .button {
     padding: 3px;
     border-radius: 5px;
@@ -196,7 +206,11 @@ footer div ul, footer div div {
         justify-content: center;
         align-items: center;
     }
-    
+    .box-main {
+        margin-top: 3%;
+        padding: 15px;
+        height: 60vh;
+    }
     .land-view {
         display: flex;
     }
@@ -236,30 +250,7 @@ footer div ul, footer div div {
     }
 }
 
-.icon-user {
-    display: none;
-}
-
-.icon-cart {
-    display: none;
-}
 
 
-.box-main h2{
-    font-family: poppins, sans-serif;
-    font-weight: 700;
-    font-style: normal;
-}
 
-.box-second {
-    background-color: rgb(226, 221, 221, 75%);
-    color: #ED1B24;
-    display: flex;
-    border-radius: 10px;
-    border: solid 1px rgb(112, 112, 112);
-    width: 80px;
-    margin-top: 5%;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: baseline;
-}
+
