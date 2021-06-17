@@ -211,3 +211,9 @@ footer div ul, footer div div {
         line-height: 15px;
     }
 }
+
+body {
+    background-image: url(/img/fondo-cargado.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+}
