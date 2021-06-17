@@ -1,129 +1,9 @@
-.input-product-detail {
-    width: 100%;
-    margin: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;      
-    height: 100%;
-}
-
 * {
     box-sizing: border-box;
     font-family: 'Nunito Sans', sans-serif;
     margin: 0px;
     padding: 0px;
 }
-
-body {
-    background-image: url("/img/fondo-cargado.jpg");
-    background-repeat: repeat;
-    background-size: cover;
-}
-
-
-.acerca-de-producto {
-    text-align: left;
-    position: relative;
-    font-size: small
-}
-
-#comamos{
-    font-weight: bold;
-    font-family: pacifico, sans-serif;
-    font-style: normal;
-    font-size: 30px;
-    color: red;
-}
-
-.input-product-detail {
-    width: 100%;
-    margin: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;      
-    height: auto;
-    font-size: 14px;
-}
-
-#nombre-Restaurante {
-    padding: 5px;
-    font-size: 10px
-    
-}
-
-#nombre-Restaurante h3 {
-    font-size: 13px;
-    font-weight: bold;
-}
-
-#fachada-Restaurante {
-    width: 100%;
-    height: auto;
-}
-
-#imagenes-slide {
-    height: 100px;
-    overflow: hidden;
-}
-
-.botones-menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-content: center;
-    width: 100%;
-    height: auto;
-}
-
-.menu-Del-Producto {
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
-    width: 100%;
-    
-}
-
-
-.menu-Del-Producto button {
-    width: 150px;
-    height: auto;
-    margin: 5px;
-}
-
-#menu-producto {
-    display: flex;
-    justify-items: center;
-    text-align: left;
-    
-}
-
-#menu-producto h2 {
-    display: flex;
-    justify-items: center;
-    text-align: left;
-    font-weight: bold;
-    font-family: pacifico, sans-serif;
-    font-style: normal;
-    font-size: 30px;
-    color:white
-    
-}
-
-#acerca-de h2 {
-    font-weight: bold;
-    font-family: pacifico, sans-serif;
-    font-style: normal;
-    font-size: 30px;
-    color:white
-    
-}
-
-/* Codigo agregado por alejandro */
 body {
     background-image: url(/img/fondo-cargado.jpg);
     background-size: cover;
@@ -138,9 +18,23 @@ body header {
     display: flex;
     justify-content: center;
 }
+body header section {
+    position: relative;
+}
 form {
     width: 100%;
     text-align: center;
+}
+body main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+article {
+    display: flex;
+    justify-content: space-around;
 }
 .box-header {
     background-color: rgb(226, 221, 221, 75%);
@@ -154,10 +48,12 @@ form {
     flex-wrap: wrap;
     align-items: center;
 }
+
 #logo {
     max-width: 100%;
     max-height: 100%; 
 }
+
 .logo-conteiner {
     width: 15%;
     display: flex;
@@ -186,6 +82,35 @@ form {
 }
 .icon-user {
     display: none;
+}
+.box-main {
+    background-color: rgb(226, 221, 221, 75%);
+    color: #ED1B24;
+    display:block;
+    border-radius: 10px;
+    border: solid 1px rgb(112, 112, 112);
+    width: 95%;
+    margin-top: 5%;
+    padding: 5px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: baseline;
+    margin-top: 3%;
+    padding: 15px;
+    height: 60vh;
+}
+article a {
+    text-decoration: none;
+    color: blue;
+}
+.map-style {
+    margin-top: 30px;
+}
+
+
+.button {
+    padding: 3px;
+    border-radius: 5px;
 }
 .footer {
     background-color: rgba(237, 27, 36, 75%);
@@ -226,4 +151,159 @@ footer div ul, footer div div {
     height: 15px;
     width: 15px;
     margin-left: 85%;
+}
+@media (min-width: 768px) {
+    body section {
+        width: 40%;
+        flex-direction: column;
+    }
+    .box-header {
+        margin-top: 2%;
+    }
+    #align-header {
+        width: 80%;
+    }
+    .box-mobile {
+        display: inline-flex;
+    }
+    .box1 {
+        width: 35%;
+    }
+    .box2 {
+        width: 25%;
+    }
+    .box3 {
+        width: 25%;
+    }
+    .hide-mobile {
+        display: none;
+    }
+    #boton-buscar {
+        width: 10%;
+    }
+    .burger-bar {
+        display: none;
+        width: 0%;
+    }
+    .icon-user {
+        display: flex;
+        width: 5%;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .icon-cart {
+        display: flex;
+        width: 5%;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .land-view {
+        display: flex;
+    }
+    .map-style {
+        width: 60%;
+        height: 75%;
+        margin-top: 0;
+    }
+    .pay-button {
+        width: 0;
+    }
+    .button {
+        width: 120px;
+    }
+    footer div ul li a {
+        font-size: 12px;
+    }
+    #copyright {
+        font-size: 13px;
+    }
+    .footer-logo {
+        height: 30px;
+        width: 30px;
+    }
+    .footer {
+        padding: 15px;
+    }
+    .format-menu {
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 15px;
+    }
+}
+@media (min-width: 1024px) {
+    .icon-user {
+        font-size: 20px;
+    }
+}
+
+.icon-user {
+    display: none;
+}
+
+.icon-cart {
+    display: none;
+}
+
+
+.box-main h2{
+    font-family: poppins, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.box-main h3{
+    font-family: poppins, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: black;
+    font-size: 11px;
+}
+
+.box-second {
+    background-color: rgb(226, 221, 221, 75%);
+    color: #ED1B24;
+    display: flex;
+    border-radius: 10px;
+    border: solid 1px rgb(112, 112, 112);
+    width: 80px;
+    margin-top: 5%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+.menu-producto {
+    display: flex;
+    justify-items: center;
+    text-align: left;
+    font-weight: bold;
+    font-family: pacifico, sans-serif;
+    font-style: normal;
+    font-size: 30px;
+    color:white
+}
+
+.menu-producto {
+    display: flex;
+    justify-items: center;
+    text-align: left;
+    font-weight: bold;
+    font-family: pacifico, sans-serif;
+    font-style: normal;
+    font-size: 30px;
+    color: black
+}
+
+.acerca-de {
+    display: flex;
+    justify-items: center;
+    text-align: left;
+    font-weight: bold;
+    font-family: pacifico, sans-serif;
+    font-style: normal;
+    font-size: 30px;
+    color:black
 }
