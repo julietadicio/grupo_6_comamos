@@ -219,3 +219,15 @@ footer div ul, footer div div {
         line-height: 15px;
     }
 }
+
+.img-fondo {
+    background-attachment: fixed;
+    position: absolute;
+    
+}
+
+body {
+    background-image: url(/img/fondo-cargado.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+}
