@@ -192,6 +192,13 @@ footer div ul, footer div div {
         justify-content: center;
         align-items: center;
     }
+    .icon-cart {
+        display: flex;
+        width: 5%;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
     
     .land-view {
         display: flex;
@@ -247,6 +254,14 @@ footer div ul, footer div div {
     font-style: normal;
 }
 
+.box-main h3{
+    font-family: poppins, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: black;
+    font-size: 11px;
+}
+
 .box-second {
     background-color: rgb(226, 221, 221, 75%);
     color: #ED1B24;
@@ -258,4 +273,37 @@ footer div ul, footer div div {
     flex-wrap: wrap;
     flex-direction: column;
     align-items: baseline;
+}
+
+.menu-producto {
+    display: flex;
+    justify-items: center;
+    text-align: left;
+    font-weight: bold;
+    font-family: pacifico, sans-serif;
+    font-style: normal;
+    font-size: 30px;
+    color:white
+}
+
+.menu-producto {
+    display: flex;
+    justify-items: center;
+    text-align: left;
+    font-weight: bold;
+    font-family: pacifico, sans-serif;
+    font-style: normal;
+    font-size: 30px;
+    color: black
+}
+
+.acerca-de {
+    display: flex;
+    justify-items: center;
+    text-align: left;
+    font-weight: bold;
+    font-family: pacifico, sans-serif;
+    font-style: normal;
+    font-size: 30px;
+    color:black
 }
