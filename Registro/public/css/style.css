@@ -3,9 +3,27 @@
     font-family: 'Nunito Sans', sans-serif;
 }
 
-.centro{
-    text-align: center;
-    }
+
+
+    .centro{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .centrok {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+   
 
     .contenedor {
         margin: 100px;
