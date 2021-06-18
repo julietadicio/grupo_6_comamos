@@ -25,7 +25,6 @@ form {
 }
 body main {
     width: 90vw;
-    display: flex;
     margin: auto;
 }
 .box-header {
@@ -87,8 +86,6 @@ body main {
 }
 .desktop-view1 {
     width: 100%;
-    height: 50%;
-    display: flex;
     border: 1px solid black;
 }
 .desktop-view2 {
@@ -97,7 +94,7 @@ body main {
     border: 1px solid black;
 }
 .box1-main {
-    width: 60%;
+    width: 100%;
 }
 .icons-main {
     height: 30%;
@@ -123,10 +120,7 @@ main div i {
     width: 100%;
 }
 .box2-main {
-    width: 40%;
-}
-.map-style {
-    margin-top: 30px;
+    width: 100%;
 }
 .box3-main {
     width: 100%;
@@ -171,6 +165,18 @@ footer div ul, footer div div {
     height: 15px;
     width: 15px;
     margin-left: 85%;
+}
+@media (min-width: 461px) {
+    .desktop-view1 {
+        display: flex;
+        height: 50%;
+    }
+    .box1-main {
+        width: 60%;
+    }
+    .box2-main {
+        width: 40%;
+    }
 }
 @media (min-width: 768px) {
     body section {
