@@ -83,8 +83,48 @@ body main {
     margin-top: 5%;
     padding: 5px;
     flex-wrap: wrap;
-    flex-direction: column;
     align-items: baseline;
+}
+.desktop-view1 {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    border: 1px solid black;
+}
+.desktop-view2 {
+    width: 100%;
+    height: 25%;
+    border: 1px solid black;
+}
+.box1-main {
+    width: 60%;
+}
+.icons-main {
+    height: 30%;
+    width: 100%;
+}
+.align-icons-box1 {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+.icons-box1 {
+    height: 100%;
+    width: 33.33%;
+}
+.image-box1 {
+    height: 70%;
+    width: 100%;
+}
+.box2-main {
+    width: 40%;
+}
+.map-style {
+    margin-top: 30px;
+}
+.box3-main {
+    width: 100%;
+    height: 25%;
 }
 .footer {
     background-color: rgba(237, 27, 36, 75%);
@@ -181,6 +221,15 @@ footer div ul, footer div div {
         font-size: 14px;
         font-weight: bold;
         line-height: 15px;
+    }
+    .box1 {
+        width: 35%;
+    }
+    .box2 {
+        width: 25%;
+    }
+    .box3 {
+        width: 25%;
     }
 }
 @media (min-width: 1024px) {
