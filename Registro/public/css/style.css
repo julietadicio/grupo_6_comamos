@@ -3,9 +3,27 @@
     font-family: 'Nunito Sans', sans-serif;
 }
 
-.centro{
-    text-align: center;
-    }
+
+
+    .centro{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .centrok {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+   
 
     .contenedor {
         margin: 100px;
@@ -210,4 +228,10 @@ footer div ul, footer div div {
         font-weight: bold;
         line-height: 15px;
     }
+}
+
+body {
+    background-image: url(/img/fondo-cargado.jpg);
+    background-repeat: repeat;
+    background-size: cover;
 }

@@ -5,6 +5,10 @@
 
 .centro{
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     }
 
     .contenedor {
@@ -218,4 +222,16 @@ footer div ul, footer div div {
         font-weight: bold;
         line-height: 15px;
     }
+}
+
+.img-fondo {
+    background-attachment: fixed;
+    position: absolute;
+    
+}
+
+body {
+    background-image: url(/img/fondo-cargado.jpg);
+    background-repeat: repeat;
+    background-size: cover;
 }
