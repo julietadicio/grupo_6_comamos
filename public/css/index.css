@@ -118,40 +118,8 @@ footer div ul, footer div div {
     width: 15px;
     margin-left: 85%;
 }
-@media (min-width: 768px) {
-    .box-mobile {
-        display: inline-flex;
-        width: 60%;
-    }
-    .title {
-        width: 40%;
-    }
-    .style-title {
-        font-size: 40px;
-    }
-    .burger-bar {
-        display: none;
-    }
-    footer div ul li a {
-        font-size: 12px;
-    }
-    #copyright {
-        font-size: 13px;
-    }
-    .footer-logo {
-        height: 30px;
-        width: 30px;
-    }
-    .footer {
-        padding: 15px;
-    }
-    .format-menu {
-        font-size: 18px;
-        font-weight: bold;
-        line-height: 15px;
-    }
-}
 
+/* codigo de gaston */
 .frase-elegi {
     text-align: center;
     margin-top: -4px;
@@ -296,6 +264,40 @@ footer div ul, footer div div {
     font-size: 15px;
     cursor: pointer;
     margin: -1%;
+}
+
+@media (min-width: 768px) {
+    .box-mobile {
+        display: inline-flex;
+        width: 60%;
+    }
+    .title {
+        width: 40%;
+    }
+    .style-title {
+        font-size: 40px;
+    }
+    .burger-bar {
+        display: none;
+    }
+    footer div ul li a {
+        font-size: 12px;
+    }
+    #copyright {
+        font-size: 13px;
+    }
+    .footer-logo {
+        height: 30px;
+        width: 30px;
+    }
+    .footer {
+        padding: 15px;
+    }
+    .format-menu {
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 15px;
+    }
 }
 
 @media (min-width:740px) {

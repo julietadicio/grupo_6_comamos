@@ -9,8 +9,6 @@ body {
     background-size: cover;
 }
 body section {
-    display: flex;
-    flex-direction: column;
     width: 100%;
 }
 body header {
@@ -26,15 +24,8 @@ form {
     text-align: center;
 }
 body main {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-
-article {
-    display: flex;
-    justify-content: space-around;
+    width: 90vw;
+    margin: auto;
 }
 .box-header {
     background-color: rgb(226, 221, 221, 75%);
@@ -48,12 +39,10 @@ article {
     flex-wrap: wrap;
     align-items: center;
 }
-
 #logo {
     max-width: 100%;
     max-height: 100%; 
 }
-
 .logo-conteiner {
     width: 15%;
     display: flex;
@@ -86,31 +75,56 @@ article {
 .box-main {
     background-color: rgb(226, 221, 221, 75%);
     color: #ED1B24;
-    display:block;
+    display: flex;
     border-radius: 10px;
     border: solid 1px rgb(112, 112, 112);
-    width: 95%;
+    width: 100%;
     margin-top: 5%;
     padding: 5px;
     flex-wrap: wrap;
-    flex-direction: column;
     align-items: baseline;
-    margin-top: 3%;
-    padding: 15px;
-    height: 60vh;
 }
-article a {
-    text-decoration: none;
-    color: blue;
+.desktop-view1 {
+    width: 100%;
+    border: 1px solid black;
 }
-.map-style {
-    margin-top: 30px;
+.desktop-view2 {
+    width: 100%;
+    height: 25%;
+    border: 1px solid black;
 }
-
-
-.button {
-    padding: 3px;
-    border-radius: 5px;
+.box1-main {
+    width: 100%;
+}
+.icons-main {
+    height: 30%;
+    width: 100%;
+}
+.align-icons-box1 {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+.icons-box1 {
+    height: 100%;
+    width: 33.33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main div i {
+    font-size: 40px;
+}
+.image-box1 {
+    height: 70%;
+    width: 100%;
+}
+.box2-main {
+    width: 100%;
+}
+.box3-main {
+    width: 100%;
+    height: 25%;
 }
 .footer {
     background-color: rgba(237, 27, 36, 75%);
@@ -152,10 +166,21 @@ footer div ul, footer div div {
     width: 15px;
     margin-left: 85%;
 }
+@media (min-width: 461px) {
+    .desktop-view1 {
+        display: flex;
+        height: 50%;
+    }
+    .box1-main {
+        width: 60%;
+    }
+    .box2-main {
+        width: 40%;
+    }
+}
 @media (min-width: 768px) {
     body section {
-        width: 40%;
-        flex-direction: column;
+        width: 100%;
     }
     .box-header {
         margin-top: 2%;
@@ -165,15 +190,6 @@ footer div ul, footer div div {
     }
     .box-mobile {
         display: inline-flex;
-    }
-    .box1 {
-        width: 35%;
-    }
-    .box2 {
-        width: 25%;
-    }
-    .box3 {
-        width: 25%;
     }
     .hide-mobile {
         display: none;
@@ -200,19 +216,13 @@ footer div ul, footer div div {
         align-items: center;
     }
     
+    .box-main {
+        margin-top: 3%;
+        padding: 15px;
+        height: 50vh;
+    }
     .land-view {
         display: flex;
-    }
-    .map-style {
-        width: 60%;
-        height: 75%;
-        margin-top: 0;
-    }
-    .pay-button {
-        width: 0;
-    }
-    .button {
-        width: 120px;
     }
     footer div ul li a {
         font-size: 12px;
@@ -232,6 +242,15 @@ footer div ul, footer div div {
         font-weight: bold;
         line-height: 15px;
     }
+    .box1 {
+        width: 35%;
+    }
+    .box2 {
+        width: 25%;
+    }
+    .box3 {
+        width: 25%;
+    }
 }
 @media (min-width: 1024px) {
     .icon-user {
@@ -239,71 +258,7 @@ footer div ul, footer div div {
     }
 }
 
-.icon-user {
-    display: none;
-}
-
-.icon-cart {
-    display: none;
-}
 
 
-.box-main h2{
-    font-family: poppins, sans-serif;
-    font-weight: 700;
-    font-style: normal;
-}
 
-.box-main h3{
-    font-family: poppins, sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    color: black;
-    font-size: 11px;
-}
 
-.box-second {
-    background-color: rgb(226, 221, 221, 75%);
-    color: #ED1B24;
-    display: flex;
-    border-radius: 10px;
-    border: solid 1px rgb(112, 112, 112);
-    width: 80px;
-    margin-top: 5%;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: baseline;
-}
-
-.menu-producto {
-    display: flex;
-    justify-items: center;
-    text-align: left;
-    font-weight: bold;
-    font-family: pacifico, sans-serif;
-    font-style: normal;
-    font-size: 30px;
-    color:white
-}
-
-.menu-producto {
-    display: flex;
-    justify-items: center;
-    text-align: left;
-    font-weight: bold;
-    font-family: pacifico, sans-serif;
-    font-style: normal;
-    font-size: 30px;
-    color: black
-}
-
-.acerca-de {
-    display: flex;
-    justify-items: center;
-    text-align: left;
-    font-weight: bold;
-    font-family: pacifico, sans-serif;
-    font-style: normal;
-    font-size: 30px;
-    color:black
-}
