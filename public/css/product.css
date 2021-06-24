@@ -26,6 +26,7 @@ form {
 body main {
     width: 90vw;
     margin: auto;
+    
 }
 .box-header {
     background-color: rgb(226, 221, 221, 75%);
@@ -83,6 +84,7 @@ body main {
     padding: 5px;
     flex-wrap: wrap;
     align-items: baseline;
+    max-height: max-content;
 }
 .desktop-view1 {
     width: 100%;
@@ -258,7 +260,60 @@ footer div ul, footer div div {
     }
 }
 
+.menu{
+    display: flex;
+    justify-items: center;
+    text-align: left;
+    font-weight: bold;
+    font-family: WoltHeading-Omnes, system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", sans-serif;    font-style: normal;
+    font-size: 20px;
+    color: black;
+    margin-top: 0px
+}
 
+.acerca-de {
+    display: flex;
+    justify-items: center;
+    text-align: left;
+    font-weight: bold;
+    font-family: WoltHeading-Omnes, system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", sans-serif;    font-style: normal;
+    font-style: normal;
+    font-size: 20px;
+    color:black
+ }
+ 
+.restaurante-tipo-comida {
+    display: flex;
+    align-content: center;
+    text-align: center;
+    font-weight: bold;
+    font-family: WoltHeading-Omnes, system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", sans-serif;    font-style: normal;
+    font-style: normal;
+    font-size: 20px;
+    color:black     
 
+}
 
+.valoracion {
+    display: flex;
+    align-content: center;
+    text-align: center;
+    font-weight: bold;
+    font-family: WoltHeading-Omnes, system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", sans-serif;    font-style: normal;
+    font-style: normal;
+    font-size: 14px;
+    color:black     
 
+}
+
+.direccion {
+    display: flex;
+    align-content: center;
+    text-align: center;
+    font-weight: bold;
+    font-family: WoltHeading-Omnes, system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", sans-serif;    font-style: normal;
+    font-style: normal;
+    font-size: 14px;
+    color:black     
+
+}
