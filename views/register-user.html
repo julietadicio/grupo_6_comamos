@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style-register.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
 rel="stylesheet" />
 
@@ -39,33 +39,35 @@ rel="stylesheet" />
     </section>
 </header>
 
-  <main>
+
+
+  <main class="center">
  
-  
-<div class="center">
-   <h2 class="acercar">Estás a un paso de ser parte de </h2> 
-    <h2> la nueva comunidad de restaurantes...</h2>
-  </div>
-       
-    <div class="centro">
-    <form action="/register2Ok" method="POST">
+
+    
+  <div class="acercar"><h3>Estás a un paso de empezar a </h3></div>
+   <h3>elegir tus platos favoritos...</h3>
+
+ 
+
+   <div class="centro">
+
+    <form action="/registerOk" method="POST">
+      
       <div class="exit">
-        <i class="fas fa-times"></i>
-       </div>
-      <h4 class="close" id="padding">Registrarse</h4>
+     <i class="fas fa-times"></i>
+    </div>
+  
+      
+      <h4 class="close" id="padding">Registrarse</h4> <div></div>
         <p>
-          <label>Nombre del restaurante</label> <div></div>
+          <label class="alejar">Nombre</label><div></div>
           <input type= "text" name= "nombre" id= "nombre">
         </p>
 
         <p>
-            <label>Direccion</label> <div></div>
-            <input type= "text" name= "nombre" id= "nombre">
-          </p>
-
-          <p>
-            <label>Capacidad</label> <div></div>
-            <input type= "text" name= "nombre" id= "nombre">
+            <label>Apellido</label><div></div>
+            <input type= "text" name= "apellido" id= "apellido">
           </p>
   
         <p>
@@ -74,16 +76,18 @@ rel="stylesheet" />
         </p>
         
         <p>
-          <label>Crear contraseña</label> <div></div>
+          <label>Crear contraseña</label><div></div>
           <input type= "password" name= "password" id= "contraseña">
           </p>
 
           <p class="alejar">
-                    <input class="center" type="submit" value="Crear cuenta"> </input>
+            
+                <input class="center" type="submit" value="Crear cuenta"> </input>
             </p>
       </form>
+    
+</div>
 
-  </div>
 </main>
 
 <footer>
@@ -108,6 +112,5 @@ rel="stylesheet" />
       </div>
 </footer>
 
-    
 </body>
 </html>

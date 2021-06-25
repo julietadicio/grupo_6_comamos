@@ -19,28 +19,25 @@ app.get('/carrito', (req, res) => {
   res.sendFile(path.resolve(__dirname, './views/carrito.html'))
 });
 
-app.get('/register', function (req, res, next) {
-  res.sendFile(path.resolve(__dirname, './Views/register.html'));
+app.get('/registro', function(req, res, next) {
+  res.sendFile(path.resolve(__dirname, './views/register-user.html'));
 });
 
-
-app.get('/register2', function (req, res, next) {
-  res.sendFile(path.resolve(__dirname, './Views/register2.html'));
+app.get('/registro/restaurante', function(req, res, next) {
+res.sendFile(path.resolve(__dirname, './views/register-restaurant.html'));
 });
 
-app.get('/register2Ok', function (req, res, next) {
-  res.sendFile(path.resolve(__dirname, './Views/register2Ok.html'));
+app.get('/register2Ok', function(req, res, next) {
+res.sendFile(path.resolve(__dirname, './views/register2Ok.html'));
 });
 
-app.get('/registerOk', function (req, res, next) {
-  res.sendFile(path.resolve(__dirname, './Views/registerOk.html'));
+app.get('/registerOk', function(req, res, next) {
+res.sendFile(path.resolve(__dirname, './views/registerOk.html'));
 });
 
 app.get('/login', function (req, res, next) {
-  res.sendFile(path.resolve(__dirname, './Views/login.html'));
+  res.sendFile(path.resolve(__dirname, './views/login.html'));
 });
-
-
 app.get('/loginNegocio', function (req, res, next) {
   res.sendFile(path.resolve(__dirname, './Views/loginNegocio.html'));
 });
