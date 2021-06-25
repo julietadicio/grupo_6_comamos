@@ -28,11 +28,11 @@ res.sendFile(path.resolve(__dirname, './views/register-restaurant.html'));
 });
 
 app.get('/register2Ok', function(req, res, next) {
-res.sendFile(path.resolve(__dirname, './views/register2Ok.html'));
+res.sendFile(path.resolve(__dirname, './views/registerOk-restaurant.html'));
 });
 
 app.get('/registerOk', function(req, res, next) {
-res.sendFile(path.resolve(__dirname, './views/registerOk.html'));
+res.sendFile(path.resolve(__dirname, './views/registerOk-user.html'));
 });
 
 app.get('/login', function (req, res, next) {
