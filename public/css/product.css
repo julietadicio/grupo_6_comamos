@@ -269,6 +269,7 @@ footer div ul, footer div div {
     font-size: 15px;
     color: black;
     margin-top: 0px;
+    opacity: 70%;
 
 }
 
@@ -280,7 +281,9 @@ footer div ul, footer div div {
     font-family: 'Nunito Sans', sans-serif;  font-style: normal;
     font-style: normal;
     font-size: 15px;
-    color:black
+    color:black;
+    opacity: 70%;
+
  }
  
 .restaurante-tipo-comida {
@@ -291,7 +294,9 @@ footer div ul, footer div div {
     font-family: WoltHeading-Omnes, system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", sans-serif;    font-style: normal;
     font-style: normal;
     font-size: 20px;
-    color:black     
+    color:black; 
+    opacity: 70%;
+
 
 }
 
