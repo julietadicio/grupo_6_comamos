@@ -8,6 +8,7 @@ body {
     background-image: url(/img/fondo-cargado.jpg);
     background-repeat: repeat;
     background-size: cover;
+    height: 15vh;
 }
 body header {
     width: 100%;
@@ -25,6 +26,7 @@ body header div ul li a {
     border-radius: 10px;
     border: solid 1px rgb(112, 112, 112);
     width: 95%;
+    height: 5vh;
     margin: 1% auto;
     padding: 5px;
 }
@@ -82,8 +84,8 @@ main form {
     display: inline-flex;
     width: 100%;
     padding: 5px;
-    position: absolute;
     bottom: 0px;
+    margin-top: 2%;
 }
 #center-footer {
     text-align: center;
@@ -91,7 +93,7 @@ main form {
     font-size: 7px;
     margin-top: 10px;
 }
-footer div ul li a {
+footer ul li a {
     color: white;
     text-decoration: none;
     font-size: 6px;
@@ -104,10 +106,10 @@ footer div ul li a {
     text-align: center;
     margin-top: 10px;
 }
-footer div div {
+footer div {
     display: flex;
 }
-footer div ul, footer div div {
+footer ul, footer div {
     display: flex;
     flex-direction: column;
     width: 33.33%;
@@ -241,7 +243,7 @@ footer div ul, footer div div {
 
 .para-ir-con, .por-tu-zona {
     width: 30vw;
-    height: 31vh;
+    height: 30vh;
     border: 1px black solid;
     background-color: white;
     border-radius: 13%;
