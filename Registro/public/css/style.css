@@ -1,58 +1,47 @@
 * {
     box-sizing: border-box;
     font-family: 'Nunito Sans', sans-serif;
+    margin: 0px;
+    padding: 0px;
 }
+.centro{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2% auto;
+    }
 
-
-
-    .centro{
+    .center {
         text-align: center;
-        display: flex;
+    }
+
+    .centrok {
+        text-align: center;
         justify-content: center;
         align-items: center;
         min-height: 80vh;
-        }
+    }
 
-        .center {
-            text-align: center;
-        }
 
-        .centrok {
-            text-align: center;
-            justify-content: center;
-            align-items: center;
-            min-height: 80vh;
-        }
+.contenedor {
+    margin: 100px;
+    position: relative;
+    height: 300px;
+    }
    
 
-    .contenedor {
-        margin: 100px;
-        position: relative;
-        height: 300px;
-       }
-    
-       @media (min-width: 768px) {
-        .box-mobile {
-            display: inline-flex;
-            width: 60%;
-        }
-    
-    }
+form {
+width:300px;
+padding:16px;
+border-radius:28px;
+margin:auto;
+background-color: rgb(226, 221, 221, 90%);
+}
 
-   
-
-    form {
-        width:300px;
-	padding:16px;
-	border-radius:28px;
-	margin:auto;
-	background-color:#ccc;
-    opacity: 70%;
-    }
-
-    .close {
-      margin: 15px;
-    }
+.close {
+    margin: 15px;
+}
 .alejar {
     padding-top: 15px;
 }
@@ -76,12 +65,6 @@ background-color:#ccc;
     text-align: right;
     padding-right: 12px;
 }
-
-.acercar{
-    margin-bottom: -19px;
-}
-
-
 .boton {
     margin-bottom: 10px;
 }
@@ -89,19 +72,18 @@ background-color:#ccc;
 /* header y footer*/
 
 body {
-    background-image: url(/img/fondo\ cargado.jpg);
-    background-size: cover;
-}
-body section {
-    display: flex;
-    justify-content: center;
+    background-image: url(/img/fondo-cargado.jpg);
+    background-repeat: repeat;
+    background-size: contain;
 }
 body header {
     width: 100%;
-    
+    display: flex;
+    align-items: center;
 }
-body header section {
-    position: relative;
+body header div ul li a {
+    text-decoration: none;
+    color: #ED1B24;
 }
 .box-header {
     background-color: rgb(226, 221, 221, 75%);
@@ -109,9 +91,8 @@ body header section {
     display: flex;
     border-radius: 10px;
     border: solid 1px rgb(112, 112, 112);
-    position: absolute;  
     width: 95%;
-    margin-top: 1%;
+    margin: 1% auto;
     padding: 5px;
 }
 #logo {
@@ -196,7 +177,11 @@ footer div ul, footer div div {
     width: 15px;
     margin-left: 85%;
 }
+
 @media (min-width: 768px) {
+    body {
+        font-size: 20px;
+    }
     .box-mobile {
         display: inline-flex;
         width: 60%;
@@ -224,14 +209,33 @@ footer div ul, footer div div {
         padding: 15px;
     }
     .format-menu {
-        font-size: 14px;
+        font-size: 15px;
         font-weight: bold;
         line-height: 15px;
     }
 }
 
-body {
-    background-image: url(/img/fondo-cargado.jpg);
-    background-repeat: repeat;
-    background-size: cover;
+@media (min-width: 1024px) {
+    body {
+        font-size: 24px;
+    }
+    .format-menu {
+        font-size: 18px;
+        line-height: 20px;
+    }
+    form {
+        width:400px;
+        height: 450px;
+        padding:16px;
+        background-color: rgb(226, 221, 221, 85%);
+        font-size: 22px;
+        }
+    form input {
+        width: 75%;
+        height: 5%;
+    }
+    center {
+        width: 50%;
+        margin: auto;
+    }
 }
