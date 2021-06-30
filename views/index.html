@@ -16,38 +16,38 @@
 </head>
 
 <body>
-    <header>
-        <section>
-            <div class="box-header">
-                <div class="logo-conteiner">
-                    <img src="/img/Logo.png" id="logo" width="80%" alt="Logo Comamos">
-                </div>
-                <div id="align-header">
-                    <h1 class="title style-title">Comamos</h1>
-                    <ul class="box-mobile">
-                        <li class="format-menu">Registrate</li>
-                        <li class="format-menu">Registrá tu Restaurante</li>
-                        <li class="format-menu">Ingresá a tu cuenta</li>
-                        <li class="format-menu">Ingresá a tu cuenta de negocio</li>
-                    </ul>
-                    <div class="burger-bar">
-                        <i class="fas fa-bars"></i>
-                    </div>
+    <header class="box-header">
+        
+            <div class="logo-conteiner">
+                <a href="/">
+                <img src="/img/Logo.png" id="logo" width="80%" alt="Logo Comamos">
+                </a>
+            </div>
+            <div id="align-header">
+                <h1 class="title style-title">Comamos</h1>
+                <ul class="box-mobile">
+                    <li class="format-menu"><a href="/registro">Registrate</a></li>
+                    <li class="format-menu"><a href="/registro/restaurante">Registrá tu Restaurante</a></li>
+                    <li class="format-menu"><a href="/login">Ingresá a tu cuenta</a></li>
+                    <li class="format-menu"><a href="loginNegocio">Ingresá a tu cuenta de negocio</a></li>
+                </ul>
+                <div class="burger-bar">
+                    <i class="fas fa-bars"></i>
                 </div>
             </div>
-        </section>
+        
     </header>
     <main>
         <div class="search">
             <form action="" method="">
 
                 <label for="busqueda1"></label>
-                <input type="text" name="busqueda1" id="busqueda2" placeholder="Restaurante, tipo de comida...">
+                <input type="text" name="busqueda1" id="busqueda1" placeholder="Restaurante, tipo de comida...">
 
                 <label for="busqueda2"></label>
-                <input type="text" name="busqueda2" id="busqueda2" placeholder="Cerca de mi dirección">
+                <input type="text" name="busqueda2" class="box-mobile" id="busqueda2" placeholder="Cerca de mi dirección">
 
-                <select name="filtrar" id="filtrar">
+                <select name="filtrar" id="filtrar" class="box-mobile">
                     <option value="filtra">Filtra tu búsqueda</option>
                 </select>
 
@@ -56,7 +56,8 @@
             </form>
         </div>
 
-        <div class="los-mas-elegidos">
+        <div>
+            <section class="los-mas-elegidos">
             <h2 class="titulo-los-mas-elegidos">Los más elegidos</h2>
             <div class="contenedor-1">
                 <article class="opcion-1">Nombre del plato</article>
@@ -69,9 +70,10 @@
                 <article class="opcion-8">Nombre del plato</article>
                 <article class="opcion-9">Nombre del plato</article>
             </div>
-
-            <div class="nuestras-sugerencias">
+            </section>
+            <section class="los-mas-elegidos">
                 <h2 class="titulo-nuestras-sugerencias">Nuestras sugerencias</h2>
+            <div class="nuestras-sugerencias">
                 <div class="contenedor-2">
 
                     <button class="arrow"><i class="fas fa-arrow-left"></i></button>
@@ -83,11 +85,11 @@
                     <button class="arrow"><i class="fas fa-arrow-right"></i></button>
 
                 </div>
-
             </div>
+        </section>
+        </div>
     </main>
-    <footer>
-        <div class="footer">
+    <footer class="footer">
             <ul type="none">
                 <li><a href="">Acerca de Nosotros</a></li>
                 <li><a href="">Contacto</a></li>
@@ -106,7 +108,7 @@
                     <img src="/img/instagram.png" alt="logo-facebook">
                 </div>
             </div>
-    </footer>
+        </footer>
 </body>
 
 </html>

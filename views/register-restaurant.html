@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style-register.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
 rel="stylesheet" />
 
@@ -16,39 +16,37 @@ rel="stylesheet" />
 </head>
 <body>
 
-  <header>
-    <section>
-        <div class="box-header">
-            <div class="logo-conteiner">
-                <img src="/img/Logo.png" id="logo" width="80%" alt="Logo Comamos">
+  <header class="box-header">
+  
+    <div class="logo-conteiner">
+      <a href="/">
+        <img src="/img/Logo.png" id="logo" width="80%" alt="Logo Comamos">
+      </a>
+    </div>
+    <div id="align-header">
+      <h1 class="title style-title">Comamos</h1>
+      <ul class="box-mobile">
+            <li class="format-menu"><a href="/registro">Registrate</a></li>
+            <li class="format-menu"><a href="/registro/restaurante">Registrá tu Restaurante</a></li>
+            <li class="format-menu"><a href="/login">Ingresá a tu cuenta</a></li>
+            <li class="format-menu"><a href="loginNegocio">Ingresá a tu cuenta de negocio</a></li>
+            </ul>
+            <div class="burger-bar">
+              <i class="fas fa-bars"></i>
             </div>
-            <div id="align-header">
-                <h1 class="title style-title">Comamos</h1>
-                <ul class="box-mobile">
-                    <li class="format-menu">Registrate</li>
-                    <li class="format-menu">Registrá tu Restaurante</li>
-                    <li class="format-menu">Ingresá a tu cuenta</li>
-                    <li class="format-menu">Ingresá a tu cuenta de negocio</li>
-                </ul>
-                <div class="burger-bar">
-                    <i class="fas fa-bars"></i>
-                </div>
             </div>
-        </div>
-      
-    </section>
 </header>
 
   <main>
  
   
 <div class="center">
-   <h2 class="acercar">Estás a un paso de ser parte de </h2> 
-    <h2> la nueva comunidad de restaurantes...</h2>
+  <h3 class="acercar">Estás a un paso de ser parte de </h3>
+  <h3> la nueva comunidad de restaurantes...</h3>
   </div>
        
     <div class="centro">
-    <form action="/register2Ok" method="POST">
+    <form action="/register2Ok">
       <div class="exit">
         <i class="fas fa-times"></i>
        </div>
