@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const publicFolder = path.resolve(__dirname, './public');
 app.use(express.static(publicFolder));
+app.use ('view engine', 'ejs');
 
 app.listen(8000, () => {
   console.log('Servidor Funcionando en el puerto 8000');
