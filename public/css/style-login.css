@@ -154,7 +154,7 @@ body header div ul li a {
     font-size: 7px;
     margin-top: 10px;
 }
-footer div ul li a {
+footer ul li a {
     color: white;
     text-decoration: none;
     font-size: 6px;
@@ -167,10 +167,10 @@ footer div ul li a {
     text-align: center;
     margin-top: 10px;
 }
-footer div div {
+footer div {
     display: flex;
 }
-footer div ul, footer div div {
+footer ul, footer div {
     display: flex;
     flex-direction: column;
     width: 33.33%;
@@ -198,7 +198,7 @@ footer div ul, footer div div {
     .burger-bar {
         display: none;
     }
-    footer div ul li a {
+    footer ul li a {
         font-size: 12px;
     }
     #copyright {
