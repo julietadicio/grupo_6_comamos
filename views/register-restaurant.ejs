@@ -1,88 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include partials/head %>
     <link rel="stylesheet" href="/css/style-register.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-rel="stylesheet" />
-
-<link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;1,200&family=Pacifico&display=swap"
-        rel="stylesheet">
     <title>Comamos</title>
 </head>
 <body>
-
-  <header class="box-header">
-  
-    <div class="logo-conteiner">
-      <a href="/">
-        <img src="/img/Logo.png" id="logo" width="80%" alt="Logo Comamos">
-      </a>
-    </div>
-    <div id="align-header">
-      <h1 class="title style-title">Comamos</h1>
-      <ul class="box-mobile">
-            <li class="format-menu"><a href="/registro">Registrate</a></li>
-            <li class="format-menu"><a href="/registro/restaurante">Registrá tu Restaurante</a></li>
-            <li class="format-menu"><a href="/login">Ingresá a tu cuenta</a></li>
-            <li class="format-menu"><a href="loginNegocio">Ingresá a tu cuenta de negocio</a></li>
-            </ul>
-            <div class="burger-bar">
-              <i class="fas fa-bars"></i>
-            </div>
-            </div>
-</header>
-
+  <%- include partials/headerLogin %>
   <main>
- 
-  
-<div class="center">
-  <h3 class="acercar">Estás a un paso de ser parte de </h3>
-  <h3> la nueva comunidad de restaurantes...</h3>
-  </div>
-       
-    <div class="centro">
-    <form action="/register2Ok">
-      <div class="exit">
-        <i class="fas fa-times"></i>
-       </div>
-      <h4 class="close" id="padding">Registrarse</h4>
-        <p>
-          <label>Nombre del restaurante</label> <div></div>
-          <input type= "text" name= "nombre" id= "nombre">
-        </p>
-
-        <p>
-            <label>Direccion</label> <div></div>
-            <input type= "text" name= "nombre" id= "nombre">
-          </p>
-
-          <p>
-            <label>Capacidad</label> <div></div>
-            <input type= "text" name= "nombre" id= "nombre">
-          </p>
-  
-        <p>
-          <label>Direccion de correo electronico</label> <div></div>
-            <input type= "email" name= "email" id= "email">
-        </p>
-        
-        <p>
-          <label>Crear contraseña</label> <div></div>
-          <input type= "password" name= "password" id= "contraseña">
-          </p>
-
-          <p class="alejar">
-                    <input class="center" type="submit" value="Crear cuenta"> </input>
+    <div class="center">
+      <h3 class="acercar">Estás a un paso de ser parte de </h3>
+      <h3> la nueva comunidad de restaurantes...</h3>
+      </div>
+          
+        <div class="centro">
+        <form action="/register2Ok">
+          <div class="exit">
+            <i class="fas fa-times"></i>
+          </div>
+          <h4 class="close" id="padding">Registrarse</h4>
+            <p>
+              <label>Nombre del restaurante</label> <div></div>
+              <input type= "text" name= "nombre" id= "nombre">
             </p>
-      </form>
 
-  </div>
-</main>
+            <p>
+                <label>Direccion</label> <div></div>
+                <input type= "text" name= "nombre" id= "nombre">
+              </p>
+
+              <p>
+                <label>Capacidad</label> <div></div>
+                <input type= "text" name= "nombre" id= "nombre">
+              </p>
+      
+            <p>
+              <label>Direccion de correo electronico</label> <div></div>
+                <input type= "email" name= "email" id= "email">
+            </p>
+            
+            <p>
+              <label>Crear contraseña</label> <div></div>
+              <input type= "password" name= "password" id= "contraseña">
+              </p>
+
+              <p class="alejar">
+                        <input class="center" type="submit" value="Crear cuenta"> </input>
+                </p>
+          </form>
+
+      </div>
+  </main>
 
 <%- include partials/footer %>     
 
