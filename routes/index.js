@@ -8,6 +8,7 @@ router.get('/registro', mainController.registro);
 router.get('/registro/negocio', mainController.registroRestaurante);
 router.get('/login', mainController.loginUser);
 router.get('/login/negocio', mainController.loginNegocio);
+router.get('/carrito', mainController.carrito);
 
 
 

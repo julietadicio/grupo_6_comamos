@@ -16,6 +16,9 @@ const controller = {
     },
     loginNegocio: (req, res) => {
         return res.render ('loginNegocio');
+    },
+    carrito: (req, res) => {
+        return res.render ('carrito');
     }
 }
 
