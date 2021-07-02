@@ -8,18 +8,10 @@ body {
     background-image: url(/img/fondo-cargado.jpg);
     background-size: cover;
 }
-body section {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
 body header {
     width: 100%;
     display: flex;
     justify-content: center;
-}
-body header section {
-    position: relative;
 }
 form {
     width: 100%;
@@ -167,10 +159,6 @@ footer ul, footer div {
     margin-left: 85%;
 }
 @media (min-width: 768px) {
-    body section {
-        width: 40%;
-        flex-direction: column;
-    }
     .box-header {
         margin-top: 2%;
     }
