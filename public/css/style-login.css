@@ -180,7 +180,10 @@ footer ul, footer div {
     width: 15px;
     margin-left: 85%;
 }
-
+.exit-button {
+    text-decoration: none;
+    color: black;
+}
 @media (min-width: 768px) {
     body {
         font-size: 20px;
