@@ -16,3 +16,17 @@ HACER MENOS:
     Creemos que lo ideal es hacer una reunion para establecer las pautas y otra para controlar los avances.
 DEJAR DE HACER:
 - Reuniones extensas
+
+# Retrospectiva Sprint 3
+- COMENZAR A HACER
+    - Utilizar mas herramientas de gestion como Trello
+    - Reuniones cortas semanales
+- HACER MAS:
+    - Mejorar la comunicacion
+    - Establecer plazos para los trabajos
+CONTINUAR HACIENDO:
+    - Distribucion de tareas
+HACER MENOS:
+    - Mal uso del tiempo para ejecutar las tareas 
+DEJAR DE HACER:
+    - Postergar a ultimo momento
