@@ -1,3 +1,9 @@
 [
-    
+  {
+    "id": 1,
+    "nombre": "Alejandro",
+    "apellido": "Pascuale",
+    "email": "alegpascuale@gmail.com",
+    "password": "Digital_House_2021"
+  }
 ]
