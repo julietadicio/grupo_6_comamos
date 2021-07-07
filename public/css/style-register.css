@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
     font-family: 'Nunito Sans', sans-serif;
-    margin: auto;
+    margin: 0px;
     padding: 0px;
 }
 .centro{
@@ -12,31 +12,22 @@
     margin: 2% auto;
     }
 
-    .center {
-        text-align: center;
-    }
+.center {
+    text-align: center;
+}
 
-    .centrok {
-        text-align: center;
-        justify-content: center;
-        align-items: center;
-        min-height: 80vh;
-    }
-
-
-.contenedor {
-    margin: 100px;
-    position: relative;
-    height: 300px;
-    }
-   
-
-form {
+.centrok {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+main form {
 width:300px;
 padding:16px;
 border-radius:28px;
-margin:auto;
-background-color: rgb(226, 221, 221, 90%);
+background-color: rgb(226, 221, 221, 75%);
+border: solid 1px rgb(112, 112, 112);
 }
 
 .close {
@@ -59,7 +50,6 @@ background-color:#ccc;
     padding: 8px;
     margin-top: -4px;
 }
-
 .exit {
     size: 5px;
     text-align: right;
@@ -116,10 +106,10 @@ article {
 }
 .box-header {
     background-color: rgb(226, 221, 221, 75%);
+    border: solid 1px rgb(112, 112, 112);
     color: #ED1B24;
     display: flex;
     border-radius: 10px;
-    border: solid 1px rgb(112, 112, 112);
     width: 95%;
     margin-top: 1%;
     padding: 5px;
@@ -164,7 +154,6 @@ article {
     display: inline-flex;
     width: 100%;
     padding: 5px;
-    position: absolute;
     bottom: 0px;
 }
 #center-footer {
@@ -276,8 +265,6 @@ footer ul, footer div {
     main form {
         width:400px;
         height: 450px;
-        padding:16px;
-        background-color: rgb(226, 221, 221, 85%);
         font-size: 22px;
         }
     main form input {
