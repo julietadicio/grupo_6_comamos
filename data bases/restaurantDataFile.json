@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "nombre": "Test Restaurant",
+    "direccion": "Avda. Ejercito Argentino 2980",
+    "capacidad": 25,
+    "email": "test@hotmail.com",
+    "password": "test2021"
+  }
+]

@@ -8,11 +8,12 @@ router.get('/', mainController.index );
 // Rutas para registro
 router.get('/registro', mainController.registro);
 router.post('/', mainController.createUser);
-router.get('/registro/negocio', mainController.registroRestaurante);
+router.get('/registro-restaurant', mainController.registroRestaurante);
+router.post('/registerOk-restaurant', mainController.createRestaurant);
 
 // Rutas para login
 router.get('/login', mainController.loginUser);
-router.get('/login/negocio', mainController.loginNegocio);
+router.get('/login-negocio', mainController.loginNegocio);
 router.get('/carrito', mainController.carrito);
 
 
