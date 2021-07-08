@@ -10,22 +10,28 @@
 <body>
     <%- include partials/header-account %> 
     <main>
-        <section>
-            <ul>
+        <section class="box-space">
+            <div class="align-image-user">
+                <img src="/img/Usuario-registro.png" alt="user image" class="user-image">
+            </div>
+            <div class="align-titles">
+                <h3>Nombre y Apellido</h3>
+            </div>
+            <ul type='none' class="data-form">
                 <li>
                     <a href="">
-                        <h3>Datos de la cuenta</h3>
+                        <h2>Datos de la cuenta</h2>
                     </a>
                 </li>
                 <li>
                     <a href="">
-                    <h3>Mas datos</h3>
+                    <h2>Mas datos</h2>
                     </a>
                 </li>
             </ul>
         </section>
-        <section>
-            <ul>
+        <section class="box-space">
+            <ul type='none' class="data-form">
                 <li>
                     <a href="">
                         <h2>Ver mi Reserva</h2>
@@ -44,6 +50,10 @@
             </ul>
         </section>
         <form action="/">
+            <fieldset class="logout-button">
+                <input type="submit" value="Log out" class="none-decoration"></input>
+                <i class="fas fa-sign-out-alt"></i>
+            </fieldset>
             <button type="submit"></button>
         </form>
     </main>
