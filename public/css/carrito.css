@@ -89,6 +89,9 @@ article {
 .icon-user {
     display: none;
 }
+.color-icon {
+    color: #ED1B24;
+}
 .box-main {
     background-color: rgb(226, 221, 221, 75%);
     color: #ED1B24;
