@@ -52,6 +52,9 @@ const controller = {
     userAccount: (req, res) => {
         return res.render ('user-account')
     },
+    userOrders: (req, res) => {
+        return res.render ('historial-reservas')
+    },
     loginNegocio: (req, res) => {
         return res.render ('loginNegocio');
     },
