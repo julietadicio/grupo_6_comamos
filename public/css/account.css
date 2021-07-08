@@ -236,9 +236,16 @@ footer ul, footer div {
         font-weight: bold;
         line-height: 15px;
     }
+    .logout-button {
+        width: 150px;
+        height: 30px;
+    }
 }
 
 @media (min-width: 1024px) {
+    body main {
+        width: 60%;
+    }
     .icon-user {
         font-size: 25px;
     }
