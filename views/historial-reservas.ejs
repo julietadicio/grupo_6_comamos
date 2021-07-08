@@ -10,26 +10,23 @@
 <body>
     <%- include partials/header-account %> 
     <main class="main-order">
-        <section>
-            <article class="main-order">
-                <h5>Nombre del restaurante: </h5>
-                <h5>Nº de comensales: </h5>
-                <h5>Fecha: </h5>
-                <h5>Horario de reserva: </h5>
-            </article>
-            <div class="reserve-form">
+            <article class="reserve-form">
                 <div class="reserve-box">
-                    <h4>Entradas</h4>
-                    <h4>Platos Principales</h4>
-                    <h4>Bebidas</h4>
-                    <h4>Postres</h4>
+                    <div>
+                        <img src="/img/kansas-fachada.jpg" alt="imagen restaurante" class="image-restaurant">
+                    </div>
+                    <div class="left-separation">
+                        <h4>Nombre del restaurante: </h5>
+                        <h4>Platos Comprados</h4>
+                        <h5>Nº de comensales: </h5>
+                        <h5>Fecha y hora de la reserva: </h5>
+                    </div>
                 </div>
                 <form action="" method="POST" class="coment-button">
                     <input type="button" value="Dejar reseña">
                     <button type="submit"></button>
                 </form>
-            </div>
-        </section>
+            </article>
     </main>
     <%- include partials/footer %>     
 </body>

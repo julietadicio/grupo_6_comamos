@@ -132,7 +132,7 @@ body main a {
 .data-form {
     background-color: white;
     border-radius: 5px;
-    box-shadow: 5%;
+    box-shadow: 0px 0px 10px rgb(201, 201, 201);
     padding: 10px; 
 }
 .box-space {
@@ -162,12 +162,23 @@ body main a {
     align-items: center;
 }
 .reserve-box {
-    border: solid 1px black;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgb(201, 201, 201);
     width: 90%;
+    display: flex;
+    padding: 5px;
+    border-radius: 5px;
+}
+.left-separation {
+    margin-left: 15px;
 }
 .coment-button {
     width: 10%;
     margin-left: 2%;
+}
+.image-restaurant {
+    width: 100px;
+    height: 90px;
 }
 /* Fin Main Historial de Reservas */
 
