@@ -160,9 +160,7 @@ body main a {
 .reserve-form {
     display: flex;
     align-items: center;
-}
-.reserve-box {
-    background-color: white;
+     background-color: white;
     box-shadow: 0px 0px 10px rgb(201, 201, 201);
     width: 90%;
     display: flex;
@@ -179,6 +177,15 @@ body main a {
 .image-restaurant {
     width: 100px;
     height: 90px;
+}
+.box-order1 {
+    width: 15%;
+}
+.box-order2 {
+    width: 70%;
+}
+.box-order3 {
+    width: 15%;
 }
 /* Fin Main Historial de Reservas */
 
