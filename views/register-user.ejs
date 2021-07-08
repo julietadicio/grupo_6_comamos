@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <%- include partials/headerLogin %>
+    <%- include partials/header %>
 
 
 
@@ -15,10 +15,10 @@
  
 
     
-<div>
-    <h3>Estás a un paso de empezar a </h3>
-    <h3>elegir tus platos favoritos...</h3>
-</div>
+    <div class="margin-bottom">
+        <h3>Estás a un paso de empezar a </h3>
+        <h3>elegir tus platos favoritos...</h3>
+    </div>
  
 
    <div class="centro">
@@ -30,36 +30,35 @@
       </div>
   
       
-      <h4 class="close" id="padding">Registrarse</h4> <div></div>
+      <h4 class="close" id="padding">Registrarse</h4>
         <p>
           <label class="alejar">Nombre</label><div></div>
           <input type= "text" name= "nombre" id= "nombre">
         </p>
 
         <p>
-            <label>Apellido</label><div></div>
-            <input type= "text" name= "apellido" id= "apellido">
-          </p>
+          <label>Apellido</label><div></div>
+          <input type= "text" name= "apellido" id= "apellido">
+        </p>
   
         <p>
-          <label>Direccion de correo electronico</label> <div></div>
-            <input type= "email" name= "email" id= "email">
+          <label>Direccion de correo electronico</label>
+          <input type= "email" name= "email" id= "email">
         </p>
         
         <p>
           <label>Crear contraseña</label><div></div>
           <input type= "password" name= "password" id= "contraseña">
-          </p>
+        </p>
 
-          <p class="alejar">
-            
-                <input class="center" type="submit" value="Crear cuenta"> </input>
-            </p>
+          <p class="alejar">  
+            <input class="center" type="submit" value="Crear cuenta"> </input>
+          </p>
       </form>
     
-</div>
+    </div>
 
-</main>
+  </main>
 
 <%- include partials/footer %>     
 

@@ -4,12 +4,17 @@
     margin: 0px;
     padding: 0px;
 }
+body {
+    background-image: url(/img/fondo-cargado.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+    height: 15vh;
+}
 .centro{
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2% auto;
     }
 
 .center {
@@ -40,10 +45,10 @@ border: solid 1px rgb(112, 112, 112);
 
 #exitoso {
     width: 405px;
-padding:18px;
-border-radius:28px;
-margin:auto;
-background-color:#ccc;
+    padding:18px;
+    border-radius:28px;
+    margin:auto;
+    background-color:#ccc;
 }
 
 #padding {
@@ -65,22 +70,68 @@ background-color:#ccc;
 
 /* header y footer*/
 
-body {
-    background-image: url(/img/fondo-cargado.jpg);
-    background-size: cover;
-}
+
 body header {
     width: 100%;
     display: flex;
+    align-items: center;
+}
+body header div ul li a {
+    text-decoration: none;
+    color: #ED1B24;
+}
+.box-header {
+    background-color: rgb(226, 221, 221, 75%);
+    color: #ED1B24;
+    display: flex;
+    border-radius: 10px;
+    border: solid 1px rgb(112, 112, 112);
+    width: 95%;
+    margin: 1% auto;
+    padding: 5px;
+}
+#logo {
+    max-width: 100%;
+    max-height: 100%; 
+}
+.logo-conteiner {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#align-header {
+    display: inline-flex;
+    width: 85%;
+}
+.title {
+    width: 85%;
+}
+.style-title {
+    text-align: center;
+    align-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: 'Pacifico', cursive;
+    font-size: 16px;
+    color: #ED1B24;
+}
+.burger-bar {
+    display: inline-flex;
+    align-items: center;
+}
+.format-menu {
+    width: 25%;
+    text-align: center;
+    align-content: center;
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
-
-form {
-    width: 100%;
-    text-align: center;
-}
-body main {
-    width: 100%;
+.box-mobile {
+    display: none;
 }
 h1 {
     font-size: 20px;
@@ -95,6 +146,9 @@ h3 {
     color: black;
     width: 100%;
 }
+.margin-bottom {
+    margin-bottom: 1%;
+}
 h3 div p {
     font-size: 16px;
     color: black;
@@ -104,56 +158,13 @@ article {
     display: flex;
     justify-content: space-around;
 }
-.box-header {
-    background-color: rgb(226, 221, 221, 75%);
-    border: solid 1px rgb(112, 112, 112);
-    color: #ED1B24;
-    display: flex;
-    border-radius: 10px;
-    width: 95%;
-    margin-top: 1%;
-    padding: 5px;
-    flex-wrap: wrap;
-    align-items: center;
-}
-#logo {
-    max-width: 100%;
-    max-height: 100%; 
-}
-.logo-conteiner {
-    width: 15%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-#align-header {
-    width: 75%;
-}
-.hide-mobile {
-    text-align: center;
-}
-.box-mobile {
-    display: none;
-}
-.burger-bar {
-    display: flex;
-    align-items: center;
-    width: 10%;
-    align-content: center;
-    text-align: center;
-}
-.format-burgerbar {
-    width: 100%;
-    font-size: 20px;
-}
-.icon-user {
-    display: none;
-}
+
 .footer {
     background-color: rgba(237, 27, 36, 75%);
     display: inline-flex;
     width: 100%;
     padding: 5px;
+    position: absolute;
     bottom: 0px;
 }
 #center-footer {
@@ -200,7 +211,7 @@ footer ul, footer div {
         font-size: 40px;
     }
     #align-header {
-        width: 80%;
+        width: 85%;
     }
     .box-mobile {
         display: inline-flex;
@@ -264,7 +275,7 @@ footer ul, footer div {
     }
     main form {
         width:400px;
-        height: 450px;
+        height: 480px;
         font-size: 22px;
         }
     main form input {
@@ -273,6 +284,6 @@ footer ul, footer div {
     }
     center {
         width: 50%;
-        margin: auto;
+        
     }
 }
