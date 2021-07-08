@@ -5,8 +5,7 @@
     padding: 0px;
 }
 body {
-    background-image: url(/img/fondo-cargado.jpg);
-    background-size: cover;
+    background-color: bisque;
 }
 body header {
     width: 100%;
@@ -89,42 +88,14 @@ article {
 .icon-user {
     display: none;
 }
-.box-main {
-    background-color: rgb(226, 221, 221, 75%);
-    color: #ED1B24;
-    display: flex;
-    border-radius: 10px;
-    border: solid 1px rgb(112, 112, 112);
-    width: 95%;
-    margin-top: 5%;
-    padding: 5px;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: baseline;
-}
-article a {
-    text-decoration: none;
-    color: blue;
-}
-.map-style {
-    margin-top: 30px;
-}
-.pay-button {
-    width: 100%;
-    margin-top: 5%;
-    width: 100%;
-}
-.button {
-    padding: 3px;
-    border-radius: 5px;
-}
+/* Footer */
 .footer {
     background-color: rgba(237, 27, 36, 75%);
     display: inline-flex;
     width: 100%;
     padding: 5px;
-    position: absolute;
     bottom: 0px;
+    margin-top: 2%;
 }
 #center-footer {
     text-align: center;
@@ -158,87 +129,3 @@ footer ul, footer div {
     width: 15px;
     margin-left: 85%;
 }
-@media (min-width: 768px) {
-    .box-header {
-        margin: 2% auto;
-    }
-    #align-header {
-        width: 80%;
-    }
-    .box-mobile {
-        display: inline-flex;
-    }
-    .box1 {
-        width: 35%;
-    }
-    .box2 {
-        width: 25%;
-    }
-    .box3 {
-        width: 25%;
-    }
-    .hide-mobile {
-        display: none;
-    }
-    #boton-buscar {
-        width: 10%;
-    }
-    .burger-bar {
-        display: none;
-        width: 0%;
-    }
-    .icon-user {
-        display: flex;
-        width: 5%;
-        align-content: center;
-        justify-content: center;
-        align-items: center;
-    }
-    .box-main {
-        margin-top: 3%;
-        padding: 15px;
-        height: 60vh;
-    }
-    .land-view {
-        display: flex;
-    }
-    .map-style {
-        width: 60%;
-        height: 75%;
-        margin-top: 0;
-    }
-    .pay-button {
-        width: 0;
-    }
-    .button {
-        width: 120px;
-    }
-    footer ul li a {
-        font-size: 12px;
-    }
-    #copyright {
-        font-size: 13px;
-    }
-    .footer-logo {
-        height: 30px;
-        width: 30px;
-    }
-    .footer {
-        padding: 15px;
-    }
-    .format-menu {
-        font-size: 14px;
-        font-weight: bold;
-        line-height: 15px;
-    }
-}
-@media (min-width: 1024px) {
-    .icon-user {
-        font-size: 20px;
-    }
-}
-
-
-
-
-

@@ -49,6 +49,9 @@ const controller = {
     loginUser: (req, res) => {
         return res.render ('login');
     },
+    userAccount: (req, res) => {
+        return res.render ('user-account')
+    },
     loginNegocio: (req, res) => {
         return res.render ('loginNegocio');
     },
