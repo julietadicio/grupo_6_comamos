@@ -50,7 +50,8 @@ const controller = {
         return res.render ('login');
     },
     userAccount: (req, res) => {
-        return res.render ('user-account')
+        userSelect = userDataBase.find(u => u.id == req.params.id);
+        return res.render ('user-account', {userSelect})
     },
     userOrders: (req, res) => {
         return res.render ('historial-reservas')

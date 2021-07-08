@@ -13,7 +13,7 @@ router.post('/registerOk-restaurant', mainController.createRestaurant);
 
 // Rutas para login
 router.get('/login', mainController.loginUser);
-router.get('/login/account', mainController.userAccount);
+router.get('/login/account/:id', mainController.userAccount);
 router.get('/login/account/orders', mainController.userOrders);
 router.get('/login-restaurant', mainController.loginNegocio);
 router.get('/carrito', mainController.carrito);
