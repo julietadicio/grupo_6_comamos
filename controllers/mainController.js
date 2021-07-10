@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const router = express.Router ();
 const fs = require('fs');
 
@@ -22,7 +23,8 @@ const controller = {
             nombre: req.body.nombre,    
             apellido: req.body.apellido,    
             email: req.body.email,    
-            password: req.body.password,    
+            password: req.body.password,
+            avatar: '/img/avatars/'+ req.body.avatar    
         };
         userDataBase.push(userToCreate);
         fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
@@ -40,7 +42,8 @@ const controller = {
             direccion: req.body.direccion,    
             capacidad: req.body.capacidad,    
             email: req.body.email,    
-            password: req.body.password,    
+            password: req.body.password,
+            avatar: req.body.avatar    
         };
         restaurantDataBase.push(restaurantCreate);
         fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
@@ -50,16 +53,30 @@ const controller = {
         return res.render ('login');
     },
     userAccount: (req, res) => {
-        userSelect = userDataBase.find(u => u.id == req.params.id);
+        const userSelect = userDataBase.find(u => u.id == req.params.id);
         return res.render ('user-account', {userSelect})
     },
+    userEditForm: (req, res) => {
+        const userSelect = userDataBase.find(u => u.id == req.params.id);
+        return res.render ('user-edit-account', {userSelect})
+    },
+    userEditAccount: (req, res) => {
+        const userId = req.params.id;
+        const userSelectId = userDataBase.findIndex(p => p.id == userId)
+        userDataBase[userSelectId] = { ...userDataBase[userSelectId] , ...req.body };
+        userDataBase[userSelectId].avatar = '/img/avatars/'+ req.body.avatar;
+        fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
+        return res.redirect ('/login/account/'+ userId);
+    },
     userOrders: (req, res) => {
-        return res.render ('historial-reservas')
+        const userSelect = userDataBase.find(u => u.id == req.params.id);
+        return res.render ('historial-reservas', {userSelect})
     },
     loginNegocio: (req, res) => {
         return res.render ('loginNegocio');
     },
     carrito: (req, res) => {
+        
         return res.render ('carrito');
     }
 }

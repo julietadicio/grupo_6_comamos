@@ -12,14 +12,14 @@
     <main>
         <section class="box-space">
             <div class="align-image-user">
-                <img src="/img/Usuario-registro.png" alt="user image" class="user-image">
+                <img src="<%= userSelect.avatar %>" alt="user image" class="user-image">
             </div>
             <div class="align-titles">
-                <h3><%= userSelect.nombre +' '+ userSelect.apellido%></h3>
+                <h3><%= userSelect.nombre+' '+ userSelect.apellido%></h3>
             </div>
             <ul type='none' class="data-form">
                 <li>
-                    <a href="">
+                    <a href="/login/account/<%= userSelect.id %>/edit">
                         <h2>Datos de la cuenta</h2>
                     </a>
                 </li>
@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/login/account/orders">
+                    <a href="/login/account/orders/<%= userSelect.id %> ">
                         <h2>Historial de Reservas</h2>
                     </a>
                 </li>

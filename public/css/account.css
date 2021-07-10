@@ -175,6 +175,21 @@ body main a {
 
 /* Fin Main Historial de Reservas */
 
+/* Formato para editar imagen de la cuenta */
+.hide-edit {
+    display: block;
+}
+main section div img {
+    transition: all 0.5s;
+}
+main section div img:hover {
+    opacity: 20%;
+}
+main section div img:hover .hide-edit {
+    display: block;
+}
+/* Formato para editar imagen de la cuenta */
+
 /* Footer */
 .footer {
     background-color: rgba(237, 27, 36, 75%);

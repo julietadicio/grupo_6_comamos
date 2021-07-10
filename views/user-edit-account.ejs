@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include partials/head %>
+    <link rel="stylesheet" href="/css/account.css">
+    <title>Editar Cuenta</title>
+</head>
+
+<body>
+    <%- include partials/header-account %> 
+    <main>
+        <section class="box-space">
+            <form action="/login/account/<%= userSelect.id %>?_method=PUT" method="POST">
+                <div class="align-image-user">
+                    <img src="<%= userSelect.avatar %>" alt="user image" class="user-image">
+                </div>
+                <div class="hide-edit">
+                    <label for="avatar">Editar</label>
+                    <input type="file" name="avatar" id="avatar">
+                </div>
+                <div>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" value="<%= userSelect.nombre %>">
+                </div>
+                <div>
+                    <label for="apellido">Apellido</label>
+                    <input type="text" name="apellido" id="apellido" value="<%= userSelect.apellido %>">
+                </div>
+                <div>
+                    <label for="email">Direccion de correo electronico</label>
+                    <input type="text" name="email" id="email" value="<%= userSelect.email %>">
+                </div>
+                <div>
+                    <label for="password">Contraseña</label>
+                    <input type="text" name="password" id="password">
+                </div>
+                <fieldset class="logout-button">
+                    <button type="submit">Editar</button>
+                </fieldset>
+            </form>    
+        </section>
+    </main>
+    <%- include partials/footer %>     
+</body>
+
+</html>
