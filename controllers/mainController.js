@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const router = express.Router ();
 const fs = require('fs');
+const { fileLoader } = require('ejs');
+const { FILE } = require('dns');
 
 const userFilePath = './data bases/userDataFile.json';
 const userDataBase = JSON.parse(fs.readFileSync(userFilePath, 'utf-8'));
@@ -24,7 +26,7 @@ const controller = {
             apellido: req.body.apellido,    
             email: req.body.email,    
             password: req.body.password,
-            avatar: '/img/avatars/'+ req.body.avatar    
+            avatar: '/img/avatars/'+ path.basename(req.body.avatar)+ path.extname(req.body.avatar)
         };
         userDataBase.push(userToCreate);
         fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
@@ -43,7 +45,7 @@ const controller = {
             capacidad: req.body.capacidad,    
             email: req.body.email,    
             password: req.body.password,
-            avatar: req.body.avatar    
+            avatar: '/img/avatars/'+req.file.filename
         };
         restaurantDataBase.push(restaurantCreate);
         fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
@@ -64,7 +66,7 @@ const controller = {
         const userId = req.params.id;
         const userSelectId = userDataBase.findIndex(p => p.id == userId)
         userDataBase[userSelectId] = { ...userDataBase[userSelectId] , ...req.body };
-        userDataBase[userSelectId].avatar = '/img/avatars/'+ req.body.avatar;
+        userDataBase[userSelectId].avatar = '/img/avatars/'+req.file.filename;
         fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
         return res.redirect ('/login/account/'+ userId);
     },

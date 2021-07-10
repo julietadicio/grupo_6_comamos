@@ -12,13 +12,13 @@ const storage = multer.diskStorage ({
     cb (null, newFileName);
   }
 })
-const uploadFile = multer({storage: storage});
+const uploadFile = multer({ storage });
 
 /* GET home page. */
 router.get('/', mainController.index );
 
 // Rutas para registro
-router.get('/registro', uploadFile.single ('avatar') ,mainController.registro);
+router.get('/registro', mainController.registro);
 router.post('/registerOk-user', uploadFile.single('avatar') ,mainController.createUser);
 router.get('/registro-restaurant', mainController.registroRestaurante);
 router.post('/registerOk-restaurant', mainController.createRestaurant);
