@@ -95,6 +95,10 @@ const controller = {
         fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
         return res.redirect ('/login/account-restaurant/'+ buisnessId);
     },
+    buisnessOrders: (req, res) => {
+        const restaurantSelect = restaurantDataBase.find(r => r.id == req.params.id);
+        return res.render ('buisness-orders-history', {restaurantSelect});
+    },
     carrito: (req, res) => {
         
         return res.render ('carrito');

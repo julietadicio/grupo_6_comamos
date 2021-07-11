@@ -35,7 +35,7 @@ router.get('/login-restaurant', mainController.loginNegocio);
 router.get('/login/account-restaurant/:id', mainController.buisnessAccount);
 router.get('/login/account-restaurant/:id/edit', mainController.buisnessEditForm);
 router.put('/login/account-restaurant/:id', uploadFile.single('avatar') , mainController.buisnessEditAccount);
-router.get('/login/account-restaurant/orders/:id', mainController.userOrders);
+router.get('/login/account-restaurant/orders/:id', mainController.buisnessOrders);
 
 // Rutas para administracion del carrito de usuarios
 router.get('/carrito', mainController.carrito);
