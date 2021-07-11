@@ -83,6 +83,18 @@ const controller = {
         const restaurantSelect = restaurantDataBase.find(u => u.id == req.params.id);
         return res.render ('buisness-account', {restaurantSelect})
     },
+    buisnessEditForm: (req, res) => {
+        const restaurantSelect = restaurantDataBase.find(r => r.id == req.params.id);
+        return res.render ('buisness-edit-account', {restaurantSelect})
+    },
+    buisnessEditAccount: (req, res) => {
+        const buisnessId = req.params.id;
+        const buisnessSelectId = restaurantDataBase.findIndex(p => p.id == buisnessId)
+        restaurantDataBase[buisnessSelectId] = { ...restaurantDataBase[buisnessSelectId] , ...req.body };
+        restaurantDataBase[buisnessSelectId].avatar = '/img/avatars/'+req.file.filename;
+        fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
+        return res.redirect ('/login/account-restaurant/'+ buisnessId);
+    },
     carrito: (req, res) => {
         
         return res.render ('carrito');

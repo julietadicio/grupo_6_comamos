@@ -33,8 +33,8 @@ router.get('/login-restaurant', mainController.loginNegocio);
 
 // Rutas para login y administracion de negocios
 router.get('/login/account-restaurant/:id', mainController.buisnessAccount);
-router.get('/login/account-restaurant/:id/edit', mainController.userEditForm);
-router.put('/login/account-restaurant/:id', uploadFile.single('avatar') , mainController.userEditAccount);
+router.get('/login/account-restaurant/:id/edit', mainController.buisnessEditForm);
+router.put('/login/account-restaurant/:id', uploadFile.single('avatar') , mainController.buisnessEditAccount);
 router.get('/login/account-restaurant/orders/:id', mainController.userOrders);
 
 // Rutas para administracion del carrito de usuarios

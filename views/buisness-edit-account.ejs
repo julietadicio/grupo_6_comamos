@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include partials/head %>
+    <link rel="stylesheet" href="/css/account.css">
+    <title>Editar Cuenta</title>
+</head>
+
+<body>
+    <%- include partials/header-buisness-account %> 
+    <main>
+        <section class="box-space">
+            <form action="/login/account-restaurant/<%= restaurantSelect.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <div class="align-image-user">
+                    <img src="<%= restaurantSelect.avatar %>" alt="user image" class="user-image">
+                </div>
+                <div class="hide-edit">
+                    <label for="avatar">Editar</label>
+                    <input type="file" name="avatar" id="avatar">
+                </div>
+                <div>
+                    <label for="nombre">Nombre del Restaurante</label>
+                    <input type="text" name="nombre" id="nombre" value="<%= restaurantSelect.nombre %>">
+                </div>
+                <div>
+                    <label for="direccion">Direccion</label>
+                    <input type="text" name="direccion" id="direccion" value="<%= restaurantSelect.direccion %>">
+                </div>
+                <div>
+                    <label for="capacidad">Capacidad</label>
+                    <input type="text" name="capacidad" id="capacidad" value="<%= restaurantSelect.capacidad %>">
+                </div>
+                <div>
+                    <label for="email">Direccion de correo electronico</label>
+                    <input type="text" name="email" id="email" value="<%= restaurantSelect.email %>">
+                </div>
+                <div>
+                    <label for="password">Contraseña</label>
+                    <input type="text" name="password" id="password">
+                </div>
+                <fieldset class="logout-button">
+                    <button type="submit">Editar</button>
+                </fieldset>
+            </form>    
+        </section>
+    </main>
+    <%- include partials/footer %>     
+</body>
+
+</html>
