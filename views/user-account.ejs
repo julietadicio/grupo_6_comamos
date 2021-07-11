@@ -17,38 +17,47 @@
             <div class="align-titles">
                 <h3><%= userSelect.nombre+' '+ userSelect.apellido%></h3>
             </div>
-            <ul type='none' class="data-form">
-                <li>
-                    <a href="/login/account/<%= userSelect.id %>/edit">
-                        <h2>Datos de la cuenta</h2>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                    <h2>Mas datos</h2>
-                    </a>
-                </li>
-            </ul>
         </section>
-        <section class="box-space">
-            <ul type='none' class="data-form">
-                <li>
-                    <a href="">
-                        <h2>Ver mi Reserva</h2>
-                    </a>
-                </li>
-                <li>
-                    <a href="/login/account/orders/<%= userSelect.id %> ">
-                        <h2>Historial de Reservas</h2>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <h2>Mis Favoritos</h2>
-                    </a>
-                </li>
-            </ul>
-        </section>
+        <div class="flex-row">
+            <section class="box-space1">
+                <ul type='none' class="data-form">
+                    <li>
+                        <a href="/login/account/<%= userSelect.id %>/edit">
+                            <i class="far fa-user-circle more-space"></i>
+                            <h2>Datos de la cuenta</h2>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fas fa-info-circle more-space"></i>
+                            <h2>Mas datos</h2>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="box-space2">
+                <ul type='none' class="data-form">
+                    <li>
+                        <a href="">
+                            <i class="fas fa-cart-arrow-down"></i>
+                            <h2>Ver mi Reserva</h2>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/login/account/orders/<%= userSelect.id %> ">
+                            <i class="fas fa-history"></i>
+                            <h2>Historial de Reservas</h2>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fas fa-heart"></i>
+                            <h2>Mis Favoritos</h2>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
         <form action="/">
             <fieldset class="logout-button">
                 <input type="submit" value="Log out" class="none-decoration"></input>

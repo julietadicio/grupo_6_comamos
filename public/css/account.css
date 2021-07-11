@@ -12,6 +12,9 @@ body header {
     display: flex;
     justify-content: center;
 }
+body header div div a i {
+    color: #ED1B24;
+}
 form {
     width: 100%;
     text-align: center;
@@ -104,21 +107,47 @@ article {
 .icon-user {
     display: none;
 }
-div i {
-    color: #ED1B24;
-    text-decoration: none;
-}
+
 /* Inicio Main Account */
 body main {
     display: flex;
     flex-direction: column;
 }
-body main a {
-    text-decoration: none;
-}
 .align-image-user {
     width: 20%;
     margin: auto;
+}
+main div section ul li a {
+    display: flex;
+    align-items: baseline;
+    text-decoration: none;
+}
+main div section ul li a i {
+    width: 7%;
+    color: #ED1B24;
+    text-decoration: none;
+}
+.flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+}
+.box-space1 {
+    margin-top: 2%;
+    margin-bottom: 3%;
+    width: 35%;
+    line-height: 35px;
+}
+.box-space2 {
+    margin-top: 2%;
+    margin-bottom: 3%;
+    width: 60%;
+    line-height: 1%;
+    line-height: 30px;
+}
+.more-space {
+    width: 10%;
 }
 .user-image {
     border-radius: 100%;
