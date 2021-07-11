@@ -20,13 +20,14 @@ const controller = {
     createUser: (req, res) => {
         const lastUserId = userDataBase[userDataBase.length -1].id;
         const newUserId = lastUserId +1;
+        var defaultImageProfile = '/img/avatars/Usuario-registro.png'
         const userToCreate = {
             id: newUserId,
             nombre: req.body.nombre,    
             apellido: req.body.apellido,    
             email: req.body.email,    
             password: req.body.password,
-            avatar: '/img/avatars/'+ path.basename(req.body.avatar)+ path.extname(req.body.avatar)
+            avatar: defaultImageProfile
         };
         userDataBase.push(userToCreate);
         fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
@@ -38,6 +39,7 @@ const controller = {
     createRestaurant: (req, res) => {
         const lastRestaurantId = restaurantDataBase[restaurantDataBase.length -1].id;
         const newRestaurantId = lastRestaurantId +1;
+        var defaultImageProfile = '/img/avatars/user-buisness-avatar.jpeg'
         const restaurantCreate = {
             id: newRestaurantId,
             nombre: req.body.nombre,    
@@ -45,7 +47,7 @@ const controller = {
             capacidad: req.body.capacidad,    
             email: req.body.email,    
             password: req.body.password,
-            avatar: '/img/avatars/'+req.file.filename
+            avatar: defaultImageProfile
         };
         restaurantDataBase.push(restaurantCreate);
         fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
@@ -76,6 +78,10 @@ const controller = {
     },
     loginNegocio: (req, res) => {
         return res.render ('loginNegocio');
+    },
+    buisnessAccount: (req, res) => {
+        const restaurantSelect = restaurantDataBase.find(u => u.id == req.params.id);
+        return res.render ('buisness-account', {restaurantSelect})
     },
     carrito: (req, res) => {
         

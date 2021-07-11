@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include partials/head %>
+    <link rel="stylesheet" href="/css/account-restaurant.css">
+    <title>Cuenta</title>
+</head>
+
+<body>
+    <%- include partials/header-buisness-account %> 
+    <main>
+        <section class="box-space">
+            <div class="align-image-user">
+                <img src="<%= restaurantSelect.avatar %>" alt="user image" class="user-image">
+            </div>
+            <div class="align-titles">
+                <h3><%= restaurantSelect.nombre%></h3>
+            </div>
+        </section>
+        <div class="flex-row">    
+            <section class="box-space1">
+                <ul type='none' class="data-form">
+                    <li>
+                        <a href="/login/account/<%= restaurantSelect.id %>/edit">
+                            <i class="far fa-user-circle more-space"></i>
+                            <h2>Datos de la cuenta</h2>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                        <i class="fas fa-info-circle more-space"></i>
+                        <h2>Mas datos</h2>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="box-space2">
+                <ul type='none' class="data-form">
+                    <li>
+                        <a href="">
+                            <i class="fas fa-cart-arrow-down"></i>
+                            <h2>Gestionar Reservas</h2>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fas fa-utensils"></i>
+                            <h2>Gestionar Platos</h2>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fas fa-users"></i>
+                            <h2>Gestionar capacidad del Establecimiento</h2>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fas fa-comments"></i>
+                            <h2>Ver reseñas</h2>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/login/account-restaurant/orders/<%= restaurantSelect.id %> ">
+                            <i class="fas fa-history"></i>
+                            <h2>Historial de Reservas</h2>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fas fa-question-circle"></i>
+                            <h2>Comunicate con Comamos</h2>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <form action="/">
+            <fieldset class="logout-button">
+                <input type="submit" value="Log out" class="none-decoration"></input>
+                <i class="fas fa-sign-out-alt"></i>
+            </fieldset>
+            <button type="submit"></button>
+        </form>
+    </main>
+    <%- include partials/footer %>     
+</body>
+
+</html>
