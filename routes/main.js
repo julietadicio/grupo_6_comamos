@@ -16,6 +16,8 @@ const uploadFile = multer({ storage });
 
 /* GET home page. */
 router.get('/', mainController.index );
+router.get('/login/:id', mainController.indexLogin);
+router.get('/login-restaurant/:id', mainController.indexBuisnessLogin);
 
 // Rutas para registro de usuarios y restaurantes
 router.get('/registro', mainController.registro);

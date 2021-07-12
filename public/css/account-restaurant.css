@@ -61,10 +61,11 @@ article {
     max-height: 100%; 
 }
 .logo-conteiner {
-    width: 15%;
+    width: 10%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    text-align: center;
 }
 .title {
     width: 90%;
@@ -263,9 +264,6 @@ footer ul, footer div {
 @media (min-width: 768px) {
     .box-header {
         margin: 2% auto;
-    }
-    #align-header {
-        width: 80%;
     }
     .box-mobile {
         display: inline-flex;

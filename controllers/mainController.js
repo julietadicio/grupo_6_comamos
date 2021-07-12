@@ -14,6 +14,14 @@ const controller = {
     index: (req,res) => {
         return res.render ('index');
     },
+    indexLogin: (req,res) => {
+        const userSelect = userDataBase.find(u => u.id == req.params.id);
+        return res.render ('index-login', {userSelect});
+    },
+    indexBuisnessLogin: (req,res) => {
+        const restaurantSelect = restaurantDataBase.find(u => u.id == req.params.id);
+        return res.render ('buisness-index-login', {restaurantSelect});
+    },
     registro: (req, res) => {
         return res.render ('register-user');
     },
