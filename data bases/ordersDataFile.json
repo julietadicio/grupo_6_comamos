@@ -4,27 +4,27 @@
     "idUser": 1,
     "info_order": [
       {
-        "idPlato": "P_00001",
+        "idPlato": 1,
         "cantidad": 2
       }
       ],
     "comensales": 2,
     "fecha_hora_reserva": "31/05/2021 10:05",
     "precioTotal": 600,
-    "idRestaurant": "R_00098"
+    "idRestaurant": 98
   },
   {
     "idOrder": 2,
     "idUser": 1,
     "info_order": [
       {
-        "idPlato": "P_00002",
+        "idPlato": 2,
         "cantidad": 3
       }
       ],
     "comensales": 4,
     "fecha_hora_reserva": "24/06/2021 18:24",
     "precioTotal": 2700,
-    "idRestaurant": "R_00001"
+    "idRestaurant": 1
   }
 ]

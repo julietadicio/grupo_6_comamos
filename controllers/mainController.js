@@ -68,7 +68,6 @@ const controller = {
     userOrders: (req, res) => {
         const userSelect = userDataBase.find(u => u.idUser == req.params.idUser);
         const ordersUser = ordersDataBase.filter(u => u.idUser == req.params.idUser);
-
         return res.render ('historial-reservas', {userSelect, ordersUser, restaurantDataBase, productsDataBase})
     },
     loginNegocio: (req, res) => {
