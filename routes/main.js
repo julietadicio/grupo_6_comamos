@@ -16,7 +16,7 @@ const uploadFile = multer({ storage });
 
 /* GET home page. */
 router.get('/', mainController.index );
-router.get('/login/:id', mainController.indexLogin);
+router.get('/login/:idUser', mainController.indexLogin);
 router.get('/login-restaurant/:id', mainController.indexBuisnessLogin);
 
 // Rutas para registro de usuarios y restaurantes
@@ -27,17 +27,17 @@ router.post('/registerOk-restaurant', mainController.createRestaurant);
 
 // Rutas para login y administracion de usuarios
 router.get('/login', mainController.loginUser);
-router.get('/login/account/:id', mainController.userAccount);
-router.get('/login/account/:id/edit', mainController.userEditForm);
-router.put('/login/account/:id', uploadFile.single('avatar') , mainController.userEditAccount);
-router.get('/login/account/orders/:id', mainController.userOrders);
+router.get('/login/account/:idUser', mainController.userAccount);
+router.get('/login/account/:idUser/edit', mainController.userEditForm);
+router.put('/login/account/:idUser', uploadFile.single('avatar') , mainController.userEditAccount);
+router.get('/login/account/orders/:idUser', mainController.userOrders);
 router.get('/login-restaurant', mainController.loginNegocio);
 
 // Rutas para login y administracion de negocios
-router.get('/login/account-restaurant/:id', mainController.buisnessAccount);
-router.get('/login/account-restaurant/:id/edit', mainController.buisnessEditForm);
-router.put('/login/account-restaurant/:id', uploadFile.single('avatar') , mainController.buisnessEditAccount);
-router.get('/login/account-restaurant/orders/:id', mainController.buisnessOrders);
+router.get('/login/account-restaurant/:idRestauran', mainController.buisnessAccount);
+router.get('/login/account-restaurant/:idRestauran/edit', mainController.buisnessEditForm);
+router.put('/login/account-restaurant/:idRestauran', uploadFile.single('avatar') , mainController.buisnessEditAccount);
+router.get('/login/account-restaurant/orders/:idRestauran', mainController.buisnessOrders);
 
 // Rutas para administracion del carrito de usuarios
 router.get('/carrito', mainController.carrito);
