@@ -29,11 +29,12 @@ router.post('/registerOk-restaurant', mainController.createRestaurant);
 router.get('/login', mainController.loginUser);
 router.get('/login/account/:idUser', mainController.userAccount);
 router.get('/login/account/:idUser/edit', mainController.userEditForm);
+router.delete('/login/account/:idUser/delete', mainController.userDelete);
 router.put('/login/account/:idUser', uploadFile.single('avatar') , mainController.userEditAccount);
 router.get('/login/account/orders/:idUser', mainController.userOrders);
-router.get('/login-restaurant', mainController.loginNegocio);
 
 // Rutas para login y administracion de negocios
+router.get('/login-restaurant', mainController.loginNegocio);
 router.get('/login/account-restaurant/:idRestaurant', mainController.buisnessAccount);
 router.get('/login/account-restaurant/:idRestaurant/edit', mainController.buisnessEditForm);
 router.put('/login/account-restaurant/:idRestaurant', uploadFile.single('avatar') , mainController.buisnessEditAccount);

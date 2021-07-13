@@ -22,6 +22,9 @@ const controller = {
         const userSelect = userDataBase.find(u => u.idUser == req.params.idUser);
         return res.render ('index-login', {userSelect});
     },
+    loginUser: (req, res) => {
+        return res.render ('login');
+    },
     indexBuisnessLogin: (req,res) => {
         const restaurantSelect = restaurantDataBase.find(u => u.idRestaurant == req.params.idRestaurant);
         return res.render ('buisness-index-login', {restaurantSelect});
@@ -65,9 +68,6 @@ const controller = {
         fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
         res.render('registerOk-restaurant');
     },
-    loginUser: (req, res) => {
-        return res.render ('login');
-    },
     userAccount: (req, res) => {
         const userSelect = userDataBase.find(u => u.idUser == req.params.idUser);
         return res.render ('user-account', {userSelect})
@@ -75,6 +75,11 @@ const controller = {
     userEditForm: (req, res) => {
         const userSelect = userDataBase.find(u => u.idUser == req.params.idUser);
         return res.render ('user-edit-account', {userSelect})
+    },
+    userDelete: (req, res) => {
+        const newUserDataBase = userDataBase.filter(u => u.idUser != req.params.idUser);
+        fs.writeFileSync(userFilePath, JSON.stringify(newUserDataBase, null, 2));
+        return res.redirect ('/')
     },
     userEditAccount: (req, res) => {
         const userId = req.params.idUser;

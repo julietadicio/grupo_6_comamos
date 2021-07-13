@@ -1,6 +1,6 @@
 [
   {
-    "idUser": "U_00001",
+    "idUser": 1,
     "nombre": "Alejandro",
     "apellido": "Pascuale",
     "email": "alegpascuale@gmail.com",

@@ -1,6 +1,6 @@
 [
   {
-    "idRestaurant": "R_00099",
+    "idRestaurant": 99,
     "nombre": "Test Restaurant",
     "direccion": "Avda. Ejercito Argentino 2980",
     "capacidad": 25,
@@ -8,7 +8,7 @@
     "password": "test2021"
   },
   {
-    "idRestaurant": "R_00098",
+    "idRestaurant": 98,
     "nombre": "Paladar Negro",
     "direccion": "Necochea 4635",
     "capacidad": "20",
@@ -17,7 +17,7 @@
     "avatar": "/img/avatars/kansas-fachada.jpg"
   },
   {
-    "idRestaurant": "R_00001",
+    "idRestaurant": 1,
     "nombre": "Pizzeria Villa Crespo",
     "direccion": "Charcas 4635",
     "capacidad": "20",

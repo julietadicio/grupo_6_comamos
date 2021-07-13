@@ -1,7 +1,7 @@
 [
   {
-    "idOrder": "O_00001",
-    "idUser": "U_00001",
+    "idOrder": 1,
+    "idUser": 1,
     "info_order": [
       {
         "idPlato": "P_00001",
@@ -14,8 +14,8 @@
     "idRestaurant": "R_00098"
   },
   {
-    "idOrder": "P_00002",
-    "idUser": "U_00001",
+    "idOrder": 2,
+    "idUser": 1,
     "info_order": [
       {
         "idPlato": "P_00002",
