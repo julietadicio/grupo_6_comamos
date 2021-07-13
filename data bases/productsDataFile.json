@@ -1,0 +1,20 @@
+[
+  {
+    "id": "P_00001",
+    "plato": "CAPRESE",
+    "descripcion": "Mozzarella fior di late, tomate natural, albahaca fresca y olivas negras",
+    "imagen": "/img/products/ensalada_capresse.jpeg",
+    "categoria": "Ensaladas",
+    "precio": 300,
+    "idRestaurant": "R_00001"
+  },
+  {
+    "id": "P_00002",
+    "plato": "PIZZA MARGHERITA",
+    "descripcion": "Pomodoro italiano, mozzarella fior di latte y albahaca",
+    "imagen": "/img/products/pizza_margarita.jpeg",
+    "categoria": "Pizzas",
+    "precio": 900,
+    "idRestaurant": "R_00001"
+  }
+]
