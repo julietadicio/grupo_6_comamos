@@ -25,10 +25,6 @@ const controller = {
     loginUser: (req, res) => {
         return res.render ('login');
     },
-    indexBuisnessLogin: (req,res) => {
-        const restaurantSelect = restaurantDataBase.find(u => u.idRestaurant == req.params.idRestaurant);
-        return res.render ('buisness-index-login', {restaurantSelect});
-    },
     registro: (req, res) => {
         return res.render ('register-user');
     },
@@ -48,13 +44,51 @@ const controller = {
         fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
         res.render('registerOk-user');
     },
+    userAccount: (req, res) => {
+        const userSelect = userDataBase.find(u => u.idUser == req.params.idUser);
+        return res.render ('user-account', {userSelect})
+    },
+    userEditForm: (req, res) => {
+        const userSelect = userDataBase.find(u => u.idUser == req.params.idUser);
+        return res.render ('user-edit-account', {userSelect})
+    },
+    userEditAccount: (req, res) => {
+        const userId = req.params.idUser;
+        const userSelectId = userDataBase.findIndex(p => p.idUser == userId)
+        userDataBase[userSelectId] = { ...userDataBase[userSelectId] , ...req.body };
+        userDataBase[userSelectId].avatar = '/img/avatars/'+req.file.filename;
+        fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
+        return res.redirect ('/login/account/'+ userId);
+    },
+    userDelete: (req, res) => {
+        const newUserDataBase = userDataBase.filter(u => u.idUser != req.params.idUser);
+        fs.writeFileSync(userFilePath, JSON.stringify(newUserDataBase, null, 2));
+        return res.redirect ('/')
+    },
+    userOrders: (req, res) => {
+        const userSelect = userDataBase.find(u => u.idUser == req.params.idUser);
+        const ordersUser = ordersDataBase.filter(u => u.idUser == req.params.idUser);
+
+        return res.render ('historial-reservas', {userSelect, ordersUser, restaurantDataBase, productsDataBase})
+    },
+    loginNegocio: (req, res) => {
+        return res.render ('loginNegocio');
+    },
+    indexBuisnessLogin: (req,res) => {
+        const restaurantSelect = restaurantDataBase.find(u => u.idRestaurant == req.params.idRestaurant);
+        return res.render ('buisness-index-login', {restaurantSelect});
+    },
     registroRestaurante: (req, res) => {
         return res.render ('register-restaurant');
+    },
+    buisnessAccount: (req, res) => {
+        const restaurantSelect = restaurantDataBase.find(u => u.idRestaurant == req.params.idRestaurant);
+        return res.render ('buisness-account', {restaurantSelect})
     },
     createRestaurant: (req, res) => {
         const lastRestaurantId = restaurantDataBase[restaurantDataBase.length -1].idRestaurant;
         const newRestaurantId = lastRestaurantId +1;
-        var defaultImageProfile = '/img/avatars/user-buisness-avatar.jpeg'
+        var defaultImageProfile = '/img/avatars/user-buisness-avatar.jpg'
         const restaurantCreate = {
             idRestaurant: newRestaurantId,
             nombre: req.body.nombre,    
@@ -68,40 +102,6 @@ const controller = {
         fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
         res.render('registerOk-restaurant');
     },
-    userAccount: (req, res) => {
-        const userSelect = userDataBase.find(u => u.idUser == req.params.idUser);
-        return res.render ('user-account', {userSelect})
-    },
-    userEditForm: (req, res) => {
-        const userSelect = userDataBase.find(u => u.idUser == req.params.idUser);
-        return res.render ('user-edit-account', {userSelect})
-    },
-    userDelete: (req, res) => {
-        const newUserDataBase = userDataBase.filter(u => u.idUser != req.params.idUser);
-        fs.writeFileSync(userFilePath, JSON.stringify(newUserDataBase, null, 2));
-        return res.redirect ('/')
-    },
-    userEditAccount: (req, res) => {
-        const userId = req.params.idUser;
-        const userSelectId = userDataBase.findIndex(p => p.idUser == userId)
-        userDataBase[userSelectId] = { ...userDataBase[userSelectId] , ...req.body };
-        userDataBase[userSelectId].avatar = '/img/avatars/'+req.file.filename;
-        fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
-        return res.redirect ('/login/account/'+ userId);
-    },
-    userOrders: (req, res) => {
-        const userSelect = userDataBase.find(u => u.idUser == req.params.idUser);
-        const ordersUser = ordersDataBase.filter(u => u.idUser == req.params.idUser);
-
-        return res.render ('historial-reservas', {userSelect, ordersUser, restaurantDataBase, productsDataBase})
-    },
-    loginNegocio: (req, res) => {
-        return res.render ('loginNegocio');
-    },
-    buisnessAccount: (req, res) => {
-        const restaurantSelect = restaurantDataBase.find(u => u.idRestaurant == req.params.idRestaurant);
-        return res.render ('buisness-account', {restaurantSelect})
-    },
     buisnessEditForm: (req, res) => {
         const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.params.idRestaurant);
         return res.render ('buisness-edit-account', {restaurantSelect})
@@ -113,6 +113,11 @@ const controller = {
         restaurantDataBase[buisnessSelectId].avatar = '/img/avatars/'+req.file.filename;
         fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
         return res.redirect ('/login/account-restaurant/'+ buisnessId);
+    },
+    buisnessDelete: (req, res) => {
+        const newRestaurantDataBase = restaurantDataBase.filter(r => r.idRestaurant != req.params.idRestaurant);
+        fs.writeFileSync(restaurantFilePath, JSON.stringify(newRestaurantDataBase, null, 2));
+        return res.redirect ('/')
     },
     buisnessOrders: (req, res) => {
         const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.params.idRestaurant);
