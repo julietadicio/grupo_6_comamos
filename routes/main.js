@@ -34,10 +34,10 @@ router.get('/login/account/orders/:idUser', mainController.userOrders);
 router.get('/login-restaurant', mainController.loginNegocio);
 
 // Rutas para login y administracion de negocios
-router.get('/login/account-restaurant/:idRestauran', mainController.buisnessAccount);
-router.get('/login/account-restaurant/:idRestauran/edit', mainController.buisnessEditForm);
-router.put('/login/account-restaurant/:idRestauran', uploadFile.single('avatar') , mainController.buisnessEditAccount);
-router.get('/login/account-restaurant/orders/:idRestauran', mainController.buisnessOrders);
+router.get('/login/account-restaurant/:idRestaurant', mainController.buisnessAccount);
+router.get('/login/account-restaurant/:idRestaurant/edit', mainController.buisnessEditForm);
+router.put('/login/account-restaurant/:idRestaurant', uploadFile.single('avatar') , mainController.buisnessEditAccount);
+router.get('/login/account-restaurant/orders/:idRestaurant', mainController.buisnessOrders);
 
 // Rutas para administracion del carrito de usuarios
 router.get('/carrito', mainController.carrito);

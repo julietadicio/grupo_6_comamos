@@ -20,7 +20,8 @@
                     <h4>Platos Comprados: <%  order.info_order.forEach(plato => { %>
                         <%= productsDataBase[productsDataBase.findIndex(i => i.idPlato == plato.idPlato)].plato %> 
                         Cantidad: <%= plato.cantidad %> 
-                    <% }); %></h4>
+                        <% }); %>
+                    </h4>
                     <h5>Nº de comensales: <%= order.comensales %></h5>
                     <h5>Fecha y hora de la reserva: <%= order.fecha_hora_reserva %></h5>
                     <h5>Total: $<%= order.precioTotal %></h5>

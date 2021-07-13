@@ -22,43 +22,38 @@
             <section class="box-space1">
                 <ul type='none' class="data-form">
                     <li>
-                        <a href="/">
-                            <i class="fas fa-home more-space"></i>
-                            <h2>Inicio</h2>
+                        <a href="/login/account/more-info/adress/<%= userSelect.idUser %>">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <h2>Mis domicilios</h2>
                         </a>
                     </li>
                     <li>
-                        <a href="/login/account/<%= userSelect.idUser %>/edit">
-                            <i class="far fa-user-circle more-space"></i>
-                            <h2>Datos de la cuenta</h2>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/">
-                            <i class="fas fa-gift more-space"></i>
-                            <h2>Cupones</h2>
+                        <a href="/login/account/more-info/pay-methods/<%= userSelect.idUser %>">
+                            <i class="fas fa-money-check-alt"></i>
+                            <h2>Medios de pago</h2>
                         </a>
                     </li>
                     <form action="/?_method=DELETE" method="POST">
                         <fieldset class="logout-button">
-                            <button type="submit" class="none-decoration">Eliminar Cuenta</button>
+                            <input type="submit" value="Eliminar Cuenta" class="none-decoration"></input>
                             <i class="fas fa-user-times"></i>
                         </fieldset>
+                        <button type="submit"></button>
                     </form>
                 </ul>
             </section>
             <section class="box-space2">
                 <ul type='none' class="data-form">
                     <li>
-                        <a href="">
-                            <i class="fas fa-cart-arrow-down"></i>
-                            <h2>Ver mi Reserva</h2>
+                        <a href="/login/account/<%= userSelect.idUser %>">
+                            <i class="fas fa-home"></i>
+                            <h2>Inicio</h2>
                         </a>
                     </li>
                     <li>
-                        <a href="/login/account/orders/<%= userSelect.idUser %> ">
-                            <i class="fas fa-history"></i>
-                            <h2>Historial de Reservas</h2>
+                        <a href="/">
+                            <i class="fas fa-gift"></i>
+                            <h2>Cupones</h2>
                         </a>
                     </li>
                     <li>
@@ -72,9 +67,10 @@
         </div>
         <form action="/">
             <fieldset class="logout-button">
-                <button type="submit" class="none-decoration">Cerrar Sesión</button>
+                <input type="submit" value="Log out" class="none-decoration"></input>
                 <i class="fas fa-sign-out-alt"></i>
             </fieldset>
+            <button type="submit"></button>
         </form>
     </main>
     <%- include partials/footer %>     

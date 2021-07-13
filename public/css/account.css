@@ -24,6 +24,7 @@ body main {
     display: flex;
     justify-content: center;
     margin: auto;
+    margin-bottom: 20px;
 }
 h1 {
     font-size: 20px;
@@ -130,6 +131,7 @@ main div section ul li a i {
 }
 .flex-row {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: baseline;
     justify-content: space-between;
@@ -137,13 +139,13 @@ main div section ul li a i {
 .box-space1 {
     margin-top: 2%;
     margin-bottom: 3%;
-    width: 35%;
+    width: 100%;
     line-height: 35px;
 }
 .box-space2 {
     margin-top: 2%;
     margin-bottom: 3%;
-    width: 60%;
+    width: 100%;
     line-height: 1%;
     line-height: 30px;
 }
@@ -170,16 +172,27 @@ main div section ul li a i {
     margin-bottom: 3%;
 }
 .none-decoration {
-    background-color: #ED1B24;
+    background-color: #b6b6b6;
     color: white;
     border: none;
+    transition: all 0.5s;
 }
 .logout-button {
-    background-color: #ED1B24;
+    background-color: #b6b6b6;
     color: white;
     border-radius: 5px;
     width: 100px;
     margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    transition: all 0.5s;
+}
+.logout-button:hover {
+    background-color: #ED1B24;
+}
+.logout-button:hover .none-decoration{
+    background-color: #ED1B24;
 }
 /* Fin Main Account */
 
@@ -201,6 +214,7 @@ main div section ul li a i {
 .image-restaurant {
     width: 100px;
     height: 90px;
+    border-radius: 100%;
 }
 
 /* Fin Main Historial de Reservas */
@@ -303,6 +317,15 @@ footer ul, footer div {
     }
     .coment-button {
     margin-left: 2%;
+    }
+    .flex-row {
+    flex-direction: row;
+    }
+    .box-space1 {
+    width: 35%;
+    }
+    .box-space2 {
+    width: 60%;
     }
     footer ul li a {
         font-size: 12px;
