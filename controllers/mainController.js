@@ -131,7 +131,12 @@ const controller = {
     },
     buisnessOrders: (req, res) => {
         const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.params.idRestaurant);
-        return res.render ('buisness-orders-history', {restaurantSelect});
+        const restaurantOrders = ordersDataBase.filter (o => o.idRestaurant == req.params.idRestaurant && o.estado == 'completada');
+        return res.render ('buisness-orders-history', {restaurantSelect, restaurantOrders, userDataBase,restaurantDataBase, productsDataBase});
+    },
+    buisnessProducts: (req, res) => {
+        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.params.idRestaurant);
+        return res.render ('buisness-products', {restaurantSelect});
     },
     carrito: (req, res) => {
         

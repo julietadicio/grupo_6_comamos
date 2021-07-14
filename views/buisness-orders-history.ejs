@@ -4,28 +4,40 @@
 <head>
     <%- include partials/head %>
     <link rel="stylesheet" href="/css/account-restaurant.css">
-    <title>Reservas</title>
+    <title>Historial de Reservas</title>
 </head>
 
 <body>
     <%- include partials/header-buisness-account %> 
-    <main class="main-order">
+    <% restaurantOrders.forEach(order => { %>
+        <main class="main-order">
             <article class="reserve-form">
-                    <div class="box-order1">
-                        <img src="/img/avatars/Usuario-registro.png" alt="imagen usuario" class="image-restaurant">
-                    </div>
-                    <div class="left-separation box-order2">
-                        <h4>Nombre del usuario: </h5>
-                        <h4>Platos Comprados</h4>
-                        <h5>Nº de comensales: </h5>
-                        <h5>Fecha y hora de la reserva: </h5>
-                    </div>
-                    <form action="" method="POST" class="coment-button box-order3">
-                        <input type="button" value="Cancelar reserva">
-                        <button type="submit"></button>
-                    </form>
+                <div class="box-order1">
+                    <img src="<%= userDataBase[userDataBase.findIndex(i => i.idUser == order.idUser)].avatar %>" alt="imagen usuario" class="image-restaurant">
+                </div>    
+                <div class="left-separation box-order2">
+                    <h4><%= userDataBase[userDataBase.findIndex(i => i.idUser == order.idUser)].nombre +' '+ userDataBase[userDataBase.findIndex(i => i.idUser == order.idUser)].apellido %></h4>
+                    <h4>Platos Comprados: <%  order.info_order.forEach(plato => { %>
+                        <%= productsDataBase[productsDataBase.findIndex(i => i.idPlato == plato.idPlato)].plato %> 
+                        Cantidad: <%= plato.cantidad %> 
+                        <% }); %>
+                    </h4>
+                    <h5>Nº de comensales: <%= order.comensales %></h5>
+                    <h5>Fecha y hora de la reserva: <%= order.fecha_hora_reserva %></h5>
+                    <h5>Total: $<%= order.precioTotal %></h5>
+                </div>
+                <form action="" method="POST" class="coment-button box-order3">
+                    <input type="button" value="Calificar Usuario">
+                    <button type="submit"></button>
+                </form>
             </article>
-    </main>
+            <form action="/login/account-restaurant/<%= order.idRestaurant %>">
+                <fieldset class="logout-button">
+                    <button type="menu" class="none-decoration">Volver</button>
+                </fieldset>
+            </form>
+        </main>
+    <%  }); %> 
     <%- include partials/footer %>     
 </body>
 

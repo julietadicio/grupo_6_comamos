@@ -27,6 +27,6 @@
     "fecha_hora_reserva": "24/06/2021 18:24",
     "precioTotal": 2700,
     "idRestaurant": 1,
-    "estado": "confirmada"
+    "estado": "completada"
   }
 ]
