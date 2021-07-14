@@ -24,7 +24,6 @@ body main {
     display: flex;
     justify-content: center;
     margin: auto;
-    margin-bottom: 20px;
 }
 h1 {
     font-size: 20px;
@@ -124,6 +123,10 @@ main div section ul li a {
     align-items: baseline;
     text-decoration: none;
 }
+a {
+    text-decoration: none;
+    color: black;
+}
 main div section ul li a i {
     width: 7%;
     color: #ED1B24;
@@ -206,8 +209,20 @@ main div section ul li a i {
     align-items: center;
      background-color: white;
     box-shadow: 0px 0px 10px rgb(201, 201, 201);
-    width: 90%;
+    width: 100%;
+    margin: 8px auto;
+    padding: 5px;
+    border-radius: 5px;
+}
+.order-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgb(201, 201, 201);
+    width: 100%;
     margin: auto;
+    margin-bottom: 2%;
     padding: 5px;
     border-radius: 5px;
 }
@@ -215,6 +230,13 @@ main div section ul li a i {
     width: 100px;
     height: 90px;
     border-radius: 100%;
+}
+.valoration {
+    display: flex;
+    align-items: baseline;
+}
+.no-orders {
+    text-align: center;
 }
 
 /* Fin Main Historial de Reservas */

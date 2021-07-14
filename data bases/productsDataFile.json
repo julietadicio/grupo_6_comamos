@@ -6,7 +6,7 @@
     "imagen": "/img/products/ensalada_capresse.jpeg",
     "categoria": "Ensaladas",
     "precio": 300,
-    "idRestaurant": "R_00001"
+    "idRestaurant": 1
   },
   {
     "idPlato": 2,
@@ -15,6 +15,6 @@
     "imagen": "/img/products/pizza_margarita.jpeg",
     "categoria": "Pizzas",
     "precio": 900,
-    "idRestaurant": "R_00001"
+    "idRestaurant": 1
   }
 ]

@@ -11,7 +11,8 @@
     "comensales": 2,
     "fecha_hora_reserva": "31/05/2021 10:05",
     "precioTotal": 600,
-    "idRestaurant": 98
+    "idRestaurant": 98,
+    "estado": "completada"
   },
   {
     "idOrder": 2,
@@ -25,6 +26,26 @@
     "comensales": 4,
     "fecha_hora_reserva": "24/06/2021 18:24",
     "precioTotal": 2700,
-    "idRestaurant": 1
+    "idRestaurant": 1,
+    "estado": "confirmada"
+  },
+  {
+    "idOrder": 3,
+    "idUser": 1,
+    "info_order": [
+      {
+        "idPlato": 1,
+        "cantidad": 1
+      },
+      {
+        "idPlato": 2,
+        "cantidad": 1
+      }
+      ],
+    "comensales": 2,
+    "fecha_hora_reserva": "24/06/2021 14:45",
+    "precioTotal": 1200,
+    "idRestaurant": 1,
+    "estado": "pendiente"
   }
 ]

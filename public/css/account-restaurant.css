@@ -171,8 +171,8 @@ body main a {
     align-items: center;
      background-color: white;
     box-shadow: 0px 0px 10px rgb(201, 201, 201);
-    width: 90%;
-    margin: auto;
+    width: 100%;
+    margin: 3% auto;
     padding: 5px;
     border-radius: 5px;
 }
@@ -180,6 +180,12 @@ body main a {
     width: 100px;
     height: 90px;
     border-radius: 100%;
+}
+.no-orders {
+    text-align: center;
+}
+a {
+    text-decoration: none;
 }
 
 /* Fin Main Historial de Reservas */
@@ -230,6 +236,15 @@ main div section ul li a i {
     width: 10%;
 }
 /* Formato del main para cuenta restaurante */
+
+/* Formato para gestion de reservas */
+.buttons-orders {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+/* Formato para gestion de reservas */
 
 /* Footer */
 .footer {

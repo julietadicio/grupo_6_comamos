@@ -28,10 +28,14 @@
                         <h5>Fecha y hora de la reserva: <%= order.fecha_hora_reserva %></h5>
                         <h5>Total: $<%= order.precioTotal %></h5>
                     </div>
-                    <form action="" method="POST" class="coment-button box-order3">
-                        <input type="button" value="Calificar Usuario">
-                        <button type="submit"></button>
-                    </form>
+                    <div class="buttons-orders">
+                        <form action="" method="POST" class="logout-button">
+                            <button type="submit" class="none-decoration">Confirmar Reserva</button>
+                        </form>
+                        <form action="" method="POST" class="logout-button">
+                            <button type="submit" class="none-decoration">Cancelar Reserva</button>
+                        </form>
+                    </div>    
                 </article>
                 <form action="/login/account-restaurant/<%= order.idRestaurant %>">
                     <fieldset class="logout-button">

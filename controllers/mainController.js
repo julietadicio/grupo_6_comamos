@@ -64,13 +64,28 @@ const controller = {
         fs.writeFileSync(userFilePath, JSON.stringify(newUserDataBase, null, 2));
         return res.redirect ('/')
     },
+    userMyOrder: (req, res) => {
+        const userSelect = userDataBase.find(u => u.idUser == req.params.idUser);
+        const ordersUser = ordersDataBase.filter(u => u.idUser == req.params.idUser && u.estado == 'confirmada');
+        return res.render ('user-my-order', {userSelect, ordersUser, restaurantDataBase, productsDataBase})
+    },
+    userOrder: (req, res) => {
+        const userSelect = userDataBase.find(u => u.idUser == req.params.idUser);
+        const orderSelect = ordersDataBase.find(u => u.idOrder == req.params.idOrder);
+        return res.render ('user-id-order', {userSelect, orderSelect, restaurantDataBase, productsDataBase})
+    },
+    userMyOrderDelete: (req, res) => {
+        const newOrdersDataBase = ordersDataBase.filter(o => o.idOrder != req.params.idOrder);
+        fs.writeFileSync(ordersFilePath, JSON.stringify(newOrdersDataBase, null, 2));
+        return res.redirect ('user-my-order');
+    },
     userOrders: (req, res) => {
         const userSelect = userDataBase.find(u => u.idUser == req.params.idUser);
-        const ordersUser = ordersDataBase.filter(u => u.idUser == req.params.idUser);
-        return res.render ('historial-reservas', {userSelect, ordersUser, restaurantDataBase, productsDataBase})
+        const ordersUser = ordersDataBase.filter(u => u.idUser == req.params.idUser && u.estado == 'completada');
+        return res.render ('user-orders-history', {userSelect, ordersUser, restaurantDataBase, productsDataBase})
     },
     loginNegocio: (req, res) => {
-        return res.render ('loginNegocio');
+        return res.render ('buisness-login');
     },
     indexBuisnessLogin: (req,res) => {
         const restaurantSelect = restaurantDataBase.find(u => u.idRestaurant == req.params.idRestaurant);
@@ -116,7 +131,17 @@ const controller = {
     },
     buisnessOrders: (req, res) => {
         const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.params.idRestaurant);
-        return res.render ('buisness-orders-history', {restaurantSelect});
+        const restaurantOrders = ordersDataBase.filter (o => o.idRestaurant == req.params.idRestaurant && o.estado == 'pendiente');
+        return res.render ('buisness-orders', {restaurantSelect, restaurantOrders, userDataBase,restaurantDataBase, productsDataBase});
+    },
+    buisnessHistoryOrders: (req, res) => {
+        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.params.idRestaurant);
+        const restaurantOrders = ordersDataBase.filter (o => o.idRestaurant == req.params.idRestaurant && o.estado == 'completada');
+        return res.render ('buisness-orders-history', {restaurantSelect, restaurantOrders, userDataBase,restaurantDataBase, productsDataBase});
+    },
+    buisnessProducts: (req, res) => {
+        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.params.idRestaurant);
+        return res.render ('buisness-products', {restaurantSelect});
     },
     carrito: (req, res) => {
         

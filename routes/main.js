@@ -32,6 +32,9 @@ router.get('/login/account/:idUser', mainController.userAccount);
 router.get('/login/account/:idUser/edit', mainController.userEditForm);
 router.put('/login/account/:idUser', uploadFile.single('avatar') , mainController.userEditAccount);
 router.delete('/login/account/:idUser/delete', mainController.userDelete);
+router.get('/login/account/my-order/:idUser', mainController.userMyOrder);
+router.get('/login/account/my-order/:idUser/order/:idOrder', mainController.userOrder);
+router.delete('/login/account/my-order/:idUser/delete', mainController.userMyOrderDelete);
 router.get('/login/account/orders/:idUser', mainController.userOrders);
 
 // Rutas para login y administracion de negocios
@@ -41,6 +44,8 @@ router.get('/login/account-restaurant/:idRestaurant/edit', mainController.buisne
 router.put('/login/account-restaurant/:idRestaurant', uploadFile.single('avatar') , mainController.buisnessEditAccount);
 router.delete('/login/account-restaurant/:idRestaurant/delete', mainController.buisnessDelete);
 router.get('/login/account-restaurant/orders/:idRestaurant', mainController.buisnessOrders);
+router.get('/login/account-restaurant/orders-history/:idRestaurant', mainController.buisnessHistoryOrders);
+router.get('/login/account-restaurant/products/:idRestaurant', mainController.buisnessProducts);
 
 // Rutas para administracion del carrito de usuarios
 router.get('/carrito', mainController.carrito);
