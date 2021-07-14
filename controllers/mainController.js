@@ -35,9 +35,7 @@ const controller = {
         var defaultImageProfile = '/img/avatars/Usuario-registro.png'
         const userToCreate = {
             idUser: newUserId,
-            nombre: req.body.nombre,    
-            apellido: req.body.apellido,    
-            email: req.body.email,    
+            ...req.body,   
             password: bcrypt.hashSync(req.body.password, 10),
             avatar: defaultImageProfile
         };
@@ -91,10 +89,7 @@ const controller = {
         var defaultImageProfile = '/img/avatars/user-buisness-avatar.jpg'
         const restaurantCreate = {
             idRestaurant: newRestaurantId,
-            nombre: req.body.nombre,    
-            direccion: req.body.direccion,    
-            capacidad: req.body.capacidad,    
-            email: req.body.email,    
+            ...req.body,    
             password: bcrypt.hashSync(req.body.password, 10),
             avatar: defaultImageProfile
         };
