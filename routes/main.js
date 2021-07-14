@@ -3,6 +3,7 @@ const path = require('path');
 var router = express.Router();
 const mainController = require('../controllers/mainController');
 const multer = require('multer');
+const { listaRestaurantes } = require('../controllers/mainController');
 const storage = multer.diskStorage ({
   destination: (req, file, cb) => {
     cb (null, path.join(__dirname, '../public/img/avatars'));
@@ -44,6 +45,7 @@ router.get('/login/account-restaurant/orders/:idRestaurant', mainController.buis
 // Rutas para administracion del carrito de usuarios
 router.get('/carrito', mainController.carrito);
 
-
+// Rutas para listado de restaurantes y de platos
+router.get('lista-restaurantes', mainController.listaRestaurantes);
 
 module.exports = router;
