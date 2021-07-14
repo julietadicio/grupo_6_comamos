@@ -45,7 +45,7 @@ router.put('/login/account-restaurant/:idRestaurant', uploadFile.single('avatar'
 router.delete('/login/account-restaurant/:idRestaurant/delete', mainController.buisnessDelete);
 router.get('/login/account-restaurant/orders/:idRestaurant', mainController.buisnessOrders);
 router.get('/login/account-restaurant/orders-history/:idRestaurant', mainController.buisnessHistoryOrders);
-router.get('/login/account-restaurant/products/:idRestaurant', mainController.buisnessProducts);
+
 
 // Rutas para administracion del carrito de usuarios
 router.get('/carrito', mainController.carrito);

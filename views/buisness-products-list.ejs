@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include partials/head %>
+    <link rel="stylesheet" href="/css/account-restaurant.css">
+    <title>Listado de Platos</title>
+</head>
+
+<body>
+    <%- include partials/header-buisness-account %>
+    <% if (productsRestaurant.length >= 1) { %>
+     
+        <% productsRestaurant.forEach(product => { %>
+            <main class="main-order">
+                <article class="reserve-form">
+                    <div class="box-order1">
+                        <img src="<%= product.imagen %>" alt="imagen usuario" class="image-restaurant">
+                    </div>    
+                    <div class="left-separation box-order2">
+                        <h4><%= product.plato %></h4>
+                        <h4><%= product.descripcion %></h4>
+                        <h4><%= product.categoria %></h4>
+                        <h5>Precio: $<%= product.precio %></h5>
+                    </div>
+                    <div class="buttons-orders">
+                        <form action="" method="POST" class="logout-button">
+                            <button type="submit" class="none-decoration">Editar</button>
+                        </form>
+                        <form action="" method="POST" class="logout-button">
+                            <button type="submit" class="none-decoration">Eliminar</button>
+                        </form>
+                    </div>    
+                </article>
+            </main>
+            <%  }); %> 
+        <% } else { %>
+            <h2 class="no-orders">todavia no tenes platos para ofrecer?</h2>
+            <a href="/">
+                <h2 class="no-orders">Hace click en agregar y esperá las reservas</h2>
+            </a>
+            <form action="" method="POST" class="logout-button">
+                <button type="submit" class="none-decoration">Agregar</button>
+            </form>
+    <% } %>
+    <form action="/login/account-restaurant/<%= restaurantSelect.idRestaurant %>">
+        <fieldset class="logout-button">
+            <button type="menu" class="none-decoration">Volver</button>
+        </fieldset>
+    </form> 
+    <%- include partials/footer %>     
+</body>
+
+</html>
