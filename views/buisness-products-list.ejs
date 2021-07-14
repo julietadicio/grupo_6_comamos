@@ -9,10 +9,15 @@
 
 <body>
     <%- include partials/header-buisness-account %>
-    <% if (productsRestaurant.length >= 1) { %>
-     
-        <% productsRestaurant.forEach(product => { %>
-            <main class="main-order">
+    <form action="" method="POST">
+        <fieldset class="add-button">
+            <button type="submit" class="none-decoration">Agregar</button>
+        </fieldset>
+    </form>
+    <main class="main-order">
+        <% if (productsRestaurant.length >= 1) { %>
+            
+            <% productsRestaurant.forEach(product => { %>
                 <article class="reserve-form">
                     <div class="box-order1">
                         <img src="<%= product.imagen %>" alt="imagen usuario" class="image-restaurant">
@@ -32,16 +37,13 @@
                         </form>
                     </div>    
                 </article>
+                <%  }); %> 
             </main>
-            <%  }); %> 
         <% } else { %>
             <h2 class="no-orders">todavia no tenes platos para ofrecer?</h2>
             <a href="/">
                 <h2 class="no-orders">Hace click en agregar y esperá las reservas</h2>
             </a>
-            <form action="" method="POST" class="logout-button">
-                <button type="submit" class="none-decoration">Agregar</button>
-            </form>
     <% } %>
     <form action="/login/account-restaurant/<%= restaurantSelect.idRestaurant %>">
         <fieldset class="logout-button">
