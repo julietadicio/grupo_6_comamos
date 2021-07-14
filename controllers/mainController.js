@@ -4,6 +4,7 @@ const router = express.Router ();
 const fs = require('fs');
 const { fileLoader } = require('ejs');
 const { FILE } = require('dns');
+const bcrypt = require('bcryptjs');
 
 const userFilePath = './data bases/userDataFile.json';
 const userDataBase = JSON.parse(fs.readFileSync(userFilePath, 'utf-8'));
@@ -37,7 +38,7 @@ const controller = {
             nombre: req.body.nombre,    
             apellido: req.body.apellido,    
             email: req.body.email,    
-            password: req.body.password,
+            password: bcrypt.hashSync(req.body.password, 10),
             avatar: defaultImageProfile
         };
         userDataBase.push(userToCreate);
@@ -94,7 +95,7 @@ const controller = {
             direccion: req.body.direccion,    
             capacidad: req.body.capacidad,    
             email: req.body.email,    
-            password: req.body.password,
+            password: bcrypt.hashSync(req.body.password, 10),
             avatar: defaultImageProfile
         };
         restaurantDataBase.push(restaurantCreate);
