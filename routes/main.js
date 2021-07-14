@@ -51,6 +51,6 @@ router.get('/login/account-restaurant/orders-history/:idRestaurant', mainControl
 router.get('/carrito', mainController.carrito);
 
 // Rutas para listado de restaurantes y de platos
-router.get('lista-restaurantes', mainController.listaRestaurantes);
+router.get('/lista-restaurantes', mainController.listaRestaurantes);
 
 module.exports = router;
