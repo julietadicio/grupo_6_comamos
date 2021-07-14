@@ -246,6 +246,22 @@ main div section ul li a i {
 }
 /* Formato para gestion de reservas */
 
+/* Formato para la gestion de platos */
+
+.add-button {
+    background-color: #b6b6b6;
+    color: white;
+    border-radius: 5px;
+    width: 100px;
+    margin: auto;
+    transition: all 0.5s;
+}
+.add-button:hover {
+    background-color: #ED1B24;
+}
+
+/* Formato para la gestion de platos */
+
 /* Footer */
 .footer {
     background-color: rgba(237, 27, 36, 75%);
@@ -254,6 +270,7 @@ main div section ul li a i {
     padding: 5px;
     position: absolute;
     bottom: 0px;
+    left: 0px;
     margin-top: 2%;
 }
 #center-footer {
@@ -330,6 +347,13 @@ footer ul, footer div {
     .coment-button {
     margin-left: 2%;
     }
+    .add-button {
+        margin: 0;
+        margin-left: 80%;
+    }
+    .add-button:hover .none-decoration{
+    background-color: #ED1B24;
+}
     footer ul li a {
         font-size: 12px;
     }

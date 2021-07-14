@@ -1,9 +1,5 @@
-const express = require('express');
-const path = require('path');
-const router = express.Router();
 const fs = require('fs');
-const { fileLoader } = require('ejs');
-const { FILE } = require('dns');
+
 
 const restaurantFilePath = './data bases/restaurantDataFile.json';
 const restaurantDataBase = JSON.parse(fs.readFileSync(restaurantFilePath, 'utf-8'));
