@@ -41,3 +41,6 @@ Alejandro:
         3 - Seguir puliendo el CSS de algunas vistas que no terminan de quedar del todo bien
     (*) Actualice el tablero de trabajo con estas tareas y proyectos.
     https://trello.com/b/xbzGtulH
+
+Julieta:
+    -Estuve creando las vistas del listado de restaurantes, también voy a crear el listado de platos.
