@@ -40,9 +40,14 @@
                     <input type="text" name="password" id="password">
                 </div>
                 <fieldset class="logout-button">
-                    <button type="submit">Editar</button>
+                    <button type="submit" class="none-decoration">Editar</button>
                 </fieldset>
-            </form>    
+            </form>
+            <form action="/login/account-restaurant/<%= restaurantSelect.idRestaurant %> ">
+                <fieldset class="logout-button">
+                        <button type="menu" class="none-decoration">Volver</button>
+                </fieldset>    
+            </form>
         </section>
     </main>
     <%- include partials/footer %>     

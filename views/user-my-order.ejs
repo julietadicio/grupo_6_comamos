@@ -8,36 +8,48 @@
 </head>
 
 <body>
-    <%- include partials/header-account %> 
-    <% ordersUser.forEach(order => { %>
-        <main class="main-order">
-            <article class="reserve-form">
-                <div class="box-order1">
-                    <img src="<%= restaurantDataBase[restaurantDataBase.findIndex(i => i.idRestaurant == order.idRestaurant)].avatar %>" alt="imagen restaurante" class="image-restaurant">
-                </div>    
-                <div class="left-separation box-order2">
-                    <a href="/login/account/my-order/<%= order.idUser %>/order/<%= order.idOrder %>"><h4>Pedido nº: <%=order.idOrder %> </h4></a>
-                    <a href=""></a><h4><%= restaurantDataBase[restaurantDataBase.findIndex(i => i.idRestaurant == order.idRestaurant)].nombre %></h4>
-                    <h4>Platos Comprados: <%  order.info_order.forEach(plato => { %>
-                        <%= productsDataBase[productsDataBase.findIndex(i => i.idPlato == plato.idPlato)].plato %> 
-                        Cantidad: <%= plato.cantidad %> 
-                        <% }); %>
-                    </h4>
-                    <h5>Nº de comensales: <%= order.comensales %></h5>
-                    <h5>Fecha y hora de la reserva: <%= order.fecha_hora_reserva %></h5>
-                    <h5>Total: $<%= order.precioTotal %></h5>
-                </div>
-                <form action="" method="POST" class="coment-button box-order3">
-                    <button type="submit">Cancelar Reserva</button>
-                </form>
-            </article>
-            <form action="/login/account/<%= order.idUser %>">
+<%- include partials/header-account %> 
+    <% if (ordersUser.length >= 1) { %>
+            <% ordersUser.forEach(order => { %>
+                <main class="main-order">
+                    <article class="reserve-form">
+                        <div class="box-order1">
+                            <img src="<%= restaurantDataBase[restaurantDataBase.findIndex(i => i.idRestaurant == order.idRestaurant)].avatar %>" alt="imagen restaurante" class="image-restaurant">
+                        </div>    
+                        <div class="left-separation box-order2">
+                            <a href="/login/account/my-order/<%= order.idUser %>/order/<%= order.idOrder %>"><h4>Pedido nº: <%=order.idOrder %> </h4></a>
+                            <a href=""></a><h4><%= restaurantDataBase[restaurantDataBase.findIndex(i => i.idRestaurant == order.idRestaurant)].nombre %></h4>
+                            <h4>Platos Comprados: <%  order.info_order.forEach(plato => { %>
+                                <%= productsDataBase[productsDataBase.findIndex(i => i.idPlato == plato.idPlato)].plato %> 
+                                Cantidad: <%= plato.cantidad %> 
+                                <% }); %>
+                            </h4>
+                            <h5>Nº de comensales: <%= order.comensales %></h5>
+                            <h5>Fecha y hora de la reserva: <%= order.fecha_hora_reserva %></h5>
+                            <h5>Total: $<%= order.precioTotal %></h5>
+                        </div>
+                        <form action="" method="POST" class="coment-button box-order3">
+                            <button type="submit">Cancelar Reserva</button>
+                        </form>
+                    </article>
+                    <form action="/login/account/<%= order.idUser %>">
+                        <fieldset class="logout-button">
+                            <button type="menu" class="none-decoration">Volver</button>
+                        </fieldset>
+                    </form>
+                </main>
+            <%  }); %>
+        <% } else { %>
+            <h2 class="no-orders">todavia no tenes pedidos realizados...</h2>
+            <a href="/">
+                <h2 class="no-orders">Te invitamos a ver los mejores platos para tu reserva</h2>
+            </a>
+            <form action="/login/account/<%= userSelect.idUser %>">
                 <fieldset class="logout-button">
                     <button type="menu" class="none-decoration">Volver</button>
                 </fieldset>
             </form>
-        </main>
-    <%  }); %> 
+        <% } %>
     <%- include partials/footer %>     
 </body>
 

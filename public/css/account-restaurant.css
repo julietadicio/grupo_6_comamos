@@ -181,7 +181,12 @@ body main a {
     height: 90px;
     border-radius: 100%;
 }
-
+.no-orders {
+    text-align: center;
+}
+a {
+    text-decoration: none;
+}
 
 /* Fin Main Historial de Reservas */
 
@@ -231,6 +236,15 @@ main div section ul li a i {
     width: 10%;
 }
 /* Formato del main para cuenta restaurante */
+
+/* Formato para gestion de reservas */
+.buttons-orders {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+/* Formato para gestion de reservas */
 
 /* Footer */
 .footer {
