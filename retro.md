@@ -43,4 +43,4 @@ Alejandro:
     https://trello.com/b/xbzGtulH
 
 Julieta:
-    -Estuve creando las vistas del listado de restaurantes, también voy a crear el listado de platos.
+    -Estuve creando las vistas del listado de restaurantes y de platos, me faltaria hacerlas responsive utilizando media queries.

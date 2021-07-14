@@ -52,5 +52,6 @@ router.get('/carrito', mainController.carrito);
 
 // Rutas para listado de restaurantes y de platos
 router.get('/lista-restaurantes', mainController.listaRestaurantes);
+router.get('/lista-platos', mainController.listaPlatos)
 
 module.exports = router;
