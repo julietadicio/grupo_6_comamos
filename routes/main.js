@@ -31,6 +31,9 @@ router.get('/login/account/:idUser', mainController.userAccount);
 router.get('/login/account/:idUser/edit', mainController.userEditForm);
 router.put('/login/account/:idUser', uploadFile.single('avatar') , mainController.userEditAccount);
 router.delete('/login/account/:idUser/delete', mainController.userDelete);
+router.get('/login/account/my-order/:idUser', mainController.userMyOrder);
+router.get('/login/account/my-order/:idUser/order/:idOrder', mainController.userOrder);
+router.delete('/login/account/my-order/:idUser/delete', mainController.userMyOrderDelete);
 router.get('/login/account/orders/:idUser', mainController.userOrders);
 
 // Rutas para login y administracion de negocios

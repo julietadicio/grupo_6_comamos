@@ -171,8 +171,8 @@ body main a {
     align-items: center;
      background-color: white;
     box-shadow: 0px 0px 10px rgb(201, 201, 201);
-    width: 90%;
-    margin: auto;
+    width: 100%;
+    margin: 3% auto;
     padding: 5px;
     border-radius: 5px;
 }
@@ -181,6 +181,7 @@ body main a {
     height: 90px;
     border-radius: 100%;
 }
+
 
 /* Fin Main Historial de Reservas */
 
