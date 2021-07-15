@@ -54,8 +54,12 @@ const controller = {
     userEditAccount: (req, res) => {
         const userId = req.params.idUser;
         const userSelectId = userDataBase.findIndex(p => p.idUser == userId)
-        userDataBase[userSelectId] = { ...userDataBase[userSelectId] , ...req.body };
-        userDataBase[userSelectId].avatar = '/img/avatars/'+req.file.filename;
+        if (!req.file) {
+            userDataBase[userSelectId] = { ...userDataBase[userSelectId] , ...req.body };
+        } else {
+            userDataBase[userSelectId] = { ...userDataBase[userSelectId] , ...req.body };
+            userDataBase[userSelectId].avatar = '/img/avatars/'+req.file.filename;
+        }
         fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
         return res.redirect ('/login/account/'+ userId);
     },
@@ -66,7 +70,7 @@ const controller = {
     },
     userMyOrder: (req, res) => {
         const userSelect = userDataBase.find(u => u.idUser == req.params.idUser);
-        const ordersUser = ordersDataBase.filter(u => u.idUser == req.params.idUser && u.estado == 'confirmada');
+        const ordersUser = ordersDataBase.filter(u => u.idUser == req.params.idUser && u.estado == 'confirmada' || u.estado == 'pendiente');
         return res.render ('user-my-order', {userSelect, ordersUser, restaurantDataBase, productsDataBase})
     },
     userOrder: (req, res) => {
@@ -119,8 +123,12 @@ const controller = {
     buisnessEditAccount: (req, res) => {
         const buisnessId = req.params.idRestaurant;
         const buisnessSelectId = restaurantDataBase.findIndex(p => p.idRestaurant == buisnessId)
-        restaurantDataBase[buisnessSelectId] = { ...restaurantDataBase[buisnessSelectId] , ...req.body };
-        restaurantDataBase[buisnessSelectId].avatar = '/img/avatars/'+req.file.filename;
+        if (!req.file) {
+            restaurantDataBase[buisnessSelectId] = { ...restaurantDataBase[buisnessSelectId] , ...req.body };
+        } else {
+            restaurantDataBase[buisnessSelectId] = { ...restaurantDataBase[buisnessSelectId] , ...req.body };
+            restaurantDataBase[buisnessSelectId].avatar = '/img/avatars/'+req.file.filename;
+        }
         fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
         return res.redirect ('/login/account-restaurant/'+ buisnessId);
     },

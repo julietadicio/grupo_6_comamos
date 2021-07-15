@@ -32,11 +32,6 @@
                             <button type="submit">Cancelar Reserva</button>
                         </form>
                     </article>
-                    <form action="/login/account/<%= order.idUser %>">
-                        <fieldset class="logout-button">
-                            <button type="menu" class="none-decoration">Volver</button>
-                        </fieldset>
-                    </form>
                 </main>
             <%  }); %>
         <% } else { %>
@@ -44,12 +39,12 @@
             <a href="/">
                 <h2 class="no-orders">Te invitamos a ver los mejores platos para tu reserva</h2>
             </a>
-            <form action="/login/account/<%= userSelect.idUser %>">
-                <fieldset class="logout-button">
-                    <button type="menu" class="none-decoration">Volver</button>
-                </fieldset>
-            </form>
         <% } %>
+        <form action="/login/account/<%= userSelect.idUser %>">
+            <fieldset class="logout-button">
+                <button type="menu" class="none-decoration">Volver</button>
+            </fieldset>
+        </form>
     <%- include partials/footer %>     
 </body>
 

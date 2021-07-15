@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include partials/head %>
+    <link rel="stylesheet" href="/css/account-restaurant.css">
+    <title>Agregar Plato</title>
+</head>
+
+<body>
+    <%- include partials/header-buisness-account %> 
+    <main>
+        <section class="box-space">
+            <form action="/login/account-restaurant/new-product/<%= restaurantSelect.idRestaurant %>" method="POST" enctype="multipart/form-data">
+                <div class="hide-edit">
+                    <label for="img-product">Agregar</label>
+                    <input type="file" name="img-product" id="img-product">
+                </div>
+                <div>
+                    <label for="plato">Nombre del Plato</label>
+                    <input type="text" name="plato" id="plato" value="">
+                </div>
+                <div>
+                    <label for="descripcion">Descripcion</label>
+                    <textarea name="descripcion" id="descripcion" cols="30" rows="10"></textarea>
+                </div>
+                <div>
+                    <label for="categoria">Categoria</label>
+                    <input type="text" name="categoria" id="categoria" value="">
+                </div>
+                <div>
+                    <label for="precio">Precio</label>
+                    <input type="number" name="precio" id="precio" value="">
+                </div>
+                <fieldset class="logout-button">
+                    <button type="submit" class="none-decoration">Confirmar</button>
+                </fieldset>
+            </form>
+            <form action="/login/account-restaurant/products/<%= restaurantSelect.idRestaurant %> ">
+                <fieldset class="logout-button">
+                        <button type="menu" class="none-decoration">Volver</button>
+                </fieldset>    
+            </form>
+        </section>
+    </main>
+    <%- include partials/footer %>     
+</body>
+
+</html>

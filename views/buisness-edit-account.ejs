@@ -11,7 +11,7 @@
     <%- include partials/header-buisness-account %> 
     <main>
         <section class="box-space">
-            <form action="/login/account-restaurant/<%= restaurantSelect.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <form action="/login/account-restaurant/<%= restaurantSelect.idRestaurant %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="align-image-user">
                     <img src="<%= restaurantSelect.avatar %>" alt="user image" class="user-image">
                 </div>

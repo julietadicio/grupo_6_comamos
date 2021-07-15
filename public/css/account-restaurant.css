@@ -126,6 +126,11 @@ body main a {
     width: 100%;
     height: 100%;
 }
+.product-image {
+    max-width: 110px;
+    height: 110px;
+    border-radius: 100%;
+}
 .align-titles {
     margin: auto;
     text-align: center;
@@ -268,9 +273,9 @@ main div section ul li a i {
     display: inline-flex;
     width: 100%;
     padding: 5px;
-    position: absolute;
+    /*position: absolute;
     bottom: 0px;
-    left: 0px;
+    left: 0px;*/
     margin-top: 2%;
 }
 #center-footer {

@@ -9,7 +9,7 @@
 
 <body>
     <%- include partials/header-buisness-account %>
-    <form action="" method="POST">
+    <form action="/login/account-restaurant/products/<%= restaurantSelect.idRestaurant %>/new">
         <fieldset class="add-button">
             <button type="submit" class="none-decoration">Agregar</button>
         </fieldset>
@@ -29,7 +29,7 @@
                         <h5>Precio: $<%= product.precio %></h5>
                     </div>
                     <div class="buttons-orders">
-                        <form action="" method="POST" class="logout-button">
+                        <form action="/login/account-restaurant/products/<%= product.idRestaurant %>/edit/<%= product.idPlato %>" method="GET" class="logout-button">
                             <button type="submit" class="none-decoration">Editar</button>
                         </form>
                         <form action="" method="POST" class="logout-button">

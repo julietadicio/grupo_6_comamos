@@ -22,7 +22,25 @@
     "direccion": "Charcas 4635",
     "capacidad": "20",
     "email": "villacrespopizzas@hotmail.com",
-    "password": "Test_2021",
+    "password": "Prueba123",
+    "avatar": "/img/avatars/Usuario-registro.png"
+  },
+  {
+    "idRestaurant": 2,
+    "nombre": "Amalia Restaurante",
+    "direccion": "Humberto 1º 299",
+    "capacidad": "30",
+    "email": "amaliarestaruante@hotmail.com",
+    "password": "$2a$10$jqG1rSzppHfn59qO0WSNZ.KuGuyp/8L8RrZ3B8XtNu7wDcO56srrS",
+    "avatar": "/img/avatars/user-buisness-avatar.jpg"
+  },
+  {
+    "idRestaurant": 3,
+    "nombre": "Kotten, Nikkei and Veggie",
+    "direccion": "Jorge Luis Borges 1891",
+    "capacidad": "15",
+    "email": "nandv@gmail.com",
+    "password": "$2a$10$x0BTQBJx3SFnOC6w.TeTueyVDdPlI1pvDPpw6DOATRg4MxQw5mKBi",
     "avatar": "/img/avatars/user-buisness-avatar.jpg"
   }
 ]
