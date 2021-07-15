@@ -2,25 +2,13 @@ var express = require('express');
 const path = require('path');
 var router = express.Router();
 const mainController = require('../controllers/mainController');
-const multer = require('multer');
 const { listaRestaurantes } = require('../controllers/mainController');
-const storage = multer.diskStorage ({
-  destination: (req, file, cb) => {
-    cb (null, path.join(__dirname, '../public/img/avatars'));
-  },
-  filename: (req, file, cb) => {
-    const newFileName = Date.now()+path.extname(file.originalname);
-    cb (null, newFileName);
-  }
-})
-const uploadFile = multer({ storage });
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
+const uploadFile = require('../middlewares/multerMiddleware');
 
 /* GET home page. */
 router.get('/', mainController.index );
-router.get('/login/:idUser', mainController.indexLogin);
-router.get('/login-restaurant/:id', mainController.indexBuisnessLogin);
 
 // Rutas para registro de usuarios y restaurantes
 router.get('/registro', mainController.registro);
@@ -29,8 +17,9 @@ router.get('/registro-restaurant', mainController.registroRestaurante);
 router.post('/registerOk-restaurant', mainController.createRestaurant);
 
 // Rutas para login y administracion de usuarios
-router.get('/login', mainController.loginUser);
-router.get('/login/account/:idUser', mainController.userAccount);
+router.get('/login', guestMiddleware, mainController.loginUser);
+router.post('/login/account', mainController.loginProcess);
+router.get('/account', authMiddleware, mainController.userAccount);
 router.get('/login/account/:idUser/edit', mainController.userEditForm);
 router.put('/login/account/:idUser', uploadFile.single('avatar') , mainController.userEditAccount);
 router.delete('/login/account/:idUser/delete', mainController.userDelete);

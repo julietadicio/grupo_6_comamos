@@ -6,16 +6,25 @@
     </div>
     <div id="align-header">
         <h1 class="title style-title">Comamos</h1>
-        <div class="icon-user">
-            <a href="/carrito">
-                <i class="fas fa-shopping-cart"></i>
-            </a>
-        </div>
-        <div class="icon-user">
-            <a href="/login/account/<%= userSelect.idUser %> ">
-                <i class="fas fa-user"></i>
-            </a>
-        </div>
+        <% if (locals.isLogged) { %>
+            <div class="icon-user">
+                <a href="/carrito">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+            <div class="icon-user">
+                <a href="/login/account/">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        <% } else { %>
+            <ul class="box-mobile">
+                <li class="format-menu"><a href="/registro">Registrate</a></li>
+                <li class="format-menu"><a href="/registro-restaurant">Registrá tu Restaurante</a></li>
+                <li class="format-menu"><a href="/login">Ingresá a tu cuenta</a></li>
+                <li class="format-menu"><a href="login-restaurant">Ingresá a tu cuenta de negocio</a></li>
+            </ul>
+        <% } %>
         <div class="burger-bar">
             <i class="fas fa-bars"></i>
         </div>

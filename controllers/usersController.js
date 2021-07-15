@@ -6,6 +6,8 @@ const { fileLoader } = require('ejs');
 const { FILE } = require('dns');
 const bcrypt = require('bcryptjs');
 
+
+
 const userFilePath = './data bases/userDataFile.json';
 const userDataBase = JSON.parse(fs.readFileSync(userFilePath, 'utf-8'));
 const restaurantFilePath = './data bases/restaurantDataFile.json';
@@ -34,7 +36,7 @@ const controller = {
 					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
 				}
 
-				return res.redirect('/account');
+				return res.redirect('/user/account');
 			} 
 			return res.render('login', {
 				errors: {
@@ -53,12 +55,20 @@ const controller = {
 			}
 		});
     },
-    profile: (req, res) => {
+    userAccount: (req, res) => {
         return res.render('user-account', {user: req.session.userLogged});
     },
-    registro: (req, res) => {
+    logout: (req, res) => {
+		res.clearCookie('userEmail');
+		req.session.destroy();
+		return res.redirect('/');
+	},
+    register: (req, res) => {
         return res.render ('register-user');
     },
+    processRegister: (req, res) => {
+        
+	},
     createUser: (req, res) => {
         const lastUserId = userDataBase[userDataBase.length -1].idUser;
         const newUserId = lastUserId +1;
@@ -72,10 +82,6 @@ const controller = {
         userDataBase.push(userToCreate);
         fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
         res.render('registerOk-user');
-    },
-    userAccount: (req, res) => {
-        const userSelect = userDataBase.find(u => u.idUser == req.params.idUser);
-        return res.render ('user-account', {user: req.session.userLogged})
     },
     userEditForm: (req, res) => {
         const userSelect = userDataBase.find(u => u.idUser == req.params.idUser);

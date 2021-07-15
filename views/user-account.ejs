@@ -12,10 +12,10 @@
     <main>
         <section class="box-space">
             <div class="align-image-user">
-                <img src="<%= userSelect.avatar %>" alt="user image" class="user-image">
+                <img src="<%= user.avatar %>" alt="user image" class="user-image">
             </div>
             <div class="align-titles">
-                <h3><%= userSelect.nombre+' '+ userSelect.apellido%></h3>
+                <h3><%= user.nombre+' '+ user.apellido%></h3>
             </div>
         </section>
         <div class="flex-row">
@@ -28,7 +28,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/login/account/<%= userSelect.idUser %>/edit">
+                        <a href="/login/account/<%= user.idUser %>/edit">
                             <i class="far fa-user-circle more-space"></i>
                             <h2>Datos de la cuenta</h2>
                         </a>
@@ -39,7 +39,7 @@
                             <h2>Cupones</h2>
                         </a>
                     </li>
-                    <form action="/login/account/<%= userSelect.idUser %>/delete?_method=DELETE" method="POST">
+                    <form action="/login/account/<%= user.idUser %>/delete?_method=DELETE" method="POST">
                         <fieldset class="logout-button">
                             <button type="submit" class="none-decoration">Eliminar Cuenta</button>
                             <i class="fas fa-user-times"></i>
@@ -50,13 +50,13 @@
             <section class="box-space2">
                 <ul type='none' class="data-form">
                     <li>
-                        <a href="/login/account/my-order/<%= userSelect.idUser %>">
+                        <a href="/login/account/my-order/<%= user.idUser %>">
                             <i class="fas fa-cart-arrow-down"></i>
                             <h2>Ver mi Reserva</h2>
                         </a>
                     </li>
                     <li>
-                        <a href="/login/account/orders/<%= userSelect.idUser %> ">
+                        <a href="/login/account/orders/<%= user.idUser %> ">
                             <i class="fas fa-history"></i>
                             <h2>Historial de Reservas</h2>
                         </a>
@@ -70,7 +70,7 @@
                 </ul>
             </section>
         </div>
-        <form action="/">
+        <form action="/user/logout">
             <fieldset class="logout-button">
                 <button type="submit" class="none-decoration">Cerrar Sesión</button>
                 <i class="fas fa-sign-out-alt"></i>
