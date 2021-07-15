@@ -37,11 +37,6 @@
                         </form>
                     </div>    
                 </article>
-                <form action="/login/account-restaurant/<%= order.idRestaurant %>">
-                    <fieldset class="logout-button">
-                        <button type="menu" class="none-decoration">Volver</button>
-                    </fieldset>
-                </form>
             </main>
             <%  }); %> 
         <% } else { %>
@@ -49,12 +44,12 @@
             <a href="/">
                 <h2 class="no-orders">Te invitamos a ver los platos que tenes para ofrecer</h2>
             </a>
-            <form action="/login/account-restaurant/<%= restaurantSelect.idRestaurant %>">
-                <fieldset class="logout-button">
-                    <button type="menu" class="none-decoration">Volver</button>
-                </fieldset>
-            </form>
-    <% } %> 
+    <% } %>
+    <form action="/login/account-restaurant/<%= restaurantSelect.idRestaurant %>">
+        <fieldset class="logout-button">
+            <button type="menu" class="none-decoration">Volver</button>
+        </fieldset>
+    </form> 
     <%- include partials/footer %>     
 </body>
 
