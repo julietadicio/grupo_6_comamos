@@ -14,6 +14,8 @@ const storage = multer.diskStorage ({
   }
 })
 const uploadFile = multer({ storage });
+const guestMiddleware = require('../middlewares/guestMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 /* GET home page. */
 router.get('/', mainController.index );
