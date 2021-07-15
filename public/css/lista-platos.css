@@ -91,8 +91,6 @@ article {
     padding: 15px;
 }
 
-
-
 .plato {
     width: 60%;
     margin: 10px;
@@ -104,6 +102,14 @@ article {
 }
 .plato img {
     width: 90%;
+}
+
+.arrow {
+    background: none;
+    border: none;
+    font-size: 20px;
+    margin: 2px;
+    cursor: pointer;
 }
 
 /*CSS MAIN*/
