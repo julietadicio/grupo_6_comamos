@@ -75,52 +75,38 @@ body header div ul li a {
 }
 /* Css para header */
 
-/*Css main*/
-.todos {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 10px;
-}
-
-.resto {
-    border: 1px solid gray;
-    padding: 10px;
-    border-radius: 3%;
-    background-color: #ffffffb8;
-    max-width: 22%;
-    margin: auto;
-    margin-top: 10px;
-    transition: all .3s;
-}
-
-.resto:hover {
-    box-shadow: 0px 0px 10px rgb(100, 100, 100);
-}
-
-img {
-    width: 100%;
-}
-
-.titulo {
+/*CSS MAIN*/
+h2 {
     text-align: center;
 }
 
-.tipo-comida {
-    font-style: italic;
+article {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5%;
+    width: 70vw;
+    margin: auto;
+    background-color: rgb(226, 221, 221, 75%);
+    margin-top: 10px;
+    padding: 15px;
 }
 
-button {
-    background-color: #eb4b50;
-    border: none;
-    border-radius: 10%;
-    color: white;
+
+
+.plato {
+    width: 60%;
+    margin: 10px;
+    transition: all .3s;
     padding: 5px;
-    margin-top: 5px;
-    cursor: pointer;
+}
+.plato:hover {
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+.plato img {
+    width: 90%;
 }
 
-
+/*CSS MAIN*/
 
 /* CSS para Footer */
 
@@ -207,3 +193,5 @@ footer ul, footer div {
         line-height: 20px;
     }
 }
+
+/*css para footer*/
