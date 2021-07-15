@@ -16,23 +16,5 @@
     "categoria": "Pizzas",
     "precio": 900,
     "idRestaurant": 1
-  },
-  {
-    "idProduct": 3,
-    "plato": "Curry Gamba Style",
-    "descripcion": "Langostinos salteados al curry, hojas de lechuga morada y francesa, palta, gajos de naranjas al vivo y vinagreta cítrica de yogurth natural",
-    "categoria": "Mariscos",
-    "precio": 1100,
-    "imagen": "/img/products/1626305540493.webp",
-    "idRestaurant": 1
-  },
-  {
-    "idProduct": 4,
-    "plato": "Blue Cheese",
-    "descripcion": "Ensalada con mix de lechugas con granas de queso azul, peras caramelizadas a la miel, tomates confitados, frutos secos tostados y reducción de aceto",
-    "categoria": "Ensaladas",
-    "precio": 820,
-    "imagen": "/img/products/1626305817757.webp",
-    "idRestaurant": 1
   }
 ]

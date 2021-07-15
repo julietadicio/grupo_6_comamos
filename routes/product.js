@@ -22,6 +22,7 @@ router.get('/login/account-restaurant/products/:idRestaurant/new', productContro
 router.get('/login/account-restaurant/products/:idRestaurant/edit/:idPlato', productController.editFormProduct);
 router.post('/login/account-restaurant/new-product/:idRestaurant', uploadFile.single('img-product') ,productController.createProduct);
 router.put('/login/account-restaurant/:idRestaurant/edit-product/:idPlato', uploadFile.single('img-product') ,productController.editProduct);
+router.delete('/login/account-restaurant/products/:idRestaurant/delete', productController.deleteProduct);
 
 
 module.exports = router;

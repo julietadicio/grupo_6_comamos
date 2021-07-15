@@ -55,6 +55,12 @@ const controller = {
         const idRestaurant = Number(req.params.idRestaurant)    
         fs.writeFileSync(productsFilePath, JSON.stringify(productsDataBase, null, 2));
         return res.redirect('/login/account-restaurant/products/'+idRestaurant);
+    },
+    deleteProduct: (req, res) => {
+        const newProductsDataBase = productsDataBase.filter(p => p.idPlato != req.params.idPlato);
+        const idRestaurant = req.params.idRestaurant;
+        fs.writeFileSync(productsFilePath, JSON.stringify(newProductsDataBase, null, 2));
+        return res.redirect('/login/account-restaurant/products/'+idRestaurant);
     }
 }
 
