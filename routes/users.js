@@ -41,7 +41,7 @@ router.get('/carrito', usersController.carrito);
 // Formulario de registro
 router.get('/register-buisness', guestBuisnessMiddleware, usersController.registerBuisness);
 // Procesar el registro
-router.post('/register-buisness', uploadFile.single('avatar'), /*validations,*/ usersController.createRestaurant);
+router.post('/register-buisness', uploadFile.single('avatar'), /*validations,*/ usersController.createBuisness);
 // Formulario de login
 router.get('/login-buisness', guestBuisnessMiddleware, usersController.loginBuisness);
 // Procesar el login

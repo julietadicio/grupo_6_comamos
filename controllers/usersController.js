@@ -6,8 +6,6 @@ const { fileLoader } = require('ejs');
 const { FILE } = require('dns');
 const bcrypt = require('bcryptjs');
 
-
-
 const userFilePath = './data bases/userDataFile.json';
 const userDataBase = JSON.parse(fs.readFileSync(userFilePath, 'utf-8'));
 const restaurantFilePath = './data bases/restaurantDataFile.json';
@@ -163,7 +161,7 @@ const controller = {
     registerBuisness: (req, res) => {
         return res.render ('buisness-register');
     },
-    createRestaurant: (req, res) => {
+    createBuisness: (req, res) => {
         const lastRestaurantId = restaurantDataBase[restaurantDataBase.length -1].idRestaurant;
         const newRestaurantId = lastRestaurantId +1;
         var defaultImageProfile = '/img/avatars/user-buisness-avatar.jpg'
@@ -181,7 +179,7 @@ const controller = {
         return res.render ('buisness-edit-account', {restaurantSelect: req.session.userLogged});
     },
     buisnessEditAccount: (req, res) => {
-        const buisnessId = req.params.idRestaurant;
+        const buisnessId = req.session.userLogged.idRestaurant;
         const buisnessSelectId = restaurantDataBase.findIndex(p => p.idRestaurant == buisnessId)
         if (!req.file) {
             restaurantDataBase[buisnessSelectId] = { ...restaurantDataBase[buisnessSelectId] , ...req.body };
@@ -190,7 +188,7 @@ const controller = {
             restaurantDataBase[buisnessSelectId].avatar = '/img/avatars/'+req.file.filename;
         }
         fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
-        return res.redirect ('/login/account-restaurant/'+ buisnessId);
+        return res.redirect ('/user/account-buisness');
     },
     buisnessDelete: (req, res) => {
         const newRestaurantDataBase = restaurantDataBase.filter(r => r.idRestaurant != req.session.userLogged);

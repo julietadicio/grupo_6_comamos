@@ -22,8 +22,8 @@
     "direccion": "Charcas 4635",
     "capacidad": "20",
     "email": "villacrespopizzas@hotmail.com",
-    "password": "Prueba123",
-    "avatar": "/img/avatars/Usuario-registro.png"
+    "avatar": "/img/avatars/Usuario-registro.png",
+    "password": "$2a$10$J6Cfyc52CnIEypqd6t949ORvOmBezSGlefVFISQYpQ9JUbdpiCwMq"
   },
   {
     "idRestaurant": 2,
