@@ -36,5 +36,7 @@ router.get('/login-buisness', guestBuisnessMiddleware, usersController.loginBuis
 router.post('/login-buisness', usersController.loginProcessBuisness);
 // Perfil de Usuario
 router.get('/account-buisness/', authBuisnessMiddleware, usersController.buisnessAccount);
+// Logout
+router.get('/logout-buisness', usersController.logoutBuisness);
 
 module.exports = router;

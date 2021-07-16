@@ -155,8 +155,14 @@ const controller = {
 			}
 		});
     },
+    logoutBuisness: (req, res) => {
+        res.clearCookie('buisnessEmail');
+		req.session.destroy();
+		return res.redirect('/');
+    },
     buisnessAccount: (req, res) => {
-        return res.render ('buisness-account', {user: req.session.buisnessEmail})
+        const restaurantSelect = restaurantDataBase.find(r => r.email == req.cookies.buisnessEmail);
+        return res.render ('buisness-account', {user: req.session.buisnessEmail, restaurantSelect})
     },
     registerBuisness: (req, res) => {
         return res.render ('register-restaurant');

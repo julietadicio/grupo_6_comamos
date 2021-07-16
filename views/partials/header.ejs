@@ -5,19 +5,48 @@
         </a>
     </div>
     <% if (locals.isLogged) { %>
-        <div id="align-header">
-            <h1 class="title style-title">Comamos</h1>
-            <section class="icon-align">
-                <div class="icon-user">
-                    <a href="/carrito">
-                        <i class="fas fa-shopping-cart"></i>
-                    </a>
-                </div>
-                <div class="icon-user">
-                    <a href="/user/account/">
-                        <i class="fas fa-user"></i>
-                    </a>
-                </div>
+                <% if (locals.userEmail) { %>
+                <div id="align-header">
+                    <h1 class="title style-title">Comamos</h1>
+                    <section class="icon-align">
+                    <div class="icon-user">
+                        <a href="/carrito">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </div>
+                    <div class="icon-user">
+                            <a href="/user/account/">
+                                <i class="fas fa-user"></i>
+                            </a>
+                        </div>
+                    <% } else if (locals.buisnessEmail) { %>
+                        <div id="align-header">
+                            <h1 class="title style-title">Comamos</h1>
+                            <div class="icon-user">
+                                <a href="/login/account-buisness/orders/">
+                                    <i class="fas fa-cart-arrow-down"></i>
+                                </a>
+                            </div>
+                            <div class="icon-user">
+                                <a href="/login/account-buisness/">
+                                    <i class="fas fa-user"></i>
+                                </a>
+                            </div>
+                            <div class="burger-bar">
+                                <i class="fas fa-bars"></i>
+                            </div>
+                        </div>
+                    <% } else { %>
+                        <div id="align-header">
+                            <h1 class="title style-title">Comamos</h1>
+                            <ul class="box-mobile">
+                                <li class="format-menu"><a href="/user/register">Registrate</a></li>
+                                <li class="format-menu"><a href="/user/register-buisness">Registrá tu Restaurante</a></li>
+                                <li class="format-menu"><a href="/user/login">Ingresá a tu cuenta</a></li>
+                                <li class="format-menu"><a href="/user/login-buisness">Ingresá a tu cuenta de negocio</a></li>
+                            </ul>
+                        </div>
+                        <% } %>
             </section>
         </div>
             <% } else { %>
