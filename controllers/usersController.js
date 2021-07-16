@@ -124,15 +124,42 @@ const controller = {
         const ordersUser = ordersDataBase.filter(u => u.idUser == req.params.idUser && u.estado == 'completada');
         return res.render ('user-orders-history', {userSelect, ordersUser, restaurantDataBase, productsDataBase})
     },
-    loginNegocio: (req, res) => {
+    loginBuisness: (req, res) => {
         return res.render ('buisness-login');
+    },
+    loginProcessBuisness: (req, res) => {
+        const userToLogin = restaurantDataBase.find(u => u.email == req.body.email);
+        if(userToLogin) {
+			let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
+			if (isOkThePassword) {
+				delete userToLogin.password;
+				req.session.userLogged = userToLogin;
+				if(req.body.recordarme) {
+					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+				}
+				return res.redirect('/user/account-buisness');
+			} 
+			return res.render('buisness-login', {
+				errors: {
+					email: {
+						msg: 'Las credenciales son inválidas'
+					}
+				}
+			});
+		}
+		return res.render('buisness-login', {
+			errors: {
+				email: {
+					msg: 'No se encuentra este email en nuestra base de datos'
+				}
+			}
+		});
+    },
+    buisnessAccount: (req, res) => {
+        return res.render ('buisness-account', {user: req.session.userLogged})
     },
     registroRestaurante: (req, res) => {
         return res.render ('register-restaurant');
-    },
-    buisnessAccount: (req, res) => {
-        const restaurantSelect = restaurantDataBase.find(u => u.idRestaurant == req.params.idRestaurant);
-        return res.render ('buisness-account', {restaurantSelect})
     },
     createRestaurant: (req, res) => {
         const lastRestaurantId = restaurantDataBase[restaurantDataBase.length -1].idRestaurant;

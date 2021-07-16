@@ -5,7 +5,7 @@
     "direccion": "Avda. Ejercito Argentino 2980",
     "capacidad": 25,
     "email": "test@hotmail.com",
-    "password": "test2021"
+    "password": "$2a$10$d8RABLF9zTx8eHUTVU6JfOsJDAy.k3Yb4RwunHzJ1O.TBpd/ZLvb2"
   },
   {
     "idRestaurant": 98,

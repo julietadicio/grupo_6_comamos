@@ -13,6 +13,7 @@ var productRouter = require('./routes/product');
 var usersRouter = require('./routes/users');
 
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+const buisnessLoggedMiddleware = require('./middlewares/buisnessLoggedMiddleware');
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use(session({
   saveUninitialized: false
 }));
 app.use(userLoggedMiddleware);
+app.use(buisnessLoggedMiddleware);
 
 app.use('/', indexRouter);
 app.use('/', productRouter);

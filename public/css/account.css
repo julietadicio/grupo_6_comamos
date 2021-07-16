@@ -12,7 +12,11 @@ body header {
     display: flex;
     justify-content: center;
 }
-body header div div a i {
+body header div ul li a {
+    text-decoration: none;
+    color: #ED1B24;
+}
+body header div section div a i{
     color: #ED1B24;
 }
 form {
@@ -46,6 +50,11 @@ h3 div p {
 article {
     display: flex;
     justify-content: space-around;
+}
+.icon-align {
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
 }
 .box-header {
     background-color: rgb(226, 221, 221, 75%);
@@ -85,7 +94,7 @@ article {
     color: #ED1B24;
 }
 #align-header {
-    width: 85%;
+    width: 88%;
     display: flex;
 }
 .hide-mobile {
@@ -304,6 +313,10 @@ footer ul, footer div {
     }
     .box-mobile {
         display: inline-flex;
+        width: 60%;
+    }
+    body header div div a i {
+        font-size: 25px;
     }
     .burger-bar {
         display: none;
@@ -313,11 +326,11 @@ footer ul, footer div {
         font-size: 30px;
     }
     .icon-user {
-        display: flex;
-        width: 5%;
-        align-content: center;
-        justify-content: center;
-        align-items: center;
+    display: flex;
+    width: 25%;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
     }
     .main-order {
         width: 90%;
@@ -385,5 +398,8 @@ footer ul, footer div {
     }
     .main-order {
         width: 65%;
+    }
+    .style-title {
+        margin-left: 15%;
     }
 }

@@ -6,16 +6,16 @@
     <title>Comamos</title>
 </head>
 
-<body>
+  <body>
     
     <%- include partials/header %> 
 
   
-<main class="centro">
+      <main class="centro">
    
        
 
-        <form action="/">
+        <form action="/user/login-buisness">
           
           <div class="exit">
             <a href="/" class="exit-button"><i class="fas fa-times"></i></a>
@@ -23,33 +23,37 @@
       
           
           <h2 class="close" id="padding">Login</h2> <div></div>
-            <p>
-              <label class="alejar">Usuario del negocio</label><div></div>
-              <input type= "text" name= "usuario" id= "usuario">
-            </p>
-            
+          <p>
+            <label class="alejar">Usuario del negocio</label><div></div>
+            <input type= "text" name= "email" id= "email">
+          </p>
+          <% if (locals.errors && errors.email) { %>
+            <div>
+              <%= errors.email.msj %>
+            </div>
+            <% } %>
             <p>
               <label>Contraseña</label><div></div>
-              <input type= "password" name= "password" id= "contraseña">
-              </p>
+              <input type="password" name="password" id="contraseña">
+            </p>
+            <button type="submit">Login</button>
+            <p class="alejar">
+              <div></div>
+              <input type="checkbox" value="recordarme" name= "recordarme" checked> 
+              <label>Recordar usuario </label>
+          </p>
+          <p class="subrayado">Restablecer contraseña</p>
+          <div></div>
+        </form>
+      </main>
+      
+    <%- include partials/footer %>     
+          
+  </body>
+</html>
     
-              <p class="alejar">
                 
-                    <input class="center" type="submit" value="Login"> </input>
-                    <div></div>
-                    <input type="checkbox" value="Recordarme" name= "Recordarme" checked> 
-                    <label>Recordar usuario </label>
-                </p>
     
-                <p class="subrayado">Restablecer contraseña</p>
-                <div></div>
     
-          </form>
         
    
-</main>
-
-<%- include partials/footer %>     
-    
-</body>
-</html>

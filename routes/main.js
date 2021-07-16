@@ -17,9 +17,6 @@ router.get('/registro-restaurant', mainController.registroRestaurante);
 router.post('/registerOk-restaurant', mainController.createRestaurant);
 
 // Rutas para login y administracion de usuarios
-router.get('/login', guestMiddleware, mainController.loginUser);
-router.post('/login/account', mainController.loginProcess);
-router.get('/account', authMiddleware, mainController.userAccount);
 router.get('/login/account/:idUser/edit', mainController.userEditForm);
 router.put('/login/account/:idUser', uploadFile.single('avatar') , mainController.userEditAccount);
 router.delete('/login/account/:idUser/delete', mainController.userDelete);
