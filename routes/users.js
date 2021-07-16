@@ -26,6 +26,10 @@ router.get('/account/', authMiddleware, usersController.userAccount);
 router.get('/logout', usersController.logout);
 
 // Rutas para registro de usuarios y restaurantes
+// Formulario de registro
+router.get('/register-buisness', guestBuisnessMiddleware, usersController.registerBuisness);
+// Procesar el registro
+router.post('/register-buisness', uploadFile.single('avatar'), /*validations,*/ usersController.createRestaurant);
 // Formulario de login
 router.get('/login-buisness', guestBuisnessMiddleware, usersController.loginBuisness);
 // Procesar el login

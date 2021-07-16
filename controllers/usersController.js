@@ -128,14 +128,14 @@ const controller = {
         return res.render ('buisness-login');
     },
     loginProcessBuisness: (req, res) => {
-        const userToLogin = restaurantDataBase.find(u => u.email == req.body.email);
-        if(userToLogin) {
-			let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
+        const buisnessToLogin = restaurantDataBase.find(u => u.email == req.body.email);
+        if(buisnessToLogin) {
+			let isOkThePassword = bcrypt.compareSync(req.body.password, buisnessToLogin.password);
 			if (isOkThePassword) {
-				delete userToLogin.password;
-				req.session.userLogged = userToLogin;
+				delete buisnessToLogin.password;
+				req.session.buisnessLogged = buisnessToLogin;
 				if(req.body.recordarme) {
-					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+					res.cookie('buisnessEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
 				}
 				return res.redirect('/user/account-buisness');
 			} 
@@ -156,9 +156,9 @@ const controller = {
 		});
     },
     buisnessAccount: (req, res) => {
-        return res.render ('buisness-account', {user: req.session.userLogged})
+        return res.render ('buisness-account', {user: req.session.buisnessEmail})
     },
-    registroRestaurante: (req, res) => {
+    registerBuisness: (req, res) => {
         return res.render ('register-restaurant');
     },
     createRestaurant: (req, res) => {

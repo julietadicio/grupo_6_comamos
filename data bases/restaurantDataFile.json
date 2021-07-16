@@ -13,7 +13,7 @@
     "direccion": "Necochea 4635",
     "capacidad": "20",
     "email": "paladarnegro@hotmail.com",
-    "password": "asdfdafg",
+    "password": "$2a$10$q6IUon0GWbgUI2itL3686.mNUdhXXk288eLEnVVoKoy8aCdpWjjp6",
     "avatar": "/img/avatars/kansas-fachada.jpg"
   },
   {
@@ -41,6 +41,15 @@
     "capacidad": "15",
     "email": "nandv@gmail.com",
     "password": "$2a$10$x0BTQBJx3SFnOC6w.TeTueyVDdPlI1pvDPpw6DOATRg4MxQw5mKBi",
+    "avatar": "/img/avatars/user-buisness-avatar.jpg"
+  },
+  {
+    "idRestaurant": 4,
+    "nombre": "Esto es una prueba",
+    "direccion": "Avenida siempre viva 123",
+    "capacidad": "10",
+    "email": "ale@gmail.com",
+    "password": "$2a$10$vs6pkAGfTPecaLzRHM8BoeXhYkepYIE1RdMIjwAH/1NupGE.HqQgC",
     "avatar": "/img/avatars/user-buisness-avatar.jpg"
   }
 ]
