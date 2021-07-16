@@ -1,5 +1,5 @@
 function authBuisnessMiddleware (req,res, next) {
-    if (!req.session.buisnessLogged) {
+    if (!req.session.userLogged) {
         return res.redirect('/user/login-buisness');
     }
     next();

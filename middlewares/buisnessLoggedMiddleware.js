@@ -3,18 +3,18 @@ const restaurantFilePath = './data bases/restaurantDataFile.json';
 const restaurantDataBase = JSON.parse(fs.readFileSync(restaurantFilePath, 'utf-8'));
 
 function buisnessLoggedMiddleware(req, res, next) {
-	res.locals.buisnessEmail = false;
+	res.locals.isLogged = false;
 
-	let buisnessEmail = req.cookies.buisnessEmail;
-	let buisnessFromCookie = restaurantDataBase.find(e => e.email == buisnessEmail);
+	let emailInCookie = req.cookies.buisnessEmail;
+	let buisnessFromCookie = restaurantDataBase.find(e => e.email == emailInCookie);
 
 	if (buisnessFromCookie) {
-		req.session.buisnessLogged = buisnessFromCookie;
+		req.session.userLogged = buisnessFromCookie;
 	}
 
-	if (req.session.buisnessLogged) {
+	if (req.session.userLogged) {
 		res.locals.isLogged = true;
-		res.locals.buisnessLogged = req.session.buisnessLogged;
+		res.locals.userLogged = req.session.userLogged;
 	}
 
 	next();

@@ -22,7 +22,7 @@ const controller = {
         return res.render ('index');
     },
     loginUser: (req, res) => {
-        return res.render ('login');
+        return res.render ('user-login');
     },
     loginProcess: (req, res) => {
         const userToLogin = userDataBase.find(u => u.email == req.body.email);
@@ -38,7 +38,7 @@ const controller = {
 
 				return res.redirect('/user/account');
 			} 
-			return res.render('login', {
+			return res.render('user-login', {
 				errors: {
 					email: {
 						msg: 'Las credenciales son inválidas'
@@ -47,7 +47,7 @@ const controller = {
 			});
 		}
 
-		return res.render('login', {
+		return res.render('user-login', {
 			errors: {
 				email: {
 					msg: 'No se encuentra este email en nuestra base de datos'
@@ -64,11 +64,8 @@ const controller = {
 		return res.redirect('/');
 	},
     register: (req, res) => {
-        return res.render ('register-user');
+        return res.render ('user-register');
     },
-    processRegister: (req, res) => {
-        
-	},
     createUser: (req, res) => {
         const lastUserId = userDataBase[userDataBase.length -1].idUser;
         const newUserId = lastUserId +1;
@@ -81,11 +78,10 @@ const controller = {
         };
         userDataBase.push(userToCreate);
         fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
-        res.render('registerOk-user');
+        res.render('user-registerOk');
     },
     userEditForm: (req, res) => {
-        const userSelect = userDataBase.find(u => u.idUser == req.params.idUser);
-        return res.render ('user-edit-account', {userSelect})
+        return res.render ('user-edit-account', {userSelect: req.session.userLogged})
     },
     userEditAccount: (req, res) => {
         const userId = req.params.idUser;
@@ -97,7 +93,7 @@ const controller = {
             userDataBase[userSelectId].avatar = '/img/avatars/'+req.file.filename;
         }
         fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
-        return res.redirect ('/login/account/'+ userId);
+        return res.redirect ('/user/account/');
     },
     userDelete: (req, res) => {
         const newUserDataBase = userDataBase.filter(u => u.idUser != req.params.idUser);
@@ -165,7 +161,7 @@ const controller = {
         return res.render ('buisness-account', {user: req.session.buisnessEmail, restaurantSelect})
     },
     registerBuisness: (req, res) => {
-        return res.render ('register-restaurant');
+        return res.render ('buisness-register');
     },
     createRestaurant: (req, res) => {
         const lastRestaurantId = restaurantDataBase[restaurantDataBase.length -1].idRestaurant;
@@ -179,11 +175,10 @@ const controller = {
         };
         restaurantDataBase.push(restaurantCreate);
         fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
-        res.render('registerOk-restaurant');
+        res.render('buisness-registerOk');
     },
     buisnessEditForm: (req, res) => {
-        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.params.idRestaurant);
-        return res.render ('buisness-edit-account', {restaurantSelect})
+        return res.render ('buisness-edit-account', {restaurantSelect: req.session.userLogged});
     },
     buisnessEditAccount: (req, res) => {
         const buisnessId = req.params.idRestaurant;
@@ -198,13 +193,13 @@ const controller = {
         return res.redirect ('/login/account-restaurant/'+ buisnessId);
     },
     buisnessDelete: (req, res) => {
-        const newRestaurantDataBase = restaurantDataBase.filter(r => r.idRestaurant != req.params.idRestaurant);
+        const newRestaurantDataBase = restaurantDataBase.filter(r => r.idRestaurant != req.session.userLogged);
         fs.writeFileSync(restaurantFilePath, JSON.stringify(newRestaurantDataBase, null, 2));
         return res.redirect ('/')
     },
     buisnessOrders: (req, res) => {
-        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.params.idRestaurant);
-        const restaurantOrders = ordersDataBase.filter (o => o.idRestaurant == req.params.idRestaurant && o.estado == 'pendiente' || o.estado == 'confirmada');
+        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+        const restaurantOrders = ordersDataBase.filter (o => o.idRestaurant == req.session.userLogged.idRestaurant && o.estado == 'pendiente' || o.estado == 'confirmada');
         return res.render ('buisness-orders', {restaurantSelect, restaurantOrders, userDataBase,restaurantDataBase, productsDataBase});
     },
     buisnessHistoryOrders: (req, res) => {
@@ -213,8 +208,8 @@ const controller = {
         return res.render ('buisness-orders-history', {restaurantSelect, restaurantOrders, userDataBase,restaurantDataBase, productsDataBase});
     },
     buisnessProducts: (req, res) => {
-        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.params.idRestaurant);
-        return res.render ('buisness-products', {restaurantSelect});
+        const productsRestaurant = productsDataBase.filter(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+        return res.render ('buisness-products-list', {productsRestaurant});
     },
     carrito: (req, res) => {
         

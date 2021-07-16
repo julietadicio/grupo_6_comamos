@@ -22,7 +22,7 @@
             <section class="box-space1">
                 <ul type='none' class="data-form">
                     <li>
-                        <a href="/login/account-restaurant/<%= restaurantSelect.idRestaurant %>/edit">
+                        <a href="/user/account-buisness/edit">
                             <i class="far fa-user-circle more-space"></i>
                             <h2>Datos de la cuenta</h2>
                         </a>
@@ -33,7 +33,7 @@
                             <h2>Gestionar Cupones</h2>
                         </a>
                     </li>
-                    <form action="/login/account-restaurant/<%= restaurantSelect.idRestaurant %>/delete?_method=DELETE" method="POST">
+                    <form action="/user/account-buisness/delete?_method=DELETE" method="POST">
                         <fieldset class="logout-button">
                             <button type="submit" class="none-decoration">Eliminar Cuenta</button>
                             <i class="fas fa-user-times none-decoration"></i>
@@ -44,13 +44,13 @@
             <section class="box-space2">
                 <ul type='none' class="data-form">
                     <li>
-                        <a href="/login/account-restaurant/orders/<%= restaurantSelect.idRestaurant %>">
+                        <a href="/user/account-buisness/orders">
                             <i class="fas fa-cart-arrow-down"></i>
                             <h2>Gestionar Reservas</h2>
                         </a>
                     </li>
                     <li>
-                        <a href="/login/account-restaurant/products/<%= restaurantSelect.idRestaurant %>">
+                        <a href="/user/account-buisness/products">
                             <i class="fas fa-utensils"></i>
                             <h2>Gestionar Platos</h2>
                         </a>
@@ -68,7 +68,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/login/account-restaurant/orders-history/<%= restaurantSelect.idRestaurant %>">
+                        <a href="/user/account-buisness/orders-history">
                             <i class="fas fa-history"></i>
                             <h2>Historial de Reservas</h2>
                         </a>
