@@ -12,6 +12,8 @@ var indexRouter = require('./routes/main');
 var productRouter = require('./routes/product');
 var usersRouter = require('./routes/users');
 
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+
 var app = express();
 
 // view engine setup
@@ -29,6 +31,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
+app.use(userLoggedMiddleware);
 
 app.use('/', indexRouter);
 app.use('/', productRouter);

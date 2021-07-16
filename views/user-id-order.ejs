@@ -48,7 +48,7 @@
                     <h5>Fecha y hora de la reserva: <%= orderSelect.fecha_hora_reserva %></h5>
                     <h5>Total: $<%= orderSelect.precioTotal %></h5>
             </article>
-            <form action="/login/account/my-order/<%= orderSelect.idUser %>">
+            <form action="/user/account/my-order">
                 <fieldset class="logout-button">
                     <button type="menu" class="none-decoration">Volver</button>
                 </fieldset>

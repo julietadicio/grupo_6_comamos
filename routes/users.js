@@ -9,6 +9,7 @@ const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 const uploadFile = require('../middlewares/multerMiddleware');
 
+// Rutas para login y administracion de usuarios
 // Formulario de registro
 router.get('/register', guestMiddleware, usersController.register);
 
@@ -26,5 +27,7 @@ router.get('/account/', authMiddleware, usersController.userAccount);
 
 // Logout
 router.get('/logout', usersController.logout);
+
+// Rutas para registro de usuarios y restaurantes
 
 module.exports = router;
