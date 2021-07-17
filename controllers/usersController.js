@@ -196,6 +196,8 @@ const controller = {
     buisnessDelete: (req, res) => {
         const newRestaurantDataBase = restaurantDataBase.filter(r => r.idRestaurant != req.session.userLogged.idRestaurant);
         fs.writeFileSync(restaurantFilePath, JSON.stringify(newRestaurantDataBase, null, 2));
+        res.clearCookie('buisnessEmail');
+		req.session.destroy();
         return res.redirect ('/')
     },
     buisnessOrders: (req, res) => {

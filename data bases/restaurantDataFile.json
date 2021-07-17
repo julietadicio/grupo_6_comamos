@@ -42,14 +42,5 @@
     "email": "nandv@gmail.com",
     "password": "$2a$10$x0BTQBJx3SFnOC6w.TeTueyVDdPlI1pvDPpw6DOATRg4MxQw5mKBi",
     "avatar": "/img/avatars/user-buisness-avatar.jpg"
-  },
-  {
-    "idRestaurant": 4,
-    "nombre": "the big test",
-    "direccion": "avda siempre viva 123",
-    "capacidad": "25",
-    "email": "thebigtest@gmail.com",
-    "avatar": "/img/avatars/1626529757337.webp",
-    "password": "$2a$10$ONDoM/8/k.zn6.3tSHriAufcXqBVWd6PGpJM12hyISyiIf743nODW"
   }
 ]

@@ -20,7 +20,7 @@
             <% productsRestaurant.forEach(product => { %>
                 <article class="reserve-form">
                     <div class="box-order1">
-                        <img src="<%= product.imagen %>" alt="imagen usuario" class="image-restaurant">
+                        <img src="<%= product.imagen %>" alt="imagen plato" class="image-result">
                     </div>    
                     <div class="left-separation box-order2">
                         <h4><%= product.plato %></h4>
@@ -29,10 +29,10 @@
                         <h5>Precio: $<%= product.precio %></h5>
                     </div>
                     <div class="buttons-orders">
-                        <form action="/login/account-restaurant/products/<%= product.idRestaurant %>/edit/<%= product.idPlato %>" method="GET" class="logout-button">
+                        <form action="/user/account-buisness/products/edit/<%= product.idPlato %>" method="GET" class="logout-button">
                             <button type="submit" class="none-decoration">Editar</button>
                         </form>
-                        <form action="/login/account-restaurant/products/<%= product.idRestaurant %>/delete?_method=DELETE" method="POST" class="logout-button">
+                        <form action="/user/account-buisness/products/<%= product.idPlato %>/delete?_method=DELETE" method="POST" class="logout-button">
                             <button type="submit" class="none-decoration">Eliminar</button>
                         </form>
                     </div>    
