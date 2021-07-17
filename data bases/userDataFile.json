@@ -6,13 +6,5 @@
     "email": "alegpascuale@gmail.com",
     "password": "$2a$10$O87p0EH873CwLA88p2RPFubPFgBqgeIE1H8KTTxtTyvvq8OVx7Vz6",
     "avatar": "/img/avatars/Usuario-registro.png"
-  },
-  {
-    "idUser": 2,
-    "nombre": "test",
-    "apellido": "test",
-    "email": "test@test.com",
-    "password": "$2a$10$m6EfussleBMCFwjytZ1jdezUjy6ay4jj9Ykc0gjfZAQa4IJ53ZslS",
-    "avatar": "/img/avatars/Usuario-registro.png"
   }
 ]

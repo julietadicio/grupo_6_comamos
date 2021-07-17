@@ -22,7 +22,7 @@ router.get('/login', guestMiddleware, usersController.loginUser);
 // Procesar el login
 router.post('/login', usersController.loginProcess);
 // Perfil de Usuario
-router.get('/account/', authMiddleware, usersController.userAccount);
+router.get('/account', authMiddleware, usersController.userAccount);
 // Logout
 router.get('/logout', usersController.logout);
 // Rutas para login y administracion de usuarios

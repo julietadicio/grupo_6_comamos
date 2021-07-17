@@ -26,6 +26,11 @@
           <label class="alejar">Email</label><div></div>
           <input type= "email" name= "email" id= "email">
         </p>
+          <% if (locals.errors && errors.email) { %>
+									<div class="text-danger">
+										<%= errors.email.msg %>
+									</div>
+								<% } %>
         
         <p>
           <label>Contraseña</label><div></div>

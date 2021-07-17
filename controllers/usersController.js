@@ -44,7 +44,6 @@ const controller = {
 				}
 			});
 		}
-
 		return res.render('user-login', {
 			errors: {
 				email: {
@@ -82,7 +81,7 @@ const controller = {
         return res.render ('user-edit-account', {userSelect: req.session.userLogged})
     },
     userEditAccount: (req, res) => {
-        const userId = req.params.idUser;
+        const userId = req.session.userLogged.idUser;
         const userSelectId = userDataBase.findIndex(p => p.idUser == userId)
         if (!req.file) {
             userDataBase[userSelectId] = { ...userDataBase[userSelectId] , ...req.body };
@@ -90,21 +89,24 @@ const controller = {
             userDataBase[userSelectId] = { ...userDataBase[userSelectId] , ...req.body };
             userDataBase[userSelectId].avatar = '/img/avatars/'+req.file.filename;
         }
+        userDataBase[userSelectId].password = bcrypt.hashSync(req.body.password, 10),
         fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
-        return res.redirect ('/user/account/');
+        return res.redirect ('/user/account');
     },
     userDelete: (req, res) => {
-        const newUserDataBase = userDataBase.filter(u => u.idUser != req.params.idUser);
+        const newUserDataBase = userDataBase.filter(u => u.idUser != req.session.userLogged.idUser);
         fs.writeFileSync(userFilePath, JSON.stringify(newUserDataBase, null, 2));
+        res.clearCookie('userEmail');
+		req.session.destroy();
         return res.redirect ('/')
     },
     userMyOrder: (req, res) => {
-        const userSelect = userDataBase.find(u => u.idUser == req.params.idUser);
-        const ordersUser = ordersDataBase.filter(u => u.idUser == req.params.idUser && u.estado == 'confirmada' || u.estado == 'pendiente');
+        const userSelect = userDataBase.find(u => u.idUser == req.session.userLogged.idUser);
+        const ordersUser = ordersDataBase.filter(u => u.idUser == userSelect.idUser && (u.estado == 'confirmada' || u.estado == 'pendiente'));
         return res.render ('user-my-order', {userSelect, ordersUser, restaurantDataBase, productsDataBase})
     },
     userOrder: (req, res) => {
-        const userSelect = userDataBase.find(u => u.idUser == req.params.idUser);
+        const userSelect = userDataBase.find(u => u.idUser == req.session.userLogged.idUser);
         const orderSelect = ordersDataBase.find(u => u.idOrder == req.params.idOrder);
         return res.render ('user-id-order', {userSelect, orderSelect, restaurantDataBase, productsDataBase})
     },
@@ -114,8 +116,8 @@ const controller = {
         return res.redirect ('user-my-order');
     },
     userOrders: (req, res) => {
-        const userSelect = userDataBase.find(u => u.idUser == req.params.idUser);
-        const ordersUser = ordersDataBase.filter(u => u.idUser == req.params.idUser && u.estado == 'completada');
+        const userSelect = userDataBase.find(u => u.idUser == req.session.userLogged.idUser);
+        const ordersUser = ordersDataBase.filter(u => u.idUser == req.session.userLogged.idUser && u.estado == 'completada');
         return res.render ('user-orders-history', {userSelect, ordersUser, restaurantDataBase, productsDataBase})
     },
     loginBuisness: (req, res) => {
@@ -155,8 +157,8 @@ const controller = {
 		return res.redirect('/');
     },
     buisnessAccount: (req, res) => {
-        const restaurantSelect = restaurantDataBase.find(r => r.email == req.cookies.buisnessEmail);
-        return res.render ('buisness-account', {user: req.session.buisnessEmail, restaurantSelect})
+        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+        return res.render ('buisness-account', {restaurantSelect})
     },
     registerBuisness: (req, res) => {
         return res.render ('buisness-register');
@@ -187,22 +189,23 @@ const controller = {
             restaurantDataBase[buisnessSelectId] = { ...restaurantDataBase[buisnessSelectId] , ...req.body };
             restaurantDataBase[buisnessSelectId].avatar = '/img/avatars/'+req.file.filename;
         }
+        restaurantDataBase[buisnessSelectId].password = bcrypt.hashSync(req.body.password, 10),
         fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
         return res.redirect ('/user/account-buisness');
     },
     buisnessDelete: (req, res) => {
-        const newRestaurantDataBase = restaurantDataBase.filter(r => r.idRestaurant != req.session.userLogged);
+        const newRestaurantDataBase = restaurantDataBase.filter(r => r.idRestaurant != req.session.userLogged.idRestaurant);
         fs.writeFileSync(restaurantFilePath, JSON.stringify(newRestaurantDataBase, null, 2));
         return res.redirect ('/')
     },
     buisnessOrders: (req, res) => {
         const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        const restaurantOrders = ordersDataBase.filter (o => o.idRestaurant == req.session.userLogged.idRestaurant && o.estado == 'pendiente' || o.estado == 'confirmada');
+        const restaurantOrders = ordersDataBase.filter (o => o.idRestaurant == restaurantSelect && (o.estado == 'pendiente' || o.estado == 'confirmada'));
         return res.render ('buisness-orders', {restaurantSelect, restaurantOrders, userDataBase,restaurantDataBase, productsDataBase});
     },
     buisnessHistoryOrders: (req, res) => {
-        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.params.idRestaurant);
-        const restaurantOrders = ordersDataBase.filter (o => o.idRestaurant == req.params.idRestaurant && o.estado == 'completada' || o.estado == 'cancelada');
+        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+        const restaurantOrders = ordersDataBase.filter (o => o.idRestaurant == restaurantSelect && (o.estado == 'completada' || o.estado == 'cancelada'));
         return res.render ('buisness-orders-history', {restaurantSelect, restaurantOrders, userDataBase,restaurantDataBase, productsDataBase});
     },
     buisnessProducts: (req, res) => {
@@ -212,13 +215,6 @@ const controller = {
     carrito: (req, res) => {
         
         return res.render ('carrito');
-    },
-    listaRestaurantes: (req, res) => {
-        
-        return res.render('lista-restaurantes')
-    },
-    listaPlatos: (req, res) => {
-        return res.render('lista-platos')
     }
 }
 

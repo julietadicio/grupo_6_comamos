@@ -16,12 +16,12 @@ const controller = {
         return res.render ('product')
     },
     productsList: (req, res) => {
-        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.params.idRestaurant);
-        const productsRestaurant = productsDataBase.filter(p => p.idRestaurant == req.params.idRestaurant);
+        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+        const productsRestaurant = productsDataBase.filter(p => p.idRestaurant == restaurantSelect.idRestaurant);
         return res.render ('buisness-products-list', {productsRestaurant, productsDataBase,restaurantSelect})
     },
     createFormProduct: (req, res) => {
-        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.params.idRestaurant);
+        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
         return res.render ('buisness-create-products', {restaurantSelect});
     },
     createProduct: (req, res) => {
@@ -36,10 +36,10 @@ const controller = {
         let idRestaurant = newProduct.idRestaurant;
         productsDataBase.push(newProduct);
         fs.writeFileSync(productsFilePath, JSON.stringify(productsDataBase, null, 2));
-        return res.redirect('/login/account-restaurant/products/'+idRestaurant);
+        return res.redirect('/user/account-buisness/products');
     },
     editFormProduct: (req, res) => {
-        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.params.idRestaurant);
+        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
         const productSelect = productsDataBase.find(p => p.idPlato == req.params.idPlato && p.idRestaurant == req.params.idRestaurant);
         return res.render ('buisness-edit-products', {productSelect, restaurantSelect});
     },
@@ -54,13 +54,13 @@ const controller = {
         }
         const idRestaurant = Number(req.params.idRestaurant)
         fs.writeFileSync(productsFilePath, JSON.stringify(productsDataBase, null, 2));
-        return res.redirect('/login/account-restaurant/products/'+idRestaurant);
+        return res.redirect('/user/account-buisness/products');
     },
     deleteProduct: (req, res) => {
         const newProductsDataBase = productsDataBase.filter(p => p.idPlato != req.params.idPlato);
         const idRestaurant = req.params.idRestaurant;
         fs.writeFileSync(productsFilePath, JSON.stringify(newProductsDataBase, null, 2));
-        return res.redirect(303, '/login/account-restaurant/products/'+idRestaurant);
+        return res.redirect(303, '/user/account-buisness/products');
     }
 }
 

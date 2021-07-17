@@ -16,5 +16,14 @@
     "categoria": "Pizzas",
     "precio": 900,
     "idRestaurant": 1
+  },
+  {
+    "idProduct": 3,
+    "plato": "asdfgklj",
+    "descripcion": "asldfkj",
+    "categoria": "salfdkj",
+    "precio": "1",
+    "imagen": "/img/products/1626530803895.webp",
+    "idRestaurant": null
   }
 ]

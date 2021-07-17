@@ -45,11 +45,11 @@
   },
   {
     "idRestaurant": 4,
-    "nombre": "Esto es una prueba",
-    "direccion": "Avenida siempre viva 123",
-    "capacidad": "10",
-    "email": "ale@gmail.com",
-    "password": "$2a$10$vs6pkAGfTPecaLzRHM8BoeXhYkepYIE1RdMIjwAH/1NupGE.HqQgC",
-    "avatar": "/img/avatars/user-buisness-avatar.jpg"
+    "nombre": "the big test",
+    "direccion": "avda siempre viva 123",
+    "capacidad": "25",
+    "email": "thebigtest@gmail.com",
+    "avatar": "/img/avatars/1626529757337.webp",
+    "password": "$2a$10$ONDoM/8/k.zn6.3tSHriAufcXqBVWd6PGpJM12hyISyiIf743nODW"
   }
 ]
