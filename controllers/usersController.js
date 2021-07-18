@@ -91,7 +91,7 @@ const controller = {
         }
         userDataBase[userSelectId].password = bcrypt.hashSync(req.body.password, 10),
         fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
-        return res.redirect ('/user/account');
+        return res.redirect (303, '/user/account');
     },
     userDelete: (req, res) => {
         const newUserDataBase = userDataBase.filter(u => u.idUser != req.session.userLogged.idUser);
@@ -202,7 +202,7 @@ const controller = {
     },
     buisnessOrders: (req, res) => {
         const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        const restaurantOrders = ordersDataBase.filter (o => o.idRestaurant == restaurantSelect && (o.estado == 'pendiente' || o.estado == 'confirmada'));
+        const restaurantOrders = ordersDataBase.filter (o => o.idRestaurant == restaurantSelect.idRestaurant && (o.estado == 'pendiente' || o.estado == 'confirmada'));
         return res.render ('buisness-orders', {restaurantSelect, restaurantOrders, userDataBase,restaurantDataBase, productsDataBase});
     },
     buisnessHistoryOrders: (req, res) => {
