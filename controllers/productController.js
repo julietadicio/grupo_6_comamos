@@ -33,7 +33,6 @@ const controller = {
             imagen: '/img/products/'+req.file.filename,
             idRestaurant: Number(req.session.userLogged.idRestaurant)    
         };
-        let idRestaurant = newProduct.idRestaurant;
         productsDataBase.push(newProduct);
         fs.writeFileSync(productsFilePath, JSON.stringify(productsDataBase, null, 2));
         return res.redirect('/user/account-buisness/products');
