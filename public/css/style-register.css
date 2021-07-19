@@ -75,17 +75,15 @@ body header {
 }
 body header div ul li a {
     text-decoration: none;
-    color: #ED1B24;
+    color: #656565;
 }
 .box-header {
-    background-color: rgb(226, 221, 221, 75%);
-    color: #ED1B24;
     display: flex;
-    border-radius: 10px;
-    border: solid 1px rgb(112, 112, 112);
-    width: 95%;
-    margin: 1% auto;
+    margin: auto;
     padding: 5px;
+    align-items: center;
+    box-shadow: 0 0 15px 0 gray ;
+    background-color: white;
 }
 #logo {
     max-width: 100%;
