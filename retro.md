@@ -55,5 +55,14 @@ Alejandro:
     - Implementacion de multer, para en la edicion de usuarios y alta de productos/platos. Los usuarios se dan de alta en forma automatica con un avatar por defecto, sin requerir en el mismo la carga de una imagen, por eso se implementó solamente en la edicion.
     - Creé la carpeta middlewares e implementé 3 middlewares iguales pero que se adaptan segun sea usuario o negocio. Los middlewares creados son el redireccionamiento si no se esta aun logeado (guest), no permitir el registro ni login, si ya esta logueado un usuario (auth) y por ultimo, el userLogged/buisnessLogged que almacena en session el usuario guardado en una cookie, si ya se logeó.
      - Renombré casi todas las vistas para que queden ordenadas por vistas para usuarios y negocios.
+     - En la proxima semana voy a avanzar con:
+        1 - Comenzar a trabajar nuevamente en el CSS de algunas vistas. Ver si quitamos el fondo con la imagen y hacemos algo nuevo o solamente lo readaptamos para que quede mejor.
+        2 - Darle funcionalidad a los botones de confirmar y cancelar reserva. Hay que agregar un aviso de en que estado esta el pedido para que el usuario sepa en la seccion de reservas.
+        3 - Implementar validaciones en los formularios.
+    - Pendientes para ver:
+        1 - Comenzar a definir el carrito y como se van a agregar los productos.
+        2 - Definir si armamos la estructura para que se asignen mesas a los pedidos.
+        3 - Creacion de cookies para sugerir platos o restaurantes.
+        4 - Sistema de valoraciones y comentarios.
      (*) Actualice el tablero de trabajo con estas tareas y proyectos.
     https://trello.com/b/xbzGtulH
