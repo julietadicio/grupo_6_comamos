@@ -6,7 +6,7 @@
     "capacidad": "20",
     "email": "villacrespopizzas@hotmail.com",
     "avatar": "/img/avatars/Usuario-registro.png",
-    "password": "$2a$10$J6Cfyc52CnIEypqd6t949ORvOmBezSGlefVFISQYpQ9JUbdpiCwMq"
+    "password": "$2a$10$ERFhK7Ik9siK8FSjTqMn1eesH9ca0JTn.709aqRb7omIuQzzcRP76"
   },
   {
     "idRestaurant": 2,
@@ -14,7 +14,7 @@
     "direccion": "Humberto 1º 299",
     "capacidad": "30",
     "email": "amaliarestaruante@hotmail.com",
-    "password": "$2a$10$jqG1rSzppHfn59qO0WSNZ.KuGuyp/8L8RrZ3B8XtNu7wDcO56srrS",
+    "password": "$2a$10$ERFhK7Ik9siK8FSjTqMn1eesH9ca0JTn.709aqRb7omIuQzzcRP76",
     "avatar": "/img/avatars/user-buisness-avatar.jpg"
   },
   {
@@ -23,7 +23,7 @@
     "direccion": "Jorge Luis Borges 1891",
     "capacidad": "15",
     "email": "nandv@gmail.com",
-    "password": "$2a$10$x0BTQBJx3SFnOC6w.TeTueyVDdPlI1pvDPpw6DOATRg4MxQw5mKBi",
+    "password": "$2a$10$ERFhK7Ik9siK8FSjTqMn1eesH9ca0JTn.709aqRb7omIuQzzcRP76",
     "avatar": "/img/avatars/user-buisness-avatar.jpg"
   }
 ]

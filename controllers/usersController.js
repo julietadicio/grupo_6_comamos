@@ -117,7 +117,7 @@ const controller = {
     },
     userOrders: (req, res) => {
         const userSelect = userDataBase.find(u => u.idUser == req.session.userLogged.idUser);
-        const ordersUser = ordersDataBase.filter(u => u.idUser == req.session.userLogged.idUser && u.estado == 'completada');
+        const ordersUser = ordersDataBase.filter(u => u.idUser == userSelect.idUser && (u.estado == 'completada' || u.estado == 'cancelada'));
         return res.render ('user-orders-history', {userSelect, ordersUser, restaurantDataBase, productsDataBase})
     },
     loginBuisness: (req, res) => {

@@ -14,7 +14,7 @@
                 <main class="main-order">
                     <article class="reserve-form">
                         <div class="box-order1">
-                            <img src="<%= restaurantDataBase[restaurantDataBase.findIndex(i => i.idRestaurant == order.idRestaurant)].avatar %>" alt="imagen restaurante" class="image-restaurant">
+                            <img src="<%= restaurantDataBase[restaurantDataBase.findIndex(i => i.idRestaurant == order.idRestaurant)].avatar %>" alt="imagen restaurante" class="image-result">
                         </div>    
                         <div class="left-separation box-order2">
                             <a href="/login/account/my-order/<%= order.idUser %>/order/<%= order.idOrder %>"><h4>Pedido nº: <%=order.idOrder %> </h4></a>
