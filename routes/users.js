@@ -24,17 +24,17 @@ router.post('/login', usersController.loginProcess);
 // Perfil de Usuario
 router.get('/account', authMiddleware, usersController.userAccount);
 // Logout
-router.get('/logout', usersController.logout);
+router.get('/logout', authMiddleware, usersController.logout);
 // Rutas para login y administracion de usuarios
-router.get('/account/edit', usersController.userEditForm);
+router.get('/account/edit', authMiddleware, usersController.userEditForm);
 router.put('/account/', uploadFile.single('avatar') , usersController.userEditAccount);
 router.delete('/account/delete', usersController.userDelete);
-router.get('/account/my-order', usersController.userMyOrder);
-router.get('/account/my-order/order/:idOrder', usersController.userOrder);
+router.get('/account/my-order', authMiddleware, usersController.userMyOrder);
+router.get('/account/my-order/order/:idOrder', authMiddleware, usersController.userOrder);
 router.delete('/account/my-order/:idOrder/delete', usersController.userMyOrderDelete);
-router.get('/account/orders', usersController.userOrders);
+router.get('/account/orders', authMiddleware, usersController.userOrders);
 // Rutas para administracion del carrito de usuarios
-router.get('/carrito', usersController.carrito);
+router.get('/carrito', authMiddleware, usersController.carrito);
 
 // Rutas para registro de usuarios y restaurantes
 
@@ -49,13 +49,13 @@ router.post('/login-buisness', usersController.loginProcessBuisness);
 // Perfil de Usuario
 router.get('/account-buisness/', authBuisnessMiddleware, usersController.buisnessAccount);
 // Logout
-router.get('/logout-buisness', usersController.logoutBuisness);
+router.get('/logout-buisness', authBuisnessMiddleware, usersController.logoutBuisness);
 // Rutas para login y administracion de negocios
-router.get('/account-buisness/edit', usersController.buisnessEditForm);
+router.get('/account-buisness/edit', authBuisnessMiddleware, usersController.buisnessEditForm);
 router.put('/account-buisness/', uploadFile.single('avatar') , usersController.buisnessEditAccount);
 router.delete('/account-buisness/delete', usersController.buisnessDelete);
-router.get('/account-buisness/orders', usersController.buisnessOrders);
-router.get('/account-buisness/products', usersController.buisnessProducts);
-router.get('/account-buisness/orders-history', usersController.buisnessHistoryOrders);
+router.get('/account-buisness/orders', authBuisnessMiddleware, usersController.buisnessOrders);
+router.get('/account-buisness/products', authBuisnessMiddleware, usersController.buisnessProducts);
+router.get('/account-buisness/orders-history', authBuisnessMiddleware, usersController.buisnessHistoryOrders);
 
 module.exports = router;
