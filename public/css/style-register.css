@@ -204,6 +204,10 @@ footer ul, footer div {
     body {
         font-size: 20px;
     }
+    .box-mobile {
+        display: inline-flex;
+        width: 60%;
+    }
     .title {
         width: 40%;
     }
