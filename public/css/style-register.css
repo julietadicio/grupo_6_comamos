@@ -5,10 +5,7 @@
     padding: 0px;
 }
 body {
-    background-image: url(/img/fondo-cargado.jpg);
-    background-repeat: repeat;
-    background-size: cover;
-    height: 15vh;
+    background-color: #e7e7e7;
 }
 .centro{
     text-align: center;

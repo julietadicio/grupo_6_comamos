@@ -5,19 +5,17 @@
     padding: 0px;
 }
 body {
-    background-color: #f9f6f4;
+    background-color: #e7e7e7;
 }
 body header {
     width: 100%;
     display: flex;
     justify-content: center;
+    background-color: white;
 }
 body header div ul li a {
     text-decoration: none;
-    color: #ED1B24;
-}
-body header div section div a i{
-    color: #ED1B24;
+    color: #656565;
 }
 form {
     width: 100%;
@@ -57,13 +55,8 @@ article {
     justify-content: flex-end;
 }
 .box-header {
-    background-color: rgb(226, 221, 221, 75%);
-    color: #ED1B24;
     display: flex;
-    border-radius: 10px;
-    border: solid 1px rgb(112, 112, 112);
-    width: 95%;
-    margin: 1% auto;
+    margin: auto;
     padding: 5px;
     flex-wrap: wrap;
     align-items: center;
@@ -134,7 +127,7 @@ main div section ul li a {
 }
 a {
     text-decoration: none;
-    color: black;
+    color: #656565;
 }
 main div section ul li a i {
     width: 7%;
@@ -309,7 +302,7 @@ footer ul, footer div {
 }
 @media (min-width: 768px) {
     .box-header {
-        margin: 2% auto;
+        box-shadow: 0 0 15px 0 gray ;
     }
     .box-mobile {
         display: inline-flex;
@@ -327,7 +320,7 @@ footer ul, footer div {
     }
     .icon-user {
     display: flex;
-    width: 25%;
+    width: 15%;
     align-content: center;
     justify-content: center;
     align-items: center;

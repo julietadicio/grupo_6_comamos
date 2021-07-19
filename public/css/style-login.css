@@ -76,10 +76,7 @@ background-color:#ccc;
 /* header y footer*/
 
 body {
-    background-image: url(/img/fondo-cargado.jpg);
-    background-repeat: repeat;
-    background-size: cover;
-    height: 15vh;
+    background-color: #e7e7e7;
 }
 body header {
     width: 100%;

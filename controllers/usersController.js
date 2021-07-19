@@ -78,7 +78,7 @@ const controller = {
         res.render('user-registerOk');
     },
     userEditForm: (req, res) => {
-        return res.render ('user-edit-account', {userSelect: req.session.userLogged})
+        return res.render ('user-edit-account', {user: req.session.userLogged})
     },
     userEditAccount: (req, res) => {
         const userId = req.session.userLogged.idUser;
@@ -103,7 +103,7 @@ const controller = {
     userMyOrder: (req, res) => {
         const userSelect = userDataBase.find(u => u.idUser == req.session.userLogged.idUser);
         const ordersUser = ordersDataBase.filter(u => u.idUser == userSelect.idUser && (u.estado == 'confirmada' || u.estado == 'pendiente'));
-        return res.render ('user-my-order', {userSelect, ordersUser, restaurantDataBase, productsDataBase})
+        return res.render ('user-my-order', {user:userSelect, ordersUser, restaurantDataBase, productsDataBase})
     },
     userOrder: (req, res) => {
         const userSelect = userDataBase.find(u => u.idUser == req.session.userLogged.idUser);
@@ -113,12 +113,12 @@ const controller = {
     userMyOrderDelete: (req, res) => {
         const newOrdersDataBase = ordersDataBase.filter(o => o.idOrder != req.params.idOrder);
         fs.writeFileSync(ordersFilePath, JSON.stringify(newOrdersDataBase, null, 2));
-        return res.redirect ('user-my-order');
+        return res.redirect ('user-my-order', { user: req.session.userLogged });
     },
     userOrders: (req, res) => {
         const userSelect = userDataBase.find(u => u.idUser == req.session.userLogged.idUser);
         const ordersUser = ordersDataBase.filter(u => u.idUser == userSelect.idUser && (u.estado == 'completada' || u.estado == 'cancelada'));
-        return res.render ('user-orders-history', {userSelect, ordersUser, restaurantDataBase, productsDataBase})
+        return res.render ('user-orders-history', {user: userSelect, ordersUser, restaurantDataBase, productsDataBase})
     },
     loginBuisness: (req, res) => {
         return res.render ('buisness-login');

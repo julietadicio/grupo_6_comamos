@@ -5,23 +5,17 @@
     padding: 0px;
 }
 body {
-    background-image: url(/img/fondo-cargado.jpg);
-    background-repeat: repeat;
-    background-size: cover;
-    height: 15vh;
+    background-color: #e7e7e7;
 }
 body header {
     width: 100%;
     display: flex;
     align-items: center;
+    background-color: white;
 }
 body header div ul li a {
     text-decoration: none;
-    color: #ED1B24;
-}
-body header div section div a i {
-    text-decoration: none;
-    color: #ED1B24;
+    color: #656565;
 }
 .icon-align {
     width: 40%;
@@ -29,15 +23,11 @@ body header div section div a i {
     justify-content: flex-end;
 }
 .box-header {
-    background-color: rgb(226, 221, 221, 75%);
-    color: #ED1B24;
     display: flex;
-    border-radius: 10px;
-    border: solid 1px rgb(112, 112, 112);
-    width: 95%;
-    margin: 1% auto;
+    margin: auto;
     padding: 5px;
     align-items: center;
+    box-shadow: 0 0 15px 0 gray ;
 }
 #logo {
     max-width: 100%;
@@ -67,8 +57,10 @@ body header div section div a i {
     font-size: 16px;
     color: #ED1B24;
 }
-.icon-user {
-    display: none;
+.user-image {
+    border-radius: 100%;
+    width: 100%;
+    height: 100%;
 }
 .burger-bar {
     display: inline-flex;
@@ -290,12 +282,9 @@ footer ul, footer div {
     .style-title {
         font-size: 40px;
     }
-    .box-header {
-        margin: 2% auto;
-    }
-    .icon-user {
+   .icon-user {
     display: flex;
-    width: 25%;
+    width: 15%;
     align-content: center;
     justify-content: center;
     align-items: center;

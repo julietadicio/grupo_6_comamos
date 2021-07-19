@@ -13,7 +13,7 @@
         <section class="box-space">
             <form action="/user/account/?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="align-image-user">
-                    <img src="<%= userSelect.avatar %>" alt="user image" class="user-image">
+                    <img src="<%= user.avatar %>" alt="user image" class="user-image">
                 </div>
                 <div class="hide-edit">
                     <label for="avatar">Editar</label>
@@ -21,15 +21,15 @@
                 </div>
                 <div>
                     <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" value="<%= userSelect.nombre %>">
+                    <input type="text" name="nombre" id="nombre" value="<%= user.nombre %>">
                 </div>
                 <div>
                     <label for="apellido">Apellido</label>
-                    <input type="text" name="apellido" id="apellido" value="<%= userSelect.apellido %>">
+                    <input type="text" name="apellido" id="apellido" value="<%= user.apellido %>">
                 </div>
                 <div>
                     <label for="email">Direccion de correo electronico</label>
-                    <input type="text" name="email" id="email" value="<%= userSelect.email %>">
+                    <input type="text" name="email" id="email" value="<%= user.email %>">
                 </div>
                 <div>
                     <label for="password">Contraseña</label>

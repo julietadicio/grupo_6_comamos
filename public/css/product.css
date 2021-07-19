@@ -5,8 +5,7 @@
     padding: 0px;
 }
 body {
-    background-image: url(/img/fondo-cargado.jpg);
-    background-size: cover;
+    background-color: #e7e7e7;
 }
 body section {
     width: 100%;
