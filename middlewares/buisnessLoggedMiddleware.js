@@ -12,8 +12,9 @@ function buisnessLoggedMiddleware(req, res, next) {
 	if (buisnessFromCookie) {
 		req.session.userLogged = buisnessFromCookie;
 		res.locals.tipeBuisness = true;
+		res.locals.tipeUser = false;
 	}
-
+	
 	if (req.session.userLogged) {
 		res.locals.isLogged = true;
 		res.locals.userLogged = req.session.userLogged;

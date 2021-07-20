@@ -31,7 +31,7 @@ const controller = {
 				req.session.userLogged = userToLogin;
 
 				if(req.body.recordarme) {
-					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+					res.cookie('buisnessEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
 				}
 
 				return res.redirect('/user/account');
@@ -129,7 +129,7 @@ const controller = {
 			let isOkThePassword = bcrypt.compareSync(req.body.password, buisnessToLogin.password);
 			if (isOkThePassword) {
 				delete buisnessToLogin.password;
-				req.session.buisnessLogged = buisnessToLogin;
+				req.session.userLogged = buisnessToLogin;
 				if(req.body.recordarme) {
 					res.cookie('buisnessEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
 				}
@@ -212,7 +212,7 @@ const controller = {
     },
     buisnessProducts: (req, res) => {
         const productsRestaurant = productsDataBase.filter(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        return res.render ('buisness-products-list', {productsRestaurant});
+        return res.render ('buisness-products-list', {productsRestaurant, restaurantSelect: req.session.userLogged});
     },
     carrito: (req, res) => {
         
