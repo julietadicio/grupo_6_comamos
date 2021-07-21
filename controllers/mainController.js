@@ -8,7 +8,7 @@ const ordersDataBase = JSON.parse(fs.readFileSync(ordersFilePath, 'utf-8'));
 const controller = {
     index: (req,res) => {
         
-        return res.render ('index', {user: req.session.userLogged, ordersDataBase});
+        return res.render ('index copy', {user: req.session.userLogged, ordersDataBase});
     },
     listaRestaurantes: (req, res) => {
         
