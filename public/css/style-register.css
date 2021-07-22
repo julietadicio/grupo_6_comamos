@@ -3,10 +3,91 @@
     font-family: 'Nunito Sans', sans-serif;
     margin: 0px;
     padding: 0px;
+    text-decoration: none;
+    list-style: none;
 }
 body {
     background-color: #e7e7e7;
 }
+
+/* Nav bar para version mobile */
+
+nav {
+    background: white;
+    height: 80px;
+    width: 100%;
+    box-shadow: 0 0 15px 0 gray;
+}
+nav ul {
+    float: right;
+    margin-right: 20px;
+}
+nav ul li, .title {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+nav ul li a {
+    color: white;
+    font-size: 16px;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+a:hover {
+    background: #991118;
+    color: #656565;
+    transition: .5s;
+}
+.flex {
+    display: flex;
+}
+.logo {
+    width: 120px;
+    height: 70px;
+    line-height: 80px;
+}
+.title {
+    color: #ED1B24;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+    font-family: 'Pacifico', cursive;
+    vertical-align: bottom;
+    display: none;
+}
+.checkbtn {
+    font-size: 30px;
+    color: #656565;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+}
+#check {
+    display: none;
+}
+ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #ed1b26;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    z-index: 100;
+    transition: all .5s;
+}
+nav ul li {
+    display: block;
+}
+#check:checked ~ ul {
+    left: 0;
+}
+
+/* Nav bar para version mobile */
+
+
 .centro{
     text-align: center;
     display: flex;
@@ -76,14 +157,6 @@ body header {
 body header div ul li a {
     text-decoration: none;
     color: #656565;
-}
-.box-header {
-    display: flex;
-    margin: auto;
-    padding: 5px;
-    align-items: center;
-    box-shadow: 0 0 15px 0 gray ;
-    background-color: white;
 }
 #logo {
     max-width: 100%;

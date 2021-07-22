@@ -171,14 +171,6 @@ body header div ul li a {
     text-decoration: none;
     color: #656565;
 }
-.box-header {
-    display: flex;
-    margin: auto;
-    padding: 5px;
-    align-items: center;
-    box-shadow: 0 0 15px 0 gray ;
-    background-color: white;
-}
 #logo {
     max-width: 100%;
     max-height: 100%; 
