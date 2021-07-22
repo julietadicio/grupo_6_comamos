@@ -22,19 +22,19 @@ router.get('/login', guestMiddleware, usersController.loginUser);
 // Procesar el login
 router.post('/login', usersController.loginProcess);
 // Perfil de Usuario
-router.get('/account', authMiddleware, usersController.userAccount);
+router.get('/account', usersController.userAccount);
 // Logout
-router.get('/logout', authMiddleware, usersController.logout);
+router.get('/logout', usersController.logout);
 // Rutas para login y administracion de usuarios
-router.get('/account/edit', authMiddleware, usersController.userEditForm);
+router.get('/account/edit', usersController.userEditForm);
 router.put('/account/', uploadFile.single('avatar') , usersController.userEditAccount);
 router.delete('/account/delete', usersController.userDelete);
-router.get('/account/my-order', authMiddleware, usersController.userMyOrder);
-router.get('/account/my-order/order/:idOrder', authMiddleware, usersController.userOrder);
+router.get('/account/my-order', usersController.userMyOrder);
+router.get('/account/my-order/order/:idOrder', usersController.userOrder);
 router.delete('/account/my-order/:idOrder/delete', usersController.userMyOrderDelete);
-router.get('/account/orders', authMiddleware, usersController.userOrders);
+router.get('/account/orders', usersController.userOrders);
 // Rutas para administracion del carrito de usuarios
-router.get('/carrito', authMiddleware, usersController.carrito);
+router.get('/carrito', usersController.carrito);
 
 // Rutas para registro de usuarios y restaurantes
 

@@ -12,7 +12,6 @@ function userLoggedMiddleware(req, res, next) {
 	if (userFromCookie) {
 		req.session.userLogged = userFromCookie;
 		res.locals.tipeUser = true;
-		res.locals.tipeBuisness = false;
 	}
 	
 	if (req.session.userLogged) {

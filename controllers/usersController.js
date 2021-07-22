@@ -17,7 +17,7 @@ const productsDataBase = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const controller = {
     index: (req,res) => {
-        return res.render ('index');
+        return res.render ('index', {user: req.session.userLogged, restaurantSelect: req.session.userLogged});
     },
     loginUser: (req, res) => {
         return res.render ('user-login');
@@ -31,7 +31,7 @@ const controller = {
 				req.session.userLogged = userToLogin;
 
 				if(req.body.recordarme) {
-					res.cookie('buisnessEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
 				}
 
 				return res.redirect('/user/account');

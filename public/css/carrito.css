@@ -67,7 +67,7 @@ a:hover {
 #check {
     display: none;
 }
-ul {
+header ul {
     position: fixed;
     width: 100%;
     height: 100vh;
