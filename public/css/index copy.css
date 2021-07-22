@@ -72,29 +72,21 @@ ul {
     top: 80px;
     left: -100%;
     text-align: center;
+    z-index: 100;
     transition: all .5s;
 }
 nav ul li {
     display: block;
 }
-main, main div, form, button {
-    z-index: 0;
-}
-.hide-bars {
-    visibility: hidden;
-}
 #check:checked ~ ul {
     left: 0;
 }
-#check:checked ~ main {
-    visibility: visible;
-}
+
 /* Main */
 
 main {
     width: 90%;
     margin: auto;
-    visibility: hidden;
 }
 main form {
     width: 70%;
@@ -165,6 +157,8 @@ footer ul, footer div {
     align-items: flex-start;
 	align-content: flex-start;
     margin-top: 1%;
+    position: relative;
+    z-index: 0;
 }
 
 #busqueda1 {
