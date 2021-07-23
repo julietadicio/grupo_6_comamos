@@ -17,7 +17,7 @@ const productsDataBase = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const controller = {
     index: (req,res) => {
-        return res.render ('index', {user: req.session.userLogged, restaurantSelect: req.session.userLogged});
+        return res.render ('index', {user: req.session.userLogged});
     },
     loginUser: (req, res) => {
         return res.render ('user-login');
@@ -27,7 +27,7 @@ const controller = {
         if(userToLogin) {
 			let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
 			if (isOkThePassword) {
-				delete userToLogin.password;
+				
 				req.session.userLogged = userToLogin;
 
 				if(req.body.recordarme) {
@@ -85,11 +85,12 @@ const controller = {
         const userSelectId = userDataBase.findIndex(p => p.idUser == userId)
         if (!req.file) {
             userDataBase[userSelectId] = { ...userDataBase[userSelectId] , ...req.body };
+            userDataBase[userSelectId].password = bcrypt.hashSync(req.body.password, 10)
         } else {
             userDataBase[userSelectId] = { ...userDataBase[userSelectId] , ...req.body };
             userDataBase[userSelectId].avatar = '/img/avatars/'+req.file.filename;
+            userDataBase[userSelectId].password = bcrypt.hashSync(req.body.password, 10)
         }
-        userDataBase[userSelectId].password = bcrypt.hashSync(req.body.password, 10),
         fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
         return res.redirect (303, '/user/account');
     },
@@ -128,7 +129,6 @@ const controller = {
         if(buisnessToLogin) {
 			let isOkThePassword = bcrypt.compareSync(req.body.password, buisnessToLogin.password);
 			if (isOkThePassword) {
-				delete buisnessToLogin.password;
 				req.session.userLogged = buisnessToLogin;
 				if(req.body.recordarme) {
 					res.cookie('buisnessEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
@@ -157,8 +157,8 @@ const controller = {
 		return res.redirect('/');
     },
     buisnessAccount: (req, res) => {
-        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        return res.render ('buisness-account', {restaurantSelect})
+        const buisness = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+        return res.render ('buisness-account', {buisness})
     },
     registerBuisness: (req, res) => {
         return res.render ('buisness-register');
@@ -178,21 +178,22 @@ const controller = {
         res.render('buisness-registerOk');
     },
     buisnessEditForm: (req, res) => {
-        return res.render ('buisness-edit-account', {restaurantSelect: req.session.userLogged});
+        return res.render ('buisness-edit-account', {buisness: req.session.userLogged});
     },
     buisnessEditAccount: (req, res) => {
         const buisnessId = req.session.userLogged.idRestaurant;
         const buisnessSelectId = restaurantDataBase.findIndex(p => p.idRestaurant == buisnessId)
         if (!req.file) {
             restaurantDataBase[buisnessSelectId] = { ...restaurantDataBase[buisnessSelectId] , ...req.body };
+            restaurantDataBase[buisnessSelectId].password = bcrypt.hashSync(req.body.password, 10)
         } else {
             restaurantDataBase[buisnessSelectId] = { ...restaurantDataBase[buisnessSelectId] , ...req.body };
             restaurantDataBase[buisnessSelectId].avatar = '/img/avatars/'+req.file.filename;
+            restaurantDataBase[buisnessSelectId].password = bcrypt.hashSync(req.body.password, 10)
         }
-        restaurantDataBase[buisnessSelectId].password = bcrypt.hashSync(req.body.password, 10),
         fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
-        return res.redirect ('/user/account-buisness');
-    },
+        return res.redirect (303, '/user/account-buisness');
+    },  
     buisnessDelete: (req, res) => {
         const newRestaurantDataBase = restaurantDataBase.filter(r => r.idRestaurant != req.session.userLogged.idRestaurant);
         fs.writeFileSync(restaurantFilePath, JSON.stringify(newRestaurantDataBase, null, 2));
@@ -201,18 +202,18 @@ const controller = {
         return res.redirect ('/')
     },
     buisnessOrders: (req, res) => {
-        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        const restaurantOrders = ordersDataBase.filter (o => o.idRestaurant == restaurantSelect.idRestaurant && (o.estado == 'pendiente' || o.estado == 'confirmada'));
-        return res.render ('buisness-orders', {restaurantSelect, restaurantOrders, userDataBase,restaurantDataBase, productsDataBase});
+        const buisness = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+        const restaurantOrders = ordersDataBase.filter (o => o.idRestaurant == buisness.idRestaurant && (o.estado == 'pendiente' || o.estado == 'confirmada'));
+        return res.render ('buisness-orders', {buisness, restaurantOrders, userDataBase,restaurantDataBase, productsDataBase});
     },
     buisnessHistoryOrders: (req, res) => {
-        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        const restaurantOrders = ordersDataBase.filter (o => o.idRestaurant == restaurantSelect && (o.estado == 'completada' || o.estado == 'cancelada'));
-        return res.render ('buisness-orders-history', {restaurantSelect, restaurantOrders, userDataBase,restaurantDataBase, productsDataBase});
+        const buisness = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+        const restaurantOrders = ordersDataBase.filter (o => o.idRestaurant == buisness && (o.estado == 'completada' || o.estado == 'cancelada'));
+        return res.render ('buisness-orders-history', {buisness, restaurantOrders, userDataBase,restaurantDataBase, productsDataBase});
     },
     buisnessProducts: (req, res) => {
         const productsRestaurant = productsDataBase.filter(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        return res.render ('buisness-products-list', {productsRestaurant, restaurantSelect: req.session.userLogged});
+        return res.render ('buisness-products-list', {productsRestaurant, user: req.session.userLogged});
     },
     carrito: (req, res) => {
         

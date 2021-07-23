@@ -6,7 +6,7 @@ const authBuisnessMiddleware = require('../middlewares/authBuisnessMiddleware');
 const productController = require('../controllers/productController');
 
 /* GET products home page. */
-router.get('/user/account-restaurant/products', authBuisnessMiddleware, productController.productsList);
+router.get('/user/account-buisness/products', productController.productsList);
 
 /* rutas para crear, editar y eliminar platos */
 router.get('/user/account-buisness/products/new', authBuisnessMiddleware,productController.createFormProduct);

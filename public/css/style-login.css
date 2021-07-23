@@ -22,7 +22,7 @@ nav ul {
     float: right;
     margin-right: 20px;
 }
-nav ul li, .title {
+nav ul li, .title, .title-2 {
     display: inline-block;
     line-height: 80px;
     margin: 0 5px;
@@ -46,7 +46,7 @@ a:hover {
     height: 70px;
     line-height: 80px;
 }
-.title {
+.title, .title-2 {
     color: #ED1B24;
     font-size: 35px;
     line-height: 80px;
@@ -185,9 +185,6 @@ body header div ul li a {
     display: inline-flex;
     width: 85%;
 }
-.title {
-    width: 85%;
-}
 .style-title {
     text-align: center;
     align-content: center;
@@ -277,7 +274,7 @@ footer ul, footer div {
     }
     header nav ul {
         display: flex;
-        width: 40%;
+        width: 45%;
         height: 80px;
         justify-content: space-evenly;
         align-items: center;
@@ -286,20 +283,37 @@ footer ul, footer div {
         background: white;
     }
     nav ul li {
-        line-height: normal;
-        margin: 0;
+        line-height: 13px;
     }
     nav ul li a {
         color: #656565;
+        font-size: 12px;
+        padding: 0;
     }
-    .title {
-        width: 40%;
+    body header div div a i {
+        font-size: 25px;
+    }
+    .logo-conteiner {
+        text-align: center;
+        width: 10%;
+    }
+    nav div a {
+        width: 20%;
+    }
+    .title, .title-2 {
+        width: 80%;
+        display: block;
+        text-align: right;
     }
     .style-title {
         font-size: 40px;
     }
-    .burger-bar {
-        display: none;
+   .icon-user {
+    display: flex;
+    width: 15%;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
     }
     footer ul li a {
         font-size: 12px;

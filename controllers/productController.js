@@ -10,19 +10,20 @@ const productsDataBase = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const controller = {
     index: (req,res) => {
-        return res.render ('index');
+        console.log(req.session.userLogged);
+        return res.render ('index', {buisness: req.session.userLogged});
     },
     detail: (req,res) => {
-        return res.render ('product')
+        return res.render ('product', {buisness: req.session.userLogged})
     },
     productsList: (req, res) => {
-        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        const productsRestaurant = productsDataBase.filter(p => p.idRestaurant == restaurantSelect.idRestaurant);
-        return res.render ('buisness-products-list', {productsRestaurant, productsDataBase,restaurantSelect})
+        const buisness = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+        const productsRestaurant = req.session.userLogged;
+        return res.render ('buisness-products-list', {productsRestaurant, buisness})
     },
     createFormProduct: (req, res) => {
-        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        return res.render ('buisness-create-products', {restaurantSelect});
+        const buisness = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+        return res.render ('buisness-create-products', {buisness});
     },
     createProduct: (req, res) => {
         const lastProductId = productsDataBase[productsDataBase.length -1].idPlato;
@@ -38,9 +39,9 @@ const controller = {
         return res.redirect('/user/account-buisness/products');
     },
     editFormProduct: (req, res) => {
-        const restaurantSelect = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        const productSelect = productsDataBase.find(p => p.idPlato == req.params.idPlato && (p.idRestaurant == restaurantSelect.idRestaurant));
-        return res.render ('buisness-edit-products', {productSelect, restaurantSelect});
+        const buisness = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+        const productSelect = productsDataBase.find(p => p.idPlato == req.params.idPlato && (p.idRestaurant == buisness.idRestaurant));
+        return res.render ('buisness-edit-products', {productSelect, buisness});
     },
     editProduct: (req, res) => {
         const productId = req.params.idPlato;

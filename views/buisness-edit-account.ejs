@@ -13,7 +13,7 @@
         <section class="box-space">
             <form action="/user/account-buisness/?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="align-image-user">
-                    <img src="<%= restaurantSelect.avatar %>" alt="user image" class="user-image">
+                    <img src="<%= buisness.avatar %>" alt="user image" class="user-image">
                 </div>
                 <div class="hide-edit">
                     <label for="avatar">Editar</label>
@@ -21,19 +21,19 @@
                 </div>
                 <div>
                     <label for="nombre">Nombre del Restaurante</label>
-                    <input type="text" name="nombre" id="nombre" value="<%= restaurantSelect.nombre %>">
+                    <input type="text" name="nombre" id="nombre" value="<%= buisness.nombre %>">
                 </div>
                 <div>
                     <label for="direccion">Direccion</label>
-                    <input type="text" name="direccion" id="direccion" value="<%= restaurantSelect.direccion %>">
+                    <input type="text" name="direccion" id="direccion" value="<%= buisness.direccion %>">
                 </div>
                 <div>
                     <label for="capacidad">Capacidad</label>
-                    <input type="text" name="capacidad" id="capacidad" value="<%= restaurantSelect.capacidad %>">
+                    <input type="text" name="capacidad" id="capacidad" value="<%= buisness.capacidad %>">
                 </div>
                 <div>
                     <label for="email">Direccion de correo electronico</label>
-                    <input type="text" name="email" id="email" value="<%= restaurantSelect.email %>">
+                    <input type="text" name="email" id="email" value="<%= buisness.email %>">
                 </div>
                 <div>
                     <label for="password">Contraseña</label>
