@@ -27,7 +27,7 @@ nav ul {
 }
 nav ul li, .title {
     display: inline-block;
-    margin: 0 5px;
+    margin: 45px 5px;
 }
 nav ul li a {
     color: white;
@@ -430,6 +430,11 @@ footer ul, footer div {
     align-content: center;
     justify-content: center;
     align-items: center;
+    margin: 5% 0 5% 5%;
+    }
+    .icon-align {
+        justify-content: flex-end;
+        width: 35%;
     }
     #boton-lupa {
     display: none;
@@ -504,5 +509,8 @@ footer ul, footer div {
     }
     .style-title {
         margin-left: 20%;
+    }
+    .title {
+        text-align: center;
     }
 }

@@ -9,12 +9,12 @@
 
 <body>
     <%- include partials/header %>
-    <form action="/user/account-buisness/products/new">
-        <fieldset class="add-button">
-            <button type="submit" class="none-decoration">Agregar</button>
-        </fieldset>
-    </form>
     <main class="main-order">
+        <form action="/user/account-buisness/products/new">
+            <fieldset class="add-button">
+                <button type="submit" class="none-decoration">Agregar</button>
+            </fieldset>
+        </form>
         <% if (productsRestaurant.length >= 1) { %>
             
             <% productsRestaurant.forEach(product => { %>

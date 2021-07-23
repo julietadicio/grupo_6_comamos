@@ -18,14 +18,15 @@ nav {
     width: 100%;
     box-shadow: 0 0 15px 0 gray;
 }
+header {
+    box-shadow: 0 0 15px 0 gray;
+}
 nav ul {
     float: right;
     margin-right: 20px;
 }
-nav ul li, .title {
+nav ul li {
     display: inline-block;
-    line-height: 80px;
-    margin: 0 5px;
 }
 nav ul li a {
     color: white;
@@ -34,8 +35,8 @@ nav ul li a {
     border-radius: 3px;
 }
 a:hover {
-    background: #991118;
-    color: #656565;
+    background: #656565;
+    color: white;
     transition: .5s;
 }
 .flex {
@@ -49,12 +50,23 @@ a:hover {
 .title {
     color: #ED1B24;
     font-size: 35px;
+    padding: 0 100px;
+    font-weight: bold;
+    font-family: 'Pacifico', cursive;
+    vertical-align: bottom;
+    display: none;
+    width: 75%;
+}
+.title-2 {
+    color: #ED1B24;
+    font-size: 35px;
     line-height: 80px;
     padding: 0 100px;
     font-weight: bold;
     font-family: 'Pacifico', cursive;
     vertical-align: bottom;
     display: none;
+    width: 90%;
 }
 .checkbtn {
     font-size: 30px;
@@ -81,63 +93,45 @@ header ul {
 nav ul li {
     display: block;
 }
-#check:checked ~ ul {
+#check:checked ~ ul{
     left: 0;
 }
 
 /* Nav bar para version mobile */
 
+/* Estilos para el header */
 
 body header {
     width: 100%;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    background-color: white;
 }
-form {
-    width: 100%;
-    text-align: center;
+body header a {
+    text-decoration: none;
+    color: #656565;
 }
-body main {
-    width: 80%;
+.icon-align {
+    width: 40%;
     display: flex;
-    justify-content: center;
-    margin: auto;
+    align-items: center;
 }
-h1 {
-    font-size: 20px;
-    color: black;
-}
-h2 {
-    font-size: 18px;
-    color: black;
-}
-h3 {
-    font-size: 16px;
-    color: black;
-    width: 100%;
-}
-h3 div p {
-    font-size: 16px;
-    color: black;
-    font-style: italic;
-}
-article {
-    display: flex;
-    justify-content: space-around;
+.icon-user {
+    margin: 10%;
 }
 #logo {
     max-width: 100%;
     max-height: 100%; 
 }
 .logo-conteiner {
-    width: 10%;
+    width: 15%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    text-align: center;
 }
-.title {
-    width: 90%;
+#align-header {
+    display: flex;
+    width: 88%;
 }
 .style-title {
     text-align: center;
@@ -150,38 +144,36 @@ article {
     font-size: 16px;
     color: #ED1B24;
 }
-#align-header {
-    width: 85%;
-    display: flex;
+.user-image {
+    border-radius: 100%;
+    width: 100%;
+    height: 100%;
 }
-.hide-mobile {
+.burger-bar {
+    display: inline-flex;
+    align-items: center;
+    width: 10%;
+}
+.format-menu {
+    width: 25%;
     text-align: center;
+    align-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .box-mobile {
     display: none;
 }
-.burger-bar {
-    display: flex;
-    align-items: center;
-    width: 10%;
-    align-content: center;
-    text-align: center;
-}
-.format-burgerbar {
-    width: 100%;
-    font-size: 20px;
-}
-.icon-user {
-    display: none;
-}
-header i {
-    color: #656565;
-    text-decoration: none;
-}
+
+/* Estilos para el header */
+
+
 /* Inicio Main Account */
 body main {
     display: flex;
     flex-direction: column;
+    margin: 2% auto;
 }
 body main a {
     text-decoration: none;
@@ -215,14 +207,16 @@ body main a {
     background-color: #b6b6b6;
     color: white;
     border: none;
+    margin: inherit;
     transition: all 0.5s;
 }
 .logout-button {
     background-color: #b6b6b6;
     color: white;
     border-radius: 5px;
-    width: 100px;
-    margin: auto;
+    width: 140px;
+    height: 30px;
+    margin: 5% auto;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -278,6 +272,26 @@ main section div img:hover {
 main section div img:hover .hide-edit {
     display: block;
 }
+main section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+main section form div {
+    width: 80%;
+    margin: 1% 0 1%;
+}
+main label {
+    width: 45%;
+    font-weight: bold;
+}
+main input {
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    padding: 4px;
+} 
 /* Formato para editar imagen de la cuenta */
 
 /* Formato del main para cuenta restaurante */
@@ -286,19 +300,17 @@ main section div img:hover .hide-edit {
     flex-wrap: wrap;
     align-items: baseline;
     justify-content: space-between;
+    flex-direction: column;
 }
 .box-space1 {
-    margin-top: 2%;
-    margin-bottom: 3%;
-    width: 35%;
+    margin: 2% auto 3%;
+    width: 90%;
     line-height: 35px;
 }
 .box-space2 {
-    margin-top: 2%;
-    margin-bottom: 3%;
-    width: 60%;
-    line-height: 1%;
-    line-height: 30px;
+    margin: 2% auto 3%;
+    width: 90%;
+    line-height: 35px;
 }
 main div section ul li a {
     display: flex;
@@ -306,6 +318,10 @@ main div section ul li a {
 }
 main div section ul li a i {
     width: 7%;
+}
+main div section ul li a h2 {
+    color: #656565;
+    font-size: 18px;
 }
 .more-space {
     width: 10%;
@@ -329,6 +345,7 @@ main div section ul li a i {
     border-radius: 5px;
     width: 100px;
     margin: auto;
+    text-align: center;
     transition: all 0.5s;
 }
 .add-button:hover {
@@ -381,11 +398,9 @@ footer ul, footer div {
     margin-left: 85%;
 }
 @media (min-width: 768px) {
-    .box-header {
-        margin-bottom: 1%;
-    }
     .box-mobile {
         display: inline-flex;
+        width: 60%;
     }
     .checkbtn {
         display: none;
@@ -398,7 +413,7 @@ footer ul, footer div {
     }
     header nav ul {
         display: flex;
-        width: 40%;
+        width: 45%;
         height: 80px;
         justify-content: space-evenly;
         align-items: center;
@@ -407,25 +422,58 @@ footer ul, footer div {
         background: white;
     }
     nav ul li {
-        line-height: normal;
-        margin: 0;
+        line-height: 13px;
     }
     nav ul li a {
         color: #656565;
+        font-size: 12px;
+        padding: 0;
     }
-    .burger-bar {
-        display: none;
-        width: 0%;
+    body header div div a i {
+        font-size: 25px;
+    }
+    .logo-conteiner {
+        text-align: center;
+        width: 10%;
+    }
+    nav div a {
+        width: 20%;
+    }
+    .title {
+        width: 80%;
+        display: block;
+        text-align: right;
+    }
+    .title-2 {
+        width: 80%;
+        display: block;
+        text-align: right;
     }
     .style-title {
-        font-size: 30px;
+        font-size: 40px;
     }
-    .icon-user {
-        display: flex;
-        width: 5%;
-        align-content: center;
-        justify-content: center;
-        align-items: center;
+   .icon-user {
+    display: flex;
+    width: 15%;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 5% 0 5% 5%;
+    }
+    .icon-align {
+        justify-content: flex-end;
+        width: 35%;
+    }
+
+/* estilos para main */
+    body main {
+        width: 100%;
+    }
+    main input {
+        width: 90%;
+    }
+    .logout-button {
+        margin: 2% auto;
     }
     .main-order {
         width: 90%;
@@ -442,6 +490,23 @@ footer ul, footer div {
     .box-order3 {
         width: 15%;
     }
+    .more-space {
+        width: 7%;
+    }
+    .flex-row {
+        flex-direction: row;
+        width: 90%;
+        margin: auto;
+    }
+    .box-space1 {
+        width: 35%;
+    }
+    .box-space1 .more-space {
+        width: 10%;
+    }
+    .box-space2 {
+        width: 60%;
+    }
     .left-separation {
     margin-left: 15px;
     }
@@ -455,6 +520,9 @@ footer ul, footer div {
     .add-button:hover .none-decoration{
     background-color: #ED1B24;
 }
+
+/* estilos para footer */
+
     footer ul li a {
         font-size: 12px;
     }
@@ -480,16 +548,52 @@ footer ul, footer div {
 }
 
 @media (min-width: 1024px) {
-    body main {
-        width: 60%;
-    }
-    .icon-user {
-        font-size: 25px;
+    .format-menu {
+        font-size: 18px;
+        line-height: 20px;
     }
     .style-title {
-        font-size: 40px;
+        margin-left: 20%;
+    }
+    .title {
+        text-align: center;
+    }
+    
+    
+    body main {
+        width: 75%;
+    }
+    main input {
+        width: 75%;
+        padding: 8px;
+    }
+    .flex-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    main section form div {
+        margin: 5px auto;
+    }
+    .logout-button {
+        margin: 5px;
+    }
+    .add-button {
+        margin-left: 100%;
     }
     .main-order {
         width: 65%;
+    }
+    .flex-row {
+        width: 90%;
+    }
+    .box-space1 {
+        width: 35%;
+    }
+    .box-space1 .more-space {
+        width: 10%;
+    }
+    .box-space2 {
+        width: 60%;
     }
 }

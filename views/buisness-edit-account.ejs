@@ -3,7 +3,7 @@
 
 <head>
     <%- include partials/head %>
-    <link rel="stylesheet" href="/css/account.css">
+    <link rel="stylesheet" href="/css/account-restaurant.css">
     <title>Editar Cuenta</title>
 </head>
 
@@ -15,27 +15,27 @@
                 <div class="align-image-user">
                     <img src="<%= buisness.avatar %>" alt="user image" class="user-image">
                 </div>
-                <div class="hide-edit">
-                    <label for="avatar">Editar</label>
+                <div class="hide-edit flex-column">
+                    <label for="avatar">Editar Foto de Perfil</label>
                     <input type="file" name="avatar" id="avatar">
                 </div>
-                <div>
+                <div class="flex-column">
                     <label for="nombre">Nombre del Restaurante</label>
                     <input type="text" name="nombre" id="nombre" value="<%= buisness.nombre %>">
                 </div>
-                <div>
+                <div class="flex-column">
                     <label for="direccion">Direccion</label>
                     <input type="text" name="direccion" id="direccion" value="<%= buisness.direccion %>">
                 </div>
-                <div>
+                <div class="flex-column">
                     <label for="capacidad">Capacidad</label>
                     <input type="text" name="capacidad" id="capacidad" value="<%= buisness.capacidad %>">
                 </div>
-                <div>
+                <div class="flex-column">
                     <label for="email">Direccion de correo electronico</label>
                     <input type="text" name="email" id="email" value="<%= buisness.email %>">
                 </div>
-                <div>
+                <div class="flex-column">
                     <label for="password">Contraseña</label>
                     <input type="text" name="password" id="password">
                 </div>
