@@ -360,6 +360,14 @@ main div section ul li a h2 {
 .hidden {
     display: none;
 }
+.standBy {
+    font-size: 40px;
+    color: #ED1B24;
+}
+.confirmed {
+    font-size: 40px;
+    color: greenyellow;
+}
 
 /* Formato para la gestion de platos */
 

@@ -27,7 +27,12 @@
                         <h5>Nº de comensales: <%= order.comensales %></h5>
                         <h5>Fecha y hora de la reserva: <%= order.fecha_hora_reserva %></h5>
                         <h5>Total: $<%= order.precioTotal %></h5>
-                        <h5><%= order.estado %></h5>
+                        <h4 <% if (order.estado == 'pendiente') { %>
+                         class="standBy"
+                        <% } else if (order.estado == 'confirmada') { %>
+                        class="confirmed"
+                        <% } %>>
+                        <%= order.estado %> </h4>
                     </div>
                     <div class="buttons-orders">
                     <label for="idOrder"></label>

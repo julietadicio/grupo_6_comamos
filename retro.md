@@ -67,3 +67,9 @@ Alejandro:
         4 - Sistema de valoraciones y comentarios.
      (*) Actualice el tablero de trabajo con estas tareas y proyectos.
     https://trello.com/b/xbzGtulH
+
+    # Weekly 26/07
+Alejandro:
+    - Implementacion de una nav bar para dispositivos moviles
+    - Ajustes estéticos para que el header quede igual en todas las vistas
+    - Implementacion de los botones de cancelar o confirmar ordenes
