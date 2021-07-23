@@ -34,9 +34,15 @@ nav ul li a {
     padding: 7px 13px;
     border-radius: 3px;
 }
-a:hover {
+header a:hover {
     background: #656565;
     color: white;
+    transition: .5s;
+}
+main a h2:hover {
+    background-color: #656565;
+    color: white;
+    border-radius: 7px;
     transition: .5s;
 }
 .flex {
@@ -351,6 +357,9 @@ main div section ul li a h2 {
 .add-button:hover {
     background-color: #ED1B24;
 }
+.hidden {
+    display: none;
+}
 
 /* Formato para la gestion de platos */
 
@@ -577,6 +586,9 @@ footer ul, footer div {
     }
     .logout-button {
         margin: 5px;
+    }
+    .center {
+        margin: auto;
     }
     .add-button {
         margin-left: 100%;

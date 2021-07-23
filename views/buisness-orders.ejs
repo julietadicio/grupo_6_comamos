@@ -13,7 +13,7 @@
      
         <% restaurantOrders.forEach(order => { %>
             <main class="main-order">
-                <article class="reserve-form">
+                <form action="/user/account-buisness/orders/?_method=PUT" method="POST" class="reserve-form">
                     <div class="box-order1">
                         <img src="<%= userDataBase[userDataBase.findIndex(i => i.idUser == order.idUser)].avatar %>" alt="imagen usuario" class="image-result">
                     </div>    
@@ -27,16 +27,17 @@
                         <h5>Nº de comensales: <%= order.comensales %></h5>
                         <h5>Fecha y hora de la reserva: <%= order.fecha_hora_reserva %></h5>
                         <h5>Total: $<%= order.precioTotal %></h5>
+                        <h5><%= order.estado %></h5>
                     </div>
                     <div class="buttons-orders">
-                        <form action="" method="POST" class="logout-button">
-                            <button type="submit" class="none-decoration">Confirmar Reserva</button>
-                        </form>
-                        <form action="" method="POST" class="logout-button">
-                            <button type="submit" class="none-decoration">Cancelar Reserva</button>
-                        </form>
+                    <label for="idOrder"></label>
+                    <input type="text" name="idOrder" id="idOrder" class="hidden" value="<%= order.idOrder %>"></input>
+                    
+                    <input type="submit" name="estado" class="none-decoration logout-button" value="Confirmar Reserva"></input>
+                    <input type="submit" name="estado" class="none-decoration logout-button" value="Cancelar Reserva"></input>
+                        
                     </div>    
-                </article>
+                </form>
             </main>
             <%  }); %> 
         <% } else { %>
@@ -46,7 +47,7 @@
             </a>
     <% } %>
     <form action="/user/account-buisness">
-        <fieldset class="logout-button">
+        <fieldset class="logout-button center">
             <button type="menu" class="none-decoration">Volver</button>
         </fieldset>
     </form> 

@@ -15,5 +15,7 @@ router.post('/user/account-buisness/new-product', uploadFile.single('img-product
 router.put('/user/account-buisness/edit-product/:idPlato', uploadFile.single('img-product') ,productController.editProduct);
 router.delete('/user/account-buisness/products/:idPlato/delete', productController.deleteProduct);
 
+/* rutas para gestionar los pedidos */
+router.put('/user/account-buisness/orders/', productController.adminOrder)
 
 module.exports = router;

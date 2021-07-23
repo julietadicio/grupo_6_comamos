@@ -59,6 +59,17 @@ const controller = {
         const newProductsDataBase = productsDataBase.filter(p => p.idPlato != req.params.idPlato);
         fs.writeFileSync(productsFilePath, JSON.stringify(newProductsDataBase, null, 2));
         return res.redirect(303, '/user/account-buisness/products');
+    },
+    adminOrder: (req, res) => {
+        const orderId = req.body.idOrder;
+        const orderSelect = ordersDataBase.findIndex(p => p.idOrder == orderId)
+        if(req.body.estado == 'Confirmar Reserva') {
+            ordersDataBase[orderSelect].estado = 'confirmada';
+        } else if (req.body.estado == 'Cancelar Reserva') {
+            ordersDataBase[orderSelect].estado = 'cancelada';
+        }
+        fs.writeFileSync(ordersFilePath, JSON.stringify(ordersDataBase, null, 2));
+        return res.redirect(303, '/user/account-buisness/orders'); 
     }
 }
 
