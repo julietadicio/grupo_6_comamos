@@ -28,8 +28,13 @@
                         <h5>Total: $<%= order.precioTotal %></h5>
                     </div>
                     <form action="" method="POST" class="coment-button box-order3">
-                        <input type="button" value="Dejar reseña">
-                        <button type="submit"></button>
+                        <% if (order.estado == 'Completada') { %>
+                            <input type="button" value="Dejar reseña" class="logout-button">
+                            <button type="submit"></button>
+                            <h4 class="confirmed"><%= order.estado %> </h4>
+                            <% } else if (order.estado == 'Cancelada') { %>
+                                <h4 class="cancel"><%= order.estado %> </h4>
+                            <% } %> 
                     </form>
                 </article>
                 

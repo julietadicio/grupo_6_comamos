@@ -29,7 +29,13 @@
                             <h5>Total: $<%= order.precioTotal %></h5>
                         </div>
                         <form action="" method="POST" class="coment-button box-order3">
-                            <button type="submit">Cancelar Reserva</button>
+                            <% if (order.estado == 'Confirmada') { %>
+                                <h4 class="confirmed"><%= order.estado %> </h4>
+                                <input type="submit" name="estado" class="none-decoration logout-button" value="Cancelar Reserva"></input>
+                                <% } else if (order.estado == 'Pendiente') { %>
+                                    <h4 class="cancel"><%= order.estado %> </h4>
+                                    <input type="submit" name="estado" class="none-decoration logout-button" value="Cancelar Reserva"></input>
+                                <% } %> 
                         </form>
                     </article>
                 </main>

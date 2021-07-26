@@ -621,9 +621,6 @@ footer ul, footer div {
     main section form div {
         margin: 5px auto;
     }
-    .logout-button {
-        margin: 5px;
-    }
     .center {
         margin: auto;
     }
@@ -631,7 +628,7 @@ footer ul, footer div {
         margin-left: 100%;
     }
     .main-order {
-        width: 65%;
+        width: 70%;
     }
     .flex-row {
         width: 90%;
