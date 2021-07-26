@@ -238,7 +238,7 @@ main form {
     width: 20%;
     cursor: pointer;
 }
-.image-result {
+.image-result, .image-result2 {
     width: 90%;
     border-radius: 5px;
 }
@@ -389,7 +389,7 @@ footer ul, footer div {
     }
     nav ul li a {
         color: #656565;
-        font-size: 12px;
+        font-size: 16px;
         padding: 0;
     }
     body header div div a i {
@@ -411,6 +411,7 @@ footer ul, footer div {
         width: 80%;
         display: block;
         text-align: right;
+        font-size: 45px;
     }
     .style-title {
         font-size: 40px;
@@ -441,7 +442,7 @@ footer ul, footer div {
     display: block;
     }
     footer div ul li a {
-        font-size: 12px;
+        font-size: 16px;
     }
     #copyright {
         font-size: 13px;
@@ -476,22 +477,28 @@ footer ul, footer div {
     }
     .arrow {
         margin: 1%;
-        }
-    
-        .form-busqueda {
-            width: 75vw;
-        }
-        .opcion-1, .opcion-2, .opcion-3, .opcion-4, .opcion-5, .opcion-6 {
-        width: 15vw;
-        }
-    
-        .opcion-7, .opcion-8, .opcion-9 {
+    }
+    .contenedor-1 {
         display: flex;
-        }
-    
-        .por-tu-zona, .para-ir-con {
-            height: 25vh;
-        }
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    .image-result2 {
+        width: 80%;
+    }
+    .index-recomendations {
+        justify-content: center;
+    }
+    .form-busqueda {
+        width: 75vw;
+    }
+    .index-article {
+        width: 45%;
+    }
+    .product-title {
+        font-size: 16px;
+    }
 }
 @media (min-width: 1024px) {
     .format-menu {
@@ -503,5 +510,25 @@ footer ul, footer div {
     }
     .title {
         text-align: center;
+    }
+    .index-article {
+        width: 33%;
+    }
+    .product-title {
+        font-size: 18px;
+    }
+    .nuestras-sugerencias {
+        display: flex;
+        justify-content: space-between;
+    }
+    .recomendations-format {
+        width: 48%;
+    }
+    .image-result2 {
+        width: 400px;
+        height: 250px;
+    }
+    footer ul li a {
+        font-size: 16px;
     }
 }

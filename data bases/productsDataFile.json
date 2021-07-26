@@ -1,7 +1,7 @@
 [
   {
     "idPlato": 1,
-    "plato": "CAPRESE",
+    "plato": "Ensalada Caprese",
     "descripcion": "Mozzarella fior di late, tomate natural, albahaca fresca y olivas negras",
     "imagen": "/img/products/ensalada_capresse.jpeg",
     "categoria": "Ensaladas",
@@ -10,7 +10,7 @@
   },
   {
     "idPlato": 2,
-    "plato": "PIZZA MARGHERITA",
+    "plato": "Pizza Margherita",
     "descripcion": "Pomodoro italiano, mozzarella fior di latte y albahaca",
     "imagen": "/img/products/pizza_margarita.jpeg",
     "categoria": "Pizzas",

@@ -73,3 +73,6 @@ Alejandro:
     - Implementacion de una nav bar para dispositivos moviles
     - Ajustes estéticos para que el header quede igual en todas las vistas
     - Implementacion de los botones de cancelar o confirmar ordenes
+    - Nuevo formato para el index, en el que se muestran las imagenes de productos
+    - Implementacion de middlewares para que no se pueda acceder a rutas sin logeo y viceversa. Unifique el middleware de invitado, para que aplique a ambos usuarios
+    
