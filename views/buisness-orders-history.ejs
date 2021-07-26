@@ -15,7 +15,7 @@
             <main class="main-order">
                 <article class="reserve-form">
                     <div class="box-order1">
-                        <img src="<%= userDataBase[userDataBase.findIndex(i => i.idUser == order.idUser)].avatar %>" alt="imagen usuario" class="image-restaurant">
+                        <img src="<%= userDataBase[userDataBase.findIndex(i => i.idUser == order.idUser)].avatar %>" alt="imagen usuario" class="image-result">
                     </div>    
                     <div class="left-separation box-order2">
                         <h4><%= userDataBase[userDataBase.findIndex(i => i.idUser == order.idUser)].nombre +' '+ userDataBase[userDataBase.findIndex(i => i.idUser == order.idUser)].apellido %></h4>
@@ -42,7 +42,7 @@
             </a>
             <% } %> 
     <form action="/user/account-buisness">
-        <fieldset class="logout-button">
+        <fieldset class="logout-button center">
             <button type="menu" class="none-decoration">Volver</button>
         </fieldset>
     </form>

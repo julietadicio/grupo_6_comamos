@@ -216,6 +216,12 @@ body main a {
     margin: inherit;
     transition: all 0.5s;
 }
+.none-decoration2 {
+    background-color: #b6b6b6;
+    color: white;
+    border: none;
+    transition: all 0.5s;
+}
 .logout-button {
     background-color: #b6b6b6;
     color: white;
@@ -231,7 +237,10 @@ body main a {
 .logout-button:hover {
     background-color: #ED1B24;
 }
-.logout-button:hover .none-decoration{
+.logout-button:hover .none-decoration {
+    background-color: #ED1B24;
+}
+.add-button:hover .none-decoration2 {
     background-color: #ED1B24;
 }
 /* Fin Main Account */
@@ -365,8 +374,15 @@ main div section ul li a h2 {
     color: #ED1B24;
 }
 .confirmed {
-    font-size: 40px;
-    color: greenyellow;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    width: 140px;
+    height: 30px;
+    margin: 5% auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 /* Formato para la gestion de platos */
@@ -377,7 +393,6 @@ main div section ul li a h2 {
     display: inline-flex;
     width: 100%;
     padding: 5px;
-    position: absolute;
     bottom: 0px;
     left: 0px;
     margin-top: 2%;
@@ -487,7 +502,7 @@ footer ul, footer div {
         width: 100%;
     }
     main input {
-        width: 90%;
+        width: 100%;
     }
     .logout-button {
         margin: 2% auto;

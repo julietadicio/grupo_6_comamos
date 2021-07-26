@@ -27,20 +27,17 @@
                         <h5>Nº de comensales: <%= order.comensales %></h5>
                         <h5>Fecha y hora de la reserva: <%= order.fecha_hora_reserva %></h5>
                         <h5>Total: $<%= order.precioTotal %></h5>
-                        <h4 <% if (order.estado == 'pendiente') { %>
-                         class="standBy"
-                        <% } else if (order.estado == 'confirmada') { %>
-                        class="confirmed"
-                        <% } %>>
-                        <%= order.estado %> </h4>
                     </div>
                     <div class="buttons-orders">
                     <label for="idOrder"></label>
                     <input type="text" name="idOrder" id="idOrder" class="hidden" value="<%= order.idOrder %>"></input>
-                    
-                    <input type="submit" name="estado" class="none-decoration logout-button" value="Confirmar Reserva"></input>
-                    <input type="submit" name="estado" class="none-decoration logout-button" value="Cancelar Reserva"></input>
-                        
+                    <% if (order.estado == 'Confirmada') { %>
+                     <h4 class="confirmed"><%= order.estado %> </h4>
+                     <input type="submit" name="estado" class="none-decoration logout-button" value="Cancelar Reserva"></input>
+                    <% } else if (order.estado == 'Pendiente') { %>
+                        <input type="submit" name="estado" class="none-decoration logout-button" value="Confirmar Reserva"></input>
+                        <input type="submit" name="estado" class="none-decoration logout-button" value="Cancelar Reserva"></input>
+                    <% } %> 
                     </div>    
                 </form>
             </main>

@@ -18,8 +18,8 @@ const controller = {
     },
     productsList: (req, res) => {
         const buisness = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        const productsRestaurant = req.session.userLogged;
-        return res.render ('buisness-products-list', {productsRestaurant, buisness})
+        const productsBuisness = productsDataBase.filter ( p => p.idRestaurant == req.session.userLogged.idRestaurant)
+        return res.render ('buisness-products-list', {productsBuisness, buisness})
     },
     createFormProduct: (req, res) => {
         const buisness = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
@@ -64,9 +64,9 @@ const controller = {
         const orderId = req.body.idOrder;
         const orderSelect = ordersDataBase.findIndex(p => p.idOrder == orderId)
         if(req.body.estado == 'Confirmar Reserva') {
-            ordersDataBase[orderSelect].estado = 'confirmada';
+            ordersDataBase[orderSelect].estado = 'Confirmada';
         } else if (req.body.estado == 'Cancelar Reserva') {
-            ordersDataBase[orderSelect].estado = 'cancelada';
+            ordersDataBase[orderSelect].estado = 'Cancelada';
         }
         fs.writeFileSync(ordersFilePath, JSON.stringify(ordersDataBase, null, 2));
         return res.redirect(303, '/user/account-buisness/orders'); 
