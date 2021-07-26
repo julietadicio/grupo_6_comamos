@@ -4,11 +4,14 @@ const fs = require('fs');
 
 const ordersFilePath = './data bases/ordersDataFile.json';
 const ordersDataBase = JSON.parse(fs.readFileSync(ordersFilePath, 'utf-8'));
+const productsFilePath = './data bases/productsDataFile.json';
+const productsDataBase = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const controller = {
     index: (req,res) => {
-        
-        return res.render ('index', {user: req.session.userLogged, ordersDataBase});
+        const indiceAleatorio = Math.floor(Math.random() * productsDataBase.length);
+        //const products = productsDataBase[indiceAleatorio];
+        return res.render ('index', {user: req.session.userLogged, indiceAleatorio, productsDataBase});
     },
     listaRestaurantes: (req, res) => {
         

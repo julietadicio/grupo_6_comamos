@@ -238,23 +238,18 @@ main form {
     width: 20%;
     cursor: pointer;
 }
-
+.image-result {
+    width: 90%;
+    border-radius: 5px;
+}
 .los-mas-elegidos {
-    border: 1px black solid;
     background-color: white;
-    opacity: 60%;
     margin-top: 1vh;
     border-radius: 20px;
     padding: 15px;
 }
 
 .nuestras-sugerencias {
-    width: 85vw;
-    margin-top: 0;
-    border: 1px black solid;
-    background-color: white;
-    opacity: 100%;
-    border-radius: 20px;
     padding: 15px 0px 15px;
 }
 
@@ -266,39 +261,35 @@ main form {
 
 .contenedor-1 {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    flex-wrap: wrap;
 }
 
-.opcion-1, .opcion-2, .opcion-3, .opcion-4, .opcion-5, .opcion-6 {
-    width: 22vw;
-    height: 13vh;
-    border: 1px black solid;
-    background-color: white;
-    border-radius: 13%;
+.index-article {
+    border-radius: 15px;
     font-size: 12px;
     text-align: center;
     font-weight: 800;
-    line-height: 11px;
     margin-top: 5px;
-    padding: 1px;
+    padding: 5px;
 }
-
-.opcion-7, .opcion-8, .opcion-9 {
-    display: none;
-    width: 15vw;
-    height: 13vh;
-    border: 1px black solid;
-    background-color: white;
-    border-radius: 13%;
+.index-recomendations {
+    border-radius: 15px;
     font-size: 12px;
+    text-align: center;
     font-weight: 800;
-    line-height: 11px;
-    margin-top: 2px;
-    padding: 1px;
-    justify-content: center;
+    margin-top: 5px;
+    padding: 5px;
+    display: flex;
 }
-
+.product-title {
+    color: #656565;
+}
+.recomendations-title {
+    color: #656565;
+    font-size: 18px;
+    text-align: center;
+}
 .contenedor-2 {
     display: flex;
     justify-content: center;
