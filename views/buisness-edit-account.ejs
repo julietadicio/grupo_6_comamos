@@ -3,7 +3,7 @@
 
 <head>
     <%- include partials/head %>
-    <link rel="stylesheet" href="/css/account-restaurant.css">
+    <link rel="stylesheet" href="/css/account.css">
     <title>Editar Cuenta</title>
 </head>
 
@@ -13,7 +13,7 @@
         <section class="box-space">
             <form action="/user/account-buisness/?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="align-image-user">
-                    <img src="<%= buisness.avatar %>" alt="user image" class="user-image">
+                    <img src="<%= user.avatar %>" alt="user image" class="user-image">
                 </div>
                 <div class="hide-edit flex-column">
                     <label for="avatar">Editar Foto de Perfil</label>
@@ -21,19 +21,19 @@
                 </div>
                 <div class="flex-column">
                     <label for="nombre">Nombre del Restaurante</label>
-                    <input type="text" name="nombre" id="nombre" value="<%= buisness.nombre %>">
+                    <input type="text" name="nombre" id="nombre" value="<%= user.nombre %>">
                 </div>
                 <div class="flex-column">
                     <label for="direccion">Direccion</label>
-                    <input type="text" name="direccion" id="direccion" value="<%= buisness.direccion %>">
+                    <input type="text" name="direccion" id="direccion" value="<%= user.direccion %>">
                 </div>
                 <div class="flex-column">
                     <label for="capacidad">Capacidad</label>
-                    <input type="text" name="capacidad" id="capacidad" value="<%= buisness.capacidad %>">
+                    <input type="text" name="capacidad" id="capacidad" value="<%= user.capacidad %>">
                 </div>
                 <div class="flex-column">
                     <label for="email">Direccion de correo electronico</label>
-                    <input type="text" name="email" id="email" value="<%= buisness.email %>">
+                    <input type="text" name="email" id="email" value="<%= user.email %>">
                 </div>
                 <div class="flex-column">
                     <label for="password">Contraseña</label>

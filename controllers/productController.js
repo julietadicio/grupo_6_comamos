@@ -11,19 +11,19 @@ const productsDataBase = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const controller = {
     index: (req,res) => {
         console.log(req.session.userLogged);
-        return res.render ('index', {buisness: req.session.userLogged});
+        return res.render ('index', {user: req.session.userLogged});
     },
     detail: (req,res) => {
-        return res.render ('product', {buisness: req.session.userLogged})
+        return res.render ('product', {user: req.session.userLogged})
     },
     productsList: (req, res) => {
-        const buisness = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+        const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
         const productsBuisness = productsDataBase.filter ( p => p.idRestaurant == req.session.userLogged.idRestaurant)
-        return res.render ('buisness-products-list', {productsBuisness, buisness})
+        return res.render ('buisness-products-list', {productsBuisness, user})
     },
     createFormProduct: (req, res) => {
-        const buisness = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        return res.render ('buisness-create-products', {buisness});
+        const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+        return res.render ('buisness-create-products', {user});
     },
     createProduct: (req, res) => {
         const lastProductId = productsDataBase[productsDataBase.length -1].idPlato;
@@ -39,9 +39,9 @@ const controller = {
         return res.redirect('/user/account-buisness/products');
     },
     editFormProduct: (req, res) => {
-        const buisness = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+        const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
         const productSelect = productsDataBase.find(p => p.idPlato == req.params.idPlato && (p.idRestaurant == buisness.idRestaurant));
-        return res.render ('buisness-edit-products', {productSelect, buisness});
+        return res.render ('buisness-edit-products', {productSelect, user});
     },
     editProduct: (req, res) => {
         const productId = req.params.idPlato;

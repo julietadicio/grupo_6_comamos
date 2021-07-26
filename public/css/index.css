@@ -25,7 +25,7 @@ nav ul {
     float: right;
     margin-right: 20px;
 }
-nav ul li, .title {
+nav ul li {
     display: inline-block;
     margin: 45px 5px;
 }
