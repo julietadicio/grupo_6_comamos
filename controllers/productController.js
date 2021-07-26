@@ -40,7 +40,7 @@ const controller = {
     },
     editFormProduct: (req, res) => {
         const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        const productSelect = productsDataBase.find(p => p.idPlato == req.params.idPlato && (p.idRestaurant == buisness.idRestaurant));
+        const productSelect = productsDataBase.find(p => p.idPlato == req.params.idPlato && (p.idRestaurant == user.idRestaurant));
         return res.render ('buisness-edit-products', {productSelect, user});
     },
     editProduct: (req, res) => {

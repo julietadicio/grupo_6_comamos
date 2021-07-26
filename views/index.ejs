@@ -33,10 +33,10 @@
             <h2 class="titulo-los-mas-elegidos">Los más elegidos</h2> 
             <div class="contenedor-1">
                 <% productsDataBase.forEach (product => { %> 
-                    <article class="index-article">
+                    <a class="index-article">
                         <img src="<%= product.imagen %>" alt="imagen plato" class="image-result">
                         <h4 class="product-title"><%= product.plato %></h4>
-                    </article>
+                    </a>
                 <% }); %> 
             </div>
             </section>

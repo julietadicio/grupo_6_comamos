@@ -12,10 +12,17 @@ newpassword = bcrypt.hashSync(passwordBuisness2, 10)
 
 console.log(newpassword);
 */
-const indiceAleatorio = Math.floor(Math.random() * productsDataBase.length);
-
-function productToSee (indice) {
-    return productsDataBase[indice].plato;
+const random = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-console.log(productToSee(indiceAleatorio));
+const productToSee = (array) => {
+    for (let i = random(0,6); i <= productsDataBase.lenght ; i++) {
+        var resultado1 = console.log(array[i].plato);
+    }
+    if (resultado1.lenght < 6) {
+        resultado1[0]
+    }
+}
+
+productToSee(productsDataBase);
