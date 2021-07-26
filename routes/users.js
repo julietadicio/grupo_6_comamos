@@ -6,7 +6,6 @@ const usersController = require('../controllers/usersController');
 
 // Middlewares
 const guestMiddleware = require('../middlewares/guestMiddleware');
-const guestBuisnessMiddleware = require('../middlewares/guestBuisnessMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 const authBuisnessMiddleware = require('../middlewares/authBuisnessMiddleware');
 const uploadFile = require('../middlewares/multer-avatar-Middleware');
@@ -22,28 +21,28 @@ router.get('/login', guestMiddleware, usersController.loginUser);
 // Procesar el login
 router.post('/login', usersController.loginProcess);
 // Perfil de Usuario
-router.get('/account', usersController.userAccount);
+router.get('/account', guestMiddleware, usersController.userAccount);
 // Logout
 router.get('/logout', usersController.logout);
 // Rutas para login y administracion de usuarios
-router.get('/account/edit', usersController.userEditForm);
+router.get('/account/edit', authMiddleware, usersController.userEditForm);
 router.put('/account/', uploadFile.single('avatar') , usersController.userEditAccount);
 router.delete('/account/delete', usersController.userDelete);
-router.get('/account/my-order', usersController.userMyOrder);
-router.get('/account/my-order/order/:idOrder', usersController.userOrder);
+router.get('/account/my-order', authMiddleware, usersController.userMyOrder);
+router.get('/account/my-order/order/:idOrder', authMiddleware, usersController.userOrder);
 router.delete('/account/my-order/:idOrder/delete', usersController.userMyOrderDelete);
-router.get('/account/orders', usersController.userOrders);
+router.get('/account/orders', authMiddleware, usersController.userOrders);
 // Rutas para administracion del carrito de usuarios
-router.get('/carrito', usersController.carrito);
+router.get('/carrito', authMiddleware, usersController.carrito);
 
 // Rutas para registro de usuarios y restaurantes
 
 // Formulario de registro
-router.get('/register-buisness', guestBuisnessMiddleware, usersController.registerBuisness);
+router.get('/register-buisness', guestMiddleware, usersController.registerBuisness);
 // Procesar el registro
 router.post('/register-buisness', uploadFile.single('avatar'), /*validations,*/ usersController.createBuisness);
 // Formulario de login
-router.get('/login-buisness', guestBuisnessMiddleware, usersController.loginBuisness);
+router.get('/login-buisness', guestMiddleware, usersController.loginBuisness);
 // Procesar el login
 router.post('/login-buisness', usersController.loginProcessBuisness);
 // Perfil de Usuario
