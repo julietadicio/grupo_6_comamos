@@ -384,6 +384,20 @@ main div section ul li a h2 {
     justify-content: space-evenly;
     align-items: center;
 }
+.cancel {
+    background-color: #ED1B24;
+    color: white;
+    border-radius: 5px;
+    width: 140px;
+    height: 30px;
+    margin: 5% auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.user-raiting {
+    width: 100%;
+}
 
 /* Formato para la gestion de platos */
 
@@ -502,7 +516,7 @@ footer ul, footer div {
         width: 100%;
     }
     main input {
-        width: 100%;
+        width: 90%;
     }
     .logout-button {
         margin: 2% auto;
@@ -520,7 +534,7 @@ footer ul, footer div {
     width: 70%;
     }
     .box-order3 {
-        width: 15%;
+        width: 22%;
     }
     .more-space {
         width: 7%;

@@ -47,5 +47,20 @@
     "precioTotal": 1200,
     "idRestaurant": 1,
     "estado": "Confirmada"
+  },
+  {
+    "idOrder": 4,
+    "idUser": 1,
+    "info_order": [
+      {
+        "idPlato": 2,
+        "cantidad": 3
+      }
+    ],
+    "comensales": 4,
+    "fecha_hora_reserva": "24/06/2021 18:24",
+    "precioTotal": 2700,
+    "idRestaurant": 1,
+    "estado": "Cancelada"
   }
 ]
