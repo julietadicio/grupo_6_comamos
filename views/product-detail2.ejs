@@ -4,12 +4,12 @@
 <head>
     <%- include partials/head %> 
     <title>Comamos</title>
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 
 <body>
     <%- include partials/header %> 
-    <main>
+    <main class="product-view">
         <div class="search">
             <form action="" method="">
 
@@ -28,7 +28,28 @@
                 <i class="fas fa-search" id="boton-lupa"></i>
             </form>
         </div>
-        
+        <div class="box-order1">
+            <img src="<%= restaurantDataBase[restaurantDataBase.findIndex(i => i.idRestaurant == productSelect.idRestaurant)].avatar %>" alt="imagen plato" class="image-restaurant">
+        </div>    
+        <a href="/buisness/<%= productSelect.idRestaurant %>" class="left-separation box-order2">
+            <h2 class="product-title"><%= restaurantDataBase[restaurantDataBase.findIndex(i => i.idRestaurant == productSelect.idRestaurant)].nombre %></h2>
+        </a>
+        <article class="reserve-form">
+            <div class="box-order1">
+                <img src="<%= productSelect.imagen %>" alt="imagen plato" class="image-result">
+            </div>    
+            <div class="left-separation box-order2">
+                <h3 class="product-title"><%= productSelect.plato %></h3>
+                <p class="product-description"><%= productSelect.descripcion %></p>
+                <h5 class="product-category">Categoría: <%= productSelect.categoria %></h5>
+                <h4 class="product-price">Precio: $<%= productSelect.precio %></h4>
+            </div>
+            <div class="buttons-orders">
+                <form action="/user/account-buisness/products/edit/<%= productSelect.idPlato %>" method="GET" class="logout-button">
+                    <button type="submit" class="none-decoration">Reservar</button>
+                </form>
+            </div>    
+        </article>
     </main>
     <%- include partials/footer %>     
 </body>

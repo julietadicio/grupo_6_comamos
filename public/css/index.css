@@ -315,6 +315,74 @@ main form {
 
 /* Index */
 
+/* Detalle de productos */
+.product-view {
+    width: 100%;
+}
+.reserve-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgb(201, 201, 201);
+    width: 90%;
+    margin: 1vh auto;
+    padding: 5px;
+    border-radius: 5px;
+}
+.image-restaurant {
+    width: 100%;
+    border-radius: 5px;
+}
+.box-order1 {
+    text-align: center;
+    margin-top: 3%;
+}
+.box-order2 {
+    margin-bottom: 5%;
+}
+.product-title {
+    color: #656565;
+    text-align: center;
+}
+.product-description {
+    text-align: center;
+    font-size: 12px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.product-category, .product-price {
+    text-align: center;
+    margin-top: 2%;
+}
+.logout-button {
+    background-color: #b6b6b6;
+    color: white;
+    border-radius: 5px;
+    width: 140px;
+    height: 30px;
+    margin: 5% auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    transition: all 0.5s;
+}
+.none-decoration {
+    background-color: #b6b6b6;
+    color: white;
+    border: none;
+    margin: inherit;
+    transition: all 0.5s;
+}
+.logout-button:hover {
+    background-color: #ED1B24;
+}
+.logout-button:hover .none-decoration {
+    background-color: #ED1B24;
+}
+
+/* Detalle de productos */
+
 /* Footer */
 
 .footer {
