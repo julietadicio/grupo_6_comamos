@@ -391,6 +391,7 @@ footer ul, footer div {
         color: #656565;
         font-size: 16px;
         padding: 0;
+        line-height: 20px;
     }
     body header div div a i {
         font-size: 25px;
@@ -499,6 +500,9 @@ footer ul, footer div {
     .product-title {
         font-size: 16px;
     }
+    footer ul li a {
+        font-size: 12px;
+    }
 }
 @media (min-width: 1024px) {
     .format-menu {
@@ -530,5 +534,12 @@ footer ul, footer div {
     }
     footer ul li a {
         font-size: 16px;
+    }
+    #copyright {
+        font-size: 14px;
+    }
+    .footer-logo {
+        height: 40px;
+        width: 40px;
     }
 }

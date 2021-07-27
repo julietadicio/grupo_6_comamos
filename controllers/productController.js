@@ -13,8 +13,9 @@ const controller = {
         console.log(req.session.userLogged);
         return res.render ('index', {user: req.session.userLogged});
     },
-    detail: (req,res) => {
-        return res.render ('product', {user: req.session.userLogged})
+    detailProduct: (req,res) => {
+        const productSelect = productsDataBase.find (p => p.idPlato == req.params.idPlato);
+        return res.render ('product-detail2', {user: req.session.userLogged, productSelect})
     },
     productsList: (req, res) => {
         const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);

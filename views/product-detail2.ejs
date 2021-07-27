@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include partials/head %> 
+    <title>Comamos</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <%- include partials/header %> 
+    <main>
+        <div class="search">
+            <form action="" method="">
+
+                <label for="busqueda1"></label>
+                <input type="text" name="busqueda1" id="busqueda1" placeholder="Restaurante, tipo de comida...">
+
+                <label for="busqueda2"></label>
+                <input type="text" name="busqueda2" class="box-mobile" id="busqueda2" placeholder="Cerca de mi dirección">
+
+                <select name="filtrar" id="filtrar" class="box-mobile">
+                    <option value="filtra">Filtra tu búsqueda</option>
+                </select>
+
+            </form>
+                <button type="submit" name="buscar" id="boton-buscar">Buscar</button>
+                <i class="fas fa-search" id="boton-lupa"></i>
+            </form>
+        </div>
+        
+    </main>
+    <%- include partials/footer %>     
+</body>
+
+</html>
