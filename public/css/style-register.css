@@ -108,11 +108,16 @@ nav ul li {
 main form {
 width:300px;
 padding:16px;
-border-radius:28px;
-background-color: rgb(226, 221, 221, 75%);
-border: solid 1px rgb(112, 112, 112);
+border-radius: 20px;
+background-color: white;
+border: #656565 1px solid;
 }
-
+body main input {
+    border: none;
+    border-radius: 5px;
+    width: 75%;
+    background-color: #e7e7e7;
+}
 .close {
     margin: 15px;
 }
@@ -216,6 +221,7 @@ h3 {
 }
 .margin-bottom {
     margin-bottom: 1%;
+    margin-top: 3%;
 }
 h3 div p {
     font-size: 16px;

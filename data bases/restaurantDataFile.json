@@ -6,7 +6,8 @@
     "capacidad": "20",
     "email": "villacrespopizzas@hotmail.com",
     "avatar": "/img/avatars/1626733894919.jpg",
-    "password": "$2a$10$tdy1Ut0TtvNGkmIMJW6UIOYP.Ku/TGUh0SZNZHD.B0NV1GClo2JuW"
+    "password": "$2a$10$tdy1Ut0TtvNGkmIMJW6UIOYP.Ku/TGUh0SZNZHD.B0NV1GClo2JuW",
+    "mapa": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d310.8256560521407!2d-58.42592126688285!3d-34.58168235738132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb584e0335455%3A0x869bc953a87ee728!2sCharcas%204635%2C%20C1425BNQ%20CABA!5e0!3m2!1ses!2sar!4v1627476705118!5m2!1ses!2sar"
   },
   {
     "idRestaurant": 2,
@@ -14,8 +15,9 @@
     "direccion": "Humberto 1º 299",
     "capacidad": "30",
     "email": "amaliarestaruante@hotmail.com",
-    "password": "$2a$10$R4UroYV7jFWBPdOLYvgxj.mO5zjy7NTiLSMMoTtJOq0dHurlUqaYm",
-    "avatar": "/img/avatars/user-buisness-avatar.jpg"
+    "password": "$2a$10$0Eoz7z6pxNh20W3LBI553.US9bKGOMSES/GCklnevDBLLG3fVGMHC",
+    "avatar": "/img/avatars/1627415279539.webp",
+    "mapa": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.350635922426!2d-58.37211148476999!3d-34.62057848045517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a335c6ba799035%3A0x9afebf58cd9c6260!2sAmalia!5e0!3m2!1ses!2sar!4v1627476430433!5m2!1ses!2sar"
   },
   {
     "idRestaurant": 3,
@@ -24,6 +26,7 @@
     "capacidad": "15",
     "email": "nandv@gmail.com",
     "password": "$2a$10$3umz7pHLR6VitITE0yMX7e97ZTd2amJIonYucBOLiCltq/9hmyQ0S",
-    "avatar": "/img/avatars/1627314614888.jpeg"
+    "avatar": "/img/avatars/1627314614888.jpeg",
+    "mapa": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.6837369509017!2d-58.429408984164155!3d-34.58686816411518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb5ac80ea3129%3A0x9c6ba0a6961befbb!2sKotten%20Sushi%20nikkei%20%26%20veggie!5e0!3m2!1ses!2sar!4v1627476816093!5m2!1ses!2sar"
   }
 ]
