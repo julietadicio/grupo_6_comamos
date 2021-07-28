@@ -9,7 +9,6 @@ const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 const authBuisnessMiddleware = require('../middlewares/authBuisnessMiddleware');
 const uploadFile = require('../middlewares/multer-avatar-Middleware');
-const uploadFileTable = require('../middlewares/multer-table-Middleware');
 
 // Rutas para login y administracion de usuarios
 

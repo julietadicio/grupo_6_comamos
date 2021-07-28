@@ -230,9 +230,10 @@ const controller = {
         const buisnessSelectId = restaurantDataBase.findIndex(p => p.idRestaurant == buisnessId)
         const tableId = req.params.id;
         const tableSelect = restaurantDataBase[buisnessSelectId].mesas.findIndex(p => p.idMesas == tableId)
+        console.log(tableSelect);
         /* const userTables = user.mesas;
         const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);*/
-        restaurantDataBase[buisnessSelectId] = { ...restaurantDataBase[buisnessSelectId] , ...req.body };
+        restaurantDataBase[buisnessSelectId].mesas[tableSelect] = { ...restaurantDataBase[buisnessSelectId].mesas[tableSelect] , ...req.body };
         fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
         return res.redirect (303, '/user/account-buisness/capacity');
     },
