@@ -2,6 +2,8 @@ bcrypt = require ('bcryptjs');
 const fs = require('fs');
 const productsFilePath = './data bases/productsDataFile.json';
 const productsDataBase = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const restaurantFilePath = './data bases/restaurantDataFile.json';
+const restaurantDataBase = JSON.parse(fs.readFileSync(restaurantFilePath, 'utf-8'));
 
 /*
 passwordUser1 = 'hola1'
@@ -11,9 +13,8 @@ passwordBuisness2 = 'hola3'
 newpassword = bcrypt.hashSync(passwordBuisness2, 10)
 
 console.log(newpassword);
-*/
 const random = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 const productToSee = (array) => {
@@ -24,5 +25,17 @@ const productToSee = (array) => {
         resultado1[0]
     }
 }
-
 productToSee(productsDataBase);
+*/
+/*const buisnessId = req.session.userLogged.idRestaurant;
+const buisnessSelectId = restaurantDataBase.findIndex(p => p.idRestaurant == buisnessId)
+const tableId = req.params.id;
+const tableSelect = restaurantDataBase[buisnessSelectId].mesas.findIndex(p => p.idMesas == tableId)
+console.log(tableSelect);
+const userTables = user.mesas;
+const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+restaurantDataBase[buisnessSelectId].mesas[tableSelect] = { ...restaurantDataBase[buisnessSelectId].mesas[tableSelect] , ...req.body };
+fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));*/
+const mesa = restaurantDataBase[1].mesas.findIndex (m => m.idMesa == 20);
+console.log(mesa);
+
