@@ -15,7 +15,7 @@ const controller = {
     },
     detailProduct: (req,res) => {
         const productSelect = productsDataBase.find (p => p.idPlato == req.params.idPlato);
-        return res.render ('product-detail2', {user: req.session.userLogged, productSelect, restaurantDataBase})
+        return res.render ('product-detail', {user: req.session.userLogged, productSelect, restaurantDataBase})
     },
     productsList: (req, res) => {
         const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
