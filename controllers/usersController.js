@@ -215,6 +215,27 @@ const controller = {
         const productsRestaurant = productsDataBase.filter(r => r.idRestaurant == req.session.userLogged.idRestaurant);
         return res.render ('buisness-products-list', {productsRestaurant, user: req.session.userLogged});
     },
+    buisnessCapacity: (req, res) => {
+        const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+        res.render ('buisness-capacity', {user});
+    },
+    buisnessFormTables: (req, res) => {
+        const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+        const userTables = user.mesas;
+        const table = userTables.find(r => r.idMesa == req.params.idMesa);
+        res.render ('buisness-edit-capacity', {user, table});
+    },
+    buisnessEditCapacity: (req, res) => {
+        const buisnessId = req.session.userLogged.idRestaurant;
+        const buisnessSelectId = restaurantDataBase.findIndex(p => p.idRestaurant == buisnessId)
+        const tableId = req.params.id;
+        const tableSelect = restaurantDataBase[buisnessSelectId].mesas.findIndex(p => p.idMesas == tableId)
+        /* const userTables = user.mesas;
+        const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);*/
+        restaurantDataBase[buisnessSelectId] = { ...restaurantDataBase[buisnessSelectId] , ...req.body };
+        fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
+        return res.redirect (303, '/user/account-buisness/capacity');
+    },
     carrito: (req, res) => {
         
         return res.render ('carrito');

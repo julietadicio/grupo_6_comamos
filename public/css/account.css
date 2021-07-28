@@ -226,7 +226,7 @@ body main a {
     background-color: #b6b6b6;
     color: white;
     border-radius: 5px;
-    width: 140px;
+    width: 120px;
     height: 30px;
     margin: 5% auto;
     display: flex;
@@ -400,6 +400,63 @@ main div section ul li a h2 {
 }
 
 /* Formato para la gestion de platos */
+
+/* Formato para gestion de mesas */
+
+.capacity-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgb(201, 201, 201);
+    width: 100%;
+    margin: 1vh auto;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 12px;
+}
+.capacity-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3%;
+}
+.capacity-box {
+    width: 48%;
+    text-align: center;
+}
+#green {
+    color: green;
+    font-size: 14px;
+}
+#red {
+    color: #ED1B24;
+    font-size: 14px;
+}
+.buttons-tables {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 60%;
+}
+.tables-button {
+    background-color: #b6b6b6;
+    color: white;
+    border-radius: 5px;
+    width: 40px;
+    height: 30px;
+    margin: 5% auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    transition: all 0.5s;
+}
+.tables-button:hover {
+    background-color: #ED1B24;
+}
+.tables-button:hover .none-decoration {
+    background-color: #ED1B24;
+}
+/* Formato para gestion de mesas */
 
 /* Footer */
 .footer {

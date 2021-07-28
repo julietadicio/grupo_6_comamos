@@ -17,7 +17,19 @@
     "email": "amaliarestaruante@hotmail.com",
     "password": "$2a$10$0Eoz7z6pxNh20W3LBI553.US9bKGOMSES/GCklnevDBLLG3fVGMHC",
     "avatar": "/img/avatars/1627415279539.webp",
-    "mapa": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.350635922426!2d-58.37211148476999!3d-34.62057848045517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a335c6ba799035%3A0x9afebf58cd9c6260!2sAmalia!5e0!3m2!1ses!2sar!4v1627476430433!5m2!1ses!2sar"
+    "mapa": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.350635922426!2d-58.37211148476999!3d-34.62057848045517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a335c6ba799035%3A0x9afebf58cd9c6260!2sAmalia!5e0!3m2!1ses!2sar!4v1627476430433!5m2!1ses!2sar",
+    "mesas": [
+      { "idMesa": 1,
+        "ubicacion": "Ventana",
+        "descripcion": "",
+        "capacidad": "4"  
+      },
+      { "idMesa": 2,
+        "ubicacion": "Interior",
+        "descripcion": "Mesa alta para 2 personas",
+        "capacidad": "2" 
+      }
+    ]
   },
   {
     "idRestaurant": 3,

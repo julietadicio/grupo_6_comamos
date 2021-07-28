@@ -2,273 +2,64 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;1,200&family=Pacifico&display=swap"
-        rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/product.css">
-    <link rel="stylesheet" href="https://use.typekit.net/mcb3kjf.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <%- include partials/head %> 
     <title>Comamos</title>
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 
 <body>
-    <header>
+    <%- include partials/header %> 
+    <main class="product-view">
+        <div class="search">
+            <form action="" method="">
 
-        <div class="box-header">
-            <div class="logo-conteiner">
-                <a href="/">
-                    <img src="/img/Logo.png" id="logo" width="80%" alt="Logo Comamos">
+                <label for="busqueda1"></label>
+                <input type="text" name="busqueda1" id="busqueda1" placeholder="Restaurante, tipo de comida...">
+
+                <label for="busqueda2"></label>
+                <input type="text" name="busqueda2" class="box-mobile" id="busqueda2" placeholder="Cerca de mi dirección">
+
+                <select name="filtrar" id="filtrar" class="box-mobile">
+                    <option value="filtra">Filtra tu búsqueda</option>
+                </select>
+                <button type="submit" name="buscar" id="boton-buscar">Buscar</button>
+                <i class="fas fa-search" id="boton-lupa"></i>
+            </form>
+        </div>
+        <div class="reserve-form-wide">
+            <div class="box-order1">
+                <img src="<%= restaurantDataBase[restaurantDataBase.findIndex(i => i.idRestaurant == productSelect.idRestaurant)].avatar %>" alt="imagen plato" class="image-restaurant">
+                <a href="/lista-platos" class="left-separation box-order2">
+                    <h2 class="product-title"><%= restaurantDataBase[restaurantDataBase.findIndex(i => i.idRestaurant == productSelect.idRestaurant)].nombre %></h2>
                 </a>
             </div>
-            <div id="align-header">
-                <form action="/carrito" method="POST">
-
-                    <label for="busqueda0"></label>
-                    <input type="text" name="busqueda0" id="busqueda0" placeholder="¿Dónde querés comer?"
-                        class="hide-mobile">
-
-                    <label for="busqueda1"></label>
-                    <input type="text" name="busqueda1" id="busqueda1" placeholder="Restaurante, tipo de comida..."
-                        class="box-mobile box1">
-
-                    <label for="busqueda2"></label>
-                    <input type="text" name="busqueda2" id="busqueda2" placeholder="Cerca de mi dirección"
-                        class="box-mobile box2">
-
-                    <select name="filtrar" id="filtrar" class="box-mobile box3">
-                        <option value="filtra">Filtra tu búsqueda</option>
-                    </select>
-
-                    <button type="submit" name="buscar" id="boton-buscar">Buscar</button>
-                </form>
+            <div class="map-style">
+                <iframe
+                    src="<%= restaurantDataBase[restaurantDataBase.findIndex(i => i.idRestaurant == productSelect.idRestaurant)].mapa  %>"
+                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <h2 class="product-title"><%= restaurantDataBase[restaurantDataBase.findIndex(i => i.idRestaurant == productSelect.idRestaurant)].direccion %></h2>
             </div>
-            <div class="burger-bar">
-                <i class="fas fa-bars format-burgerbar"></i>
-            </div>
-            <div class="icon-user">
-                <i class="fas fa-user"></i>
-            </div>
-            <div class="icon-cart">
-                <i class="fa fa-shopping-cart fa"></i>
-            </div>
-
         </div>
-
-    </header>
-    <main>
-        <div class="box-main">
-            <section>
-                <h2 class="detalle-del-producto" style="color: black; font-size: 18px;">Kansas Grill & Bar • Cocina
-                    Americana </h2>
-                <h3 class="dirección">Av. del Libertador 4625, C1426 CABA</h3>
-                <h3 class="valoración">Valoración: 4.5/5 ⭐</h3>
-                <div class="map-style">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1215.5349254477915!2d-58.43271247288524!3d-34.5654748892176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb5bbbb6c68b1%3A0xf0b7e65c66da69f7!2sKansas!5e0!3m2!1ses!2sbr!4v1623873165400!5m2!1ses!2sbr"
-                        width="279" height="223" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <article class="reserve-form">
+            <div class="box-order1">
+                <img src="<%= productSelect.imagen %>" alt="imagen plato" class="image-result">
+            </div>
+            <div class="flex-column">   
+                <div class="left-separation box-order2">
+                    <h3 class="product-title"><%= productSelect.plato %></h3>
+                    <p class="product-description"><%= productSelect.descripcion %></p>
+                    <h5 class="product-category">Categoría: <%= productSelect.categoria %></h5>
+                    <h4 class="product-price">Precio: $<%= productSelect.precio %></h4>
                 </div>
-        </div>
-        </div>
-        <div class="box-main">
-            <h1 class="menu-producto"> Menú </h1>
-            <div class="botones-menu">
-                <button type="button" class="btn btn-danger">Entradas</button>
-                <button type="button" class="btn btn-danger">Platos principales</button>
-                <button type="button" class="btn btn-danger">Bebidas</button>
-                <button type="button" class="btn btn-danger">Postres</button>
+                <div class="buttons-orders">
+                    <form action="/user/account-buisness/products/edit/<%= productSelect.idPlato %>" method="GET" class="logout-button">
+                        <button type="submit" class="none-decoration">Reservar</button>
+                    </form>
+                </div>    
             </div>
-            <h1 class="acerca-de"> Acerca de </h1>
-            </section>
-        </div>
-        </div>
+        </article>
     </main>
     <%- include partials/footer %>     
 </body>
 
 </html>
-<!--
-    
-<div class="imagenes-restaurante">
-        <img src="/img/kansas-fachada.jpg" alt="Kansas-Grill-fachada">
-        <img src="/img/Ribs-Kansas.jpg" alt="Kansas-Grill-&-Bar-Ribs">
-        <img src="/img/bife-de-chorizo-kansas.jpg" alt="Kansas-Grill-&-Bar-Bife-de-Chorizo">
-        <img src="/img/Salmon-Kansas.jpg" alt="Kansas-Grill-&-Bar-Salmon">
-</div>
-</div>
-
-<div class="container min-vh-100" style="background-color: rgba(215,180, 119, 0.6);">
-
-        <div id="imagenes-slide" class="row" style="height:250px">
-            <img id="fachada-Restaurante" src="/img/kansas-fachada.jpg" alt="Kansas-Grill-fachada">
-        </div>
-    </div>
-    <div class=col-3>
-        <div id="nombre-Restaurante" class="row" style="height: 75px;">
-            <div class="detalle-del-producto">
-                <h3 class="detalle-del-producto" style="color: red;">Kansas Grill & Bar • Cocina Americana </h3>
-                <div class="contenedor-2">
-                    <article class="opcion-1"><strong>Dirección:</strong> Av. del Libertador 4625, C1426 CABA.
-                    </article>
-                    <article class="opcion-2"><strong>Valoración:</strong> 4.5/5 ⭐</article>
-                </div>
-            </div>
-        </div>
-        <div class="row" style="height: 225px;">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1215.5349254477915!2d-58.43271247288524!3d-34.5654748892176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb5bbbb6c68b1%3A0xf0b7e65c66da69f7!2sKansas!5e0!3m2!1ses!2sbr!4v1623873165400!5m2!1ses!2sbr"
-                width="279" height="223" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-    </div>
-    </div>
-    <div id="menu-producto" class="row" style="height:150px;">
-        <h2> Menú </h2>
-        <div class="menu-Del-Producto">
-            <div class="botones-menu">
-                <button type="button" class="btn btn-danger">Entradas</button>
-                <button type="button" class="btn btn-danger">Platos principales</button>
-                <button type="button" class="btn btn-danger">Bebidas</button>
-                <button type="button" class="btn btn-danger">Postres</button>
-
-            </div>
-        </div>
-    </div>
-    <div id="acerca-de" class="row" style="height:150px;">
-        <h2> Descripción del Restaurante </h2>
-    </div>
-    </div>
-    </div>
-    <footer>
-        <div class="footer">
-            <ul type="none">
-                <li><a href="">Acerca de Nosotros</a></li>
-                <li><a href="">Contacto</a></li>
-                <li><a href="">Términos y condiciones</a></li>
-            </ul>
-            <ul type="none">
-                <li><a href="">Registrá tu restaurante</a></li>
-                <li><a href="">Programá tus descuentos</a></li>
-                <li id="copyright">© Comamos - 2021</li>
-            </ul>
-            <div>
-                <div class="footer-logo">
-                    <img src="/img/facebook.png" alt="logo-facebook">
-                </div>
-                <div class="footer-logo">
-                    <img src="/img/instagram.png" alt="logo-facebook">
-                </div>
-            </div>
-    </footer>
-</body>
-
-</html>
-
-
-
-
-CSS
-
-
-
-.input-product-detail {
-    width: 100%;
-    margin: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;      
-    height: 100%;
-}
-
-#nombre-Restaurante {
-    padding: 5px;
-    font-size: 10px
-    
-
-}
-
-.acerca-de-producto {
-    text-align: left;
-    position: relative;
-    font-size: small
-}
-
-#comamos{
-    font-weight: bold;
-    font-family: pacifico, sans-serif;
-    font-style: normal;
-    font-size: 30px;
-    color: red;
-}
-
-#nombre-Restaurante h3 {
-    font-size: 13px;
-    font-weight: bold;
-}
-
-#fachada-Restaurante {
-    width: 100%;
-    height: auto;
-}
-
-#imagenes-slide {
-    height: 100px;
-    overflow: hidden;
-}
-
-
-
-
-.menu-Del-Producto {
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
-    width: 100%;
-    
-}
-
-
-.menu-Del-Producto button {
-    width: 150px;
-    height: auto;
-    margin: 5px;
-}
-
-#menu-producto {
-    display: flex;
-    justify-items: center;
-    text-align: left;
-    
-}
-
-#menu-producto h2 {
-    display: flex;
-    justify-items: center;
-    text-align: left;
-    font-weight: bold;
-    font-family: pacifico, sans-serif;
-    font-style: normal;
-    font-size: 30px;
-    color:white
-    
-}
-
-#acerca-de h2 {
-    font-weight: bold;
-    font-family: pacifico, sans-serif;
-    font-style: normal;
-    font-size: 30px;
-    color:white
-    
-}
-
-
--->
