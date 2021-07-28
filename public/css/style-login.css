@@ -33,9 +33,9 @@ nav ul li a {
     padding: 7px 13px;
     border-radius: 3px;
 }
-a:hover {
-    background: #991118;
-    color: #656565;
+header nav ul li a:hover {
+    background: #656565;
+    color: white;
     transition: .5s;
 }
 .flex {
@@ -126,7 +126,12 @@ margin:auto;
 background-color: rgb(226, 221, 221, 75%);
 border: solid 1px rgb(112, 112, 112);
 }
-
+body main input {
+    border: none;
+    border-radius: 5px;
+    width: 75%;
+    background-color: white;
+}
 .close {
     margin: 15px;
 }

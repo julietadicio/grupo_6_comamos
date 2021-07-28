@@ -33,9 +33,9 @@ nav ul li a {
     padding: 7px 13px;
     border-radius: 3px;
 }
-a:hover {
-    background: #991118;
-    color: #656565;
+header nav ul li a:hover {
+    background: #656565;
+    color: white;
     transition: .5s;
 }
 .flex {
@@ -105,18 +105,19 @@ nav ul li {
     align-items: center;
     min-height: 80vh;
 }
-main form {
+form {
 width:300px;
 padding:16px;
-border-radius: 20px;
-background-color: white;
-border: #656565 1px solid;
+border-radius:28px;
+margin:auto;
+background-color: rgb(226, 221, 221, 75%);
+border: solid 1px rgb(112, 112, 112);
 }
 body main input {
     border: none;
     border-radius: 5px;
     width: 75%;
-    background-color: #e7e7e7;
+    background-color: white;
 }
 .close {
     margin: 15px;

@@ -625,8 +625,8 @@ footer ul, footer div {
         width: 48%;
     }
     iframe {
-        width: 580px;
-        height: 330px;
+        width: 430px;
+        height: 235px;
     }
     footer ul li a {
         font-size: 16px;
@@ -659,5 +659,9 @@ footer ul, footer div {
     .none-decoration {
         font-size: 17px;
         font-weight: bold;
+    }
+    iframe {
+        width: 580px;
+        height: 330px;
     }
 }
