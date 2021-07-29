@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include partials/head %>
-    <link rel="stylesheet" href="/css/style-register.css">
+    <link rel="stylesheet" href="/css/style-login.css">
     <title>Comamos</title>
 </head>
 <body>
@@ -11,45 +11,45 @@
     <div class="margin-bottom">
       <h3 class="acercar">Estás a un paso de ser parte de </h3>
       <h3> la nueva comunidad de restaurantes...</h3>
-      </div>
+    </div>
           
-      <div class="centro">
-        <form action="/user/register-buisness" method="POST">
-          <div class="exit">
-            <a href="/" class="exit-button"><i class="fas fa-times"></i></a>
-          </div>
-          <h4 class="close" id="padding">Registrarse</h4>
-            <p>
-              <label>Nombre del restaurante</label> <div></div>
-              <input type= "text" name= "nombre" id= "nombre">
-            </p>
+    <div class="centro">
+      <form action="/user/register-buisness" method="POST">
+        <div class="exit">
+          <a href="/" class="exit-button"><i class="fas fa-times"></i></a>
+        </div>
+        <h4 class="close" id="padding">Registrarse</h4>
+        <div>
+          <label>Nombre del restaurante</label>
+          <input type= "text" name= "nombre" id= "nombre">
+        </div>
 
-            <p>
-                <label>Direccion</label> <div></div>
-                <input type= "text" name= "direccion" id= "direccion">
-              </p>
+        <div>
+            <label>Direccion</label> <div></div>
+            <input type= "text" name= "direccion" id= "direccion">
+        </div>
 
-              <p>
-                <label>Capacidad</label> <div></div>
-                <input type= "text" name= "capacidad" id= "capacidad">
-              </p>
-      
-            <p> 
-              <label>Direccion de correo electronico</label> <div></div>
-                <input type= "email" name= "email" id= "email">
-            </p>
-            
-            <p>
-              <label>Crear contraseña</label> <div></div>
-              <input type= "password" name= "password" id= "contraseña">
-              </p>
+        <div>
+          <label>Capacidad</label> <div></div>
+          <input type= "text" name= "capacidad" id= "capacidad">
+        </div>
+  
+        <div> 
+          <label>Direccion de correo electronico</label> <div></div>
+          <input type= "email" name= "email" id= "email">
+        </div>
+        
+        <div>
+          <label>Crear contraseña</label> <div></div>
+          <input type= "password" name= "password" id= "contraseña">
+        </div>
 
-              <p class="alejar">
-                        <input class="center" type="submit" value="Crear cuenta"> </input>
-                </p>
-          </form>
+        <div class="alejar">
+          <input class="center logout-button" type="submit" value="Crear cuenta"> </input>
+        </div>
+      </form>
 
-      </div>
+    </div>
   </main>
 
 <%- include partials/footer %>     

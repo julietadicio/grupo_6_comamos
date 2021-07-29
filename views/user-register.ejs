@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include partials/head %>
-    <link rel="stylesheet" href="/css/style-register.css">
+    <link rel="stylesheet" href="/css/style-login.css">
     <title>Comamos</title>
 </head>
 <body>
@@ -21,38 +21,40 @@
     </div>
  
 
-   <div class="centro">
+    <div class="centro">
 
-    <form action="/user/register" method="POST" enctype="multipart/form-data">
-      
-      <div class="exit">
-        <a href="/" class="exit-button"><i class="fas fa-times"></i></a>
-      </div>
-  
-      
-      <h4 class="close" id="padding">Registrarse</h4>
-        <p>
-          <label class="alejar">Nombre</label><div></div>
-          <input type= "text" name= "nombre" id= "nombre">
-        </p>
-
-        <p>
-          <label>Apellido</label><div></div>
-          <input type= "text" name= "apellido" id= "apellido">
-        </p>
-  
-        <p>
-          <label>Direccion de correo electronico</label>
-          <input type= "email" name= "email" id= "email">
-        </p>
+      <form action="/user/register" method="POST" enctype="multipart/form-data">
         
-        <p>
-          <label>Crear contraseña</label><div></div>
-          <input type= "password" name= "password" id= "contraseña">
-        </p>
-        <p class="alejar">  
-          <input class="center" type="submit" value="Crear cuenta"> </input>
-        </p>
+        <div class="exit">
+          <a href="/" class="exit-button"><i class="fas fa-times"></i></a>
+        </div>
+    
+        
+        <h2>Registrarse</h2>
+         <div>
+          <div class="box-register">
+            <label class="alejar">Nombre</label>
+            <input type= "text" name= "nombre" id= "nombre"></input>
+          </div>
+
+          <div class="box-register">
+            <label>Apellido</label>
+            <input type= "text" name= "apellido" id= "apellido">
+          </div>
+    
+          <div class="box-register">
+            <label>Direccion de correo electronico</label>
+            <input type= "email" name= "email" id= "email"></input>
+          </div>
+          
+          <div class="box-register">
+            <label>Crear contraseña</label>
+            <input type= "password" name= "password" id= "contraseña"></input>
+          </div>
+        </div> 
+          <div class="alejar">  
+            <input class="center logout-button" type="submit" value="Crear cuenta"> </input>
+          </div>
       </form>
     
     </div>
