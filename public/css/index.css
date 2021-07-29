@@ -285,8 +285,8 @@ main form {
 
 .titulo-los-mas-elegidos, .titulo-nuestras-sugerencias {
     text-align: center;
-    font-size: 35px;
-    font-weight: 900;
+    font-size: 24px;
+    font-weight: 500;
 }
 
 .contenedor-1 {
@@ -571,6 +571,11 @@ footer ul, footer div {
     .reserve-form {
         flex-direction: row;
         padding: 10px;
+    }
+    .titulo-los-mas-elegidos, .titulo-nuestras-sugerencias {
+    text-align: center;
+    font-size: 35px;
+    font-weight: 900;
     }
     #copyright {
         font-size: 13px;
