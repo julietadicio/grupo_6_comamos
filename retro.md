@@ -75,4 +75,8 @@ Alejandro:
     - Implementacion de los botones de cancelar o confirmar ordenes
     - Nuevo formato para el index, en el que se muestran las imagenes de productos
     - Implementacion de middlewares para que no se pueda acceder a rutas sin logeo y viceversa. Unifique el middleware de invitado, para que aplique a ambos usuarios
+     - En la proxima semana voy a avanzar con:
+        1 - Confirgurar la administracion de mesas para los negocios
+        2 - Crear el menu desplegable superior cuando el usuario esta logeado
+    
     
