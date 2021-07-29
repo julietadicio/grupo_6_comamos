@@ -2,22 +2,25 @@
 <html lang="en">
 
 <head>
-    <%- include partials/head %> 
-    <title>Comamos</title>
-    <link rel="stylesheet" href="./css/index.css">
+    <%- include partials/head %>
+        <link rel="stylesheet" href="./css/index.css">
+        <title>Comamos</title>
 </head>
 
 <body>
-    <%- include partials/header %> 
-    <main>
-        <div class="search">
-            <form action="" method="">
+    <%- include partials/header %>
+        <main id="blur">
+            <div class="parallax">
+                <h1 class="frase-main">Elegí tu plato en tu restaurante favorito, sentate y listo.</h1>
+                <div class="search">
+                    <form action="" method="">
 
-                <label for="busqueda1"></label>
-                <input type="text" name="busqueda1" id="busqueda1" placeholder="Restaurante, tipo de comida...">
+                        <label for="busqueda1"></label>
+                        <input type="text" name="busqueda1" id="busqueda1" placeholder="Restaurante, tipo de comida...">
 
-                <label for="busqueda2"></label>
-                <input type="text" name="busqueda2" class="box-mobile" id="busqueda2" placeholder="Cerca de mi dirección">
+                        <label for="busqueda2"></label>
+                        <input type="text" name="busqueda2" class="box-mobile" id="busqueda2"
+                            placeholder="Cerca de mi dirección">
 
                 <select name="filtrar" id="filtrar" class="box-mobile">
                     <option value="filtra">Filtra tu búsqueda</option>
@@ -58,10 +61,8 @@
                     </div>
                 </div>
             </div>
-        </section>
-        </div>
-    </main>
-<%- include partials/footer %>     
+        </main>
+        <%- include partials/footer %>
 </body>
 
 </html>
