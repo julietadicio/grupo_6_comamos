@@ -38,8 +38,8 @@ const controller = {
 			} 
 			return res.render('user-login', {
 				errors: {
-					email: {
-						msg: 'Las credenciales son inválidas'
+					password: {
+						msg: 'Contraseña incorrecta'
 					}
 				}
 			});
@@ -47,7 +47,7 @@ const controller = {
 		return res.render('user-login', {
 			errors: {
 				email: {
-					msg: 'No se encuentra este email en nuestra base de datos'
+					msg: 'Revisá tu email'
 				}
 			}
 		});

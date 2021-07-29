@@ -216,6 +216,35 @@ body header div ul li a {
 .box-mobile {
     display: none;
 }
+#recordarme {
+    height: 15px;
+    width: 5%;
+}
+.rebember {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+}
+.width48 {
+    width: 48%;
+}
+.logout-button {
+    background-color: #b6b6b6;
+    color: white;
+    border-radius: 5px;
+    width: 120px;
+    height: 30px;
+    margin: 5% auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    transition: all 0.5s;
+}
+.logout-button:hover {
+    background-color: #ED1B24;
+}
 .footer {
     background-color: rgba(237, 27, 36, 75%);
     display: inline-flex;
@@ -260,6 +289,12 @@ footer ul, footer div {
     text-decoration: none;
     color: black;
 }
+.text-danger {
+    color: #ED1B24;
+    font-style: italic;
+    font-size: 14px;
+}
+
 @media (min-width: 768px) {
     body {
         font-size: 20px;
@@ -320,6 +355,9 @@ footer ul, footer div {
     justify-content: center;
     align-items: center;
     }
+    .text-danger {
+        font-size: 16px;
+    }
     footer ul li a {
         font-size: 12px;
     }
@@ -362,5 +400,8 @@ footer ul, footer div {
     center {
         width: 50%;
         margin: auto;
+    }
+    .text-danger {
+        font-size: 18px;
     }
 }
