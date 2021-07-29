@@ -6,8 +6,27 @@
     text-decoration: none;
     list-style: none;
 }
+
 body {
-    background-color: #e7e7e7;
+    background-color: #ebebeb;
+}
+
+.parallax {
+    background-image: url("/img/fondo-juli.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 36vw;
+    width: 100%;
+    margin: 0px;
+    border-radius: 5px;
+}
+
+.frase-main {
+    display: inline-block;
+    text-align: center;
+    color: white;
+    font-size: 4vw;
+    margin: 9% 11% 2%;
 }
 
 /* Nav bar para version mobile */
@@ -242,19 +261,28 @@ footer ul, footer div {
     font-size: 15px;
     font-weight: bold;
     color: rgb(214, 134, 102);
+    transition: all 0.3s;
 }
+
+#busqueda1:hover {
+    box-shadow: 0 0 15px 0 white
+}
+
 #boton-buscar {
     color: aliceblue;
-    background-color: red;
+    background-color: #b83e0a;
+    border: none;
     width: 10%;
     height: 60%;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 116%;
-    transition: background-color 1000ms;
+    transition: all 0.3s;
 }
 
 #boton-buscar:hover {
-    background-color: blue;
+    background-color: #b66634;
+    box-shadow: 0 0 15px 0 white
 }
 
 #filtrar {
@@ -262,22 +290,25 @@ footer ul, footer div {
     opacity: 74%;
     width: 20%;
     cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+#filtrar:hover {
+    box-shadow: 0 0 15px 0 white
 }
 
 .los-mas-elegidos {
-    border: 1px black solid;
-    background-color: white;
+    background-color: #dfdddd85;
     opacity: 60%;
-    margin-top: 1vh;
     border-radius: 20px;
     padding: 15px;
+    margin-top: 5vh;
 }
 
 .nuestras-sugerencias {
     width: 85vw;
     margin-top: 0;
-    border: 1px black solid;
-    background-color: white;
     opacity: 100%;
     border-radius: 20px;
     padding: 15px 0px 15px;
@@ -285,7 +316,7 @@ footer ul, footer div {
 
 .titulo-los-mas-elegidos, .titulo-nuestras-sugerencias {
     text-align: center;
-    font-size: 20px;
+    font-size: 35px;
     font-weight: 900;
 }
 
@@ -297,7 +328,7 @@ footer ul, footer div {
 
 .opcion-1, .opcion-2, .opcion-3, .opcion-4, .opcion-5, .opcion-6 {
     width: 22vw;
-    height: 13vh;
+    height: 20vh;
     border: 1px black solid;
     background-color: white;
     border-radius: 13%;
@@ -439,7 +470,14 @@ footer ul, footer div {
         color: rgb(214, 134, 102);
         border: none;
         border-radius: 5px;
+        transition: all 0.3s;
     }
+
+    #busqueda2:hover {
+        box-shadow: 0 0 15px 0 white
+    }
+
+
     .arrow {
         margin: 1%;
         }
@@ -449,6 +487,7 @@ footer ul, footer div {
         }
         .opcion-1, .opcion-2, .opcion-3, .opcion-4, .opcion-5, .opcion-6 {
         width: 15vw;
+        height: 15vh;
         }
     
         .opcion-7, .opcion-8, .opcion-9 {
@@ -456,7 +495,7 @@ footer ul, footer div {
         }
     
         .por-tu-zona, .para-ir-con {
-            height: 25vh;
+            height: 30vh;
         }
 }
 @media (min-width: 1024px) {
@@ -466,5 +505,8 @@ footer ul, footer div {
     }
     .style-title {
         margin-left: 20%;
+    }
+    .opcion-1, .opcion-2, .opcion-3, .opcion-4, .opcion-5, .opcion-6 {
+    height: 20vh;
     }
 }
