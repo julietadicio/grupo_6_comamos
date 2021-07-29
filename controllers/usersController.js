@@ -38,6 +38,7 @@ const controller = {
 				return res.redirect('/user/account');
 			} 
 			return res.render('user-login', {
+                oldData: req.body,
 				errors: {
 					password: {
 						msg: 'Contraseña incorrecta'
@@ -246,6 +247,7 @@ const controller = {
         const buisnessSelectId = restaurantDataBase.findIndex(p => p.idRestaurant == buisnessId)
         const tableId = req.params.idMesa;
         const tableSelectId = restaurantDataBase[buisnessSelectId].mesas.findIndex(p => p.idMesa == tableId)
+        console.log(buisnessId, buisnessSelectId, tableId, req.params.idMesa,tableSelectId);
         restaurantDataBase[buisnessSelectId].mesas[tableSelectId] = { ...restaurantDataBase[buisnessSelectId].mesas[tableSelectId] , ...req.body };
         fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
         return res.redirect (303, '/user/account-buisness/capacity');

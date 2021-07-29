@@ -72,6 +72,6 @@ router.get('/account-buisness/orders-history', authBuisnessMiddleware, usersCont
 router.get('/account-buisness/capacity', authBuisnessMiddleware, usersController.buisnessCapacity);
 // Formulario para modificar una mesa
 router.get('/account-buisness/capacity/edit/:idMesa', authBuisnessMiddleware, usersController.buisnessFormTables);
-router.put('/account-buisness/capacity/edit/',usersController.buisnessEditCapacity);
+router.put('/account-buisness/capacity/edit/:idMesa/',usersController.buisnessEditCapacity);
 
 module.exports = router;

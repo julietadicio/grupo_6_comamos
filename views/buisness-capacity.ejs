@@ -20,7 +20,9 @@
                 <p>Capacidad total: </p><%= user.capacidad %> 
             </div>
             <div class="capacity-box" id="red">
-                <p>Pendiente de asignar: -</p>
+                <p>Pendiente de asignar: <% user.mesas.reduce(element => { %>
+                    <%= element.capacidad %>  
+              <% }); %> </p>
             </div>
         </section>
         <section class="flex-row">

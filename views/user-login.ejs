@@ -24,7 +24,10 @@
       <h2 class="close" id="padding">Login</h2>
         <div>
           <label class="alejar">Email</label><div></div>
-          <input type= "email" name= "email" id= "email"></input>
+          <input type= "email" name= "email" id= "email"
+            class="<%= locals.errors && errors.email? 'is-invalid' : null %>"
+            value="<%= locals.oldData ? oldData.email : null %>">
+          </input>
           <% if (locals.errors && errors.email) { %>
             <div class="text-danger">
               <%= errors.email.msg %>
@@ -34,7 +37,10 @@
         
         <div>
           <label>Contraseña</label><div></div>
-          <input type= "password" name= "password" id= "contraseña"></input>
+          <input type= "password" name= "password" id= "contraseña"
+            class="<%= locals.errors && errors.password? 'is-invalid' : null %>"
+            value="<%= locals.oldData ? oldData.password : null %>">
+          </input>
           <% if (locals.errors && errors.password) { %>
                   <div class="text-danger">
                     <%= errors.password.msg %>

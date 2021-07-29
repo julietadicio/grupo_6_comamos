@@ -11,7 +11,7 @@
     <%- include partials/header %> 
     <main>
         <section class="box-space">
-            <form action="/user/account-buisness/capacity/edit/?_method=PUT" method="POST">
+            <form action="/user/account-buisness/capacity/edit/<%= table.idMesa %>/?_method=PUT" method="POST">
                 <div class="flex-column">
                     <label for="ubicacion">Ubicación de la mesa</label>
                     <input type="text" name="ubicacion" id="ubicacion" value="<%= table.ubicacion %>">
