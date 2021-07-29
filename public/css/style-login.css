@@ -216,6 +216,11 @@ body header div ul li a {
 .box-mobile {
     display: none;
 }
+
+/* Formato nuevo para login de usuarios */
+body input {
+    padding: 4px;
+}
 #recordarme {
     height: 15px;
     width: 5%;
@@ -245,6 +250,9 @@ body header div ul li a {
 .logout-button:hover {
     background-color: #ED1B24;
 }
+
+/* Formato nuevo para login de usuarios */
+
 .footer {
     background-color: rgba(237, 27, 36, 75%);
     display: inline-flex;
