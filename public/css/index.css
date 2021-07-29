@@ -191,7 +191,6 @@ body header a {
 /* Index */
 
 main {
-    width: 90%;
     margin: auto;
 }
 main form {
@@ -275,7 +274,9 @@ main form {
     margin-top: 1vh;
     border-radius: 20px;
     padding: 15px;
-    margin-top: 5vh;
+    width: 90%;
+    margin: auto;
+    margin-top: 1%;
 }
 
 .nuestras-sugerencias {
