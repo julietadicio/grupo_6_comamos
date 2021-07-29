@@ -5,6 +5,7 @@ const fs = require('fs');
 const { fileLoader } = require('ejs');
 const { FILE } = require('dns');
 const bcrypt = require('bcryptjs');
+const { validationResult } = require('express-validator');
 
 const userFilePath = './data bases/userDataFile.json';
 const userDataBase = JSON.parse(fs.readFileSync(userFilePath, 'utf-8'));
@@ -64,6 +65,13 @@ const controller = {
         return res.render ('user-register');
     },
     createUser: (req, res) => {
+        const resultValidation = validationResult(req);
+        if (resultValidation.errors.length > 0) {
+			return res.render('user-register', {
+				errors: resultValidation.mapped(),
+				oldData: req.body
+			});
+		}
         const lastUserId = userDataBase[userDataBase.length -1].idUser;
         const newUserId = lastUserId +1;
         var defaultImageProfile = '/img/avatars/Usuario-registro.png'
@@ -164,6 +172,13 @@ const controller = {
         return res.render ('buisness-register');
     },
     createBuisness: (req, res) => {
+        const resultValidation = validationResult(req);
+        if (resultValidation.errors.length > 0) {
+			return res.render('buisness-register', {
+				errors: resultValidation.mapped(),
+				oldData: req.body
+			});
+		}
         const lastRestaurantId = restaurantDataBase[restaurantDataBase.length -1].idRestaurant;
         const newRestaurantId = lastRestaurantId +1;
         var defaultImageProfile = '/img/avatars/user-buisness-avatar.jpg'

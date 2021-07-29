@@ -9,13 +9,14 @@ const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 const authBuisnessMiddleware = require('../middlewares/authBuisnessMiddleware');
 const uploadFile = require('../middlewares/multer-avatar-Middleware');
+const validateRegisterMiddleware = require('../middlewares/validateRegisterMiddleware');
 
 // Rutas para login y administracion de usuarios
 
 // Formulario de registro
 router.get('/register', guestMiddleware, usersController.register);
 // Procesar el registro
-router.post('/register', uploadFile.single('avatar'), /*validations,*/ usersController.createUser);
+router.post('/register', uploadFile.single('avatar'), validateRegisterMiddleware, usersController.createUser);
 // Formulario de login
 router.get('/login', guestMiddleware, usersController.loginUser);
 // Procesar el login
@@ -46,7 +47,7 @@ router.get('/carrito', authMiddleware, usersController.carrito);
 // Formulario de registro
 router.get('/register-buisness', guestMiddleware, usersController.registerBuisness);
 // Procesar el registro
-router.post('/register-buisness', uploadFile.single('avatar'), /*validations,*/ usersController.createBuisness);
+router.post('/register-buisness', uploadFile.single('avatar'), validateRegisterMiddleware, usersController.createBuisness);
 // Formulario de login
 router.get('/login-buisness', guestMiddleware, usersController.loginBuisness);
 // Procesar el login

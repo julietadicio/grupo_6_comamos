@@ -23,7 +23,8 @@
 
     <div class="centro">
 
-      <form action="/user/register" method="POST" enctype="multipart/form-data">
+      <form action="/user/register" method="POST" enctype="multipart/form-data"
+        class="<%= locals.errors? 'form-wide2' : null %>">
         
         <div class="exit">
           <a href="/" class="exit-button"><i class="fas fa-times"></i></a>
@@ -34,25 +35,57 @@
          <div>
           <div class="box-register">
             <label class="alejar">Nombre</label>
-            <input type= "text" name= "nombre" id= "nombre"></input>
+            <input type= "text" name= "nombre" id= "nombre" 
+              class="<%= locals.errors && errors.nombre? 'is-invalid' : null %>"
+              value="<%= locals.oldData ? oldData.nombre : null %>">
+            </input>
+            <% if (locals.errors && errors.nombre) { %>
+									<div class="text-danger">
+										<%= errors.nombre.msg %> 
+									</div>
+								<% } %>
           </div>
 
           <div class="box-register">
             <label>Apellido</label>
-            <input type= "text" name= "apellido" id= "apellido">
+            <input type= "text" name= "apellido" id= "apellido"
+              class="<%= locals.errors && errors.apellido? 'is-invalid' : null %>"
+              value="<%= locals.oldData ? oldData.apellido : null %>">
+            </input>
+            <% if (locals.errors && errors.apellido) { %>
+									<div class="text-danger">
+										<%= errors.apellido.msg %> 
+									</div>
+								<% } %>
           </div>
     
           <div class="box-register">
             <label>Direccion de correo electronico</label>
-            <input type= "email" name= "email" id= "email"></input>
+            <input type= "email" name= "email" id= "email"
+              class="<%= locals.errors && errors.email? 'is-invalid' : null %>"
+              value="<%= locals.oldData ? oldData.email : null %>">
+            </input>
+            <% if (locals.errors && errors.email) { %>
+									<div class="text-danger">
+										<%= errors.email.msg %> 
+									</div>
+								<% } %>
           </div>
           
           <div class="box-register">
             <label>Crear contraseña</label>
-            <input type= "password" name= "password" id= "contraseña"></input>
+            <input type= "password" name= "password" id= "contraseña"
+              class="<%= locals.errors && errors.password? 'is-invalid' : null %>"
+              value="<%= locals.oldData ? oldData.password : null %>">
+            </input>
+            <% if (locals.errors && errors.password) { %>
+									<div class="text-danger">
+										<%= errors.password.msg %> 
+									</div>
+								<% } %>
           </div>
         </div> 
-          <div class="alejar">  
+          <div>  
             <input class="center logout-button" type="submit" value="Crear cuenta"> </input>
           </div>
       </form>
