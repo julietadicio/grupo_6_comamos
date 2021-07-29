@@ -450,6 +450,9 @@ footer ul, footer div {
         width: 400px;
         height: 480px;
     }
+    .format-form {
+        height: 380px;
+    }
 }
 @media (min-width: 1440px) {
     main form {
@@ -457,12 +460,18 @@ footer ul, footer div {
         height: 430px;
     }
     .width48 {
-        width: 38%;
+        width: 44%;
     }
     #padding {
         margin-top: -30px;
     }
     .form-wide2 {
         height: 490px;
+    }
+    .title, .title-2 {
+        font-size: 40px;
+    }
+    nav ul li a {
+        font-size: 14px;
     }
 }

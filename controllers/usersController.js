@@ -71,7 +71,7 @@ const controller = {
 				errors: resultValidation.mapped(),
 				oldData: req.body
 			});
-		}
+		} else {
         const lastUserId = userDataBase[userDataBase.length -1].idUser;
         const newUserId = lastUserId +1;
         var defaultImageProfile = '/img/avatars/Usuario-registro.png'
@@ -84,6 +84,7 @@ const controller = {
         userDataBase.push(userToCreate);
         fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
         res.render('user-registerOk');
+        }
     },
     userEditForm: (req, res) => {
         return res.render ('user-edit-account', {user: req.session.userLogged})
