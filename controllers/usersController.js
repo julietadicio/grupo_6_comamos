@@ -182,12 +182,8 @@ const controller = {
 				errors: resultValidation.mapped(),
 				oldData: req.body
 			});
-		}
-        if (restaurantDataBase[restaurantDataBase.length] >=1) {
-                var lastRestaurantId = restaurantDataBase[restaurantDataBase.length -1].idRestaurant;
-            } else {
-                lastRestaurantId = 0;
-            }
+		} 
+        var lastRestaurantId = restaurantDataBase[restaurantDataBase.length -1].idRestaurant;
         const newRestaurantId = lastRestaurantId +1;
         var defaultImageProfile = '/img/avatars/user-buisness-avatar.jpg'
         const restaurantCreate = {
