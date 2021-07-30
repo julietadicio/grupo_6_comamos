@@ -32,6 +32,7 @@
                             <p>Ubicacion: <%= table.ubicacion %></p>
                             <p>Descripcion: <%= table.descripcion %></p>
                             <p>Capacidad: <%= table.capacidad %> personas</p>
+                            <p id="<%= table.estado == 'Abierta'? 'green': 'red'; %>" >Estado: <%= table.estado %></p>
                         </div>
                         <div class="buttons-tables">
                             <form action="/user/account-buisness/capacity/edit/<%= table.idMesa %>" method="GET" class="tables-button">
