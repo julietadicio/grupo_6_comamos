@@ -10,7 +10,7 @@
 <body>
     <%- include partials/header %>
     <main class="main-order">
-        <form action="/user/account-buisness/products/new">
+        <form action="/user/account-buisness/capacity/new">
             <fieldset class="add-button">
                 <button type="submit" class="none-decoration2">Agregar</button>
             </fieldset>
@@ -20,9 +20,7 @@
                 <p>Capacidad total: </p><%= user.capacidad %> 
             </div>
             <div class="capacity-box" id="red">
-                <p>Pendiente de asignar: <% user.mesas.reduce(element => { %>
-                    <%= element.capacidad %>  
-              <% }); %> </p>
+                <p>Pendiente de asignar: <br> <%= user.capacidad - tablesNotAsigned %> </p>
             </div>
         </section>
         <section class="flex-row">

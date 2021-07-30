@@ -23,13 +23,15 @@
         "idMesa": 1,
         "ubicacion": "Ventana",
         "descripcion": "",
-        "capacidad": "4"
+        "capacidad": "4",
+        "estado": "Abierta"
       },
       {
         "idMesa": 2,
         "ubicacion": "Interior",
         "descripcion": "Mesa alta para 2 personas",
-        "capacidad": "2"
+        "capacidad": "2",
+        "estado": "Abierta"
       }
     ]
   },

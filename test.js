@@ -13,6 +13,7 @@ passwordBuisness2 = 'hola3'
 newpassword = bcrypt.hashSync(passwordBuisness2, 10)
 
 console.log(newpassword);
+
 const random = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -36,6 +37,11 @@ const userTables = user.mesas;
 const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
 restaurantDataBase[buisnessSelectId].mesas[tableSelect] = { ...restaurantDataBase[buisnessSelectId].mesas[tableSelect] , ...req.body };
 fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));*/
-const mesa = restaurantDataBase[1].mesas.findIndex (m => m.idMesa == 20);
-console.log(mesa);
+//const mesa = restaurantDataBase[1].mesas.findIndex (m => m.idMesa == 20);
 
+const indiceAleatorio = Math.floor(Math.random() * productsDataBase.length);
+const indice1 = indiceAleatorio;
+
+
+let mesas = restaurantDataBase[1].mesas.filter(p => p.idMesa != 2);
+console.log(mesas);

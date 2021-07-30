@@ -6,6 +6,7 @@ const { fileLoader } = require('ejs');
 const { FILE } = require('dns');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
+const e = require('express');
 
 const userFilePath = './data bases/userDataFile.json';
 const userDataBase = JSON.parse(fs.readFileSync(userFilePath, 'utf-8'));
@@ -17,9 +18,6 @@ const productsFilePath = './data bases/productsDataFile.json';
 const productsDataBase = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const controller = {
-    index: (req,res) => {
-        return res.render ('index', {user: req.session.userLogged});
-    },
     loginUser: (req, res) => {
         return res.render ('user-login');
     },
@@ -234,7 +232,11 @@ const controller = {
     },
     buisnessCapacity: (req, res) => {
         const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        res.render ('buisness-capacity', {user});
+        var tablesNotAsigned = 0;
+        user.mesas.forEach (n => {
+        tablesNotAsigned += Number(n.capacidad);
+        });
+        res.render ('buisness-capacity', {user, tablesNotAsigned});
     },
     buisnessFormTables: (req, res) => {
         const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
@@ -251,6 +253,36 @@ const controller = {
         restaurantDataBase[buisnessSelectId].mesas[tableSelectId] = { ...restaurantDataBase[buisnessSelectId].mesas[tableSelectId] , ...req.body };
         fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
         return res.redirect (303, '/user/account-buisness/capacity');
+    },
+    tablesCreateForm: (req, res) => {
+        return res.render ('buisness-create-tables', {user: req.session.userLogged});
+    },
+    createTable: (req, res) => {
+        /*const resultValidation = validationResult(req);
+        if (resultValidation.errors.length > 0) {
+			return res.render('buisness-register', {
+				errors: resultValidation.mapped(),
+				oldData: req.body
+			});
+		}*/
+        const buisnessId = req.session.userLogged.idRestaurant;
+        const buisnessSelectId = restaurantDataBase.findIndex(p => p.idRestaurant == buisnessId)
+        const lastTableId = restaurantDataBase[buisnessSelectId].mesas[restaurantDataBase[buisnessSelectId].mesas.length - 1].idMesa
+        const newTableId = lastTableId +1;
+        const TableCreate = {
+            idMesa: newTableId,
+            ...req.body
+        };
+        restaurantDataBase[buisnessSelectId].mesas.push(TableCreate);
+        fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
+        return res.redirect (303, '/user/account-buisness/capacity');
+    },
+    TableDelete: (req, res) => {
+        const buisnessId = req.session.userLogged.idRestaurant;
+        const buisnessSelectId = restaurantDataBase.findIndex(p => p.idRestaurant == buisnessId)
+        restaurantDataBase[buisnessSelectId].mesas = restaurantDataBase[buisnessSelectId].mesas.filter(p => p.idMesa != Number(req.params.idMesa));
+        fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
+        return res.redirect(303, '/user/account-buisness/capacity');
     },
     carrito: (req, res) => {
         

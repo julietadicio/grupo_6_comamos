@@ -73,5 +73,11 @@ router.get('/account-buisness/capacity', authBuisnessMiddleware, usersController
 // Formulario para modificar una mesa
 router.get('/account-buisness/capacity/edit/:idMesa', authBuisnessMiddleware, usersController.buisnessFormTables);
 router.put('/account-buisness/capacity/edit/:idMesa/',usersController.buisnessEditCapacity);
+// Formulario para agregar una mesa
+router.get('/account-buisness/capacity/new', authBuisnessMiddleware, usersController.tablesCreateForm);
+router.post('/account-buisness/capacity/new-table', authBuisnessMiddleware, usersController.createTable);
+// Eliminar una mesa
+router.delete('/account-buisness/capacity/:idMesa/delete', usersController.TableDelete);
+
 
 module.exports = router;
