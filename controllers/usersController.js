@@ -186,7 +186,9 @@ const controller = {
             idRestaurant: newRestaurantId,
             ...req.body,    
             password: bcrypt.hashSync(req.body.password, 10),
-            avatar: defaultImageProfile
+            avatar: defaultImageProfile,
+            mapa: "",
+            mesas: []
         };
         restaurantDataBase.push(restaurantCreate);
         fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
@@ -265,9 +267,21 @@ const controller = {
 				oldData: req.body
 			});
 		}*/
+        const resultValidation = validationResult(req);
         const buisnessId = req.session.userLogged.idRestaurant;
         const buisnessSelectId = restaurantDataBase.findIndex(p => p.idRestaurant == buisnessId)
-        const lastTableId = restaurantDataBase[buisnessSelectId].mesas[restaurantDataBase[buisnessSelectId].mesas.length - 1].idMesa
+        if (resultValidation.errors.length > 0) {
+			return res.render('buisness-create-tables', {
+				errors: resultValidation.mapped(),
+				oldData: req.body,
+                user: req.session.userLogged
+			});
+		} else {
+        if (restaurantDataBase[buisnessSelectId].mesas.length >= 1) {
+             var lastTableId = restaurantDataBase[buisnessSelectId].mesas[restaurantDataBase[buisnessSelectId].mesas.length - 1].idMesa;
+        } else {
+            var lastTableId = 0;
+        }
         const newTableId = lastTableId +1;
         const TableCreate = {
             idMesa: newTableId,
@@ -276,6 +290,7 @@ const controller = {
         restaurantDataBase[buisnessSelectId].mesas.push(TableCreate);
         fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
         return res.redirect (303, '/user/account-buisness/capacity');
+        }
     },
     TableDelete: (req, res) => {
         const buisnessId = req.session.userLogged.idRestaurant;

@@ -11,6 +11,7 @@ const authBuisnessMiddleware = require('../middlewares/authBuisnessMiddleware');
 const uploadFile = require('../middlewares/multer-avatar-Middleware');
 const validateRegisterUser = require('../middlewares/validateRegisterUserMiddleware');
 const validateRegisterBuisness = require('../middlewares/validateRegisterBuisnessMiddleware');
+const validateCreateTable = require('../middlewares/validateCreateTableMiddleware');
 
 // Rutas para login y administracion de usuarios
 
@@ -75,7 +76,7 @@ router.get('/account-buisness/capacity/edit/:idMesa', authBuisnessMiddleware, us
 router.put('/account-buisness/capacity/edit/:idMesa/',usersController.buisnessEditCapacity);
 // Formulario para agregar una mesa
 router.get('/account-buisness/capacity/new', authBuisnessMiddleware, usersController.tablesCreateForm);
-router.post('/account-buisness/capacity/new-table', authBuisnessMiddleware, usersController.createTable);
+router.post('/account-buisness/capacity/new-table', authBuisnessMiddleware, validateCreateTable, usersController.createTable);
 // Eliminar una mesa
 router.delete('/account-buisness/capacity/:idMesa/delete', usersController.TableDelete);
 

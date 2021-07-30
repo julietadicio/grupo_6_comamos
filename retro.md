@@ -78,5 +78,7 @@ Alejandro:
      - En la proxima semana voy a avanzar con:
         1 - Confirgurar la administracion de mesas para los negocios
         2 - Crear el menu desplegable superior cuando el usuario esta logeado
+    - Pendiente: 
+        1 - dar formato a los formularios de edicion, vista y creacion de mesas
     
     

@@ -13,12 +13,12 @@
         <section class="box-space">
             <form action="/user/account-buisness/capacity/edit/<%= table.idMesa %>/?_method=PUT" method="POST">
                 <div class="flex-column">
-                    <label for="ubicacion">Ubicación de la mesa</label>
-                    <input type="text" name="ubicacion" id="ubicacion" value="<%= table.ubicacion %>">
+                    <label for="nombre">Nombre de la Mesa</label>
+                    <input type="text" name="nombre" id="nombre" value="<%= table.descripcion %>">
                 </div>
                 <div class="flex-column">
-                    <label for="descripcion">Descripción</label>
-                    <input type="text" name="descripcion" id="descripcion" value="<%= table.descripcion %>">
+                    <label for="ubicacion">Ubicación de la mesa</label>
+                    <input type="text" name="ubicacion" id="ubicacion" value="<%= table.ubicacion %>">
                 </div>
                 <div class="flex-column">
                     <label for="estado">Estado</label>
