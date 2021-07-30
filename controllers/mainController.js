@@ -9,9 +9,13 @@ const productsDataBase = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const controller = {
     index: (req,res) => {
-        const indiceAleatorio = Math.floor(Math.random() * productsDataBase.length);
-        //const products = productsDataBase[indiceAleatorio];
-        return res.render ('index', {user: req.session.userLogged, indiceAleatorio, productsDataBase});
+    var index = [];
+    while(index.length < 7){
+    var r = Math.floor(Math.random() * productsDataBase.length);
+    if(index.indexOf(r) === -1) index.push(r);
+    }
+    var indexArray = index.map (e => productsDataBase[e])
+        return res.render ('index', {user: req.session.userLogged, indexArray, productsDataBase});
     },
     listaRestaurantes: (req, res) => {
         

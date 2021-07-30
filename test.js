@@ -42,6 +42,16 @@ fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2)
 const indiceAleatorio = Math.floor(Math.random() * productsDataBase.length);
 const indice1 = indiceAleatorio;
 
+var quantity = productsDataBase.length
+var arr = [];
+while(arr.length < 7){
+    var r = Math.floor(Math.random() * quantity);
+    if(arr.indexOf(r) === -1) arr.push(r);
+}
 
-let mesas = restaurantDataBase[1].mesas.filter(p => p.idMesa != 2);
-console.log(mesas);
+var newArray = productsDataBase[arr[0]];
+var newArray2 = arr.map (e => productsDataBase[e])
+
+
+//console.log(newArray);
+console.log(newArray2);
