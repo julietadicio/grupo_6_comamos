@@ -21,8 +21,11 @@
                     <input type="text" name="descripcion" id="descripcion" value="<%= table.descripcion %>">
                 </div>
                 <div class="flex-column">
-                    <label for="capacidad">Capacidad</label>
-                    <input type="text" name="capacidad" id="capacidad" value="<%= table.capacidad %>">
+                    <label for="estado">Estado</label>
+                    <select name="estado" id="estado">
+                        <option value="abierta" <%= table.estado == 'abierta'? 'selected': null;%> >Abierta</option>
+                        <option value="cerrada" <%= table.estado == 'cerrada'? 'selected': null;%>>Cerrada</option>
+                    </select>
                 </div>
                 <fieldset class="logout-button">
                     <button type="submit" class="none-decoration"><i class="fas fa-check"></i></button>

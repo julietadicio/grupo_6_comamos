@@ -32,7 +32,7 @@
                             <p>Ubicacion: <%= table.ubicacion %></p>
                             <p>Descripcion: <%= table.descripcion %></p>
                             <p>Capacidad: <%= table.capacidad %> personas</p>
-                            <p id="<%= table.estado == 'Abierta'? 'green': 'red'; %>" >Estado: <%= table.estado %></p>
+                            <p id="<%= table.estado == 'abierta'? 'green': 'red'; %>" >Estado: <%= table.estado %></p>
                         </div>
                         <div class="buttons-tables">
                             <form action="/user/account-buisness/capacity/edit/<%= table.idMesa %>" method="GET" class="tables-button">
@@ -50,7 +50,7 @@
                 <h2 class="no-orders">Hace click en agregar</h2>
             <% } %>
         </section>
-    <form action="/user/account-buisness">
+    <form action="/user/account-buisness/capacity">
         <fieldset class="logout-button center">
             <button type="menu" class="none-decoration">Volver</button>
         </fieldset>
