@@ -66,15 +66,19 @@ const controller = {
     createUser: (req, res) => {
         const resultValidation = validationResult(req);
         if (resultValidation.errors.length > 0) {
-			return res.render('user-register', {
-				errors: resultValidation.mapped(),
+            return res.render('user-register', {
+                errors: resultValidation.mapped(),
 				oldData: req.body
 			});
 		} else {
-        const lastUserId = userDataBase[userDataBase.length -1].idUser;
-        const newUserId = lastUserId +1;
-        var defaultImageProfile = '/img/avatars/Usuario-registro.png'
-        const userToCreate = {
+            if (userDataBase[userDataBase.length] >=1) {
+                var lastUserId = userDataBase[userDataBase.length -1].idUser;
+            } else {
+                lastUserId = 0;
+            }
+            const newUserId = lastUserId +1;
+            var defaultImageProfile = '/img/avatars/Usuario-registro.png'
+            const userToCreate = {
             idUser: newUserId,
             ...req.body,   
             password: bcrypt.hashSync(req.body.password, 10),
@@ -261,13 +265,6 @@ const controller = {
         return res.render ('buisness-create-tables', {user: req.session.userLogged});
     },
     createTable: (req, res) => {
-        /*const resultValidation = validationResult(req);
-        if (resultValidation.errors.length > 0) {
-			return res.render('buisness-register', {
-				errors: resultValidation.mapped(),
-				oldData: req.body
-			});
-		}*/
         const resultValidation = validationResult(req);
         const buisnessId = req.session.userLogged.idRestaurant;
         const buisnessSelectId = restaurantDataBase.findIndex(p => p.idRestaurant == buisnessId)
@@ -281,7 +278,7 @@ const controller = {
         if (restaurantDataBase[buisnessSelectId].mesas.length >= 1) {
              var lastTableId = restaurantDataBase[buisnessSelectId].mesas[restaurantDataBase[buisnessSelectId].mesas.length - 1].idMesa;
         } else {
-            var lastTableId = 0;
+            lastTableId = 0;
         }
         const newTableId = lastTableId +1;
         const TableCreate = {
