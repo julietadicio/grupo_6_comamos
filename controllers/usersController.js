@@ -235,7 +235,9 @@ const controller = {
     buisnessCapacity: (req, res) => {
         const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
         var tablesNotAsigned = 0;
-        user.mesas.forEach (n => {
+        const tablesOpen = user.mesas.filter (m => m.estado == 'abierta');
+        console.log(tablesOpen);
+        tablesOpen.forEach (n => {
         tablesNotAsigned += Number(n.capacidad);
         });
         res.render ('buisness-capacity', {user, tablesNotAsigned});
@@ -251,7 +253,6 @@ const controller = {
         const buisnessSelectId = restaurantDataBase.findIndex(p => p.idRestaurant == buisnessId)
         const tableId = req.params.idMesa;
         const tableSelectId = restaurantDataBase[buisnessSelectId].mesas.findIndex(p => p.idMesa == tableId)
-        console.log(buisnessId, buisnessSelectId, tableId, req.params.idMesa,tableSelectId);
         restaurantDataBase[buisnessSelectId].mesas[tableSelectId] = { ...restaurantDataBase[buisnessSelectId].mesas[tableSelectId] , ...req.body };
         fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
         return res.redirect (303, '/user/account-buisness/capacity');
