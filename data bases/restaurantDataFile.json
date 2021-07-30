@@ -42,14 +42,14 @@
         "nombre": "Mesa 4",
         "ubicacion": "Interior - Ventana",
         "capacidad": "4",
-        "estado": "abierta"
+        "estado": "cerrada"
       },
       {
         "idMesa": 6,
         "nombre": "Mesa 5",
         "ubicacion": "Interior",
         "capacidad": "2",
-        "estado": "cerrada"
+        "estado": "abierta"
       }
     ]
   },

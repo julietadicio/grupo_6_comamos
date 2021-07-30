@@ -603,6 +603,9 @@ footer ul, footer div {
     .box-order2 {
     width: 70%;
     }
+    .box-table {
+    width: 100%;
+    }
     .box-order3 {
         width: 22%;
     }
@@ -637,7 +640,7 @@ footer ul, footer div {
     background-color: #ED1B24;
     }
     .capacity-form {
-        width: 33%;
+        width: 31%;
     }
 
 /* estilos para footer */
@@ -714,5 +717,13 @@ footer ul, footer div {
     }
     .box-space2 {
         width: 60%;
+    }
+    .capacity-form {
+        width: 24%;
+    }
+}
+@media (min-width: 1440px) {
+    .capacity-form {
+        width: 18%;
     }
 }

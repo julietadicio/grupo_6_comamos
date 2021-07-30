@@ -80,5 +80,6 @@ Alejandro:
         2 - Crear el menu desplegable superior cuando el usuario esta logeado
     - Pendiente: 
         1 - dar formato a los formularios de edicion, vista y creacion de mesas
+        2 - agregar validacion para que no se puede agregar mas mesas en estado abierta si la capacidad del negocio esta al maximo
     
     

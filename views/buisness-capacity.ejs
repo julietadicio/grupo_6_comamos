@@ -28,8 +28,8 @@
                 
                 <% user.mesas.forEach(table => { %>
                     <article class="capacity-form">    
-                        <div class="left-separation box-order2">
-                            <p><%= table.nombre %></p>
+                        <div class="box-table">
+                            <h3><%= table.nombre %></h3>
                             <p>Ubicacion: <%= table.ubicacion %></p>
                             <p>Capacidad: <%= table.capacidad %> personas</p>
                             <p id="<%= table.estado == 'abierta'? 'green': 'red'; %>" >Estado: <%= table.estado %></p>
