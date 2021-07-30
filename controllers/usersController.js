@@ -183,7 +183,11 @@ const controller = {
 				oldData: req.body
 			});
 		}
-        const lastRestaurantId = restaurantDataBase[restaurantDataBase.length -1].idRestaurant;
+        if (restaurantDataBase[restaurantDataBase.length] >=1) {
+                var lastRestaurantId = restaurantDataBase[restaurantDataBase.length -1].idRestaurant;
+            } else {
+                lastRestaurantId = 0;
+            }
         const newRestaurantId = lastRestaurantId +1;
         var defaultImageProfile = '/img/avatars/user-buisness-avatar.jpg'
         const restaurantCreate = {
