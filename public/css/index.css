@@ -422,7 +422,7 @@ main form {
     background-color: rgba(237, 27, 36, 75%);
     display: inline-flex;
     width: 100%;
-    padding: 5px;
+    padding: 7px;
     bottom: 0px;
     margin-top: 2%;
     justify-content: space-between;
@@ -653,6 +653,9 @@ footer ul, footer div {
     .index-article {
         width: 45%;
     }
+    .footer {
+        padding: 10px;
+    }
     footer ul li a {
         font-size: 12px;
     }
@@ -705,7 +708,7 @@ footer ul, footer div {
         width: 40px;
     }
     .fab {
-    font-size: 16px;
+    font-size: 20px;
     }
 }
 @media (min-width: 1440px) {
@@ -734,6 +737,6 @@ footer ul, footer div {
         height: 330px;
     }
     .fab {
-    font-size: 20px;
+    font-size: 22px;
     }
 }
