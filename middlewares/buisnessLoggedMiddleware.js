@@ -15,8 +15,9 @@ function buisnessLoggedMiddleware(req, res, next) {
 		res.locals.tipeUser = false;
 	}
 	
-	if (req.session.userLogged) {
+	if (req.session.userLogged && restaurantDataBase.find(u => u.email == req.session.userLogged.email)) {
 		res.locals.isLogged = true;
+		res.locals.tipeBuisness = true;
 		res.locals.userLogged = req.session.userLogged;
 	}
 

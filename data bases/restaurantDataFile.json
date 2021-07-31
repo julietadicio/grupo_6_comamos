@@ -88,6 +88,14 @@
     "password": "$2a$10$3umz7pHLR6VitITE0yMX7e97ZTd2amJIonYucBOLiCltq/9hmyQ0S",
     "avatar": "/img/avatars/1627314614888.jpeg",
     "mapa": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.6837369509017!2d-58.429408984164155!3d-34.58686816411518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb5ac80ea3129%3A0x9c6ba0a6961befbb!2sKotten%20Sushi%20nikkei%20%26%20veggie!5e0!3m2!1ses!2sar!4v1627476816093!5m2!1ses!2sar",
-    "mesas": []
+    "mesas": [
+      {
+        "idMesa": 1,
+        "nombre": "Mesa 1",
+        "ubicacion": "Exterior",
+        "capacidad": "8",
+        "estado": "abierta"
+      }
+    ]
   }
 ]
