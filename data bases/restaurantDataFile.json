@@ -1,6 +1,6 @@
 [
   {
-     "idRestaurant": 1,
+    "idRestaurant": 1,
     "nombre": "Pizzeria Villa Crespo",
     "direccion": "Charcas 4635",
     "capacidad": "20",
@@ -42,7 +42,7 @@
         "nombre": "Mesa 4",
         "ubicacion": "Interior - Ventana",
         "capacidad": "4",
-        "estado": "abierta"
+        "estado": "cerrada"
       },
       {
         "idMesa": 6,

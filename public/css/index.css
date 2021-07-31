@@ -303,6 +303,11 @@ main form {
     margin-top: 5px;
     padding: 5px;
 }
+.index-article:hover {
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+    padding: 2px;
+    transition: 0.5s;
+}
 .index-recomendations {
     border-radius: 15px;
     font-size: 12px;
@@ -594,12 +599,6 @@ footer ul, footer div {
     font-size: 35px;
     font-weight: 900;
     }
-    #copyright {
-        font-size: 13px;
-    }
-    .footer {
-        padding: 15px;
-    }
     .format-menu {
         font-size: 15px;
         font-weight: bold;
@@ -651,6 +650,9 @@ footer ul, footer div {
     }
     .footer {
         padding: 10px;
+    }
+    #copyright {
+        font-size: 13px;
     }
     footer ul li a {
         font-size: 12px;

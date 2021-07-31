@@ -193,6 +193,69 @@ main div i {
     width: 100%;
     height: 25%;
 }
+.menu{
+    display: flex;
+    justify-items: center;
+    text-align: left;
+    font-weight: bold;
+    font-family: 'Nunito Sans', sans-serif;  font-style: normal;
+    font-size: 15px;
+    color: black;
+    margin-top: 0px;
+    opacity: 70%;
+
+}
+
+.acerca-de {
+    display: flex;
+    justify-items: center;
+    text-align: left;
+    font-weight: bold;
+    font-family: 'Nunito Sans', sans-serif;  font-style: normal;
+    font-style: normal;
+    font-size: 15px;
+    color:black;
+    opacity: 70%;
+
+ }
+ 
+.restaurante-tipo-comida {
+    display: flex;
+    align-content: center;
+    text-align: center;
+    font-weight: bold;
+    font-family: WoltHeading-Omnes, system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", sans-serif;    font-style: normal;
+    font-style: normal;
+    font-size: 20px;
+    color:black; 
+    opacity: 70%;
+
+
+}
+
+.valoracion {
+    display: flex;
+    align-content: center;
+    text-align: center;
+    font-weight: bold;
+    font-family: WoltHeading-Omnes, system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", sans-serif;    font-style: normal;
+    font-style: normal;
+    font-size: 14px;
+    color:black     
+
+}
+
+.direccion {
+    display: flex;
+    align-content: center;
+    text-align: center;
+    font-weight: bold;
+    font-family: WoltHeading-Omnes, system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", sans-serif;    font-style: normal;
+    font-style: normal;
+    font-size: 14px;
+    color:black;
+
+}
 .footer {
     background-color: rgba(237, 27, 36, 75%);
     display: inline-flex;
@@ -232,6 +295,62 @@ footer ul, footer div {
     height: 15px;
     width: 15px;
     margin-left: 85%;
+}.footer {
+    background-color: rgba(237, 27, 36, 75%);
+    display: inline-flex;
+    width: 100%;
+    padding: 7px;
+    bottom: 0px;
+    margin-top: 2%;
+    justify-content: space-between;
+}
+#center-footer {
+    text-align: center;
+    color: white;
+    font-size: 7px;
+    margin-top: 10px;
+}
+footer ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 6px;
+    display: flex;
+    vertical-align: middle; 
+}
+#copyright {
+    color: white;
+    font-size: 7px;
+    margin-top: 5px;
+}
+footer div {
+    display: flex;
+}
+footer ul, footer div {
+    display: flex;
+    flex-direction: column;
+    width: 47.50%;
+}
+.social-media {
+    width: 5%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.fab {
+    padding: 2px;
+    font-size: 11px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+.fab:hover {
+    opacity: 0.7;
+}
+.fa-facebook, .fa-instagram {
+  margin-top: 2%;
+  color: #ebebeb;
 }
 @media (min-width: 461px) {
     .desktop-view1 {
@@ -317,19 +436,6 @@ footer ul, footer div {
     .land-view {
         display: flex;
     }
-    footer ul li a {
-        font-size: 12px;
-    }
-    #copyright {
-        font-size: 13px;
-    }
-    .footer-logo {
-        height: 30px;
-        width: 30px;
-    }
-    .footer {
-        padding: 15px;
-    }
     .format-menu {
         font-size: 14px;
         font-weight: bold;
@@ -344,73 +450,39 @@ footer ul, footer div {
     .box3 {
         width: 25%;
     }
+    .footer {
+        padding: 10px;
+    }
+    #copyright {
+        font-size: 13px;
+    }
+    footer ul li a {
+        font-size: 12px;
+    }
+    .fab {
+    font-size: 15px;
+    }
 }
 @media (min-width: 1024px) {
     .icon-user {
         font-size: 20px;
     }
-}
-
-.menu{
-    display: flex;
-    justify-items: center;
-    text-align: left;
-    font-weight: bold;
-    font-family: 'Nunito Sans', sans-serif;  font-style: normal;
-    font-size: 15px;
-    color: black;
-    margin-top: 0px;
-    opacity: 70%;
-
-}
-
-.acerca-de {
-    display: flex;
-    justify-items: center;
-    text-align: left;
-    font-weight: bold;
-    font-family: 'Nunito Sans', sans-serif;  font-style: normal;
-    font-style: normal;
-    font-size: 15px;
-    color:black;
-    opacity: 70%;
-
- }
- 
-.restaurante-tipo-comida {
-    display: flex;
-    align-content: center;
-    text-align: center;
-    font-weight: bold;
-    font-family: WoltHeading-Omnes, system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", sans-serif;    font-style: normal;
-    font-style: normal;
+    footer ul li a {
+        font-size: 16px;
+    }
+    #copyright {
+        font-size: 14px;
+    }
+    .footer-logo {
+        height: 40px;
+        width: 40px;
+    }
+    .fab {
     font-size: 20px;
-    color:black; 
-    opacity: 70%;
-
-
+    }
 }
-
-.valoracion {
-    display: flex;
-    align-content: center;
-    text-align: center;
-    font-weight: bold;
-    font-family: WoltHeading-Omnes, system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", sans-serif;    font-style: normal;
-    font-style: normal;
-    font-size: 14px;
-    color:black     
-
-}
-
-.direccion {
-    display: flex;
-    align-content: center;
-    text-align: center;
-    font-weight: bold;
-    font-family: WoltHeading-Omnes, system-ui, -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", sans-serif;    font-style: normal;
-    font-style: normal;
-    font-size: 14px;
-    color:black;
-
+@media (min-width: 1440px) {
+    .fab {
+    font-size: 22px;
+    }
 }
