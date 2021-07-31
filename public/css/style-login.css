@@ -214,6 +214,69 @@ body header div ul li a {
     display: none;
 }
 
+/* Footer */
+
+.footer {
+    background-color: rgba(237, 27, 36, 75%);
+    display: inline-flex;
+    width: 100%;
+    padding: 7px;
+    bottom: 0px;
+    margin-top: 2%;
+    justify-content: space-between;
+}
+#center-footer {
+    text-align: center;
+    color: white;
+    font-size: 7px;
+    margin-top: 10px;
+}
+footer ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 6px;
+    display: flex;
+    vertical-align: middle; 
+}
+#copyright {
+    color: white;
+    font-size: 7px;
+    margin-top: 5px;
+}
+footer div {
+    display: flex;
+}
+footer ul, footer div {
+    display: flex;
+    flex-direction: column;
+    width: 47.50%;
+}
+.social-media {
+    width: 5%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.fab {
+    padding: 2px;
+    font-size: 11px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+.fab:hover {
+    opacity: 0.7;
+}
+.fa-facebook, .fa-instagram {
+  margin-top: 2%;
+  color: #ebebeb;
+}
+
+/* Footer */
+
+
 /* Formato nuevo para login de usuarios */
 body input {
     padding: 4px;
@@ -273,46 +336,6 @@ main form div a i {
 
 /* Formato nuevo para login de usuarios */
 
-.footer {
-    background-color: rgba(237, 27, 36, 75%);
-    display: inline-flex;
-    width: 100%;
-    padding: 5px;
-    position: absolute;
-    bottom: 0px;
-}
-#center-footer {
-    text-align: center;
-    color: white;
-    font-size: 7px;
-    margin-top: 10px;
-}
-footer ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 6px;
-    display: flex;
-    vertical-align: middle; 
-}
-#copyright {
-    color: white;
-    font-size: 7px;
-    text-align: center;
-    margin-top: 10px;
-}
-footer div {
-    display: flex;
-}
-footer ul, footer div {
-    display: flex;
-    flex-direction: column;
-    width: 33.33%;
-}
-.footer-logo {
-    height: 15px;
-    width: 15px;
-    margin-left: 85%;
-}
 .exit-button {
     text-decoration: none;
     color: black;
@@ -395,10 +418,6 @@ footer ul, footer div {
     #copyright {
         font-size: 13px;
     }
-    .footer-logo {
-        height: 30px;
-        width: 30px;
-    }
     .footer {
         padding: 15px;
     }
@@ -406,6 +425,9 @@ footer ul, footer div {
         font-size: 15px;
         font-weight: bold;
         line-height: 15px;
+    }
+    .fab {
+    font-size: 15px;
     }
     h3 {
         font-size: 18px;
@@ -453,6 +475,19 @@ footer ul, footer div {
     .format-form {
         height: 380px;
     }
+    footer ul li a {
+        font-size: 16px;
+    }
+    #copyright {
+        font-size: 14px;
+    }
+    .footer-logo {
+        height: 40px;
+        width: 40px;
+    }
+    .fab {
+    font-size: 20px;
+    }
 }
 @media (min-width: 1440px) {
     main form {
@@ -473,5 +508,8 @@ footer ul, footer div {
     }
     nav ul li a {
         font-size: 14px;
+    }
+    .fab {
+    font-size: 22px;
     }
 }

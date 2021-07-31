@@ -1,4 +1,11 @@
-[
+[{
+     "idUser": 1,
+     "nombre": "Andres",
+     "apellido": "Cuasin",
+     "email": "alegpascuale@gmail.com",
+     "avatar": "/img/avatars/1626723399383.jpg",
+     "password": "$2a$10$1e.qbtRVd.SZMec5Sdf3lebs3zpgruN6RaCQ6lZ9aCBgRQfjNsV86"
+   },
   {
     "idUser": 2,
     "nombre": "Martin",

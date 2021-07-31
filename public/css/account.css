@@ -472,14 +472,15 @@ main div section ul li a h2 {
 /* Formato para gestion de mesas */
 
 /* Footer */
+
 .footer {
     background-color: rgba(237, 27, 36, 75%);
     display: inline-flex;
     width: 100%;
-    padding: 5px;
+    padding: 7px;
     bottom: 0px;
-    left: 0px;
     margin-top: 2%;
+    justify-content: space-between;
 }
 #center-footer {
     text-align: center;
@@ -497,8 +498,7 @@ footer ul li a {
 #copyright {
     color: white;
     font-size: 7px;
-    text-align: center;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 footer div {
     display: flex;
@@ -506,13 +506,34 @@ footer div {
 footer ul, footer div {
     display: flex;
     flex-direction: column;
-    width: 33.33%;
+    width: 47.50%;
 }
-.footer-logo {
-    height: 15px;
-    width: 15px;
-    margin-left: 85%;
+.social-media {
+    width: 5%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
+.fab {
+    padding: 2px;
+    font-size: 11px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+.fab:hover {
+    opacity: 0.7;
+}
+.fa-facebook, .fa-instagram {
+  margin-top: 2%;
+  color: #ebebeb;
+}
+
+/* Footer */
+
+
 @media (min-width: 768px) {
     .box-mobile {
         display: inline-flex;
@@ -651,15 +672,17 @@ footer ul, footer div {
     #copyright {
         font-size: 13px;
     }
-    .footer-logo {
-        height: 30px;
-        width: 30px;
-    }
     .footer {
-        padding: 15px;
+        padding: 10px;
+    }
+    footer ul li a {
+        font-size: 12px;
+    }
+    .fab {
+    font-size: 15px;
     }
     .format-menu {
-        font-size: 14px;
+        font-size: 15px;
         font-weight: bold;
         line-height: 15px;
     }
@@ -721,9 +744,25 @@ footer ul, footer div {
     .capacity-form {
         width: 24%;
     }
+    footer ul li a {
+        font-size: 16px;
+    }
+    #copyright {
+        font-size: 14px;
+    }
+    .footer-logo {
+        height: 40px;
+        width: 40px;
+    }
+    .fab {
+    font-size: 20px;
+    }
 }
 @media (min-width: 1440px) {
     .capacity-form {
         width: 18%;
+    }
+    .fab {
+    font-size: 22px;
     }
 }
