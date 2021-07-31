@@ -443,7 +443,7 @@ footer ul li a {
 #copyright {
     color: white;
     font-size: 7px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 footer div {
     display: flex;
@@ -463,7 +463,7 @@ footer ul, footer div {
 }
 .fab {
     padding: 2px;
-    font-size: 20px;
+    font-size: 11px;
     text-align: center;
     text-decoration: none;
     border-radius: 50%;
@@ -656,6 +656,9 @@ footer ul, footer div {
     footer ul li a {
         font-size: 12px;
     }
+    .fab {
+    font-size: 15px;
+    }
 }
 @media (min-width: 1024px) {
     .format-menu {
@@ -701,6 +704,9 @@ footer ul, footer div {
         height: 40px;
         width: 40px;
     }
+    .fab {
+    font-size: 16px;
+    }
 }
 @media (min-width: 1440px) {
     .product-title {
@@ -726,5 +732,8 @@ footer ul, footer div {
     iframe {
         width: 580px;
         height: 330px;
+    }
+    .fab {
+    font-size: 20px;
     }
 }
