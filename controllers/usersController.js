@@ -240,7 +240,6 @@ const controller = {
         const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
         var tablesNotAsigned = 0;
         const tablesOpen = user.mesas.filter (m => m.estado == 'abierta');
-        console.log(tablesOpen);
         tablesOpen.forEach (n => {
         tablesNotAsigned += Number(n.capacidad);
         });
