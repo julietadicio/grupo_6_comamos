@@ -9,10 +9,10 @@
 
 <body>
     <%- include partials/header %>
+    <main class="main-order">
     <% if (restaurantOrders.length >= 1) { %>
      
         <% restaurantOrders.forEach(order => { %>
-            <main class="main-order">
                 <article class="reserve-form">
                     <div class="box-order1">
                         <img src="<%= userDataBase[userDataBase.findIndex(i => i.idUser == order.idUser)].avatar %>" alt="imagen usuario" class="image-result">
@@ -38,19 +38,19 @@
                             <% } %> 
                     </form>
                 </article>
-            </main>
-            <%  }); %> 
-        <% } else { %>
-            <h2 class="no-orders">todavia no tenes pedidos...</h2>
-            <a href="/user/account-buisness/products">
-                <h2 class="no-orders">Te invitamos a ver los platos que tenes para ofrecer</h2>
-            </a>
-            <% } %> 
-    <form action="/user/account-buisness">
-        <fieldset class="logout-button center">
-            <button type="menu" class="none-decoration">Volver</button>
-        </fieldset>
-    </form>
+                <%  }); %> 
+                <% } else { %>
+                    <h2 class="no-orders">todavia no tenes pedidos...</h2>
+                    <a href="/user/account-buisness/products">
+                        <h2 class="no-orders">Te invitamos a ver los platos que tenes para ofrecer</h2>
+                    </a>
+                    <% } %> 
+                    <form action="/user/account-buisness">
+                        <fieldset class="logout-button center">
+                            <button type="menu" class="none-decoration">Volver</button>
+                        </fieldset>
+                    </form>
+                </main>
     <%- include partials/footer %>     
 </body>
 

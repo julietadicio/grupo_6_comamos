@@ -486,6 +486,12 @@ footer ul, footer div {
 /* Footer */
 
 @media (min-width: 768px) {
+    body {
+        font-size: 20px;
+    }
+    body main {
+    min-height: calc(100vh - 80px - 75px - 38px);
+    }
     .box-mobile {
         display: inline-flex;
         width: 60%;
@@ -651,7 +657,8 @@ footer ul, footer div {
         width: 45%;
     }
     .footer {
-        padding: 10px;
+        padding: 15px;
+        height: 75px;
     }
     #copyright {
         font-size: 13px;
@@ -664,6 +671,9 @@ footer ul, footer div {
     }
 }
 @media (min-width: 1024px) {
+    body main {
+    min-height: calc(100vh - 80px - 100px - 51px);
+    }
     .format-menu {
         font-size: 18px;
         line-height: 20px;
@@ -710,8 +720,14 @@ footer ul, footer div {
     .fab {
     font-size: 20px;
     }
+    .footer {
+        height: 100px;
+    }
 }
 @media (min-width: 1440px) {
+    body main {
+    min-height: calc(100vh - 80px - 110px - 72px);
+    }
     .product-title {
         font-size: 24px;
     }
@@ -738,5 +754,8 @@ footer ul, footer div {
     }
     .fab {
     font-size: 22px;
+    }
+    .footer {
+        height: 110px;
     }
 }
