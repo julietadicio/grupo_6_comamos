@@ -23,6 +23,7 @@ nav {
 }
 header {
     box-shadow: 0 0 15px 0 gray;
+    height: 80px;
 }
 nav ul {
     float: right;
@@ -64,7 +65,7 @@ main a h2:hover {
     font-family: 'Pacifico', cursive;
     vertical-align: bottom;
     display: none;
-    width: 75%;
+    width: 70%;
 }
 .title-2 {
     color: #ED1B24;
@@ -121,26 +122,26 @@ body header a {
     color: #656565;
 }
 .icon-align {
-    width: 40%;
+    width: 30%;
     display: flex;
     align-items: center;
 }
 .icon-user {
-    margin: 10%;
+    margin: 3%;
 }
 #logo {
     max-width: 100%;
     max-height: 100%; 
 }
 .logo-conteiner {
-    width: 15%;
+    width: 20%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
 #align-header {
     display: flex;
-    width: 88%;
+    width: 80%;
 }
 .style-title {
     text-align: center;
@@ -150,7 +151,7 @@ body header a {
     justify-content: center;
     font-weight: bold;
     font-family: 'Pacifico', cursive;
-    font-size: 16px;
+    font-size: 25px;
     color: #ED1B24;
 }
 .user-image {
@@ -577,7 +578,7 @@ footer ul, footer div {
     }
     .logo-conteiner {
         text-align: center;
-        width: 10%;
+        width: 18%;
     }
     nav div a {
         width: 20%;
@@ -598,6 +599,7 @@ footer ul, footer div {
    .icon-user {
     display: flex;
     width: 15%;
+    margin: 10%;
     align-content: center;
     justify-content: center;
     align-items: center;
@@ -710,7 +712,9 @@ footer ul, footer div {
     .title {
         text-align: center;
     }
-    
+    .logo-conteiner {
+        width: 13%;
+    }
     
     body main {
         width: 75%;
