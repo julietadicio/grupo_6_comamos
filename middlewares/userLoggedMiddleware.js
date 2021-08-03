@@ -12,10 +12,14 @@ function userLoggedMiddleware(req, res, next) {
 	if (userFromCookie) {
 		req.session.userLogged = userFromCookie;
 		res.locals.tipeUser = true;
+		res.locals.tipeBuisness = false;
 	}
-
+	
 	if (req.session.userLogged) {
 		res.locals.isLogged = true;
+		/*if (userDataBase.find(u => u.email == req.session.userLogged.email)){
+			res.locals.tipeUser = true;
+		}*/
 		res.locals.userLogged = req.session.userLogged;
 	}
 

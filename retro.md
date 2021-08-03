@@ -67,3 +67,19 @@ Alejandro:
         4 - Sistema de valoraciones y comentarios.
      (*) Actualice el tablero de trabajo con estas tareas y proyectos.
     https://trello.com/b/xbzGtulH
+
+    # Weekly 26/07
+Alejandro:
+    - Implementacion de una nav bar para dispositivos moviles
+    - Ajustes estéticos para que el header quede igual en todas las vistas
+    - Implementacion de los botones de cancelar o confirmar ordenes
+    - Nuevo formato para el index, en el que se muestran las imagenes de productos
+    - Implementacion de middlewares para que no se pueda acceder a rutas sin logeo y viceversa. Unifique el middleware de invitado, para que aplique a ambos usuarios
+     - En la proxima semana voy a avanzar con:
+        1 - Confirgurar la administracion de mesas para los negocios
+        2 - Crear el menu desplegable superior cuando el usuario esta logeado
+    - Pendiente: 
+        1 - dar formato a los formularios de edicion, vista y creacion de mesas
+        2 - agregar validacion para que no se puede agregar mas mesas en estado abierta si la capacidad del negocio esta al maximo
+    
+    

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include partials/head %>
+    <link rel="stylesheet" href="/css/account.css">
+    <title>Editar Cuenta</title>
+</head>
+
+<body>
+    <%- include partials/header %> 
+    <main>
+        <section class="box-space">
+            <form action="/user/account-buisness/capacity/edit/<%= table.idMesa %>/?_method=PUT" method="POST">
+                <div class="flex-column">
+                    <label for="nombre">Nombre de la Mesa</label>
+                    <input type="text" name="nombre" id="nombre" value="<%= table.nombre %>">
+                </div>
+                <div class="flex-column">
+                    <label for="ubicacion">Ubicación de la mesa</label>
+                    <input type="text" name="ubicacion" id="ubicacion" value="<%= table.ubicacion %>">
+                </div>
+                <div class="flex-column">
+                    <label for="estado">Estado</label>
+                    <select name="estado" id="estado">
+                        <option value="abierta" <%= table.estado == 'abierta'? 'selected': null;%> >Abierta</option>
+                        <option value="cerrada" <%= table.estado == 'cerrada'? 'selected': null;%>>Cerrada</option>
+                    </select>
+                </div>
+                <fieldset class="logout-button">
+                    <button type="submit" class="none-decoration"><i class="fas fa-check"></i></button>
+                </fieldset>
+            </form>
+            <form action="/user/account-buisness/capacity">
+                <fieldset class="logout-button">
+                        <button type="menu" class="none-decoration">Volver</button>
+                </fieldset>    
+            </form>
+        </section>
+    </main>
+    <%- include partials/footer %>     
+</body>
+
+</html>

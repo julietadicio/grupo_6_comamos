@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include partials/head %>
+    <link rel="stylesheet" href="/css/account.css">
+    <title>Agregar Plato</title>
+</head>
+
+<body>
+    <%- include partials/header %> 
+    <main>
+        <section class="box-space">
+            <form action="/user/account-buisness/capacity/new-table" method="POST">
+                <div>
+                    <label for="nombre">Nombre de la mesa</label>
+                    <input type="text" name="nombre" id="nombre" 
+                        class="<%= locals.errors && errors.nombre? 'is-invalid' : null %>"
+                        value="<%= locals.oldData ? oldData.nombre : null %>">
+                    </input>
+                    <% if (locals.errors && errors.nombre) { %>
+                        <div class="text-danger">
+                        <%= errors.nombre.msg %>
+                        </div>
+                        <% } %>
+                </div>
+                <div>
+                    <label for="ubicacion">Ubicación de la mesa</label>
+                    <input type="text" name="ubicacion" id="ubicacion"
+                        class="<%= locals.errors && errors.ubicacion? 'is-invalid' : null %>"
+                        value="<%= locals.oldData ? oldData.ubicacion : null %>">
+                    </input>
+                    <% if (locals.errors && errors.ubicacion) { %>
+                        <div class="text-danger">
+                        <%= errors.ubicacion.msg %>
+                        </div>
+                        <% } %>
+                </div>
+                <div>
+                    <label for="capacidad">Capacidad</label>
+                    <input type="text" name="capacidad" id="capacidad"
+                        class="<%= locals.errors && errors.capacidad? 'is-invalid' : null %>"
+                        value="<%= locals.oldData ? oldData.capacidad : null %>">
+                    </input>
+                    <% if (locals.errors && errors.capacidad) { %>
+                        <div class="text-danger">
+                        <%= errors.capacidad.msg %>
+                        </div>
+                        <% } %>
+                </div>
+                <div>
+                    <label for="estado">Estado</label>
+                    <select name="estado" id="estado">
+                        <option value="abierta">Abierta</option>
+                        <option value="cerrada">Cerrada</option>
+                    </select>
+                </div>
+                <fieldset class="logout-button">
+                    <button type="submit" class="none-decoration">Confirmar</button>
+                </fieldset>
+            </form>
+            <form action="/user/account-buisness/capacity">
+                <fieldset class="logout-button">
+                        <button type="menu" class="none-decoration">Volver</button>
+                </fieldset>    
+            </form>
+        </section>
+    </main>
+    <%- include partials/footer %>     
+</body>
+
+</html>

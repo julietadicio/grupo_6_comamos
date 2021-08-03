@@ -3,21 +3,21 @@
 
 <head>
     <%- include partials/head %>
-    <link rel="stylesheet" href="/css/account-restaurant.css">
+    <link rel="stylesheet" href="/css/account.css">
     <title>Listado de Platos</title>
 </head>
 
 <body>
     <%- include partials/header %>
-    <form action="/user/account-buisness/products/new">
-        <fieldset class="add-button">
-            <button type="submit" class="none-decoration">Agregar</button>
-        </fieldset>
-    </form>
     <main class="main-order">
-        <% if (productsRestaurant.length >= 1) { %>
+        <form action="/user/account-buisness/products/new">
+            <fieldset class="add-button">
+                <button type="submit" class="none-decoration2">Agregar</button>
+            </fieldset>
+        </form>
+        <% if (productsBuisness.length >= 1) { %>
             
-            <% productsRestaurant.forEach(product => { %>
+            <% productsBuisness.forEach(product => { %>
                 <article class="reserve-form">
                     <div class="box-order1">
                         <img src="<%= product.imagen %>" alt="imagen plato" class="image-result">
@@ -38,16 +38,16 @@
                     </div>    
                 </article>
                 <%  }); %> 
-            </main>
-        <% } else { %>
-            <h2 class="no-orders">todavia no tenes platos para ofrecer?</h2>
-            <h2 class="no-orders">Hace click en agregar y esperá las reservas</h2>
-    <% } %>
-    <form action="/user/account-buisness">
-        <fieldset class="logout-button">
-            <button type="menu" class="none-decoration">Volver</button>
-        </fieldset>
-    </form> 
+                <% } else { %>
+                    <h2 class="no-orders">todavia no tenes platos para ofrecer?</h2>
+                    <h2 class="no-orders">Hace click en agregar y esperá las reservas</h2>
+                    <% } %>
+                    <form action="/user/account-buisness">
+                        <fieldset class="logout-button center">
+                            <button type="menu" class="none-decoration">Volver</button>
+                        </fieldset>
+                    </form> 
+    </main>
     <%- include partials/footer %>     
 </body>
 

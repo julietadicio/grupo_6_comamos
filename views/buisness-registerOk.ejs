@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include partials/head %>
-    <link rel="stylesheet" href="/css/style-register.css">
+    <link rel="stylesheet" href="/css/style-login.css">
     <title>Document</title>
 </head>
 <body>
@@ -11,7 +11,7 @@
 
     <main>
  
-    <form class="centrok" id="exitoso">
+    <form action="/user/login-buisness" class="margin-bottom center">
         <div class="exit">
             <a href="/">
                 <i class="fas fa-times"></i>
@@ -21,10 +21,7 @@
         <h1>¡Registraste tu restaurante <div></div> exitosamente!</h1>
         <br><br><br>
         <h4>Ya podes empezar a disfrutar de <div></div>los mejores clientes...</h4>
-        <br><br><br><br>
-        <button>
-           <a href="/user/account-buisness">Iniciar Sesión como Negocio</a>
-        </button>
+        <button type="menu" class="logout-button">Iniciar Sesión</button>
     </form>
 </main>
 

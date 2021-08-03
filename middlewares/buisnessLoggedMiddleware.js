@@ -12,10 +12,14 @@ function buisnessLoggedMiddleware(req, res, next) {
 	if (buisnessFromCookie) {
 		req.session.userLogged = buisnessFromCookie;
 		res.locals.tipeBuisness = true;
+		res.locals.tipeUser = false;
 	}
-
+	
 	if (req.session.userLogged) {
 		res.locals.isLogged = true;
+		/*if (restaurantDataBase.find(u => u.email == req.session.userLogged.email)){
+			res.locals.tipeBuisness = true;
+		}*/
 		res.locals.userLogged = req.session.userLogged;
 	}
 

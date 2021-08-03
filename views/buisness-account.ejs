@@ -3,7 +3,7 @@
 
 <head>
     <%- include partials/head %>
-    <link rel="stylesheet" href="/css/account-restaurant.css">
+    <link rel="stylesheet" href="/css/account.css">
     <title>Cuenta</title>
 </head>
 
@@ -12,10 +12,10 @@
     <main>
         <section class="box-space">
             <div class="align-image-user">
-                <img src="<%= restaurantSelect.avatar %>" alt="user image" class="user-image">
+                <img src="<%= user.avatar %>" alt="user image" class="user-image">
             </div>
             <div class="align-titles">
-                <h3><%= restaurantSelect.nombre%></h3>
+                <h3><%= user.nombre%></h3>
             </div>
         </section>
         <div class="flex-row">    
@@ -45,37 +45,37 @@
                 <ul type='none' class="data-form">
                     <li>
                         <a href="/user/account-buisness/orders">
-                            <i class="fas fa-cart-arrow-down"></i>
+                            <i class="fas fa-cart-arrow-down more-space"></i>
                             <h2>Gestionar Reservas</h2>
                         </a>
                     </li>
                     <li>
                         <a href="/user/account-buisness/products">
-                            <i class="fas fa-utensils"></i>
+                            <i class="fas fa-utensils more-space"></i>
                             <h2>Gestionar Platos</h2>
                         </a>
                     </li>
                     <li>
-                        <a href="">
-                            <i class="fas fa-users"></i>
-                            <h2>Gestionar capacidad del Establecimiento</h2>
+                        <a href="/user/account-buisness/capacity">
+                            <i class="fas fa-users more-space"></i>
+                            <h2>Gestionar capacidad</h2>
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <i class="fas fa-comments"></i>
+                            <i class="fas fa-comments more-space"></i>
                             <h2>Ver reseñas</h2>
                         </a>
                     </li>
                     <li>
                         <a href="/user/account-buisness/orders-history">
-                            <i class="fas fa-history"></i>
+                            <i class="fas fa-history more-space"></i>
                             <h2>Historial de Reservas</h2>
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <i class="fas fa-question-circle"></i>
+                            <i class="fas fa-question-circle more-space"></i>
                             <h2>Comunicate con Comamos</h2>
                         </a>
                     </li>
@@ -83,7 +83,7 @@
             </section>
         </div>
         <form action="/user/logout-buisness">
-            <fieldset class="logout-button">
+            <fieldset class="logout-button center">
                 <button type="submit" class="none-decoration">Cerrar Sesión</button>
                 <i class="fas fa-sign-out-alt"></i>
             </fieldset>

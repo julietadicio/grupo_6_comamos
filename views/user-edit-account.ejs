@@ -15,23 +15,23 @@
                 <div class="align-image-user">
                     <img src="<%= user.avatar %>" alt="user image" class="user-image">
                 </div>
-                <div class="hide-edit">
+                <div class="hide-edit flex-column">
                     <label for="avatar">Editar</label>
                     <input type="file" name="avatar" id="avatar">
                 </div>
-                <div>
+                <div class="flex-column">
                     <label for="nombre">Nombre</label>
                     <input type="text" name="nombre" id="nombre" value="<%= user.nombre %>">
                 </div>
-                <div>
+                <div class="flex-column">
                     <label for="apellido">Apellido</label>
                     <input type="text" name="apellido" id="apellido" value="<%= user.apellido %>">
                 </div>
-                <div>
+                <div class="flex-column">
                     <label for="email">Direccion de correo electronico</label>
                     <input type="text" name="email" id="email" value="<%= user.email %>">
                 </div>
-                <div>
+                <div class="flex-column">
                     <label for="password">Contraseña</label>
                     <input type="text" name="password" id="password">
                 </div>

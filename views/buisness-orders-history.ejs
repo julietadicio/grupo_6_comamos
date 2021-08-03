@@ -3,19 +3,19 @@
 
 <head>
     <%- include partials/head %>
-    <link rel="stylesheet" href="/css/account-restaurant.css">
+    <link rel="stylesheet" href="/css/account.css">
     <title>Historial de Reservas</title>
 </head>
 
 <body>
     <%- include partials/header %>
+    <main class="main-order">
     <% if (restaurantOrders.length >= 1) { %>
      
         <% restaurantOrders.forEach(order => { %>
-            <main class="main-order">
                 <article class="reserve-form">
                     <div class="box-order1">
-                        <img src="<%= userDataBase[userDataBase.findIndex(i => i.idUser == order.idUser)].avatar %>" alt="imagen usuario" class="image-restaurant">
+                        <img src="<%= userDataBase[userDataBase.findIndex(i => i.idUser == order.idUser)].avatar %>" alt="imagen usuario" class="image-result">
                     </div>    
                     <div class="left-separation box-order2">
                         <h4><%= userDataBase[userDataBase.findIndex(i => i.idUser == order.idUser)].nombre +' '+ userDataBase[userDataBase.findIndex(i => i.idUser == order.idUser)].apellido %></h4>
@@ -29,23 +29,28 @@
                         <h5>Total: $<%= order.precioTotal %></h5>
                     </div>
                     <form action="" method="POST" class="coment-button box-order3">
-                        <input type="button" value="Calificar Usuario">
+                        <input type="button" value="Calificar Usuario" class="user-raiting">
                         <button type="submit"></button>
+                        <% if (order.estado == 'Completada') { %>
+                            <h4 class="confirmed"><%= order.estado %> </h4>
+                            <% } else if (order.estado == 'Cancelada') { %>
+                                <h4 class="cancel"><%= order.estado %> </h4>
+                            <% } %> 
                     </form>
                 </article>
-            </main>
-            <%  }); %> 
-        <% } else { %>
-            <h2 class="no-orders">todavia no tenes pedidos...</h2>
-            <a href="/user/account-buisness/products">
-                <h2 class="no-orders">Te invitamos a ver los platos que tenes para ofrecer</h2>
-            </a>
-            <% } %> 
-    <form action="/user/account-buisness">
-        <fieldset class="logout-button">
-            <button type="menu" class="none-decoration">Volver</button>
-        </fieldset>
-    </form>
+                <%  }); %> 
+                <% } else { %>
+                    <h2 class="no-orders">todavia no tenes pedidos...</h2>
+                    <a href="/user/account-buisness/products">
+                        <h2 class="no-orders">Te invitamos a ver los platos que tenes para ofrecer</h2>
+                    </a>
+                    <% } %> 
+                    <form action="/user/account-buisness">
+                        <fieldset class="logout-button center">
+                            <button type="menu" class="none-decoration">Volver</button>
+                        </fieldset>
+                    </form>
+                </main>
     <%- include partials/footer %>     
 </body>
 

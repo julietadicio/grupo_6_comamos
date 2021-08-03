@@ -8,10 +8,10 @@
 </head>
 
 <body>
-<%- include partials/header %> 
+    <%- include partials/header %> 
+    <main class="main-order">
     <% if (ordersUser.length >= 1) { %>
             <% ordersUser.forEach(order => { %>
-                <main class="main-order">
                     <article class="reserve-form">
                         <div class="box-order1">
                             <img src="<%= restaurantDataBase[restaurantDataBase.findIndex(i => i.idRestaurant == order.idRestaurant)].avatar %>" alt="imagen restaurante" class="image-result">
@@ -29,22 +29,28 @@
                             <h5>Total: $<%= order.precioTotal %></h5>
                         </div>
                         <form action="" method="POST" class="coment-button box-order3">
-                            <button type="submit">Cancelar Reserva</button>
+                            <% if (order.estado == 'Confirmada') { %>
+                                <h4 class="confirmed"><%= order.estado %> </h4>
+                                <input type="submit" name="estado" class="none-decoration logout-button" value="Cancelar Reserva"></input>
+                                <% } else if (order.estado == 'Pendiente') { %>
+                                    <h4 class="cancel"><%= order.estado %> </h4>
+                                    <input type="submit" name="estado" class="none-decoration logout-button" value="Cancelar Reserva"></input>
+                                <% } %> 
                         </form>
                     </article>
-                </main>
-            <%  }); %>
-        <% } else { %>
-            <h2 class="no-orders">todavia no tenes pedidos realizados...</h2>
-            <a href="/">
-                <h2 class="no-orders">Te invitamos a ver los mejores platos para tu reserva</h2>
-            </a>
-        <% } %>
-        <form action="/user/account">
-            <fieldset class="logout-button">
-                <button type="menu" class="none-decoration">Volver</button>
-            </fieldset>
-        </form>
+                    <%  }); %>
+                    <% } else { %>
+                        <h2 class="no-orders">todavia no tenes pedidos realizados...</h2>
+                        <a href="/">
+                            <h2 class="no-orders">Te invitamos a ver los mejores platos para tu reserva</h2>
+                        </a>
+                        <% } %>
+                        <form action="/user/account">
+                            <fieldset class="logout-button center">
+                                <button type="menu" class="none-decoration">Volver</button>
+                            </fieldset>
+                        </form>
+                    </main>
     <%- include partials/footer %>     
 </body>
 

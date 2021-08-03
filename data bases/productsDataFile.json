@@ -1,7 +1,7 @@
 [
   {
     "idPlato": 1,
-    "plato": "CAPRESE",
+    "plato": "Ensalada Caprese",
     "descripcion": "Mozzarella fior di late, tomate natural, albahaca fresca y olivas negras",
     "imagen": "/img/products/ensalada_capresse.jpeg",
     "categoria": "Ensaladas",
@@ -10,11 +10,56 @@
   },
   {
     "idPlato": 2,
-    "plato": "PIZZA MARGHERITA",
+    "plato": "Pizza Margherita",
     "descripcion": "Pomodoro italiano, mozzarella fior di latte y albahaca",
     "imagen": "/img/products/pizza_margarita.jpeg",
     "categoria": "Pizzas",
-    "precio": 900,
+    "precio": "900",
     "idRestaurant": 1
+  },
+  {
+    "idPlato": 3,
+    "plato": "Curry Gamba Style",
+    "descripcion": "Langostinos salteados al curry, hojas de lechuga morada y francesa, palta, gajos de naranjas al vivo y vinagreta cítrica de yogurth natural",
+    "categoria": "Mariscos",
+    "precio": "1100",
+    "imagen": "/img/products/1627313800894.webp",
+    "idRestaurant": 2
+  },
+  {
+    "idPlato": 4,
+    "plato": "Risotto de Arroz Carnaroli y ojo de bife braseado",
+    "descripcion": "Con azafrán español y ojo de bife braseado al vino tinto",
+    "categoria": "Risotto",
+    "precio": "920",
+    "imagen": "/img/products/1627313913510.webp",
+    "idRestaurant": 2
+  },
+  {
+    "idPlato": 5,
+    "plato": "Creppe de Dulce de Leche",
+    "descripcion": "Incluye bocha de helado a elección",
+    "categoria": "Postre",
+    "precio": "420",
+    "imagen": "/img/products/1627314455227.webp",
+    "idRestaurant": 2
+  },
+  {
+    "idPlato": 6,
+    "plato": "Twenty Vegan (20 unidades)",
+    "descripcion": "Vegan Boricua, Tibet roll, Maki Shinkin, Kinoko roll",
+    "categoria": "Sushi",
+    "precio": "1550",
+    "imagen": "/img/products/1627314723669.jpeg",
+    "idRestaurant": 3
+  },
+  {
+    "idPlato": 7,
+    "plato": "Veggie Chaufa Wok",
+    "descripcion": "Salteado de arroz, huevo, palta y vegetales (pimientos, zanahoria, cebollas, negui). Acompañado con papas fritas y salsa huancaína",
+    "categoria": "Vegano",
+    "precio": "810",
+    "imagen": "/img/products/1627314778205.jpeg",
+    "idRestaurant": 3
   }
 ]

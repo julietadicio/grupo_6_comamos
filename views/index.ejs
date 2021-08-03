@@ -2,23 +2,27 @@
 <html lang="en">
 
 <head>
-    <%- include partials/head %> 
-    <link rel="stylesheet" href="./css/index.css">
-    <title>Comamos</title>
+    <%- include partials/head %>
+        <link rel="stylesheet" href="./css/index.css">
+        <title>Comamos</title>
 </head>
 
 <body>
-    <%- include partials/header %> 
-    <main>
-        <div class="search">
-            <form action="" method="">
+    <%- include partials/header %>
+        <main id="blur">
+            <div class="parallax">
+                <h1 class="frase-main">Elegí tu plato en tu restaurante favorito, sentate y listo.</h1>
+                <div class="search">
+                    <form action="" method="">
 
-                <label for="busqueda1"></label>
-                <input type="text" name="busqueda1" id="busqueda1" placeholder="Restaurante, tipo de comida...">
+                        <label for="busqueda1"></label>
+                        <input type="text" name="busqueda1" id="busqueda1" placeholder="Restaurante, tipo de comida...">
 
-                <label for="busqueda2"></label>
-                <input type="text" name="busqueda2" class="box-mobile" id="busqueda2" placeholder="Cerca de mi dirección">
+                        <label for="busqueda2"></label>
+                        <input type="text" name="busqueda2" class="box-mobile" id="busqueda2"
+                            placeholder="Cerca de mi dirección">
 
+<<<<<<< HEAD
                 <select name="filtrar" id="filtrar" class="box-mobile">
                     <option value="filtra">Filtra tu búsqueda</option>
                 </select>
@@ -29,33 +33,49 @@
         </div>
 
         <div>
-            <section class="los-mas-elegidos">
-            <h2 class="titulo-los-mas-elegidos">Los más elegidos</h2>
-            <% ordersDataBase.forEach(order => { %> 
-            <div class="contenedor-1">
-                <article class="opcion-1"><%= order.idPlato %> </article>
+=======
+                        <select name="filtrar" id="filtrar" class="box-mobile">
+                            <option value="filtra">Filtra tu búsqueda</option>
+                        </select>
+                        <button type="submit" name="buscar" id="boton-buscar">Buscar</button>
+                        <i class="fas fa-search" id="boton-lupa"></i>
+                    </form>
+                </div>
             </div>
-            <% }); %> 
+>>>>>>> main
+            <section class="los-mas-elegidos">
+            <h2 class="titulo-los-mas-elegidos">Los más elegidos</h2> 
+            <div class="contenedor-1">
+                <% indexArray.forEach (product => { %> 
+                    <a href="/product/<%= product.idPlato %>" class="index-article">
+                        <img src="<%= product.imagen %>" alt="imagen plato" class="image-result">
+                        <h4 class="product-title"><%= product.plato %></h4>
+                    </a>
+                <% }); %> 
+            </div>
             </section>
             <section class="los-mas-elegidos">
                 <h2 class="titulo-nuestras-sugerencias">Nuestras sugerencias</h2>
             <div class="nuestras-sugerencias">
-                <div class="contenedor-2">
-
-                    <button class="arrow"><i class="fas fa-arrow-left"></i></button>
-                    <article class="para-ir-con">Para ir con...</article>
-                    <button class="arrow"><i class="fas fa-arrow-right"></i></button>
-
-                    <button class="arrow"><i class="fas fa-arrow-left"></i></button>
-                    <article class="por-tu-zona">Por tu zona</article>
-                    <button class="arrow"><i class="fas fa-arrow-right"></i></button>
-
+                <div class="recomendations-format">
+                    <h2 class="recomendations-title">Para ir con...</h2>
+                    <div class="index-recomendations">
+                        <button class="arrow"><i class="fas fa-arrow-left"></i></button>
+                        <img src="/img/Amigos-cenando.jpg" alt="por tu zona" class="image-result2">
+                        <button class="arrow"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                <div class="recomendations-format">
+                    <h2 class="recomendations-title">Por tu zona</h2>
+                    <div class="index-recomendations">
+                        <button class="arrow"><i class="fas fa-arrow-left"></i></button>
+                        <img src="/img/por tu zona.jpg" alt="para compartir con" class="image-result2">
+                        <button class="arrow"><i class="fas fa-arrow-right"></i></button>
+                    </div>
                 </div>
             </div>
-        </section>
-        </div>
-    </main>
-<%- include partials/footer %>     
+        </main>
+        <%- include partials/footer %>
 </body>
 
 </html>

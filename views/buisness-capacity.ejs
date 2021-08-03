@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include partials/head %>
+    <link rel="stylesheet" href="/css/account.css">
+    <title>Listado de Platos</title>
+</head>
+
+<body>
+    <%- include partials/header %>
+    <main class="main-order">
+        <form action="/user/account-buisness/capacity/new">
+            <fieldset class="add-button">
+                <button type="submit" class="none-decoration2">Agregar</button>
+            </fieldset>
+        </form>
+        <section class="capacity-container">
+            <div class="capacity-box" id="green">
+                <p>Capacidad total: </p><%= user.capacidad %> 
+            </div>
+            <div class="capacity-box" id="red">
+                <p>Pendiente de asignar: <br> <%= user.capacidad - tablesNotAsigned %> </p>
+            </div>
+        </section>
+        <section class="flex-row">
+            <% if (user.mesas.length >= 1) { %>
+                
+                <% user.mesas.forEach(table => { %>
+                    <article class="capacity-form">    
+                        <div class="box-table">
+                            <h3><%= table.nombre %></h3>
+                            <p>Ubicacion: <%= table.ubicacion %></p>
+                            <p>Capacidad: <%= table.capacidad %> personas</p>
+                            <p id="<%= table.estado == 'abierta'? 'green': 'red'; %>" >Estado: <%= table.estado %></p>
+                        </div>
+                        <div class="buttons-tables">
+                            <form action="/user/account-buisness/capacity/edit/<%= table.idMesa %>" method="GET" class="tables-button">
+                                <button type="submit" class="none-decoration"><i class="far fa-edit"></i></button>
+                            </form>
+                            <form action="/user/account-buisness/capacity/<%= table.idMesa %>/delete?_method=DELETE" method="POST" class="tables-button">
+                                <button type="submit" class="none-decoration"><i class="fas fa-times"></i></button>
+                            </form>
+                        </div>    
+                    </article>
+                    <%  }); %> 
+                    <% } else { %>
+                        <section class="center">
+                            <h2 class="no-orders">todavia no mesas para ofrecer?</h2>
+                            <h2 class="no-orders">Hace click en agregar</h2>
+                        </section>
+                        <% } %>
+                    </section>
+                    <form action="/user/account-buisness">
+                        <fieldset class="logout-button center">
+                            <button type="menu" class="none-decoration">Volver</button>
+                        </fieldset>
+                    </form> 
+    </main>
+    <%- include partials/footer %>     
+</body>
+
+</html>

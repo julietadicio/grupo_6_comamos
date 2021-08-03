@@ -1,10 +1,17 @@
-[
+[{
+     "idUser": 1,
+     "nombre": "Andres",
+     "apellido": "Cuasin",
+     "email": "alegpascuale@gmail.com",
+     "avatar": "/img/avatars/1626723399383.jpg",
+     "password": "$2a$10$1e.qbtRVd.SZMec5Sdf3lebs3zpgruN6RaCQ6lZ9aCBgRQfjNsV86"
+   },
   {
-    "idUser": 1,
-    "nombre": "Alejandro",
-    "apellido": "Pascuale",
-    "email": "alegpascuale@gmail.com",
-    "avatar": "/img/avatars/1626723399383.jpg",
-    "password": "$2a$10$dnuavtJoJcw0G7zeQkRFxuAgSZDcP8zT1x1ANDiYKJhSZr19XFdce"
+    "idUser": 2,
+    "nombre": "Martin",
+    "apellido": "Gottero",
+    "email": "test@gmail.com",
+    "avatar": "/img/avatars/1626976079046.jpg",
+    "password": "$2a$10$0pFZfWvIyBhzb29DxxY0yeuHchXULghF0dP3ZQgifjZnVA/ASxBYW"
   }
 ]
