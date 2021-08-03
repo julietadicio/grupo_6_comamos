@@ -10,8 +10,6 @@ const e = require('express');
 
 const userFilePath = './data bases/userDataFile.json';
 const userDataBase = JSON.parse(fs.readFileSync(userFilePath, 'utf-8'));
-const restaurantFilePath = './data bases/restaurantDataFile.json';
-const restaurantDataBase = JSON.parse(fs.readFileSync(restaurantFilePath, 'utf-8'));
 const ordersFilePath = './data bases/ordersDataFile.json';
 const ordersDataBase = JSON.parse(fs.readFileSync(ordersFilePath, 'utf-8'));
 const productsFilePath = './data bases/productsDataFile.json';
@@ -22,7 +20,7 @@ const controller = {
         return res.render ('user-login');
     },
     loginProcess: (req, res) => {
-        const userToLogin = userDataBase.find(u => u.email == req.body.email);
+        const userToLogin = userDataBase.find(u => u.email == req.body.email && u.perfil == 'usuario');
         if(userToLogin) {
 			let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
 			if (isOkThePassword) {
@@ -32,7 +30,7 @@ const controller = {
 				if(req.body.recordarme) {
 					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
 				}
-
+                res.locals.tipeUser = true;
 				return res.redirect('/user/account');
 			} 
 			return res.render('user-login', {
@@ -53,7 +51,7 @@ const controller = {
 		});
     },
     userAccount: (req, res) => {
-        return res.render('user-account', {user: req.session.userLogged});
+        return res.render('user-account', {user: req.session.userLogged, userDataBase});
     },
     logout: (req, res) => {
 		res.clearCookie('userEmail');
@@ -72,7 +70,8 @@ const controller = {
 			});
 		} else {
             if (userDataBase[userDataBase.length] >=1) {
-                var lastUserId = userDataBase[userDataBase.length -1].idUser;
+                var lastUser = userDataBase.filter (u => u.perfil == 'usuario');
+                var lastUserId = lastUser[lastUser.length -1].idUser;
             } else {
                 lastUserId = 0;
             }
@@ -116,12 +115,12 @@ const controller = {
     userMyOrder: (req, res) => {
         const userSelect = userDataBase.find(u => u.idUser == req.session.userLogged.idUser);
         const ordersUser = ordersDataBase.filter(u => u.idUser == userSelect.idUser && (u.estado == 'Confirmada' || u.estado == 'Pendiente'));
-        return res.render ('user-my-order', {user:userSelect, ordersUser, restaurantDataBase, productsDataBase})
+        return res.render ('user-my-order', {user:userSelect, ordersUser, userDataBase, productsDataBase})
     },
     userOrder: (req, res) => {
         const userSelect = userDataBase.find(u => u.idUser == req.session.userLogged.idUser);
         const orderSelect = ordersDataBase.find(u => u.idOrder == req.params.idOrder);
-        return res.render ('user-id-order', {userSelect, orderSelect, restaurantDataBase, productsDataBase})
+        return res.render ('user-id-order', {userSelect, orderSelect, userDataBase, productsDataBase})
     },
     userMyOrderDelete: (req, res) => {
         const newOrdersDataBase = ordersDataBase.filter(o => o.idOrder != req.params.idOrder);
@@ -131,20 +130,21 @@ const controller = {
     userOrders: (req, res) => {
         const userSelect = userDataBase.find(u => u.idUser == req.session.userLogged.idUser);
         const ordersUser = ordersDataBase.filter(u => u.idUser == userSelect.idUser && (u.estado == 'Completada' || u.estado == 'Cancelada'));
-        return res.render ('user-orders-history', {user: userSelect, ordersUser, restaurantDataBase, productsDataBase})
+        return res.render ('user-orders-history', {user: userSelect, ordersUser, userDataBase, productsDataBase})
     },
     loginBuisness: (req, res) => {
         return res.render ('buisness-login');
     },
     loginProcessBuisness: (req, res) => {
-        const buisnessToLogin = restaurantDataBase.find(u => u.email == req.body.email);
+        const buisnessToLogin = userDataBase.find(u => u.email == req.body.email && u.perfil == 'negocio');
         if(buisnessToLogin) {
 			let isOkThePassword = bcrypt.compareSync(req.body.password, buisnessToLogin.password);
 			if (isOkThePassword) {
 				req.session.userLogged = buisnessToLogin;
 				if(req.body.recordarme) {
-					res.cookie('buisnessEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
 				}
+                res.locals.tipeBuisness = true;
 				return res.redirect('/user/account-buisness');
 			} 
 			return res.render('buisness-login', {
@@ -164,12 +164,12 @@ const controller = {
 		});
     },
     logoutBuisness: (req, res) => {
-        res.clearCookie('buisnessEmail');
+        res.clearCookie('userEmail');
 		req.session.destroy();
 		return res.redirect('/');
     },
     buisnessAccount: (req, res) => {
-        const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+        const user = userDataBase.find(r => r.idUser == req.session.userLogged.idUser);
         return res.render ('buisness-account', {user})
     },
     registerBuisness: (req, res) => {
@@ -183,61 +183,61 @@ const controller = {
 				oldData: req.body
 			});
 		} 
-        var lastRestaurantId = restaurantDataBase[restaurantDataBase.length -1].idRestaurant;
+        var lastRestaurantId = userDataBase[userDataBase.length -1].idUser;
         const newRestaurantId = lastRestaurantId +1;
         var defaultImageProfile = '/img/avatars/user-buisness-avatar.jpg'
         const restaurantCreate = {
-            idRestaurant: newRestaurantId,
+            idUser: newRestaurantId,
             ...req.body,    
             password: bcrypt.hashSync(req.body.password, 10),
             avatar: defaultImageProfile,
             mapa: "",
             mesas: []
         };
-        restaurantDataBase.push(restaurantCreate);
-        fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
+        userDataBase.push(restaurantCreate);
+        fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
         res.render('buisness-registerOk');
     },
     buisnessEditForm: (req, res) => {
         return res.render ('buisness-edit-account', {user: req.session.userLogged});
     },
     buisnessEditAccount: (req, res) => {
-        const buisnessId = req.session.userLogged.idRestaurant;
-        const buisnessSelectId = restaurantDataBase.findIndex(p => p.idRestaurant == buisnessId)
+        const buisnessId = req.session.userLogged.idUser;
+        const buisnessSelectId = userDataBase.findIndex(p => p.idUser == buisnessId)
         if (!req.file) {
-            restaurantDataBase[buisnessSelectId] = { ...restaurantDataBase[buisnessSelectId] , ...req.body };
-            restaurantDataBase[buisnessSelectId].password = bcrypt.hashSync(req.body.password, 10)
+            userDataBase[buisnessSelectId] = { ...userDataBase[buisnessSelectId] , ...req.body };
+            userDataBase[buisnessSelectId].password = bcrypt.hashSync(req.body.password, 10)
         } else {
-            restaurantDataBase[buisnessSelectId] = { ...restaurantDataBase[buisnessSelectId] , ...req.body };
-            restaurantDataBase[buisnessSelectId].avatar = '/img/avatars/'+req.file.filename;
-            restaurantDataBase[buisnessSelectId].password = bcrypt.hashSync(req.body.password, 10)
+            userDataBase[buisnessSelectId] = { ...userDataBase[buisnessSelectId] , ...req.body };
+            userDataBase[buisnessSelectId].avatar = '/img/avatars/'+req.file.filename;
+            userDataBase[buisnessSelectId].password = bcrypt.hashSync(req.body.password, 10)
         }
-        fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
+        fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
         return res.redirect (303, '/user/account-buisness');
     },  
     buisnessDelete: (req, res) => {
-        const newRestaurantDataBase = restaurantDataBase.filter(r => r.idRestaurant != req.session.userLogged.idRestaurant);
-        fs.writeFileSync(restaurantFilePath, JSON.stringify(newRestaurantDataBase, null, 2));
+        const newuserDataBase = userDataBase.filter(r => r.idUser != req.session.userLogged.idUser);
+        fs.writeFileSync(userFilePath, JSON.stringify(newuserDataBase, null, 2));
         res.clearCookie('buisnessEmail');
 		req.session.destroy();
         return res.redirect ('/')
     },
     buisnessOrders: (req, res) => {
-        const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        const restaurantOrders = ordersDataBase.filter (o => o.idRestaurant == user.idRestaurant && (o.estado == 'Pendiente' || o.estado == 'Confirmada'));
-        return res.render ('buisness-orders', {user, restaurantOrders, userDataBase,restaurantDataBase, productsDataBase});
+        const user = userDataBase.find(r => r.idUser == req.session.userLogged.idUser);
+        const restaurantOrders = ordersDataBase.filter (o => o.idUser == user.idUser && (o.estado == 'Pendiente' || o.estado == 'Confirmada'));
+        return res.render ('buisness-orders', {user, restaurantOrders, userDataBase, productsDataBase});
     },
     buisnessHistoryOrders: (req, res) => {
-        const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        const restaurantOrders = ordersDataBase.filter (o => o.idRestaurant == user.idRestaurant && (o.estado == 'Completada' || o.estado == 'Cancelada'));
-        return res.render ('buisness-orders-history', {user, restaurantOrders, userDataBase,restaurantDataBase, productsDataBase});
+        const user = userDataBase.find(r => r.idUser == req.session.userLogged.idUser);
+        const restaurantOrders = ordersDataBase.filter (o => o.idUser == user.idUser && (o.estado == 'Completada' || o.estado == 'Cancelada'));
+        return res.render ('buisness-orders-history', {user, restaurantOrders, userDataBase, productsDataBase});
     },
     buisnessProducts: (req, res) => {
-        const productsRestaurant = productsDataBase.filter(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+        const productsRestaurant = productsDataBase.filter(r => r.idUser == req.session.userLogged.idUser);
         return res.render ('buisness-products-list', {productsRestaurant, user: req.session.userLogged});
     },
     buisnessCapacity: (req, res) => {
-        const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+        const user = userDataBase.find(r => r.idUser == req.session.userLogged.idUser);
         var tablesNotAsigned = 0;
         const tablesOpen = user.mesas.filter (m => m.estado == 'abierta');
         tablesOpen.forEach (n => {
@@ -246,18 +246,18 @@ const controller = {
         res.render ('buisness-capacity', {user, tablesNotAsigned});
     },
     buisnessFormTables: (req, res) => {
-        const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+        const user = userDataBase.find(r => r.idUser == req.session.userLogged.idUser);
         const userTables = user.mesas;
         const table = userTables.find(r => r.idMesa == req.params.idMesa);
         res.render ('buisness-edit-capacity', {user, table});
     },
     buisnessEditCapacity: (req, res) => {
-        const buisnessId = req.session.userLogged.idRestaurant;
-        const buisnessSelectId = restaurantDataBase.findIndex(p => p.idRestaurant == buisnessId)
+        const buisnessId = req.session.userLogged.idUser;
+        const buisnessSelectId = userDataBase.findIndex(p => p.idUser == buisnessId)
         const tableId = req.params.idMesa;
-        const tableSelectId = restaurantDataBase[buisnessSelectId].mesas.findIndex(p => p.idMesa == tableId)
-        restaurantDataBase[buisnessSelectId].mesas[tableSelectId] = { ...restaurantDataBase[buisnessSelectId].mesas[tableSelectId] , ...req.body };
-        fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
+        const tableSelectId = userDataBase[buisnessSelectId].mesas.findIndex(p => p.idMesa == tableId)
+        userDataBase[buisnessSelectId].mesas[tableSelectId] = { ...userDataBase[buisnessSelectId].mesas[tableSelectId] , ...req.body };
+        fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
         return res.redirect ('/user/account-buisness/capacity');
     },
     tablesCreateForm: (req, res) => {
@@ -265,8 +265,8 @@ const controller = {
     },
     createTable: (req, res) => {
         const resultValidation = validationResult(req);
-        const buisnessId = req.session.userLogged.idRestaurant;
-        const buisnessSelectId = restaurantDataBase.findIndex(p => p.idRestaurant == buisnessId)
+        const buisnessId = req.session.userLogged.idUser;
+        const buisnessSelectId = userDataBase.findIndex(p => p.idUser == buisnessId)
         if (resultValidation.errors.length > 0) {
 			return res.render('buisness-create-tables', {
 				errors: resultValidation.mapped(),
@@ -274,8 +274,8 @@ const controller = {
                 user: req.session.userLogged
 			});
 		} else {
-        if (restaurantDataBase[buisnessSelectId].mesas.length >= 1) {
-             var lastTableId = restaurantDataBase[buisnessSelectId].mesas[restaurantDataBase[buisnessSelectId].mesas.length - 1].idMesa;
+        if (userDataBase[buisnessSelectId].mesas.length >= 1) {
+             var lastTableId = userDataBase[buisnessSelectId].mesas[userDataBase[buisnessSelectId].mesas.length - 1].idMesa;
         } else {
             lastTableId = 0;
         }
@@ -284,16 +284,16 @@ const controller = {
             idMesa: newTableId,
             ...req.body
         };
-        restaurantDataBase[buisnessSelectId].mesas.push(TableCreate);
-        fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
+        userDataBase[buisnessSelectId].mesas.push(TableCreate);
+        fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
         return res.redirect (303, '/user/account-buisness/capacity');
         }
     },
     TableDelete: (req, res) => {
-        const buisnessId = req.session.userLogged.idRestaurant;
-        const buisnessSelectId = restaurantDataBase.findIndex(p => p.idRestaurant == buisnessId)
-        restaurantDataBase[buisnessSelectId].mesas = restaurantDataBase[buisnessSelectId].mesas.filter(p => p.idMesa != Number(req.params.idMesa));
-        fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
+        const buisnessId = req.session.userLogged.idUser;
+        const buisnessSelectId = userDataBase.findIndex(p => p.idUser == buisnessId)
+        userDataBase[buisnessSelectId].mesas = userDataBase[buisnessSelectId].mesas.filter(p => p.idMesa != Number(req.params.idMesa));
+        fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
         return res.redirect('/user/account-buisness/capacity');
     },
     carrito: (req, res) => {

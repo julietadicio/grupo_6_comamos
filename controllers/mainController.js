@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 
+const userFilePath = './data bases/userDataFile.json';
+const userDataBase = JSON.parse(fs.readFileSync(userFilePath, 'utf-8'));
 const ordersFilePath = './data bases/ordersDataFile.json';
 const ordersDataBase = JSON.parse(fs.readFileSync(ordersFilePath, 'utf-8'));
 const productsFilePath = './data bases/productsDataFile.json';
@@ -15,7 +17,7 @@ const controller = {
     if(index.indexOf(r) === -1) index.push(r);
     }
     var indexArray = index.map (e => productsDataBase[e])
-        return res.render ('index', {user: req.session.userLogged, indexArray, productsDataBase});
+        return res.render ('index', {user: req.session.userLogged, indexArray, userDataBase, productsDataBase});
     },
     listaRestaurantes: (req, res) => {
         

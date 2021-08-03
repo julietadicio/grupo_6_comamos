@@ -1,8 +1,7 @@
 const fs = require('fs');
 
-
-const restaurantFilePath = './data bases/restaurantDataFile.json';
-const restaurantDataBase = JSON.parse(fs.readFileSync(restaurantFilePath, 'utf-8'));
+const userFilePath = './data bases/userDataFile.json';
+const userDataBase = JSON.parse(fs.readFileSync(userFilePath, 'utf-8'));
 const ordersFilePath = './data bases/ordersDataFile.json';
 const ordersDataBase = JSON.parse(fs.readFileSync(ordersFilePath, 'utf-8'));
 const productsFilePath = './data bases/productsDataFile.json';
@@ -15,15 +14,15 @@ const controller = {
     },
     detailProduct: (req,res) => {
         const productSelect = productsDataBase.find (p => p.idPlato == req.params.idPlato);
-        return res.render ('product-detail', {user: req.session.userLogged, productSelect, restaurantDataBase})
+        return res.render ('product-detail', {user: req.session.userLogged, productSelect, userDataBase})
     },
     productsList: (req, res) => {
-        const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        const productsBuisness = productsDataBase.filter ( p => p.idRestaurant == req.session.userLogged.idRestaurant)
+        const user = userDataBase.find(r => r.idUser == req.session.userLogged.idUser);
+        const productsBuisness = productsDataBase.filter ( p => p.idUser == req.session.userLogged.idUser)
         return res.render ('buisness-products-list', {productsBuisness, user})
     },
     createFormProduct: (req, res) => {
-        const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
+        const user = userDataBase.find(r => r.idUser == req.session.userLogged.idUser);
         return res.render ('buisness-create-products', {user});
     },
     createProduct: (req, res) => {
@@ -33,15 +32,15 @@ const controller = {
             idPlato: newProductId,
             ...req.body,
             imagen: '/img/products/'+req.file.filename,
-            idRestaurant: Number(req.session.userLogged.idRestaurant)    
+            idUser: Number(req.session.userLogged.idUser)    
         };
         productsDataBase.push(newProduct);
         fs.writeFileSync(productsFilePath, JSON.stringify(productsDataBase, null, 2));
         return res.redirect('/user/account-buisness/products');
     },
     editFormProduct: (req, res) => {
-        const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        const productSelect = productsDataBase.find(p => p.idPlato == req.params.idPlato && (p.idRestaurant == user.idRestaurant));
+        const user = userDataBase.find(r => r.idUser == req.session.userLogged.idUser);
+        const productSelect = productsDataBase.find(p => p.idPlato == req.params.idPlato && (p.idUser == user.idUser));
         return res.render ('buisness-edit-products', {productSelect, user});
     },
     editProduct: (req, res) => {

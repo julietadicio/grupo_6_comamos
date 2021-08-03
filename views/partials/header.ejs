@@ -1,5 +1,5 @@
 <header>  
-    <% if (locals.userLogged && locals.tipeUser == true) { %>
+    <% if (locals.userLogged && userDataBase[userDataBase.findIndex(i => i.idUser == user.idUser)].perfil == 'usuario') { %>
         <div class="logo-conteiner">
             <a href="/">
             <img src="/img/Logo.png" id="logo" width="80%" alt="Logo Comamos">
@@ -20,7 +20,7 @@
                 </div>
             </section>
         </div>
-            <% } else if (locals.userLogged && locals.tipeBuisness == true) { %>
+            <% } else if (locals.userLogged && userDataBase[userDataBase.findIndex(i => i.idUser == user.idUser)].perfil == 'negocio') { %>
             <div class="logo-conteiner">
                 <a href="/">
                 <img src="/img/Logo.png" id="logo" width="80%" alt="Logo Comamos">

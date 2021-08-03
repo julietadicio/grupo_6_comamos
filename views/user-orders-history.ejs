@@ -14,10 +14,10 @@
         <% ordersUser.forEach(order => { %>
                 <article class="reserve-form">
                     <div class="box-order1">
-                        <img src="<%= restaurantDataBase[restaurantDataBase.findIndex(i => i.idRestaurant == order.idRestaurant)].avatar %>" alt="imagen restaurante" class="image-result">
+                        <img src="<%= userDataBase[userDataBase.findIndex(i => i.isUser == order.isUser)].avatar %>" alt="imagen restaurante" class="image-result">
                     </div>    
                     <div class="left-separation box-order2">
-                        <h4><%= restaurantDataBase[restaurantDataBase.findIndex(i => i.idRestaurant == order.idRestaurant)].nombre %></h4>
+                        <h4><%= userDataBase[userDataBase.findIndex(i => i.isUser == order.isUser)].nombre %></h4>
                         <h4>Platos Comprados: <%  order.info_order.forEach(plato => { %>
                             <%= productsDataBase[productsDataBase.findIndex(i => i.idPlato == plato.idPlato)].plato %> 
                             Cantidad: <%= plato.cantidad %> 
