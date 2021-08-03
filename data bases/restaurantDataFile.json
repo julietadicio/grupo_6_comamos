@@ -75,7 +75,7 @@
         "nombre": "Mesa 2",
         "ubicacion": "Interior",
         "capacidad": "2",
-        "estado": "abierta"
+        "estado": "cerrada"
       }
     ]
   },
@@ -94,7 +94,7 @@
         "nombre": "Mesa 1",
         "ubicacion": "Exterior",
         "capacidad": "8",
-        "estado": "abierta"
+        "estado": "cerrada"
       }
     ]
   }

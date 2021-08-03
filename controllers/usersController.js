@@ -258,7 +258,7 @@ const controller = {
         const tableSelectId = restaurantDataBase[buisnessSelectId].mesas.findIndex(p => p.idMesa == tableId)
         restaurantDataBase[buisnessSelectId].mesas[tableSelectId] = { ...restaurantDataBase[buisnessSelectId].mesas[tableSelectId] , ...req.body };
         fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
-        return res.redirect (303, '/user/account-buisness/capacity');
+        return res.redirect ('/user/account-buisness/capacity');
     },
     tablesCreateForm: (req, res) => {
         return res.render ('buisness-create-tables', {user: req.session.userLogged});
@@ -294,7 +294,7 @@ const controller = {
         const buisnessSelectId = restaurantDataBase.findIndex(p => p.idRestaurant == buisnessId)
         restaurantDataBase[buisnessSelectId].mesas = restaurantDataBase[buisnessSelectId].mesas.filter(p => p.idMesa != Number(req.params.idMesa));
         fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
-        return res.redirect(303, '/user/account-buisness/capacity');
+        return res.redirect('/user/account-buisness/capacity');
     },
     carrito: (req, res) => {
         

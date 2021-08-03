@@ -644,7 +644,7 @@ footer ul, footer div {
     .flex-row {
         flex-direction: row;
         width: 90%;
-        margin: auto;
+        margin: 1% auto;
     }
     .box-space1 {
         width: 35%;
