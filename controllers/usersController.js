@@ -71,7 +71,7 @@ const controller = {
 				oldData: req.body
 			});
 		} else {
-            if (userDataBase[userDataBase.length] >=1) {
+            if (userDataBase.length >=1) {
                 var lastUserId = userDataBase[userDataBase.length -1].idUser;
             } else {
                 lastUserId = 0;
@@ -82,7 +82,8 @@ const controller = {
             idUser: newUserId,
             ...req.body,   
             password: bcrypt.hashSync(req.body.password, 10),
-            avatar: defaultImageProfile
+            perfil: 'usuario',
+            avatar: defaultImageProfile,
         };
         userDataBase.push(userToCreate);
         fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
@@ -126,7 +127,7 @@ const controller = {
     userMyOrderDelete: (req, res) => {
         const newOrdersDataBase = ordersDataBase.filter(o => o.idOrder != req.params.idOrder);
         fs.writeFileSync(ordersFilePath, JSON.stringify(newOrdersDataBase, null, 2));
-        return res.redirect ('user-my-order', { user: req.session.userLogged });
+        return res.redirect (303, 'user-my-order', { user: req.session.userLogged });
     },
     userOrders: (req, res) => {
         const userSelect = userDataBase.find(u => u.idUser == req.session.userLogged.idUser);
@@ -182,21 +183,27 @@ const controller = {
 				errors: resultValidation.mapped(),
 				oldData: req.body
 			});
-		} 
-        var lastRestaurantId = restaurantDataBase[restaurantDataBase.length -1].idRestaurant;
-        const newRestaurantId = lastRestaurantId +1;
-        var defaultImageProfile = '/img/avatars/user-buisness-avatar.jpg'
-        const restaurantCreate = {
-            idRestaurant: newRestaurantId,
-            ...req.body,    
-            password: bcrypt.hashSync(req.body.password, 10),
-            avatar: defaultImageProfile,
-            mapa: "",
-            mesas: []
-        };
-        restaurantDataBase.push(restaurantCreate);
-        fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
-        res.render('buisness-registerOk');
+		} else {
+            if (restaurantDataBase.length >=1) {
+                var lastRestaurantId = restaurantDataBase[restaurantDataBase.length -1].idRestaurant;
+            } else {
+                lastRestaurantId = 0;
+            }
+            const newRestaurantId = lastRestaurantId +1;
+            var defaultImageProfile = '/img/avatars/user-buisness-avatar.jpg'
+            const restaurantCreate = {
+                idRestaurant: newRestaurantId,
+                ...req.body,    
+                password: bcrypt.hashSync(req.body.password, 10),
+                perfil: 'negocio',
+                avatar: defaultImageProfile,
+                mapa: "",
+                mesas: []
+            };
+            restaurantDataBase.push(restaurantCreate);
+            fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
+            res.render('buisness-registerOk');
+        }
     },
     buisnessEditForm: (req, res) => {
         return res.render ('buisness-edit-account', {user: req.session.userLogged});

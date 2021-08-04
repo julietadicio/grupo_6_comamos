@@ -28,14 +28,9 @@
                             <h5>Fecha y hora de la reserva: <%= order.fecha_hora_reserva %></h5>
                             <h5>Total: $<%= order.precioTotal %></h5>
                         </div>
-                        <form action="" method="POST" class="coment-button box-order3">
-                            <% if (order.estado == 'Confirmada') { %>
-                                <h4 class="confirmed"><%= order.estado %> </h4>
-                                <input type="submit" name="estado" class="none-decoration logout-button" value="Cancelar Reserva"></input>
-                                <% } else if (order.estado == 'Pendiente') { %>
-                                    <h4 class="cancel"><%= order.estado %> </h4>
-                                    <input type="submit" name="estado" class="none-decoration logout-button" value="Cancelar Reserva"></input>
-                                <% } %> 
+                        <form action="user/account/my-order/<%= order.idOrder %>/delete?_method=delete" method="POST" class="coment-button box-order3">
+                            <h4 class="<%= order.estado == 'Confirmada'? 'confirmed':'cancel'%>"> <%= order.estado %> </h4>
+                            <input type="submit" name="estado" class="none-decoration logout-button" value="Cancelar Reserva"></input>
                         </form>
                     </article>
                     <%  }); %>
