@@ -19,6 +19,7 @@ const controller = {
     if(index.indexOf(r) === -1) index.push(r);
     }
     var indexArray = index.map (e => productsDataBase[e])
+        console.log(req.session.userLogged);
         return res.render ('index', {user: req.session.userLogged, indexArray, productsDataBase});
     },
     listaRestaurantes: (req, res) => {
