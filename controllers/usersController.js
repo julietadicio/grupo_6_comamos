@@ -146,7 +146,7 @@ const controller = {
 			if (isOkThePassword) {
 				req.session.userLogged = buisnessToLogin;
 				if(req.body.recordarme) {
-					res.cookie('buisnessEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
 				}
 				return res.redirect('/user/account-buisness');
 			} 
@@ -167,7 +167,7 @@ const controller = {
 		});
     },
     logoutBuisness: (req, res) => {
-        res.clearCookie('buisnessEmail');
+        res.clearCookie('userEmail');
 		req.session.destroy();
 		return res.redirect('/');
     },
@@ -227,7 +227,7 @@ const controller = {
     buisnessDelete: (req, res) => {
         const newRestaurantDataBase = restaurantDataBase.filter(r => r.idRestaurant != req.session.userLogged.idRestaurant);
         fs.writeFileSync(restaurantFilePath, JSON.stringify(newRestaurantDataBase, null, 2));
-        res.clearCookie('buisnessEmail');
+        res.clearCookie('userEmail');
 		req.session.destroy();
         return res.redirect ('/')
     },
@@ -235,6 +235,17 @@ const controller = {
         const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
         const restaurantOrders = ordersDataBase.filter (o => o.idRestaurant == user.idRestaurant && (o.estado == 'Pendiente' || o.estado == 'Confirmada'));
         return res.render ('buisness-orders', {user, restaurantOrders, userDataBase,restaurantDataBase, productsDataBase});
+    },
+    buisnessEditOrders: (req, res) => {
+        const orderId = req.params.idOrder;
+        const orderSelectId = ordersDataBase.findIndex(p => p.idOrder == orderId)
+        if (req.body.estado == 'Cancelar Reserva') {
+            ordersDataBase[orderSelectId].estado = 'Cancelada'
+        } else {
+            ordersDataBase[orderSelectId].estado = 'Confirmada'
+        }
+        fs.writeFileSync(ordersFilePath, JSON.stringify(ordersDataBase, null, 2));
+        return res.redirect ('/user/account-buisness/orders');
     },
     buisnessHistoryOrders: (req, res) => {
         const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);

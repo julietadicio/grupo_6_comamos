@@ -13,7 +13,7 @@
     <% if (restaurantOrders.length >= 1) { %>
      
         <% restaurantOrders.forEach(order => { %>
-                <form action="/user/account-buisness/orders/?_method=PUT" method="POST" class="reserve-form">
+                <form action="/user/account-buisness/orders/<%= order.idOrder %>?_method=PUT" method="POST" class="reserve-form">
                     <div class="box-order1">
                         <img src="<%= userDataBase[userDataBase.findIndex(i => i.idUser == order.idUser)].avatar %>" alt="imagen usuario" class="image-result">
                     </div>    
