@@ -17,7 +17,8 @@ function userLoggedMiddleware(req, res, next) {
 	}
 	if (userFromCookie) {
 		req.session.userLogged = userFromCookie;
-	} else if (req.session.userLogged){
+	} 
+	if (req.session.userLogged){
 		res.locals.isLogged = true;
 		res.locals.userLogged = req.session.userLogged;
 	}
