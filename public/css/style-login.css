@@ -504,7 +504,7 @@ main form div a i {
 }
 @media (min-width: 1440px) {
     body main {
-    min-height: calc(100vh - 80px - 110px - 72px);
+    min-height: calc(100vh - 80px - 110px - 100px);
     }
     main form {
         width: 400px;

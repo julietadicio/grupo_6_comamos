@@ -101,8 +101,8 @@ const controller = {
             userDataBase[userSelectId].password = bcrypt.hashSync(req.body.password, 10)
         } else {
             userDataBase[userSelectId] = { ...userDataBase[userSelectId] , ...req.body };
-            userDataBase[userSelectId].avatar = '/img/avatars/'+req.file.filename;
             userDataBase[userSelectId].password = bcrypt.hashSync(req.body.password, 10)
+            userDataBase[userSelectId].avatar = '/img/avatars/'+req.file.filename;
         }
         fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
         return res.redirect (303, '/user/account');
@@ -218,8 +218,8 @@ const controller = {
             restaurantDataBase[buisnessSelectId].password = bcrypt.hashSync(req.body.password, 10)
         } else {
             restaurantDataBase[buisnessSelectId] = { ...restaurantDataBase[buisnessSelectId] , ...req.body };
+            restaurantDataBase[buisnessSelectId].password = bcrypt.hashSync(req.body.password, 10);
             restaurantDataBase[buisnessSelectId].avatar = '/img/avatars/'+req.file.filename;
-            restaurantDataBase[buisnessSelectId].password = bcrypt.hashSync(req.body.password, 10)
         }
         fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
         return res.redirect (303, '/user/account-buisness');
