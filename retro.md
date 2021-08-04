@@ -68,7 +68,7 @@ Alejandro:
      (*) Actualice el tablero de trabajo con estas tareas y proyectos.
     https://trello.com/b/xbzGtulH
 
-    # Weekly 26/07
+# Weekly 26/07
 Alejandro:
     - Implementacion de una nav bar para dispositivos moviles
     - Ajustes estéticos para que el header quede igual en todas las vistas
@@ -80,6 +80,20 @@ Alejandro:
         2 - Crear el menu desplegable superior cuando el usuario esta logeado
     - Pendiente: 
         1 - dar formato a los formularios de edicion, vista y creacion de mesas
+        2 - agregar validacion para que no se puede agregar mas mesas en estado abierta si la capacidad del negocio esta al maximo
+
+# Weekly 02/08
+Alejandro:
+    - Ajuste en el header y footer para que se adapten segun el body esta vacio o no.
+    - Agregué las validaciones a los formularios de registro y de login.
+    - Tambien implementé validaciones en la creacion de usuarios, negocios y habilitacion de mesas.
+    - Agregue la funcionalidad de la administracion de mesas que luego va a ser utilizada en el carrito o bien, en el restaurant cuando el cliente ingresa.
+     - En la proxima semana voy a avanzar con:
+        1 - Crear las bases de datos sql y tablas
+        2 - Configurar Sequelize
+        3 - Crear el menu desplegable superior cuando el usuario esta logeado
+    - Pendiente: 
+        1 - Revisar el formato a los formularios de edicion, vista y creacion de mesas. Tambien seria bueno terminar de ver el header y footer para que sea homogeneo cuando un usuario esta logeado y cuando no lo esta.
         2 - agregar validacion para que no se puede agregar mas mesas en estado abierta si la capacidad del negocio esta al maximo
     
     
