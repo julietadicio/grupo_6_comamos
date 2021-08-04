@@ -124,10 +124,12 @@ const controller = {
         const orderSelect = ordersDataBase.find(u => u.idOrder == req.params.idOrder);
         return res.render ('user-id-order', {userSelect, orderSelect, restaurantDataBase, productsDataBase})
     },
-    userMyOrderDelete: (req, res) => {
-        const newOrdersDataBase = ordersDataBase.filter(o => o.idOrder != req.params.idOrder);
-        fs.writeFileSync(ordersFilePath, JSON.stringify(newOrdersDataBase, null, 2));
-        return res.redirect (303, 'user-my-order', { user: req.session.userLogged });
+    userMyOrderCancel: (req, res) => {
+        const orderId = req.params.idOrder;
+        const orderSelectId = ordersDataBase.findIndex(p => p.idOrder == orderId)
+        ordersDataBase[orderSelectId].estado = 'Cancelada'
+        fs.writeFileSync(ordersFilePath, JSON.stringify(ordersDataBase, null, 2));
+        return res.redirect ('/user/account/my-order');
     },
     userOrders: (req, res) => {
         const userSelect = userDataBase.find(u => u.idUser == req.session.userLogged.idUser);

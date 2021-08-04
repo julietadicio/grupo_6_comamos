@@ -37,7 +37,7 @@ router.get('/account/my-order', authMiddleware, usersController.userMyOrder);
 // Consulta de un pedido en particular con estado cancelado o confirmado
 router.get('/account/my-order/order/:idOrder', authMiddleware, usersController.userOrder);
 // Cancelar de un pedido en particular con estado pendiente o confirmado
-router.delete('/account/my-order/:idOrder/delete', usersController.userMyOrderDelete);
+router.put('/account/my-order/:idOrder/cancel', usersController.userMyOrderCancel);
 // Consultar pedidos completados y cancelados
 router.get('/account/orders', authMiddleware, usersController.userOrders);
 // Rutas para administracion del carrito de usuarios
