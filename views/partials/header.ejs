@@ -18,6 +18,17 @@
                         <img src="<%= user.avatar %>" alt="user image" class="user-image">
                     </a>
                 </div>
+                <ul class="user-menu check">
+                    <li>
+                        <a href="">Mi Cuenta</a>
+                    </li>
+                    <li>
+                        <a href="">Mis Reservas</a>
+                    </li>
+                    <li>
+                        <a href="">Favoritos</a>
+                    </li>
+                </ul>
             </section>
         </div>
             <% } else if (locals.userLogged && user.perfil == 'negocio' ) { %>
@@ -39,6 +50,17 @@
                         <img src="<%= user.avatar %>" alt="user restaurant" class="user-image">
                     </a>
                 </div>
+                <ul>
+                    <li>
+                        <a href="">Mi Cuenta</a>
+                    </li>
+                    <li>
+                        <a href="">Mis Reservas</a>
+                    </li>
+                    <li>
+                        <a href="">Favoritos</a>
+                    </li>
+                </ul>
             </section>
             </div>
             <% } else { %>

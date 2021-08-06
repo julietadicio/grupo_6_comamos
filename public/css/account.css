@@ -106,6 +106,12 @@ nav ul li {
 #check:checked ~ ul{
     left: 0;
 }
+.user-menu {
+    display: none;
+}
+.user-menu:target {
+    display: block;
+}
 
 /* Nav bar para version mobile */
 
@@ -775,7 +781,7 @@ footer ul, footer div {
 }
 @media (min-width: 1440px) {
     body main {
-    min-height: calc(100vh - 80px - 110px - 72px);
+    min-height: calc(100vh - 80px - 110px - 100px);
     }
     .capacity-form {
         width: 18%;
