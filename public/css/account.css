@@ -198,6 +198,7 @@ body main a {
 .align-image-user {
     width: 20%;
     margin: auto;
+    text-align: center;
 }
 .user-image-header {
     border-radius: 100%;
@@ -714,6 +715,11 @@ footer ul, footer div {
         width: 150px;
         height: 30px;
     }
+    .user-image {
+    border-radius: 100%;
+    width: 110px;
+    height: 110px;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -787,6 +793,11 @@ footer ul, footer div {
     .fab {
     font-size: 20px;
     }
+    .user-image {
+    border-radius: 100%;
+    width: 130px;
+    height: 130px;
+    }
 }
 @media (min-width: 1440px) {
     body main {
@@ -800,5 +811,10 @@ footer ul, footer div {
     }
     .footer {
         height: 110px;
+    }
+    .user-image {
+    border-radius: 100%;
+    width: 160px;
+    height: 160px;
     }
 }
