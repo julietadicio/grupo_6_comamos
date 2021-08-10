@@ -8,6 +8,7 @@ const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const e = require('express');
 
+const db = requiere ('../database/models')
 const userFilePath = './data bases/userDataFile.json';
 const userDataBase = JSON.parse(fs.readFileSync(userFilePath, 'utf-8'));
 const restaurantFilePath = './data bases/restaurantDataFile.json';
