@@ -16,78 +16,43 @@
 
     
     <div class="margin-bottom">
-        <h3>Estás a un paso de empezar a </h3>
+        <h3 class="a-un-paso">Estás a un paso de empezar a </h3>
         <h3>elegir tus platos favoritos...</h3>
     </div>
  
 
     <div class="centro">
 
-      <form action="/user/register" method="POST" enctype="multipart/form-data"
-        class="<%= locals.errors? 'form-wide2' : null %>">
-        
-        <div class="exit">
-          <a href="/" class="exit-button"><i class="fas fa-times"></i></a>
-        </div>
-    
-        
-        <h2 id="padding">Registrarse</h2>
-         <div>
-          <div class="box-register">
-            <!-- <label class="alejar">Nombre</label> -->
-            <input type= "text" name= "nombre" id= "nombre" placeholder="Nombre"
-              class="<%= locals.errors && errors.nombre? 'is-invalid' : null %>"
-              value="<%= locals.oldData ? oldData.nombre : null %>">
-            </input>
-            <% if (locals.errors && errors.nombre) { %>
-									<div class="text-danger">
-										<%= errors.nombre.msg %> 
-									</div>
-								<% } %>
-          </div>
+    <form action="/user/register" method="POST" enctype="multipart/form-data">
+      
+      <div class="exit">
+        <a href="/" class="exit-button"><i class="fas fa-times"></i></a>
+      </div>
+  
+      
+      <h4 class="close" id="padding">Registrarse</h4>
+        <p>
+          <label class="alejar">Nombre</label><div></div>
+          <input type= "text" name= "nombre" id= "nombre">
+        </p>
 
-          <div class="box-register">
-            <!-- <label>Apellido</label> -->
-            <input type= "text" name= "apellido" id= "apellido" placeholder="Apellido"
-              class="<%= locals.errors && errors.apellido? 'is-invalid' : null %>"
-              value="<%= locals.oldData ? oldData.apellido : null %>">
-            </input>
-            <% if (locals.errors && errors.apellido) { %>
-									<div class="text-danger">
-										<%= errors.apellido.msg %> 
-									</div>
-								<% } %>
-          </div>
-    
-          <div class="box-register">
-            <!-- <label>Direccion de correo electronico</label> -->
-            <input type= "email" name= "email" id= "email" placeholder="Email"
-              class="<%= locals.errors && errors.email? 'is-invalid' : null %>"
-              value="<%= locals.oldData ? oldData.email : null %>">
-            </input>
-            <% if (locals.errors && errors.email) { %>
-									<div class="text-danger">
-										<%= errors.email.msg %> 
-									</div>
-								<% } %>
-          </div>
-          
-          <div class="box-register">
-            <!-- <label>Crear contraseña</label> -->
-            <input type= "password" name= "password" id= "contraseña" placeholder="Contraseña"
-              class="<%= locals.errors && errors.password? 'is-invalid' : null %>"
-              value="<%= locals.oldData ? oldData.password : null %>">
-            </input>
-            <% if (locals.errors && errors.password) { %>
-									<div class="text-danger">
-										<%= errors.password.msg %> 
-									</div>
-								<% } %>
-          </div>
-        </div> 
-          <div>  
-            <button class="center logout-button" type="submit">Crear Cuenta</button>
-          </div>
+        <p>
+          <label>Apellido</label><div></div>
+          <input type= "text" name= "apellido" id= "apellido">
+        </p>
+  
+        <p>
+          <label>Dirección de correo electrónico</label>
+          <input type= "email" name= "email" id= "email">
+        </p>
+        
+        <p>
+          <label>Crear contraseña</label><div></div>
+          <input type= "password" name= "password" id= "contraseña">
+        </p>
+        <p class="alejar">  
+          <input class="crear-cuenta" type="submit" value="Crear cuenta"> </input>
+        </p>
       </form>
     
     </div>

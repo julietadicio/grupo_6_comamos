@@ -34,31 +34,18 @@
               <%= errors.email.msg %>
             </div>
             <% } %>
-        </div>
-        
-        <div>
-          <!-- <label>Contraseña</label><div></div> -->
-          <input type= "password" name= "password" id= "contraseña" placeholder="Contraseña"
-            class="<%= locals.errors && errors.password? 'is-invalid' : null %>"
-            value="<%= locals.oldData ? oldData.password : null %>">
-          </input>
-          <% if (locals.errors && errors.password) { %>
-                  <div class="text-danger">
-                    <%= errors.password.msg %>
-                  </div>
-                <% } %>
-        </div>
-
-        <div class="alejar">
-          <button class="center logout-button" type="submit">Login</button>
-          <div class="rebember">
-            <label for="recordarme" class="width48">Recordar usuario </label>
-            <input type="checkbox" value="Recordarme" name= "recordarme" id="recordarme"></input>
-          </div>
-        </div>
-
-            <p class="subrayado">Restablecer contraseña</p>
-            <div></div>
+            <p>
+              <label>Contraseña</label><div></div>
+              <input type="password" name="password" id="contraseña">
+            </p>
+            <button class='center' type="submit">Login</button>
+            <p class="alejar">
+              <div></div>
+              <input type="checkbox" value="recordarme" name= "recordarme" checked> 
+              <label>Recordar usuario </label>
+          </p>
+          <p class="subrayado">Restablecer contraseña</p>
+          <div></div>
         </form>
       </main>
       

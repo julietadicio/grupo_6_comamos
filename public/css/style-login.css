@@ -36,9 +36,9 @@ nav ul li a {
     padding: 7px 13px;
     border-radius: 3px;
 }
-header nav ul li a:hover {
-    background: #656565;
-    color: white;
+a:hover {
+    border-radius: 5px;
+    background: rgba(197, 191, 191, 0.75);
     transition: .5s;
 }
 .flex {
@@ -119,7 +119,10 @@ nav ul li {
     position: relative;
     height: 300px;
     }
-   
+
+input {
+    border-radius: 5px;
+}
 
 main form {
 width:300px;
@@ -140,8 +143,9 @@ body main input {
 body main button {
     border: none;
 }
-.close {
-    margin: 15px;
+
+.alejar {
+    padding-top: 15px;
 }
 
 
@@ -165,6 +169,27 @@ background-color:#ccc;
 }
 .boton {
     margin-bottom: 10px;
+}
+
+#email, #contraseña {
+    border-width: 1px;
+    padding: 3px;
+}
+
+.center {
+    background: linear-gradient(#ec4e55, #c02129);
+    padding: 5px;
+    border: none;
+    color: white;
+    font-size: large;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.center:hover {
+    box-shadow: 0 0 15px 0 rgb(124, 124, 124)
 }
 
 /* header y footer*/
