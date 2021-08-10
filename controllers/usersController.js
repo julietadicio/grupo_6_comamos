@@ -23,35 +23,38 @@ const controller = {
         return res.render ('user-login');
     },
     loginProcess: (req, res) => {
-        const userToLogin = userDataBase.find(u => u.email == req.body.email);
-        if(userToLogin) {
-			let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
-			if (isOkThePassword) {
-				
-				req.session.userLogged = userToLogin;
-
-				if(req.body.recordarme) {
-					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
-				}
-
-				return res.redirect('/user/account');
-			} 
-			return res.render('user-login', {
-                oldData: req.body,
-				errors: {
-					password: {
-						msg: 'Contraseña incorrecta'
-					}
-				}
-			});
-		}
-		return res.render('user-login', {
-			errors: {
-				email: {
-					msg: 'Revisá tu email'
-				}
-			}
-		});
+        db.User.findOne ({
+            where: {email: req.body.email}
+        }).then ((userToLogin) => {
+            if(userToLogin) {
+                let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
+                if (isOkThePassword) {
+                    
+                    req.session.userLogged = userToLogin;
+                    
+                    if(req.body.recordarme) {
+                        res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+                    }
+                    
+                    return res.redirect('/user/account');
+                } 
+                return res.render('user-login', {
+                    oldData: req.body,
+                    errors: {
+                        password: {
+                            msg: 'Contraseña incorrecta'
+                        }
+                    }
+                });
+            }
+            return res.render('user-login', {
+                errors: {
+                    email: {
+                        msg: 'Revisá tu email'
+                    }
+                }
+            });
+        })
     },
     userAccount: (req, res) => {
         return res.render('user-account', {user: req.session.userLogged});
@@ -72,22 +75,22 @@ const controller = {
 				oldData: req.body
 			});
 		} else {
-            if (userDataBase.length >=1) {
-                var lastUserId = userDataBase[userDataBase.length -1].idUser;
+            if (db.User.length >=1) {
+               var lastUserId = db.User[db.User.length -1].idUser;
             } else {
                 lastUserId = 0;
             }
             const newUserId = lastUserId +1;
             var defaultImageProfile = '/img/avatars/Usuario-registro.png'
-            const userToCreate = {
+            db.User.create ({
             idUser: newUserId,
-            ...req.body,   
+            nombre: req.body.nombre,   
+            apellido: req.body.apellido,
+            email: req.body.email,   
             password: bcrypt.hashSync(req.body.password, 10),
             perfil: 'usuario',
             avatar: defaultImageProfile,
-        };
-        userDataBase.push(userToCreate);
-        fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
+        });
         res.render('user-registerOk');
         }
     },
@@ -95,18 +98,18 @@ const controller = {
         return res.render ('user-edit-account', {user: req.session.userLogged})
     },
     userEditAccount: (req, res) => {
-        const userId = req.session.userLogged.idUser;
-        const userSelectId = userDataBase.findIndex(p => p.idUser == userId)
-        if (!req.file) {
-            userDataBase[userSelectId] = { ...userDataBase[userSelectId] , ...req.body };
-            userDataBase[userSelectId].password = bcrypt.hashSync(req.body.password, 10)
-        } else {
-            userDataBase[userSelectId] = { ...userDataBase[userSelectId] , ...req.body };
-            userDataBase[userSelectId].password = bcrypt.hashSync(req.body.password, 10)
-            userDataBase[userSelectId].avatar = '/img/avatars/'+req.file.filename;
-        }
-        fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
-        return res.redirect (303, '/user/account');
+        db.User.findByPk(req.session.userLogged.idUser).then((user)=>{
+            if (!req.file) {
+                user = { ...userDataBase[userSelectId] , ...req.body };
+                userDataBase[userSelectId].password = bcrypt.hashSync(req.body.password, 10)
+            } else {
+                userDataBase[userSelectId] = { ...userDataBase[userSelectId] , ...req.body };
+                userDataBase[userSelectId].password = bcrypt.hashSync(req.body.password, 10)
+                userDataBase[userSelectId].avatar = '/img/avatars/'+req.file.filename;
+            }
+            fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
+            return res.redirect (303, '/user/account');
+        })
     },
     userDelete: (req, res) => {
         const newUserDataBase = userDataBase.filter(u => u.idUser != req.session.userLogged.idUser);

@@ -1,9 +1,9 @@
 
 module.exports = function (sequelize, DataTypes) {
-    let alias = 'Users';
+    let alias = 'User';
 
     let cols = {
-     id: {
+     idUser: {
          type: DataTypes.INTEGER,
          primaryKey: true,
          autoincrement: true
@@ -21,6 +21,9 @@ module.exports = function (sequelize, DataTypes) {
          type: DataTypes.STRING
      },
     perfil: {
+        type: DataTypes.STRING
+    },
+    avatar: {
         type: DataTypes.STRING
     }
     }
