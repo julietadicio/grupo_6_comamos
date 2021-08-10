@@ -98,18 +98,15 @@ const controller = {
         return res.render ('user-edit-account', {user: req.session.userLogged})
     },
     userEditAccount: (req, res) => {
-        db.User.findByPk(req.session.userLogged.idUser).then((user)=>{
-            if (!req.file) {
-                user = { ...userDataBase[userSelectId] , ...req.body };
-                userDataBase[userSelectId].password = bcrypt.hashSync(req.body.password, 10)
-            } else {
-                userDataBase[userSelectId] = { ...userDataBase[userSelectId] , ...req.body };
-                userDataBase[userSelectId].password = bcrypt.hashSync(req.body.password, 10)
-                userDataBase[userSelectId].avatar = '/img/avatars/'+req.file.filename;
-            }
-            fs.writeFileSync(userFilePath, JSON.stringify(userDataBase, null, 2));
-            return res.redirect (303, '/user/account');
+        db.User.update({
+            nombre: req.body.nombre,   
+            apellido: req.body.apellido,
+            email: req.body.email,   
+            password: bcrypt.hashSync(req.body.password, 10)
+        },
+        { where: {idUser: req.session.userLogged.idUser}
         })
+        return res.redirect (303, '/user/account');
     },
     userDelete: (req, res) => {
         const newUserDataBase = userDataBase.filter(u => u.idUser != req.session.userLogged.idUser);
