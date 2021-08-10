@@ -57,7 +57,7 @@ router.post('/login-buisness', usersController.loginProcessBuisness);
 // Perfil de Usuario
 router.get('/account-buisness/', authBuisnessMiddleware, usersController.buisnessAccount);
 // Logout
-router.get('/logout-buisness', authBuisnessMiddleware, usersController.logoutBuisness);
+router.get('/logout-buisness', authBuisnessMiddleware, usersController.logout);
 // Formulario de edición de la cuenta para los negocios
 router.get('/account-buisness/edit', authBuisnessMiddleware, usersController.buisnessEditForm);
 router.put('/account-buisness/', uploadFile.single('avatar') , usersController.buisnessEditAccount);

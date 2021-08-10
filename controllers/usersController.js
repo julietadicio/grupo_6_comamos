@@ -167,11 +167,6 @@ const controller = {
 			}
 		});
     },
-    logoutBuisness: (req, res) => {
-        res.clearCookie('userEmail');
-		req.session.destroy();
-		return res.redirect('/');
-    },
     buisnessAccount: (req, res) => {
         const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
         return res.render ('buisness-account', {user})
