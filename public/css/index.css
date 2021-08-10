@@ -246,9 +246,6 @@ main form {
 }
 
 #boton-buscar {
-<<<<<<< HEAD
-    display: none;
-=======
     background: linear-gradient(#ec4e55, #c02129);
     padding: 5px;
     border: none;
@@ -260,7 +257,6 @@ main form {
     width: 10%;
     height: 60%;
     transition: all 0.3s;
->>>>>>> 0707a25bc288c9c96af0b789c9b008d294f9c90a
 }
 
 #boton-buscar:hover {
