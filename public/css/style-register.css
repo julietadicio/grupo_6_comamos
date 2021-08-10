@@ -33,11 +33,18 @@ nav ul li a {
     padding: 7px 13px;
     border-radius: 3px;
 }
+
+#contraseña, #email, #nombre, #apellido, #direccion, #capacidad {
+    border-width: 1px;
+    padding: 3px;
+}
+
 a:hover {
-    background: #991118;
-    color: #656565;
+    border-radius: 5px;
+    background: rgba(197, 191, 191, 0.75);
     transition: .5s;
 }
+
 .flex {
     display: flex;
 }
@@ -56,6 +63,15 @@ a:hover {
     vertical-align: bottom;
     display: none;
 }
+
+.a-un-paso {
+    margin-top: 1vh;
+}
+
+input {
+    border-radius: 5px;
+}
+
 .checkbtn {
     font-size: 30px;
     color: #656565;
@@ -99,6 +115,22 @@ nav ul li {
     text-align: center;
 }
 
+.crear-cuenta {
+    background: linear-gradient(#ec4e55, #c02129);
+    padding: 5px;
+    border: none;
+    color: white;
+    font-size: large;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 5px;
+}
+
+.crear-cuenta:hover {
+    box-shadow: 0 0 15px 0 rgb(124, 124, 124)
+}
+
+
 .centrok {
     text-align: center;
     justify-content: center;
@@ -113,9 +145,7 @@ background-color: rgb(226, 221, 221, 75%);
 border: solid 1px rgb(112, 112, 112);
 }
 
-.close {
-    margin: 15px;
-}
+
 .alejar {
     padding-top: 15px;
 }
