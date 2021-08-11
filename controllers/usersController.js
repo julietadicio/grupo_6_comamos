@@ -199,7 +199,7 @@ const controller = {
             }
             const newUserId = lastUserId +1;
             var defaultImageProfile = '/img/avatars/user-buisness-avatar.jpg'
-            var restaurante = db.Restaurant.create ({
+            db.Restaurant.create ({
                 idRestaurant: newUserId,
                 nombre: req.body.nombre,   
                 direccion: req.body.direccion,
@@ -210,7 +210,6 @@ const controller = {
                 avatar: defaultImageProfile,
                 mapa: ''
         });
-        console.log(restaurante);
         res.render('buisness-registerOk');
         }
     },
