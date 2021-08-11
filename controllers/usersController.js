@@ -141,40 +141,45 @@ const controller = {
         return res.render ('buisness-login');
     },
     loginProcessBuisness: (req, res) => {
-        const buisnessToLogin = restaurantDataBase.find(u => u.email == req.body.email);
-        if(buisnessToLogin) {
-			let isOkThePassword = bcrypt.compareSync(req.body.password, buisnessToLogin.password);
-			if (isOkThePassword) {
-				req.session.userLogged = buisnessToLogin;
-				if(req.body.recordarme) {
-					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
-				}
-				return res.redirect('/user/account-buisness');
-			} 
-			return res.render('buisness-login', {
-				errors: {
-					password: {
-						msg: 'Contraseña incorrecta'
-					}
-				}
-			});
-		}
-		return res.render('user-login', {
-			errors: {
-				email: {
-					msg: 'Revisá tu email'
-				}
-			}
-		});
-    },
-    logoutBuisness: (req, res) => {
-        res.clearCookie('userEmail');
-		req.session.destroy();
-		return res.redirect('/');
+        db.Restaurant.findOne ({
+            where: {email: req.body.email}
+        }).then ((userToLogin) => {
+            if(userToLogin) {
+                let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
+                if (isOkThePassword) {
+                    
+                    req.session.userLogged = userToLogin;
+                    
+                    if(req.body.recordarme) {
+                        res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+                    }
+                    
+                    return res.redirect('/user/account-buisness');
+                } 
+                return res.render('buisness-login', {
+                    oldData: req.body,
+                    errors: {
+                        password: {
+                            msg: 'Contraseña incorrecta'
+                        }
+                    }
+                });
+            }
+            return res.render('buisness-login', {
+                errors: {
+                    email: {
+                        msg: 'Revisá tu email'
+                    }
+                }
+            });
+        })
     },
     buisnessAccount: (req, res) => {
-        const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        return res.render ('buisness-account', {user})
+        db.Restaurant.findOne ({
+            where: {email: req.session.userLogged.email}
+        }).then((user) => {
+            return res.render ('buisness-account', {user});
+        })
     },
     registerBuisness: (req, res) => {
         return res.render ('buisness-register');
@@ -182,30 +187,31 @@ const controller = {
     createBuisness: (req, res) => {
         const resultValidation = validationResult(req);
         if (resultValidation.errors.length > 0) {
-			return res.render('buisness-register', {
-				errors: resultValidation.mapped(),
+            return res.render('buisness-register', {
+                errors: resultValidation.mapped(),
 				oldData: req.body
 			});
 		} else {
-            if (restaurantDataBase.length >=1) {
-                var lastRestaurantId = restaurantDataBase[restaurantDataBase.length -1].idRestaurant;
+            if (db.Restaurant.length >=1) {
+               var lastUserId = db.Restaurant[db.Restaurant.length -1].idRestaurant;
             } else {
-                lastRestaurantId = 0;
+                lastUserId = 0;
             }
-            const newRestaurantId = lastRestaurantId +1;
+            const newUserId = lastUserId +1;
             var defaultImageProfile = '/img/avatars/user-buisness-avatar.jpg'
-            const restaurantCreate = {
-                idRestaurant: newRestaurantId,
-                ...req.body,    
+            var restaurante = db.Restaurant.create ({
+                idRestaurant: newUserId,
+                nombre: req.body.nombre,   
+                direccion: req.body.direccion,
+                capacidad: req.body.capacidad,
+                email: req.body.email,   
                 password: bcrypt.hashSync(req.body.password, 10),
                 perfil: 'negocio',
                 avatar: defaultImageProfile,
-                mapa: "",
-                mesas: []
-            };
-            restaurantDataBase.push(restaurantCreate);
-            fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
-            res.render('buisness-registerOk');
+                mapa: ''
+        });
+        console.log(restaurante);
+        res.render('buisness-registerOk');
         }
     },
     buisnessEditForm: (req, res) => {

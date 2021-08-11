@@ -1,3 +1,4 @@
+const db = require('../database/models');
 const fs = require('fs');
 const userFilePath = './data bases/userDataFile.json';
 const userDataBase = JSON.parse(fs.readFileSync(userFilePath, 'utf-8'));
