@@ -75,22 +75,15 @@ const controller = {
 				oldData: req.body
 			});
 		} else {
-            if (db.User.length >=1) {
-               var lastUserId = db.User[db.User.length -1].idUser;
-            } else {
-                lastUserId = 0;
-            }
-            const newUserId = lastUserId +1;
             var defaultImageProfile = '/img/avatars/Usuario-registro.png'
             db.User.create ({
-            idUser: newUserId,
             nombre: req.body.nombre,   
             apellido: req.body.apellido,
             email: req.body.email,   
             password: bcrypt.hashSync(req.body.password, 10),
             perfil: 'usuario',
             avatar: defaultImageProfile,
-        });
+        })
         res.render('user-registerOk');
         }
     },
@@ -98,14 +91,26 @@ const controller = {
         return res.render ('user-edit-account', {user: req.session.userLogged})
     },
     userEditAccount: (req, res) => {
-        db.User.update({
+        if (req.file) {
+            db.User.update({
             nombre: req.body.nombre,   
             apellido: req.body.apellido,
             email: req.body.email,   
-            password: bcrypt.hashSync(req.body.password, 10)
+            password: bcrypt.hashSync(req.body.password, 10),
+            avatar: '/img/avatars/'+req.file.filename
         },
         { where: {idUser: req.session.userLogged.idUser}
         })
+        } else {
+            db.User.update({
+                nombre: req.body.nombre,   
+                apellido: req.body.apellido,
+                email: req.body.email,   
+                password: bcrypt.hashSync(req.body.password, 10),
+            },
+            { where: {idUser: req.session.userLogged.idUser}
+            })
+        }
         return res.redirect (303, '/user/account');
     },
     userDelete: (req, res) => {
