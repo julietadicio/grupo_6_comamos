@@ -109,8 +109,9 @@ const controller = {
         return res.redirect (303, '/user/account');
     },
     userDelete: (req, res) => {
-        const newUserDataBase = userDataBase.filter(u => u.idUser != req.session.userLogged.idUser);
-        fs.writeFileSync(userFilePath, JSON.stringify(newUserDataBase, null, 2));
+        db.User.destroy({
+            where: {idUser: req.session.userLogged.idUser}
+        })
         res.clearCookie('userEmail');
 		req.session.destroy();
         return res.redirect ('/')
@@ -118,6 +119,13 @@ const controller = {
     userMyOrder: (req, res) => {
         const userSelect = userDataBase.find(u => u.idUser == req.session.userLogged.idUser);
         const ordersUser = ordersDataBase.filter(u => u.idUser == userSelect.idUser && (u.estado == 'Confirmada' || u.estado == 'Pendiente'));
+        /* db.Order.findAll({
+            where: {
+                {id_user: req.session.userLogged.idUser},
+                {estado: 'Confirmada'}
+            }
+            
+        }) */
         return res.render ('user-my-order', {user:userSelect, ordersUser, restaurantDataBase, productsDataBase})
     },
     userOrder: (req, res) => {
