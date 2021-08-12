@@ -205,12 +205,6 @@ const controller = {
 				oldData: req.body
 			});
 		} else {
-            if (db.Restaurant.length >=1) {
-               var lastUserId = db.Restaurant[db.Restaurant.length -1].idRestaurant;
-            } else {
-                lastUserId = 0;
-            }
-            const newUserId = lastUserId +1;
             var defaultImageProfile = '/img/avatars/user-buisness-avatar.jpg'
             db.Restaurant.create ({
                 idRestaurant: newUserId,
@@ -230,25 +224,37 @@ const controller = {
         return res.render ('buisness-edit-account', {user: req.session.userLogged});
     },
     buisnessEditAccount: (req, res) => {
-        const buisnessId = req.session.userLogged.idRestaurant;
-        const buisnessSelectId = restaurantDataBase.findIndex(p => p.idRestaurant == buisnessId)
-        if (!req.file) {
-            restaurantDataBase[buisnessSelectId] = { ...restaurantDataBase[buisnessSelectId] , ...req.body };
-            restaurantDataBase[buisnessSelectId].password = bcrypt.hashSync(req.body.password, 10)
+        if (req.file) {
+            db.Restaurant.update({
+            nombre: req.body.nombre,   
+            direccion: req.body.direccion,
+            capacidad: req.body.capacidad,
+            email: req.body.email,   
+            password: bcrypt.hashSync(req.body.password, 10),
+            avatar: '/img/avatars/'+req.file.filename
+        },
+        { where: {idRestaurant: req.session.userLogged.idRestaurant}
+        })
         } else {
-            restaurantDataBase[buisnessSelectId] = { ...restaurantDataBase[buisnessSelectId] , ...req.body };
-            restaurantDataBase[buisnessSelectId].password = bcrypt.hashSync(req.body.password, 10);
-            restaurantDataBase[buisnessSelectId].avatar = '/img/avatars/'+req.file.filename;
+            db.Restaurant.update({
+                nombre: req.body.nombre,   
+                direccion: req.body.direccion,
+                capacidad: req.body.capacidad,
+                email: req.body.email,   
+                password: bcrypt.hashSync(req.body.password, 10),
+            },
+            { where: {idRestaurant: req.session.userLogged.idRestaurant}
+            })
         }
-        fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
         return res.redirect (303, '/user/account-buisness');
     },  
     buisnessDelete: (req, res) => {
-        const newRestaurantDataBase = restaurantDataBase.filter(r => r.idRestaurant != req.session.userLogged.idRestaurant);
-        fs.writeFileSync(restaurantFilePath, JSON.stringify(newRestaurantDataBase, null, 2));
+        db.Restaurant.destroy({
+            where: {idRestaurant: req.session.userLogged.idRestaurant}
+        })
         res.clearCookie('userEmail');
 		req.session.destroy();
-        return res.redirect ('/')
+        return res.redirect ('/');
     },
     buisnessOrders: (req, res) => {
         const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
