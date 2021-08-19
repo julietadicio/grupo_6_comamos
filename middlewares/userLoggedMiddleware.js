@@ -12,6 +12,12 @@ function userLoggedMiddleware(req, res, next) {
 				db.Restaurant.findOne ({
 					where: {email: emailInCookie}
 				}).then(restaurant => {
+					if(restaurant == null) {
+					if (req.session.userLogged){
+						res.locals.isLogged = true;
+						res.locals.userLogged = req.session.userLogged;
+					}
+					}
 					req.session.userLogged = restaurant;
 				})
 				.catch(error => {console.log(error);})
@@ -21,10 +27,6 @@ function userLoggedMiddleware(req, res, next) {
 					res.locals.isLogged = true;
 					res.locals.userLogged = req.session.userLogged;
 				}
-			}
-			if (req.session.userLogged){
-				res.locals.isLogged = true;
-				res.locals.userLogged = req.session.userLogged;
 			}
 		}).catch(error => {console.log(error);})
 	}
