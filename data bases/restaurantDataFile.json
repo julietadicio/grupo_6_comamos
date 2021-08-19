@@ -43,7 +43,7 @@
         "nombre": "Mesa 4",
         "ubicacion": "Interior - Ventana",
         "capacidad": "4",
-        "estado": "abierta"
+        "estado": "cerrada"
       },
       {
         "idMesa": 6,

@@ -122,16 +122,15 @@ const controller = {
         return res.redirect ('/')
     },
     userMyOrder: (req, res) => {
-        const userSelect = userDataBase.find(u => u.idUser == req.session.userLogged.idUser);
-        const ordersUser = ordersDataBase.filter(u => u.idUser == userSelect.idUser && (u.estado == 'Confirmada' || u.estado == 'Pendiente'));
-        /* db.Order.findAll({
+        db.Order.findAll({
             where: {
-                {id_user: req.session.userLogged.idUser},
-                {estado: 'Confirmada'}
+                id_user: req.session.userLogged.idUser,
+                 [Op.or]: [{estado: 'Confirmada'}, {estado: 'Pendiente'}]
             }
             
-        }) */
-        return res.render ('user-my-order', {user:userSelect, ordersUser, restaurantDataBase, productsDataBase})
+        }).then(ordersUser=>{
+            return res.render ('user-my-order', {user: req.session.userLogged.idUser, ordersUser})
+        })
     },
     userOrder: (req, res) => {
         const userSelect = userDataBase.find(u => u.idUser == req.session.userLogged.idUser);
@@ -207,7 +206,6 @@ const controller = {
 		} else {
             var defaultImageProfile = '/img/avatars/user-buisness-avatar.jpg'
             db.Restaurant.create ({
-                idRestaurant: newUserId,
                 nombre: req.body.nombre,   
                 direccion: req.body.direccion,
                 capacidad: req.body.capacidad,

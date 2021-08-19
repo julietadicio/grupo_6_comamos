@@ -14,15 +14,19 @@ function userLoggedMiddleware(req, res, next) {
 				}).then(restaurant => {
 					req.session.userLogged = restaurant;
 				})
+				.catch(error => {console.log(error);})
 			} else {
 				req.session.userLogged = user;
+				if (req.session.userLogged){
+					res.locals.isLogged = true;
+					res.locals.userLogged = req.session.userLogged;
+				}
 			}
-		})
-	}
-	
-	if (req.session.userLogged){
-		res.locals.isLogged = true;
-		res.locals.userLogged = req.session.userLogged;
+			if (req.session.userLogged){
+				res.locals.isLogged = true;
+				res.locals.userLogged = req.session.userLogged;
+			}
+		}).catch(error => {console.log(error);})
 	}
 	next();
 }

@@ -1,6 +1,8 @@
 const fs = require('fs');
 
 
+const db = require('../database/models');
+const product = db.Product
 const restaurantFilePath = './data bases/restaurantDataFile.json';
 const restaurantDataBase = JSON.parse(fs.readFileSync(restaurantFilePath, 'utf-8'));
 const ordersFilePath = './data bases/ordersDataFile.json';
@@ -10,7 +12,6 @@ const productsDataBase = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const controller = {
     index: (req,res) => {
-        console.log(req.session.userLogged);
         return res.render ('index', {user: req.session.userLogged});
     },
     detailProduct: (req,res) => {
@@ -18,25 +19,44 @@ const controller = {
         return res.render ('product-detail', {user: req.session.userLogged, productSelect, restaurantDataBase})
     },
     productsList: (req, res) => {
-        const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        const productsBuisness = productsDataBase.filter ( p => p.idRestaurant == req.session.userLogged.idRestaurant)
-        return res.render ('buisness-products-list', {productsBuisness, user})
+        product.findAll({
+            where:{id_restaurant: req.session.userLogged.idRestaurant}
+        }).then(productsBuisness => {
+            return res.render ('buisness-products-list', {productsBuisness, user: req.session.userLogged})
+        })
     },
     createFormProduct: (req, res) => {
-        const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        return res.render ('buisness-create-products', {user});
+        return res.render ('buisness-create-products', {user: req.session.userLogged.idRestaurant});
     },
     createProduct: (req, res) => {
-        const lastProductId = productsDataBase[productsDataBase.length -1].idPlato;
+        if(product.length == 0) {
+            product.create({
+                idPlato: 1,
+                plato: req.body.plato,
+                descripcion: req.body.descripcion,
+                imagen: '/img/products/'+req.file.filename,
+                categoria: req.body.categoria,
+                precio: req.body.precio,
+                id_restaurant: req.session.userLogged.idRestaurant
+            })
+        } else {
+            product.create({
+                plato: req.body.plato,
+                descripcion: req.body.descripcion,
+                imagen: '/img/products/'+req.file.filename,
+                categoria: req.body.categoria,
+                precio: req.body.precio,
+                id_restaurant: req.session.userLogged.idRestaurant
+                }) 
+        }
+        /* const lastProductId = productsDataBase[productsDataBase.length -1].idPlato;
         const newProductId = lastProductId +1;
         const newProduct = {
             idPlato: newProductId,
             ...req.body,
             imagen: '/img/products/'+req.file.filename,
             idRestaurant: Number(req.session.userLogged.idRestaurant)    
-        };
-        productsDataBase.push(newProduct);
-        fs.writeFileSync(productsFilePath, JSON.stringify(productsDataBase, null, 2));
+        }; */
         return res.redirect('/user/account-buisness/products');
     },
     editFormProduct: (req, res) => {
