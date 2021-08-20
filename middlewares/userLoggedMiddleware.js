@@ -13,12 +13,13 @@ function userLoggedMiddleware(req, res, next) {
 					where: {email: emailInCookie}
 				}).then(restaurant => {
 					if(restaurant == null) {
-					if (req.session.userLogged){
-						res.locals.isLogged = true;
-						res.locals.userLogged = req.session.userLogged;
+						if (req.session.userLogged){
+							res.locals.isLogged = true;
+							res.locals.userLogged = req.session.userLogged;
+						}
+					} else {
+						req.session.userLogged = restaurant;
 					}
-					}
-					req.session.userLogged = restaurant;
 				})
 				.catch(error => {console.log(error);})
 			} else {
