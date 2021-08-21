@@ -6,9 +6,10 @@ function userLoggedMiddleware (req, res, next) {
 		db.User.findOne ({
 			where: {email: emailInCookie}
 		}).then(user => {
-			req.session.userLogged = user;
+			/* req.session.userLogged = user;
 			res.locals.userLogged = req.session.userLogged;	
-			console.log('Estoy logeado por una cookie');
+			console.log('Estoy logeado por una cookie'); */
+			console.log(req.session);
 		})
 	} else if (req.session.userLogged && req.session.userLogged.perfil == 'usuario') {
 		res.locals.userLogged = req.session.userLogged;

@@ -58,7 +58,12 @@ const controller = {
         })
     },
     userAccount: (req, res) => {
-        return res.render('user-account', {user: req.session.userLogged});
+        db.User.findOne({
+            where: {email: req.session.userLogged.email}
+        })
+        .then(user => {
+            return res.render('user-account', {user});
+        })
     },
     logout: (req, res) => {
 		res.clearCookie('userEmail');
@@ -92,27 +97,31 @@ const controller = {
         return res.render ('user-edit-account', {user: req.session.userLogged})
     },
     userEditAccount: async (req, res) => {
-        if (req.file) {
-            db.User.update({
-            nombre: req.body.nombre,   
-            apellido: req.body.apellido,
-            email: req.body.email,   
-            password: bcrypt.hashSync(req.body.password, 10),
-            avatar: '/img/avatars/'+req.file.filename
-        },
-        { where: {idUser: req.session.userLogged.idUser}
-        })
-        } else {
-            db.User.update({
+        try {
+            if (req.file) {
+                db.User.update({
                 nombre: req.body.nombre,   
                 apellido: req.body.apellido,
                 email: req.body.email,   
                 password: bcrypt.hashSync(req.body.password, 10),
+                avatar: '/img/avatars/'+req.file.filename
             },
             { where: {idUser: req.session.userLogged.idUser}
             })
+            } else {
+                db.User.update({
+                    nombre: req.body.nombre,   
+                    apellido: req.body.apellido,
+                    email: req.body.email,   
+                    password: bcrypt.hashSync(req.body.password, 10),
+                },
+                { where: {idUser: req.session.userLogged.idUser}
+                })
+            }
+        } catch (error) {
+            res.send(error);
         }
-        return res.redirect (303, '/user/account');
+        await res.redirect (303, '/user/account');
     },
     userDelete: (req, res) => {
         db.User.destroy({
