@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
+const db = require('../database/models');
 
 const userFilePath = './data bases/userDataFile.json';
 const userDataBase = JSON.parse(fs.readFileSync(userFilePath, 'utf-8'));
@@ -19,7 +20,23 @@ const controller = {
     if(index.indexOf(r) === -1) index.push(r);
     }
     var indexArray = index.map (e => productsDataBase[e])
-        return res.render ('index', {user: req.session.userLogged, indexArray, productsDataBase});
+    if (req.session.userLogged && req.session.userLogged.perfil == 'usuario') {
+        db.User.findOne({
+            where: {email: req.session.userLogged.email}
+        })
+        .then(user => {
+            return res.render ('index', {user, indexArray, productsDataBase});
+        })
+    } else if (req.session.userLogged && req.session.userLogged.perfil == 'negocio') {
+        db.Restaurant.findOne({
+            where: {email: req.session.userLogged.email}
+        })
+        .then(user => {
+            return res.render ('index', {user, indexArray, productsDataBase});
+        })
+    } else {
+        return res.render ('index', {indexArray, productsDataBase});
+    }
     },
     listaRestaurantes: (req, res) => {
         

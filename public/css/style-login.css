@@ -455,7 +455,7 @@ main form div a i {
         font-size: 18px;
         line-height: 20px;
     }
-    main form {
+    .format-form {
         width:380px;
         height: 400px;
         padding: 10px;
@@ -509,7 +509,7 @@ main form div a i {
     body main {
     min-height: calc(100vh - 80px - 110px - 100px);
     }
-    main form {
+    .format-form {
         width: 400px;
         height: 400px;
     }

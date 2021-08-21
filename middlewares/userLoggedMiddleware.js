@@ -6,12 +6,22 @@ function userLoggedMiddleware (req, res, next) {
 		db.User.findOne ({
 			where: {email: emailInCookie}
 		}).then(user => {
-			/* req.session.userLogged = user;
-			res.locals.userLogged = req.session.userLogged;	
-			console.log('Estoy logeado por una cookie'); */
-			console.log(req.session);
+			if (user == null) {
+				db.Restaurant.findOne ({
+					where: {email: emailInCookie}
+				})
+				.then(restaurant => {
+					req.session.userLogged = restaurant;
+					res.locals.userLogged = req.session.userLogged;	
+					console.log('Estoy logeado por una cookie de NEGOCIO');	
+				})
+			} else {
+				req.session.userLogged = user;
+				res.locals.userLogged = req.session.userLogged;	
+				console.log('Estoy logeado por una cookie');
+			}
 		})
-	} else if (req.session.userLogged && req.session.userLogged.perfil == 'usuario') {
+	} else if (req.session.userLogged) {
 		res.locals.userLogged = req.session.userLogged;
 		console.log('No hay cookie pero reconozco la session');
 	} else {

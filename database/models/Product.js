@@ -21,7 +21,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING
         },
         precio: {
-            type: DataTypes.STRING
+            type: DataTypes.INTEGER
         },
         id_restaurant: {
             type: DataTypes.INTEGER
@@ -32,5 +32,8 @@ module.exports = function (sequelize, DataTypes) {
         timestamps: false
     }
     let Product = sequelize.define(alias, cols, config);
+
+   
+
     return Product;
 }

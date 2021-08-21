@@ -17,12 +17,6 @@ module.exports = function (sequelize, DataTypes) {
      estado: {
          type: DataTypes.STRING
      },
-     id_product: {
-         type: DataTypes.INTEGER
-     },
-    cantidad: {
-        type: DataTypes.INTEGER
-    },
     comensales: {
         type: DataTypes.INTEGER
     },
@@ -38,5 +32,17 @@ module.exports = function (sequelize, DataTypes) {
         timestamps: false
     }
     let Order = sequelize.define(alias, cols, config);
+    
+    Order.associate = function (models) {
+        Order.belongsTo(models.Restaurant, {
+            as: 'restaurantes',
+            foreignKey: 'id_restaurant'
+        });
+        Order.hasMany(models.OrderProduct, {
+            as: 'orderProducts',
+            foreignKey: 'id_order'
+        });
+    }
+
     return Order;
 }

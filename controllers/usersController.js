@@ -96,8 +96,7 @@ const controller = {
     userEditForm: (req, res) => {
         return res.render ('user-edit-account', {user: req.session.userLogged})
     },
-    userEditAccount: async (req, res) => {
-        try {
+    userEditAccount: (req, res) => {
             if (req.file) {
                 db.User.update({
                 nombre: req.body.nombre,   
@@ -118,10 +117,7 @@ const controller = {
                 { where: {idUser: req.session.userLogged.idUser}
                 })
             }
-        } catch (error) {
-            res.send(error);
-        }
-        await res.redirect (303, '/user/account');
+        return res.redirect (303, '/user/account');
     },
     userDelete: (req, res) => {
         db.User.destroy({
@@ -136,8 +132,10 @@ const controller = {
             where: {
                 id_user: req.session.userLogged.idUser,
                  [Op.or]: [{estado: 'Confirmada'}, {estado: 'Pendiente'}]
-            }
-        }).then(ordersUser=>{
+            },
+            include: [{association: ['restaurantes', 'orderProducts']}]
+        })
+        .then(ordersUser=>{
             return res.render ('user-my-order', {user: req.session.userLogged, ordersUser})
         })
     },
