@@ -13,7 +13,7 @@ var productRouter = require('./routes/product');
 var usersRouter = require('./routes/users');
 
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
-//const buisnessLoggedMiddleware = require('./middlewares/buisnessLoggedMiddleware');
+const buisnessLoggedMiddleware = require('./middlewares/buisnessLoggedMiddleware');
 
 var app = express();
 
@@ -29,11 +29,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 app.use(session({
   secret: 'Clave secreta',
-  resave: false,
-  saveUninitialized: false
+  resave: true,
+  saveUninitialized: true
 }));
 app.use(userLoggedMiddleware);
-//app.use(buisnessLoggedMiddleware);
+app.use(buisnessLoggedMiddleware);
 
 app.use('/', indexRouter);
 app.use('/', productRouter);

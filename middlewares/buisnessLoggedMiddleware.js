@@ -1,24 +1,24 @@
 const db = require('../database/models');
 
-function userLoggedMiddleware (req, res, next) {
+function buisnessLoggedMiddleware (req, res, next) {
 	var emailInCookie = req.cookies.userEmail;
 	if (emailInCookie) {
-		db.User.findOne ({
+		db.Restaurant.findOne ({
 			where: {email: emailInCookie}
 		}).then(user => {
 			req.session.userLogged = user;
 			res.locals.userLogged = req.session.userLogged;	
-			console.log('Estoy logeado por una cookie');
+			console.log('Estoy logeado por una cookie de NEGOCIO');
 		})
-	} else if (req.session.userLogged && req.session.userLogged.perfil == 'usuario') {
+	} else if (req.session.userLogged && req.session.userLogged.perfil == 'negocio') {
 		res.locals.userLogged = req.session.userLogged;
-		console.log('No hay cookie pero reconozco la session');
+		console.log('No hay cookie pero reconozco la session de NEGOCIO');
 	} else {
-		console.log('no hay sesion');
+		console.log('no hay sesion de NEGOCIO');
 	}
 	next();
 }
-module.exports = userLoggedMiddleware;
+module.exports = buisnessLoggedMiddleware;
 
 
 /* res.locals.isLogged = false;

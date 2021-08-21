@@ -8,7 +8,8 @@ const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const e = require('express');
 
-const db = require ('../database/models')
+const db = require ('../database/models');
+const { Op } = require("sequelize");
 const userFilePath = './data bases/userDataFile.json';
 const userDataBase = JSON.parse(fs.readFileSync(userFilePath, 'utf-8'));
 const restaurantFilePath = './data bases/restaurantDataFile.json';
@@ -90,7 +91,7 @@ const controller = {
     userEditForm: (req, res) => {
         return res.render ('user-edit-account', {user: req.session.userLogged})
     },
-    userEditAccount: (req, res) => {
+    userEditAccount: async (req, res) => {
         if (req.file) {
             db.User.update({
             nombre: req.body.nombre,   
@@ -127,9 +128,8 @@ const controller = {
                 id_user: req.session.userLogged.idUser,
                  [Op.or]: [{estado: 'Confirmada'}, {estado: 'Pendiente'}]
             }
-            
         }).then(ordersUser=>{
-            return res.render ('user-my-order', {user: req.session.userLogged.idUser, ordersUser})
+            return res.render ('user-my-order', {user: req.session.userLogged, ordersUser})
         })
     },
     userOrder: (req, res) => {
