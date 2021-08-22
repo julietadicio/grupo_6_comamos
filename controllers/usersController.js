@@ -154,9 +154,16 @@ const controller = {
         await res.redirect (303, '/user/account/my-order')
     },
     userOrders: (req, res) => {
-        const userSelect = userDataBase.find(u => u.idUser == req.session.userLogged.idUser);
-        const ordersUser = ordersDataBase.filter(u => u.idUser == userSelect.idUser && (u.estado == 'Completada' || u.estado == 'Cancelada'));
-        return res.render ('user-orders-history', {user: userSelect, ordersUser, restaurantDataBase, productsDataBase})
+        db.Order.findAll({
+            where: {
+                id_user: req.session.userLogged.idUser,
+                 [Op.or]: [{estado: 'Completada'}, {estado: 'Cancelada'}]
+            },
+            include: [{association: 'restaurant'}, {association: 'platos'}, {association: 'products'}]
+        })
+        .then(ordersUser=>{
+            return res.render ('user-orders-history', {user: req.session.userLogged, ordersUser})
+        })
     },
     loginBuisness: (req, res) => {
         return res.render ('buisness-login');
