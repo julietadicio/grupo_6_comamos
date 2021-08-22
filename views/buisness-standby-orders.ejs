@@ -10,52 +10,55 @@
 <body>
     <%- include partials/header %>
     <main class="main-order">
-    <% if (restaurantOrders.length >= 1) { %>
+        <% if (restaurantOrders.length >= 1) { %>
      
         <% restaurantOrders.forEach(order => { %>
-                <form action="/user/account-buisness/orders/<%= order.idOrder %>?_method=PUT" method="POST" class="reserve-form">
-                    <div class="box-order1">
-                        <img src="<%= order.users.avatar %>" alt="imagen usuario" class="image-result">
-                    </div>    
-                    <div class="left-separation box-order2">
-                        <a href="/user/account-buisness/order/<%= order.idOrder %>" class="order-title"><h4>Pedido #<%=order.idOrder %> </h4></a>
-                        <h4><%= order.users.nombre +' '+ order.users.apellido %></h4>
-                        <ul>
-                            <% order.products.forEach(product => { %>
-                                <li class="products">
-                                    <a href="/product/<%= product.idPlato %> " class="products">
-                                        <%= product.plato %>
-                                    </a>
-                                    (x<%= order.platos[order.platos.findIndex(i => i.idOrder == order.platos.idOrder)].cantidad %>)
-                                </li>
-                            <% }) %> 
-                        </ul>
-                    </div>
-                    <div class="buttons-orders">
-                    <label for="idOrder"></label>
-                    <input type="text" name="idOrder" id="idOrder" class="hidden" value="<%= order.idOrder %>"></input>
-                    <% if (order.estado == 'Confirmada') { %>
-                     <h4 class="confirmed"><%= order.estado %> </h4>
-                     <input type="submit" name="estado" class="none-decoration logout-button" value="Cancelar Reserva"></input>
-                    <% } else if (order.estado == 'Pendiente') { %>
-                        <input type="submit" name="estado" class="none-decoration logout-button" value="Confirmar Reserva"></input>
-                        <input type="submit" name="estado" class="none-decoration logout-button" value="Cancelar Reserva"></input>
-                    <% } %> 
-                    </div>    
-                </form>
-                <%  }); %> 
-                <% } else { %>
-                    <h2 class="no-orders">todavia no tenes pedidos...</h2>
-                    <a href="/user/account-buisness/products">
-                        <h2 class="no-orders">Te invitamos a ver los platos que tenes para ofrecer</h2>
+            <form action="/user/account-buisness/orders/<%= order.idOrder %>?_method=PUT" method="POST" class="reserve-form">
+                <div class="box-order1">
+                    <img src="<%= order.users.avatar %>" alt="imagen usuario" class="image-result">
+                </div>    
+                <div class="left-separation box-order2">
+                    <a href="/user/account-buisness/order/<%= order.idOrder %>" class="order-title">
+                        <h4>Pedido #<%=order.idOrder %> </h4>
                     </a>
-                    <% } %>
-                    <form action="/user/account-buisness">
-                        <fieldset class="logout-button center">
-                            <button type="menu" class="none-decoration">Volver</button>
-                        </fieldset>
-                    </form> 
-                </main>
+                    <h4><%= order.users.nombre +' '+ order.users.apellido %></h4>
+                    <ul>
+                        <% order.products.forEach(product => { %>
+                            <li class="products">
+                                <a href="/product/<%= product.idPlato %> " class="products">
+                                    <%= product.plato %>
+                                </a>
+                                (x<%= order.platos[order.platos.findIndex(i => i.idOrder == order.platos.idOrder)].cantidad %>)
+                            </li>
+                        <% }) %> 
+                    </ul>
+                    <h5>Nº de comensales: <%= order.comensales %></h5>
+                </div>
+                <div class="buttons-orders">
+                <label for="idOrder"></label>
+                <input type="text" name="idOrder" id="idOrder" class="hidden" value="<%= order.idOrder %>"></input>
+                <% if (order.estado == 'Confirmada') { %>
+                    <h4 class="confirmed"><%= order.estado %> </h4>
+                    <input type="submit" name="estado" class="none-decoration logout-button" value="Cancelar Reserva"></input>
+                <% } else if (order.estado == 'Pendiente') { %>
+                    <input type="submit" name="estado" class="none-decoration logout-button" value="Confirmar Reserva"></input>
+                    <input type="submit" name="estado" class="none-decoration logout-button" value="Cancelar Reserva"></input>
+                <% } %> 
+                </div>    
+            </form>
+        <%  }); %> 
+        <% } else { %>
+            <h2 class="no-orders">todavia no tenes pedidos...</h2>
+            <a href="/user/account-buisness/products">
+                <h2 class="no-orders">Te invitamos a ver los platos que tenes para ofrecer</h2>
+            </a>
+            <% } %>
+            <form action="/user/account-buisness">
+                <fieldset class="logout-button center">
+                    <button type="menu" class="none-decoration">Volver</button>
+                </fieldset>
+            </form> 
+    </main>
     <%- include partials/footer %>     
 </body>
 

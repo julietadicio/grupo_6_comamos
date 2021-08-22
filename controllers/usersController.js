@@ -299,9 +299,16 @@ const controller = {
         await res.redirect (303, '/user/account-buisness/orders');
     },
     buisnessHistoryOrders: (req, res) => {
-        const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        const restaurantOrders = ordersDataBase.filter (o => o.idRestaurant == user.idRestaurant && (o.estado == 'Completada' || o.estado == 'Cancelada'));
-        return res.render ('buisness-orders-history', {user, restaurantOrders, userDataBase,restaurantDataBase, productsDataBase});
+        db.Order.findAll ({
+            where: {
+                id_restaurant: req.session.userLogged.idRestaurant,
+                [Op.or]: [{estado: 'Completada'}, {estado: 'Cancelada'}]
+            },
+            include: [{association: 'users'}, {association: 'platos'}, {association: 'products'}]
+        })
+        .then (restaurantOrders => {
+            return res.render ('buisness-orders-history', {user: req.session.userLogged, restaurantOrders});
+        })
     },
     buisnessProducts: (req, res) => {
         const productsRestaurant = productsDataBase.filter(r => r.idRestaurant == req.session.userLogged.idRestaurant);

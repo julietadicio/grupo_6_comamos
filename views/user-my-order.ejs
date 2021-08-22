@@ -15,11 +15,13 @@
                     <article class="reserve-form">
                         <div class="box-order1">
                             <img src="<%= order.restaurant.avatar %>" alt="imagen restaurante" class="image-result">
+                            <a href=""></a><h4><%= order.restaurant.nombre %></h4>
                         </div>    
                         <div class="left-separation box-order2">
-                            <a href="/user/account/my-order/<%= order.idOrder %>" class="order-title"><h4>Pedido #<%=order.idOrder %> </h4></a>
-                            <a href=""></a><h4><%= order.restaurant.nombre %></h4>
-                            <ul>Platos Comprados:
+                            <a href="/user/account/my-order/<%= order.idOrder %>" class="order-title">
+                                <h4>Pedido #<%=order.idOrder %> </h4>
+                            </a>
+                            <ul>
                                 <% order.products.forEach(product => { %>
                                     <li class="products">
                                         <a href="/product/<%= product.idPlato %> " class="products">
