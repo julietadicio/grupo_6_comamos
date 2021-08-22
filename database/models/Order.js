@@ -35,15 +35,21 @@ module.exports = function (sequelize, DataTypes) {
     
     Order.associate = function (models) {
         Order.belongsTo(models.Restaurant, {
-            as: 'restaurantes',
+            as: 'restaurant',
             foreignKey: 'id_restaurant'
         });
+
+        Order.hasMany(models.OrderProduct, {
+            as: 'platos',
+            foreignKey: 'id_order'
+        });
+        
         Order.belongsToMany(models.Product, {
             as: 'products',
             through: 'orders_products',
             foreignKey: 'id_order',
-            otherKey: 'idPlato',
-            timestamps: false
+            otherKey: 'id_product',
+            timestamps: false   
         });
     }
 

@@ -35,7 +35,7 @@ router.delete('/account/delete', usersController.userDelete);
 // Consultar pedidos pendientes y confirmados, pero que aún no fueron utilizados
 router.get('/account/my-order', authMiddleware, usersController.userMyOrder);
 // Consulta de un pedido en particular con estado cancelado o confirmado
-router.get('/account/my-order/order/:idOrder', authMiddleware, usersController.userOrder);
+router.get('/account/my-order/:idOrder', authMiddleware, usersController.userOrder);
 // Cancelar de un pedido en particular con estado pendiente o confirmado
 router.put('/account/my-order/:idOrder/cancel', usersController.userMyOrderCancel);
 // Consultar pedidos completados y cancelados

@@ -96,28 +96,29 @@ const controller = {
     userEditForm: (req, res) => {
         return res.render ('user-edit-account', {user: req.session.userLogged})
     },
-    userEditAccount: (req, res) => {
-            if (req.file) {
-                db.User.update({
+    userEditAccount: (req, res) => {    
+        if (req.file) {
+            db.User.update({
+            nombre: req.body.nombre,   
+            apellido: req.body.apellido,
+            email: req.body.email,   
+            password: bcrypt.hashSync(req.body.password, 10),
+            avatar: '/img/avatars/'+req.file.filename
+            },
+            { where: {idUser: req.session.userLogged.idUser}
+            })
+        return res.redirect (303, '/user/account');
+        } else {
+            db.User.update({
                 nombre: req.body.nombre,   
                 apellido: req.body.apellido,
                 email: req.body.email,   
                 password: bcrypt.hashSync(req.body.password, 10),
-                avatar: '/img/avatars/'+req.file.filename
             },
             { where: {idUser: req.session.userLogged.idUser}
             })
-            } else {
-                db.User.update({
-                    nombre: req.body.nombre,   
-                    apellido: req.body.apellido,
-                    email: req.body.email,   
-                    password: bcrypt.hashSync(req.body.password, 10),
-                },
-                { where: {idUser: req.session.userLogged.idUser}
-                })
-            }
-        return res.redirect (303, '/user/account');
+            return res.redirect (303, '/user/account');
+        }
     },
     userDelete: (req, res) => {
         db.User.destroy({
@@ -133,23 +134,24 @@ const controller = {
                 id_user: req.session.userLogged.idUser,
                  [Op.or]: [{estado: 'Confirmada'}, {estado: 'Pendiente'}]
             },
-            include: [{association: ['restaurantes', 'products']}]
+            include: [{association: 'restaurant'}, {association: 'platos'}, {association: 'products'}]
         })
         .then(ordersUser=>{
             return res.render ('user-my-order', {user: req.session.userLogged, ordersUser})
         })
     },
     userOrder: (req, res) => {
-        const userSelect = userDataBase.find(u => u.idUser == req.session.userLogged.idUser);
-        const orderSelect = ordersDataBase.find(u => u.idOrder == req.params.idOrder);
-        return res.render ('user-id-order', {userSelect, orderSelect, restaurantDataBase, productsDataBase})
+        db.Order.findByPk(req.params.idOrder, {include: [{association: 'restaurant'}, {association: 'platos'}, {association: 'products'}]})
+        .then(orderSelect => {
+            return res.render ('user-id-order', {user: req.session.userLogged, orderSelect})
+        })
     },
-    userMyOrderCancel: (req, res) => {
-        const orderId = req.params.idOrder;
-        const orderSelectId = ordersDataBase.findIndex(p => p.idOrder == orderId)
-        ordersDataBase[orderSelectId].estado = 'Cancelada'
-        fs.writeFileSync(ordersFilePath, JSON.stringify(ordersDataBase, null, 2));
-        return res.redirect ('/user/account/my-order');
+    userMyOrderCancel: async (req, res) => {
+        db.Order.update({
+            estado: 'Cancelada'
+        },
+        {where: {idOrder: req.params.idOrder}})
+        await res.redirect (303, '/user/account/my-order')
     },
     userOrders: (req, res) => {
         const userSelect = userDataBase.find(u => u.idUser == req.session.userLogged.idUser);

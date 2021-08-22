@@ -11,9 +11,10 @@ function userLoggedMiddleware (req, res, next) {
 					where: {email: emailInCookie}
 				})
 				.then(restaurant => {
+					
 					req.session.userLogged = restaurant;
 					res.locals.userLogged = req.session.userLogged;	
-					console.log('Estoy logeado por una cookie de NEGOCIO');	
+					console.log('Estoy logeado por una cookie de NEGOCIO');
 				})
 			} else {
 				req.session.userLogged = user;

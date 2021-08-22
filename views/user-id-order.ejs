@@ -4,7 +4,7 @@
 <head>
     <%- include partials/head %>
     <link rel="stylesheet" href="/css/account.css">
-    <title>Pedido <%=orderSelect.idOrder %></title>
+    <title>Pedido n° <%=orderSelect.idOrder %></title>
 </head>
 
 <body>
@@ -12,12 +12,12 @@
         <main class="main-order">
             <article class="reserve-form">
                 <div class="box-order1">
-                    <img src="<%= restaurantDataBase[restaurantDataBase.findIndex(i => i.idRestaurant == orderSelect.idRestaurant)].avatar %>" alt="imagen restaurante" class="image-restaurant">
+                    <img src="<%= orderSelect.restaurant.avatar %>" alt="imagen restaurante" class="image-result">
                 </div>    
                 <div class="left-separation box-order2">
                     <a href="">
                         <h4>
-                            <%= restaurantDataBase[restaurantDataBase.findIndex(i => i.idRestaurant == orderSelect.idRestaurant)].nombre %>
+                            <%= orderSelect.restaurant.nombre %>
                         </h4>
                     </a>
                     <a href="" class="valoration">
@@ -28,7 +28,7 @@
                         <i class="far fa-star"></i>
                         <i class="far fa-star"></i>
                     </a>
-                    <h4><%= restaurantDataBase[restaurantDataBase.findIndex(i => i.idRestaurant == orderSelect.idRestaurant)].direccion %></h4>
+                    <h4><%= orderSelect.restaurant.direccion %></h4>
                 </div>
                 <div class="map-style">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3396.5844055390476!2d-60.70814808428683!3d-31.645227514525796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b5a9bb2f7ecdb5%3A0x10e74127d3896538!2sRestaurant%20Espa%C3%B1a!5e0!3m2!1ses!2sar!4v1623693134066!5m2!1ses!2sar"
@@ -39,14 +39,15 @@
                 </form>
             </article>
             <article class="order-form">
-                <h4>Platos Comprados: <%  orderSelect.info_order.forEach(plato => { %>
-                        <%= productsDataBase[productsDataBase.findIndex(i => i.idPlato == plato.idPlato)].plato %> 
-                        Cantidad: <%= plato.cantidad %> 
-                        <% }); %>
-                    </h4>
-                    <h5>Nº de comensales: <%= orderSelect.comensales %></h5>
-                    <h5>Fecha y hora de la reserva: <%= orderSelect.fecha_hora_reserva %></h5>
-                    <h5>Total: $<%= orderSelect.precioTotal %></h5>
+                <h4>Platos Comprados:
+                    <% orderSelect.products.forEach(product => { %>
+                        <a href="/product/<%= product.idPlato %> "><%= product.plato %></a>
+                        (x<%= orderSelect.platos[orderSelect.platos.findIndex(i => i.idOrder == orderSelect.platos.idOrder)].cantidad %>)
+                    <% }) %> 
+                </h4>
+                <h5>Nº de comensales: <%= orderSelect.comensales %></h5>
+                <h5>Fecha y hora de la reserva: <%= orderSelect.fecha_reserva %></h5>
+                <h5>Total: $<%= orderSelect.total %></h5>
             </article>
             <form action="/user/account/my-order">
                 <fieldset class="logout-button">

@@ -27,8 +27,8 @@ const controller = {
             db.Product.findAll()
             .then(products => {
                 index.map (e => products[e]);
+                return res.render ('index', {user, products});
             })
-            return res.render ('index', {user, products});
         })
     } else if (req.session.userLogged && req.session.userLogged.perfil == 'negocio') {
         db.Restaurant.findOne({
@@ -38,8 +38,8 @@ const controller = {
             db.Product.findAll()
             .then(products => {
                 index.map (e => products[e]);
+                return res.render ('index', {user, products});
             })
-            return res.render ('index', {user, products});
         })
     } else {
         db.Product.findAll()

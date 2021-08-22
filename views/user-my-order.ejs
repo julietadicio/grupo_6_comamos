@@ -14,19 +14,21 @@
             <% ordersUser.forEach(order => { %>
                     <article class="reserve-form">
                         <div class="box-order1">
-                            <img src="<%= order.restaurantes.avatar %>" alt="imagen restaurante" class="image-result">
+                            <img src="<%= order.restaurant.avatar %>" alt="imagen restaurante" class="image-result">
                         </div>    
                         <div class="left-separation box-order2">
-                            <a href="/login/account/my-order/<%= order.idUser %>/order/<%= order.idOrder %>"><h4>Pedido nº: <%=order.idOrder %> </h4></a>
-                            <a href=""></a><h4><%= order.restaurantes.nombre %></h4>
-                            <h4>Platos Comprados: 
-                                <%= order.products.id_product %> 
-                                Cantidad: <%= order.products.cantidad %> 
-                                
-                            </h4>
-                            <h5>Nº de comensales: <%= order.comensales %></h5>
-                            <h5>Fecha y hora de la reserva: <%= order.fecha_reserva %></h5>
-                            <h5>Total: $<%= order.total %></h5>
+                            <a href="/user/account/my-order/<%= order.idOrder %>"><h4>Pedido nº: <%=order.idOrder %> </h4></a>
+                            <a href=""></a><h4><%= order.restaurant.nombre %></h4>
+                            <ul>Platos Comprados:
+                                <% order.products.forEach(product => { %>
+                                    <li>
+                                        <a href="/product/<%= product.idPlato %> ">
+                                            <%= product.plato %>
+                                        </a>
+                                        (x<%= order.platos[order.platos.findIndex(i => i.idOrder == order.platos.idOrder)].cantidad %>)
+                                    </li>
+                                <% }) %> 
+                            </ul>
                         </div>
                         <form action="/user/account/my-order/<%= order.idOrder %>/cancel?_method=PUT" method="POST" class="coment-button box-order3">
                             <h4 class="<%= order.estado == 'Confirmada'? 'confirmed':'cancel'%>"> <%= order.estado %> </h4>
