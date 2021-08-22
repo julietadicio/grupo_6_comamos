@@ -13,44 +13,44 @@
         <section class="box-space">
             <form action="/user/account-buisness/capacity/new-table" method="POST">
                 <div>
-                    <label for="nombre">Nombre de la mesa</label>
-                    <input type="text" name="nombre" id="nombre" 
-                        class="<%= locals.errors && errors.nombre? 'is-invalid' : null %>"
-                        value="<%= locals.oldData ? oldData.nombre : null %>">
+                    <label for="name">Nombre de la mesa</label>
+                    <input type="text" name="name" id="name" 
+                        class="<%= locals.errors && errors.name? 'is-invalid' : null %>"
+                        value="<%= locals.oldData ? oldData.name : null %>">
                     </input>
-                    <% if (locals.errors && errors.nombre) { %>
+                    <% if (locals.errors && errors.name) { %>
                         <div class="text-danger">
-                        <%= errors.nombre.msg %>
+                        <%= errors.name.msg %>
                         </div>
                         <% } %>
                 </div>
                 <div>
-                    <label for="ubicacion">Ubicación de la mesa</label>
-                    <input type="text" name="ubicacion" id="ubicacion"
-                        class="<%= locals.errors && errors.ubicacion? 'is-invalid' : null %>"
-                        value="<%= locals.oldData ? oldData.ubicacion : null %>">
+                    <label for="ubication">Ubicación de la mesa</label>
+                    <input type="text" name="ubication" id="ubication"
+                        class="<%= locals.errors && errors.ubication? 'is-invalid' : null %>"
+                        value="<%= locals.oldData ? oldData.ubication : null %>">
                     </input>
-                    <% if (locals.errors && errors.ubicacion) { %>
+                    <% if (locals.errors && errors.ubication) { %>
                         <div class="text-danger">
-                        <%= errors.ubicacion.msg %>
+                        <%= errors.ubication.msg %>
                         </div>
                         <% } %>
                 </div>
                 <div>
-                    <label for="capacidad">Capacidad</label>
-                    <input type="text" name="capacidad" id="capacidad"
-                        class="<%= locals.errors && errors.capacidad? 'is-invalid' : null %>"
-                        value="<%= locals.oldData ? oldData.capacidad : null %>">
+                    <label for="capacity">Capacidad</label>
+                    <input type="text" name="capacity" id="capacity"
+                        class="<%= locals.errors && errors.capacity? 'is-invalid' : null %>"
+                        value="<%= locals.oldData ? oldData.capacity : null %>">
                     </input>
-                    <% if (locals.errors && errors.capacidad) { %>
+                    <% if (locals.errors && errors.capacity) { %>
                         <div class="text-danger">
-                        <%= errors.capacidad.msg %>
+                        <%= errors.capacity.msg %>
                         </div>
                         <% } %>
                 </div>
                 <div>
-                    <label for="estado">Estado</label>
-                    <select name="estado" id="estado">
+                    <label for="status">Estado</label>
+                    <select name="status" id="status">
                         <option value="abierta">Abierta</option>
                         <option value="cerrada">Cerrada</option>
                     </select>

@@ -15,7 +15,7 @@ module.exports = function (sequelize, DataTypes) {
          type: DataTypes.STRING
      },
      capacidad: {
-         type: DataTypes.STRING
+         type: DataTypes.INTEGER
      },
      email: {
          type: DataTypes.STRING
@@ -40,9 +40,9 @@ module.exports = function (sequelize, DataTypes) {
     let Restaurant = sequelize.define(alias, cols, config);
 
     Restaurant.associate = function (models) {
-        /* Restaurant.belongsTo(models.Order, {
-            as: 'order',
-            foreignKey: 'id_order'
+       /*  Restaurant.hasMany(models.Product, {
+            as: 'productsRestaurant',
+            foreignKey: 'id_restaurant'
         }); */
     }
 

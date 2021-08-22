@@ -17,28 +17,28 @@
         </form>
         <section class="capacity-container">
             <div class="capacity-box" id="green">
-                <p>Capacidad total: </p><%= user.capacidad %> 
+                <p>Capacidad total: </p><%= user.capacity %> 
             </div>
             <div class="capacity-box" id="red">
-                <p>Pendiente de asignar: <br> <%= user.capacidad - tablesNotAsigned %> </p>
+                <p>Pendiente de asignar: <br> <%= user.capacity %> 
             </div>
         </section>
         <section class="flex-row">
-            <% if (user.mesas.length >= 1) { %>
+            <% if (tables.length >= 1) { %>
                 
-                <% user.mesas.forEach(table => { %>
+                <% tables.forEach(table => { %>
                     <article class="capacity-form">    
                         <div class="box-table">
-                            <h3><%= table.nombre %></h3>
-                            <p>Ubicacion: <%= table.ubicacion %></p>
-                            <p>Capacidad: <%= table.capacidad %> personas</p>
-                            <p id="<%= table.estado == 'abierta'? 'green': 'red'; %>" >Estado: <%= table.estado %></p>
+                            <h3><%= table.name %></h3>
+                            <p>Ubicacion: <%= table.ubication %></p>
+                            <p>Capacidad: <%= table.capacity %> personas</p>
+                            <p id="<%= table.status == 'abierta'? 'green': 'red'; %>" >Estado: <%= table.status %></p>
                         </div>
                         <div class="buttons-tables">
-                            <form action="/user/account-buisness/capacity/edit/<%= table.idMesa %>" method="GET" class="tables-button">
+                            <form action="/user/account-buisness/capacity/edit/<%= table.idTable %>" method="GET" class="tables-button">
                                 <button type="submit" class="none-decoration"><i class="far fa-edit"></i></button>
                             </form>
-                            <form action="/user/account-buisness/capacity/<%= table.idMesa %>/delete?_method=DELETE" method="POST" class="tables-button">
+                            <form action="/user/account-buisness/capacity/<%= table.idTable %>/delete?_method=DELETE" method="POST" class="tables-button">
                                 <button type="submit" class="none-decoration"><i class="fas fa-times"></i></button>
                             </form>
                         </div>    
@@ -46,7 +46,7 @@
                     <%  }); %> 
                     <% } else { %>
                         <section class="center">
-                            <h2 class="no-orders">todavia no mesas para ofrecer?</h2>
+                            <h2 class="no-orders">todavia no tenes mesas para ofrecer?</h2>
                             <h2 class="no-orders">Hace click en agregar</h2>
                         </section>
                         <% } %>

@@ -310,41 +310,56 @@ const controller = {
             return res.render ('buisness-orders-history', {user: req.session.userLogged, restaurantOrders});
         })
     },
-    buisnessProducts: (req, res) => {
-        const productsRestaurant = productsDataBase.filter(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        return res.render ('buisness-products-list', {productsRestaurant, user: req.session.userLogged});
+    buisnessProducts: async (req, res) => {
+       db.Product.findAll ({
+            where: {
+                id_restaurant: req.session.userLogged.idRestaurant
+            }
+            /* include: [{association: 'users'}, {association: 'platos'}, {association: 'products'}] */
+        })
+        .then (productsRestaurant => {
+            return res.render ('buisness-products-list', {user: req.session.userLogged, productsRestaurant});
+        })
     },
-    buisnessCapacity: (req, res) => {
-        const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        var tablesNotAsigned = 0;
+    buisnessCapacity: async (req, res) => {
+        db.Table.findAll ({
+            where: {
+                id_restaurant: req.session.userLogged.idRestaurant,
+            }
+        }).then(tables => {
+            return res.render ('buisness-capacity', {user: req.session.userLogged, tables})
+        })
+        /* var tablesNotAsigned = 0;
         const tablesOpen = user.mesas.filter (m => m.estado == 'abierta');
         tablesOpen.forEach (n => {
         tablesNotAsigned += Number(n.capacidad);
-        });
-        res.render ('buisness-capacity', {user, tablesNotAsigned});
+        }); */
     },
-    buisnessFormTables: (req, res) => {
-        const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        const userTables = user.mesas;
-        const table = userTables.find(r => r.idMesa == req.params.idMesa);
-        res.render ('buisness-edit-capacity', {user, table});
+    buisnessFormTables: async (req, res) => {
+        db.Table.findOne ({
+            where: {
+                idTable: req.params.idMesa,
+            }
+        })
+        .then (table => {
+            return res.render ('buisness-edit-capacity', {user: req.session.userLogged, table});
+        })
     },
-    buisnessEditCapacity: (req, res) => {
-        const buisnessId = req.session.userLogged.idRestaurant;
-        const buisnessSelectId = restaurantDataBase.findIndex(p => p.idRestaurant == buisnessId)
-        const tableId = req.params.idMesa;
-        const tableSelectId = restaurantDataBase[buisnessSelectId].mesas.findIndex(p => p.idMesa == tableId)
-        restaurantDataBase[buisnessSelectId].mesas[tableSelectId] = { ...restaurantDataBase[buisnessSelectId].mesas[tableSelectId] , ...req.body };
-        fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
-        return res.redirect ('/user/account-buisness/capacity');
+    buisnessEditCapacity: async (req, res) => {
+        db.Table.update({
+            name: req.body.nombre,
+            ubication: req.body.ubicacion,
+            capacity: req.body.capacidad,
+            status: req.body.estado,
+        },
+        {where: {idTable: req.params.idMesa}})
+        await res.redirect (303, '/user/account-buisness/capacity');
     },
     tablesCreateForm: (req, res) => {
         return res.render ('buisness-create-tables', {user: req.session.userLogged});
     },
-    createTable: (req, res) => {
+    createTable: async (req, res) => {
         const resultValidation = validationResult(req);
-        const buisnessId = req.session.userLogged.idRestaurant;
-        const buisnessSelectId = restaurantDataBase.findIndex(p => p.idRestaurant == buisnessId)
         if (resultValidation.errors.length > 0) {
 			return res.render('buisness-create-tables', {
 				errors: resultValidation.mapped(),
@@ -352,19 +367,14 @@ const controller = {
                 user: req.session.userLogged
 			});
 		} else {
-        if (restaurantDataBase[buisnessSelectId].mesas.length >= 1) {
-             var lastTableId = restaurantDataBase[buisnessSelectId].mesas[restaurantDataBase[buisnessSelectId].mesas.length - 1].idMesa;
-        } else {
-            lastTableId = 0;
-        }
-        const newTableId = lastTableId +1;
-        const TableCreate = {
-            idMesa: newTableId,
-            ...req.body
-        };
-        restaurantDataBase[buisnessSelectId].mesas.push(TableCreate);
-        fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
-        return res.redirect (303, '/user/account-buisness/capacity');
+            db.Table.create({
+            name: req.body.nombre,
+            ubication: req.body.ubicacion,
+            capacity: req.body.capacidad,
+            status: req.body.estado,
+            id_restaurant: req.session.userLogged.idRestaurant
+        })
+        await res.redirect (303, '/user/account-buisness/capacity');
         }
     },
     TableDelete: (req, res) => {
