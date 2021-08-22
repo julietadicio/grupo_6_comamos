@@ -17,12 +17,12 @@
                             <img src="<%= order.restaurant.avatar %>" alt="imagen restaurante" class="image-result">
                         </div>    
                         <div class="left-separation box-order2">
-                            <a href="/user/account/my-order/<%= order.idOrder %>"><h4>Pedido nº: <%=order.idOrder %> </h4></a>
+                            <a href="/user/account/my-order/<%= order.idOrder %>" class="order-title"><h4>Pedido #<%=order.idOrder %> </h4></a>
                             <a href=""></a><h4><%= order.restaurant.nombre %></h4>
                             <ul>Platos Comprados:
                                 <% order.products.forEach(product => { %>
-                                    <li>
-                                        <a href="/product/<%= product.idPlato %> ">
+                                    <li class="products">
+                                        <a href="/product/<%= product.idPlato %> " class="products">
                                             <%= product.plato %>
                                         </a>
                                         (x<%= order.platos[order.platos.findIndex(i => i.idOrder == order.platos.idOrder)].cantidad %>)

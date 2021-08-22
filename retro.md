@@ -95,5 +95,18 @@ Alejandro:
     - Pendiente: 
         1 - Revisar el formato a los formularios de edicion, vista y creacion de mesas. Tambien seria bueno terminar de ver el header y footer para que sea homogeneo cuando un usuario esta logeado y cuando no lo esta.
         2 - agregar validacion para que no se puede agregar mas mesas en estado abierta si la capacidad del negocio esta al maximo
+
+# Weekly 23/08
+Alejandro:
+    - Adaptación de todos los metódos del controlador para incorporar sequelize.
+    - Mejoras en la estética de la administración de las ordenes, tanto para usuarios como para negocios.
+    - Agregué link a los nombres de los productos para que en cualquier vista, permita haciendo click, consultar toda la información sobre los mismos.
+     - En la proxima semana voy a avanzar con:
+        1 - Agregar mensaje de alerta para operaciones particulares (eliminar un usuario, mesa o producto)
+        2 - Crear el menu desplegable superior cuando el usuario esta logeado
+    - Pendiente: 
+        1 - Agregar validación para que no permita registrar más de un usuario con el mismo correo.
+        2 - agregar validacion para que no se puede agregar mas mesas en estado abierta si la capacidad del negocio esta al maximo
+        3 - Agregar vista y controlador para que un negocio pueda consultar la informacion detallada de un pedido
     
     

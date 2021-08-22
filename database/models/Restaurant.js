@@ -38,5 +38,13 @@ module.exports = function (sequelize, DataTypes) {
         timestamps: false
     }
     let Restaurant = sequelize.define(alias, cols, config);
+
+    Restaurant.associate = function (models) {
+        /* Restaurant.belongsTo(models.Order, {
+            as: 'order',
+            foreignKey: 'id_order'
+        }); */
+    }
+
     return Restaurant;
 }

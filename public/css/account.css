@@ -366,6 +366,16 @@ main div section ul li a h2 {
     flex-direction: column;
     justify-content: space-around;
 }
+.order-title {
+    text-shadow: 1px 1px 1px black;
+    color: #ED1B24;
+    font-size: 1.3rem;
+}
+.products {
+    text-shadow: 1px 1px 1px #b6b6b6;
+    color: black;
+    font-size: 0.9rem;
+}
 /* Formato para gestion de reservas */
 
 /* Formato para la gestion de platos */

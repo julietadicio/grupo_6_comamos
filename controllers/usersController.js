@@ -57,7 +57,7 @@ const controller = {
             });
         })
     },
-    userAccount: (req, res) => {
+    userAccount: async (req, res) => {
         db.User.findOne({
             where: {email: req.session.userLogged.email}
         })
@@ -96,7 +96,7 @@ const controller = {
     userEditForm: (req, res) => {
         return res.render ('user-edit-account', {user: req.session.userLogged})
     },
-    userEditAccount: (req, res) => {    
+    userEditAccount: async (req, res) => {    
         if (req.file) {
             db.User.update({
             nombre: req.body.nombre,   
@@ -107,7 +107,7 @@ const controller = {
             },
             { where: {idUser: req.session.userLogged.idUser}
             })
-        return res.redirect (303, '/user/account');
+            await res.redirect (303, '/user/account');
         } else {
             db.User.update({
                 nombre: req.body.nombre,   
@@ -117,18 +117,18 @@ const controller = {
             },
             { where: {idUser: req.session.userLogged.idUser}
             })
-            return res.redirect (303, '/user/account');
+            await res.redirect (303, '/user/account');
         }
     },
-    userDelete: (req, res) => {
+    userDelete: async (req, res) => {
         db.User.destroy({
             where: {idUser: req.session.userLogged.idUser}
         })
         res.clearCookie('userEmail');
 		req.session.destroy();
-        return res.redirect ('/')
+        await res.redirect ('/')
     },
-    userMyOrder: (req, res) => {
+    userMyOrder: async (req, res) => {
         db.Order.findAll({
             where: {
                 id_user: req.session.userLogged.idUser,
@@ -140,7 +140,7 @@ const controller = {
             return res.render ('user-my-order', {user: req.session.userLogged, ordersUser})
         })
     },
-    userOrder: (req, res) => {
+    userOrder: async (req, res) => {
         db.Order.findByPk(req.params.idOrder, {include: [{association: 'restaurant'}, {association: 'platos'}, {association: 'products'}]})
         .then(orderSelect => {
             return res.render ('user-id-order', {user: req.session.userLogged, orderSelect})
@@ -171,7 +171,7 @@ const controller = {
     loginProcessBuisness: (req, res) => {
         db.Restaurant.findOne ({
             where: {email: req.body.email}
-        }).then ((userToLogin) => {
+        }).then (userToLogin => {
             if(userToLogin) {
                 let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
                 if (isOkThePassword) {
@@ -202,7 +202,7 @@ const controller = {
             });
         })
     },
-    buisnessAccount: (req, res) => {
+    buisnessAccount: async (req, res) => {
         db.Restaurant.findOne ({
             where: {email: req.session.userLogged.email}
         }).then((user) => {
@@ -231,13 +231,13 @@ const controller = {
                 avatar: defaultImageProfile,
                 mapa: ''
         });
-        res.render('buisness-registerOk');
+        return res.render('buisness-registerOk');
         }
     },
     buisnessEditForm: (req, res) => {
         return res.render ('buisness-edit-account', {user: req.session.userLogged});
     },
-    buisnessEditAccount: (req, res) => {
+    buisnessEditAccount: async (req, res) => {
         if (req.file) {
             db.Restaurant.update({
             nombre: req.body.nombre,   
@@ -260,31 +260,43 @@ const controller = {
             { where: {idRestaurant: req.session.userLogged.idRestaurant}
             })
         }
-        return res.redirect (303, '/user/account-buisness');
+        await res.redirect (303, '/user/account-buisness');
     },  
-    buisnessDelete: (req, res) => {
+    buisnessDelete: async (req, res) => {
         db.Restaurant.destroy({
             where: {idRestaurant: req.session.userLogged.idRestaurant}
         })
         res.clearCookie('userEmail');
 		req.session.destroy();
-        return res.redirect ('/');
+        await res.redirect ('/');
     },
-    buisnessOrders: (req, res) => {
-        const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
-        const restaurantOrders = ordersDataBase.filter (o => o.idRestaurant == user.idRestaurant && (o.estado == 'Pendiente' || o.estado == 'Confirmada'));
-        return res.render ('buisness-orders', {user, restaurantOrders, userDataBase,restaurantDataBase, productsDataBase});
+    buisnessOrders: async (req, res) => {
+        db.Order.findAll ({
+            where: {
+                id_restaurant: req.session.userLogged.idRestaurant,
+                [Op.or]: [{estado: 'Confirmada'}, {estado: 'Pendiente'}]
+            },
+            include: [{association: 'users'}, {association: 'platos'}, {association: 'products'}]
+        })
+        .then (restaurantOrders => {
+            return res.render ('buisness-standby-orders', {user: req.session.userLogged, restaurantOrders});
+        })
     },
-    buisnessEditOrders: (req, res) => {
-        const orderId = req.params.idOrder;
-        const orderSelectId = ordersDataBase.findIndex(p => p.idOrder == orderId)
+    buisnessEditOrders: async (req, res) => {
         if (req.body.estado == 'Cancelar Reserva') {
-            ordersDataBase[orderSelectId].estado = 'Cancelada'
+            db.Order.update({
+                estado: 'Cancelada'
+            },
+            {where: {idOrder: req.params.idOrder}
+            })
         } else {
-            ordersDataBase[orderSelectId].estado = 'Confirmada'
+            db.Order.update({
+                estado: 'Confirmada'
+            },
+            {where: {idOrder: req.params.idOrder}
+            })
         }
-        fs.writeFileSync(ordersFilePath, JSON.stringify(ordersDataBase, null, 2));
-        return res.redirect ('/user/account-buisness/orders');
+        await res.redirect (303, '/user/account-buisness/orders');
     },
     buisnessHistoryOrders: (req, res) => {
         const user = restaurantDataBase.find(r => r.idRestaurant == req.session.userLogged.idRestaurant);
