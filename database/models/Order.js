@@ -38,9 +38,12 @@ module.exports = function (sequelize, DataTypes) {
             as: 'restaurantes',
             foreignKey: 'id_restaurant'
         });
-        Order.hasMany(models.OrderProduct, {
-            as: 'orderProducts',
-            foreignKey: 'id_order'
+        Order.belongsToMany(models.Product, {
+            as: 'products',
+            through: 'orders_products',
+            foreignKey: 'id_order',
+            otherKey: 'idPlato',
+            timestamps: false
         });
     }
 

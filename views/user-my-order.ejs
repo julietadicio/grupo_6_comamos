@@ -20,8 +20,9 @@
                             <a href="/login/account/my-order/<%= order.idUser %>/order/<%= order.idOrder %>"><h4>Pedido nº: <%=order.idOrder %> </h4></a>
                             <a href=""></a><h4><%= order.restaurantes.nombre %></h4>
                             <h4>Platos Comprados: 
-                                <%= order.orderProducts.product.plato %> 
-                                Cantidad: <%= order.orderProducts.cantidad %>     
+                                <%= order.products.id_product %> 
+                                Cantidad: <%= order.products.cantidad %> 
+                                
                             </h4>
                             <h5>Nº de comensales: <%= order.comensales %></h5>
                             <h5>Fecha y hora de la reserva: <%= order.fecha_reserva %></h5>

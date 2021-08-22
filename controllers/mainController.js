@@ -19,23 +19,34 @@ const controller = {
     var r = Math.floor(Math.random() * productsDataBase.length);
     if(index.indexOf(r) === -1) index.push(r);
     }
-    var indexArray = index.map (e => productsDataBase[e])
     if (req.session.userLogged && req.session.userLogged.perfil == 'usuario') {
         db.User.findOne({
             where: {email: req.session.userLogged.email}
         })
         .then(user => {
-            return res.render ('index', {user, indexArray, productsDataBase});
+            db.Product.findAll()
+            .then(products => {
+                index.map (e => products[e]);
+            })
+            return res.render ('index', {user, products});
         })
     } else if (req.session.userLogged && req.session.userLogged.perfil == 'negocio') {
         db.Restaurant.findOne({
             where: {email: req.session.userLogged.email}
         })
         .then(user => {
-            return res.render ('index', {user, indexArray, productsDataBase});
+            db.Product.findAll()
+            .then(products => {
+                index.map (e => products[e]);
+            })
+            return res.render ('index', {user, products});
         })
     } else {
-        return res.render ('index', {indexArray, productsDataBase});
+        db.Product.findAll()
+        .then(products => {
+            index.map (e => products[e]);
+            return res.render ('index', {products});
+        })
     }
     },
     listaRestaurantes: (req, res) => {

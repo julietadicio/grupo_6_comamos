@@ -133,7 +133,7 @@ const controller = {
                 id_user: req.session.userLogged.idUser,
                  [Op.or]: [{estado: 'Confirmada'}, {estado: 'Pendiente'}]
             },
-            include: [{association: ['restaurantes', 'orderProducts']}]
+            include: [{association: ['restaurantes', 'products']}]
         })
         .then(ordersUser=>{
             return res.render ('user-my-order', {user: req.session.userLogged, ordersUser})
