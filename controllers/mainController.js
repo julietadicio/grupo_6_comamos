@@ -3,40 +3,49 @@ const router = express.Router();
 const fs = require('fs');
 const db = require('../database/models');
 
+const productsFilePath = './data bases/productsDataFile.json';
+const productsDataBase = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
 const controller = {
     index: (req,res) => {
-    var index = [];
-    while(index.length < 7){
-    var r = Math.floor(Math.random() * productsDataBase.length);
-    if(index.indexOf(r) === -1) index.push(r);
-    }
     if (req.session.userLogged && req.session.userLogged.perfil == 'usuario') {
-        db.User.findOne({
+        var product = db.Product.findAll()
+        var users = db.User.findOne({
             where: {email: req.session.userLogged.email}
         })
-        .then(user => {
-            db.Product.findAll()
-            .then(products => {
-                index.map (e => products[e]);
-                return res.render ('index', {user, products});
-            })
+        Promise.all([product, users]).then(([products, user]) => {
+            var index = [];
+            while(index.length < 7){
+            var r = Math.floor(Math.random() * products.length);
+            if(index.indexOf(r) === -1) index.push(r);
+            }
+            var randomProducts = index.map (e => products[e]);
+            return res.render ('index', {randomProducts, user});
         })
     } else if (req.session.userLogged && req.session.userLogged.perfil == 'negocio') {
-        db.Restaurant.findOne({
+        var product = db.Product.findAll()
+        var users = db.Restaurant.findOne({
             where: {email: req.session.userLogged.email}
         })
-        .then(user => {
-            db.Product.findAll()
-            .then(products => {
-                index.map (e => products[e]);
-                return res.render ('index', {user, products});
-            })
+        Promise.all([product, users]).then(([products, user]) => {
+            var index = [];
+            while(index.length < 7){
+            var r = Math.floor(Math.random() * products.length);
+            if(index.indexOf(r) === -1) index.push(r);
+            }
+            var randomProducts = index.map (e => products[e]);
+            return res.render ('index', {randomProducts, user});
         })
     } else {
         db.Product.findAll()
         .then(products => {
-            index.map (e => products[e]);
-            return res.render ('index', {products});
+            var index = [];
+            while(index.length < 7){
+            var r = Math.floor(Math.random() * products.length);
+            if(index.indexOf(r) === -1) index.push(r);
+            }
+            var randomProducts = index.map (e => products[e]);
+            return res.render ('index', {randomProducts});
         })
     }
     },

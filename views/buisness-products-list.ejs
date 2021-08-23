@@ -23,10 +23,10 @@
                         <img src="<%= product.imagen %>" alt="imagen plato" class="image-result">
                     </div>    
                     <div class="left-separation box-order2">
-                        <h4><%= product.plato %></h4>
-                        <h4><%= product.descripcion %></h4>
-                        <h4><%= product.categoria %></h4>
-                        <h5>Precio: $<%= product.precio %></h5>
+                        <h4 class="order-title"><%= product.plato %></h4>
+                        <h4 class="products"><%= product.descripcion %></h4>
+                        <h4 class="color-name"><%= product.categoria %></h4>
+                        <h4>Precio: $<%= product.precio %></h4>
                     </div>
                     <div class="buttons-orders">
                         <form action="/user/account-buisness/products/edit/<%= product.idPlato %>" method="GET" class="logout-button">

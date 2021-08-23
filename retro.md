@@ -101,6 +101,7 @@ Alejandro:
     - Adaptación de todos los metódos del controlador para incorporar sequelize.
     - Mejoras en la estética de la administración de las ordenes, tanto para usuarios como para negocios.
     - Agregué link a los nombres de los productos para que en cualquier vista, permita haciendo click, consultar toda la información sobre los mismos.
+    - Incorporo la una función para poder ver la capacidad disponible en el negocio
      - En la proxima semana voy a avanzar con:
         1 - Agregar mensaje de alerta para operaciones particulares (eliminar un usuario, mesa o producto)
         2 - Crear el menu desplegable superior cuando el usuario esta logeado

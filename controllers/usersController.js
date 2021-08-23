@@ -58,10 +58,10 @@ const controller = {
             return res.render('user-account', {user});
         })
     },
-    logout: (req, res) => {
+    logout: async (req, res) => {
 		res.clearCookie('userEmail');
 		req.session.destroy();
-		return res.redirect('/');
+		await res.redirect('/');
 	},
     register: (req, res) => {
         return res.render ('user-register');
@@ -330,13 +330,6 @@ const controller = {
             var capacityNotAsigned = openTables.reduce((sum, t) => {return sum + t.capacity}, 0);
             return res.render ('buisness-capacity', {user: req.session.userLogged, tables, capacityNotAsigned})
         })
-        
-        
-        /* var tablesNotAsigned = 0;
-        const tablesOpen = user.mesas.filter (m => m.estado == 'abierta');
-        tablesOpen.forEach (n => {
-        tablesNotAsigned += Number(n.capacidad);
-        }); */
     },
     buisnessFormTables: async (req, res) => {
         db.Table.findOne ({

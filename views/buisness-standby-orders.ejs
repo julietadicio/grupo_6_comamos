@@ -16,12 +16,12 @@
             <form action="/user/account-buisness/orders/<%= order.idOrder %>?_method=PUT" method="POST" class="reserve-form">
                 <div class="box-order1">
                     <img src="<%= order.users.avatar %>" alt="imagen usuario" class="image-result">
+                    <h4 class="color-name"><%= order.users.nombre +' '+ order.users.apellido %></h4>
                 </div>    
                 <div class="left-separation box-order2">
                     <a href="/user/account-buisness/order/<%= order.idOrder %>" class="order-title">
                         <h4>Pedido #<%=order.idOrder %> </h4>
                     </a>
-                    <h4><%= order.users.nombre +' '+ order.users.apellido %></h4>
                     <ul>
                         <% order.products.forEach(product => { %>
                             <li class="products">
@@ -32,7 +32,7 @@
                             </li>
                         <% }) %> 
                     </ul>
-                    <h5>Nº de comensales: <%= order.comensales %></h5>
+                    <h5 class="color-name">Nº de comensales: <%= order.comensales %></h5>
                 </div>
                 <div class="buttons-orders">
                 <label for="idOrder"></label>
