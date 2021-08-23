@@ -10,14 +10,7 @@ const e = require('express');
 
 const db = require ('../database/models');
 const { Op } = require("sequelize");
-const userFilePath = './data bases/userDataFile.json';
-const userDataBase = JSON.parse(fs.readFileSync(userFilePath, 'utf-8'));
-const restaurantFilePath = './data bases/restaurantDataFile.json';
-const restaurantDataBase = JSON.parse(fs.readFileSync(restaurantFilePath, 'utf-8'));
-const ordersFilePath = './data bases/ordersDataFile.json';
-const ordersDataBase = JSON.parse(fs.readFileSync(ordersFilePath, 'utf-8'));
-const productsFilePath = './data bases/productsDataFile.json';
-const productsDataBase = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
 
 const controller = {
     loginUser: (req, res) => {
@@ -377,12 +370,11 @@ const controller = {
         await res.redirect (303, '/user/account-buisness/capacity');
         }
     },
-    TableDelete: (req, res) => {
-        const buisnessId = req.session.userLogged.idRestaurant;
-        const buisnessSelectId = restaurantDataBase.findIndex(p => p.idRestaurant == buisnessId)
-        restaurantDataBase[buisnessSelectId].mesas = restaurantDataBase[buisnessSelectId].mesas.filter(p => p.idMesa != Number(req.params.idMesa));
-        fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));
-        return res.redirect('/user/account-buisness/capacity');
+    TableDelete: async (req, res) => {
+        db.Table.destroy({
+            where: {idTable: req.params.idMesa}
+        })
+        await res.redirect('/user/account-buisness/capacity');
     },
     carrito: (req, res) => {
         

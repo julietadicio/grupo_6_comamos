@@ -33,7 +33,12 @@ module.exports = function (sequelize, DataTypes) {
     }
     let Product = sequelize.define(alias, cols, config);
 
-   
+    Product.associate = function (models) {
+        Product.belongsTo(models.Restaurant, {
+            as: 'productRestaurant',
+            foreignKey: 'id_restaurant'
+        });
+    }
 
     return Product;
 }

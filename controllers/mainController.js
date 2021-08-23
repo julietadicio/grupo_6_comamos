@@ -3,15 +3,6 @@ const router = express.Router();
 const fs = require('fs');
 const db = require('../database/models');
 
-const userFilePath = './data bases/userDataFile.json';
-const userDataBase = JSON.parse(fs.readFileSync(userFilePath, 'utf-8'));
-const restaurantFilePath = './data bases/restaurantDataFile.json';
-const restaurantDataBase = JSON.parse(fs.readFileSync(restaurantFilePath, 'utf-8'));
-const ordersFilePath = './data bases/ordersDataFile.json';
-const ordersDataBase = JSON.parse(fs.readFileSync(ordersFilePath, 'utf-8'));
-const productsFilePath = './data bases/productsDataFile.json';
-const productsDataBase = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
 const controller = {
     index: (req,res) => {
     var index = [];
