@@ -315,13 +315,23 @@ const controller = {
         })
     },
     buisnessCapacity: async (req, res) => {
-        db.Table.findAll ({
+        var mesas = db.Table.findAll ({
             where: {
                 id_restaurant: req.session.userLogged.idRestaurant,
             }
-        }).then(tables => {
-            return res.render ('buisness-capacity', {user: req.session.userLogged, tables})
         })
+        var mesasDisponibles = db.Table.findAll ({
+            where: {
+                id_restaurant: req.session.userLogged.idRestaurant,
+                status: 'abierta'
+            }
+        })
+        Promise.all([mesas, mesasDisponibles]).then(([tables, openTables]) => {
+            var capacityNotAsigned = openTables.reduce((sum, t) => {return sum + t.capacity}, 0);
+            return res.render ('buisness-capacity', {user: req.session.userLogged, tables, capacityNotAsigned})
+        })
+        
+        
         /* var tablesNotAsigned = 0;
         const tablesOpen = user.mesas.filter (m => m.estado == 'abierta');
         tablesOpen.forEach (n => {
@@ -361,10 +371,10 @@ const controller = {
 			});
 		} else {
             db.Table.create({
-            name: req.body.nombre,
-            ubication: req.body.ubicacion,
-            capacity: req.body.capacidad,
-            status: req.body.estado,
+            name: req.body.name,
+            ubication: req.body.ubication,
+            capacity: req.body.capacity,
+            status: req.body.status,
             id_restaurant: req.session.userLogged.idRestaurant
         })
         await res.redirect (303, '/user/account-buisness/capacity');

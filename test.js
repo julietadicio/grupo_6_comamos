@@ -39,19 +39,13 @@ restaurantDataBase[buisnessSelectId].mesas[tableSelect] = { ...restaurantDataBas
 fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));*/
 //const mesa = restaurantDataBase[1].mesas.findIndex (m => m.idMesa == 20);
 
-const indiceAleatorio = Math.floor(Math.random() * productsDataBase.length);
-const indice1 = indiceAleatorio;
+var mesas = [{idTable: 1, name: 'mesa 1', ubication: 'Exterior', capacity: 2, status: 'abierta', id_restaurant: '1'},
+{idTable: 2, name: 'mesa 2', ubication: 'Exterior', capacity: 3, status: 'abierta', id_restaurant: '1'},
+{idTable: 3, name: 'mesa 2', ubication: 'Exterior', capacity: '5', status: 'abierta', id_restaurant: '1'}
+]
 
-var quantity = productsDataBase.length
-var arr = [];
-while(arr.length < 7){
-    var r = Math.floor(Math.random() * quantity);
-    if(arr.indexOf(r) === -1) arr.push(r);
-}
+var capacidadOcupada = mesas.reduce((sum, t) => {
+    return sum + t.capacity
+}, 0)
 
-var newArray = productsDataBase[arr[0]];
-var newArray2 = arr.map (e => productsDataBase[e])
-
-
-//console.log(newArray);
-console.log(newArray2);
+console.log(capacidadOcupada);

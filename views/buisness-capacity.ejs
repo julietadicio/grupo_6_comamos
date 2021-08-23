@@ -17,10 +17,10 @@
         </form>
         <section class="capacity-container">
             <div class="capacity-box" id="green">
-                <p>Capacidad total: </p><%= user.capacity %> 
+                <p>Capacidad total: </p><%= user.capacidad %> 
             </div>
             <div class="capacity-box" id="red">
-                <p>Pendiente de asignar: <br> <%= user.capacity %> 
+                <p>Pendiente de asignar: <br> <%= user.capacidad - capacityNotAsigned %> 
             </div>
         </section>
         <section class="flex-row">
