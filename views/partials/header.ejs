@@ -1,5 +1,5 @@
 <header>  
-    <% if (locals.userLogged && locals.userLogged.perfil == 'usuario' ) { %>
+    <% if (locals.userLogged && user.perfil == 'usuario' ) { %>
         <div class="logo-conteiner">
             <a href="/">
             <img src="/img/Logo.png" id="logo" width="80%" alt="Logo Comamos">
@@ -31,7 +31,7 @@
                 </ol> -->
             </section>
         </div>
-            <% } else if (locals.userLogged && locals.userLogged.perfil == 'negocio' ) { %>
+            <% } else if (locals.userLogged && user.perfil == 'negocio' ) { %>
             <div class="logo-conteiner">
                 <a href="/">
                 <img src="/img/Logo.png" id="logo" width="80%" alt="Logo Comamos">

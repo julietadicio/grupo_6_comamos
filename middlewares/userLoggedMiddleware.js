@@ -22,7 +22,6 @@ function userLoggedMiddleware (req, res, next) {
 	} else {
 		console.log('no hay sesion');
 	}
-	console.log(req.session.userLogged);
 	next();
 }
 module.exports = userLoggedMiddleware;
