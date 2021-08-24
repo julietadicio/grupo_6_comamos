@@ -3,9 +3,6 @@ const router = express.Router();
 const fs = require('fs');
 const db = require('../database/models');
 
-const productsFilePath = './data bases/productsDataFile.json';
-const productsDataBase = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
 const controller = {
     index: (req,res) => {
     if (req.session.userLogged && req.session.userLogged.perfil == 'usuario') {
