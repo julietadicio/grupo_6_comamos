@@ -3,19 +3,13 @@ const db = require('../database/models');
 function userLoggedMiddleware (req, res, next) {
 	var emailInCookie = req.cookies.userEmail;
 	if (emailInCookie) {
-		db.User.findOne ({
-			where: {email: emailInCookie}
-		}).then(user => {
+		var userSearch = db.User.findOne ({where: {email: emailInCookie}})
+		var buisnessSearch = db.Restaurant.findOne ({where: {email: emailInCookie}})
+		Promise.all([userSearch, buisnessSearch]).then(([user, restaurant]) => {
 			if (user == null) {
-				db.Restaurant.findOne ({
-					where: {email: emailInCookie}
-				})
-				.then(restaurant => {
-					
-					req.session.userLogged = restaurant;
-					res.locals.userLogged = req.session.userLogged;	
-					console.log('Estoy logeado por una cookie de NEGOCIO');
-				})
+				req.session.userLogged = restaurant;
+				res.locals.userLogged = req.session.userLogged;	
+				console.log('Estoy logeado por una cookie de NEGOCIO');
 			} else {
 				req.session.userLogged = user;
 				res.locals.userLogged = req.session.userLogged;	
@@ -28,6 +22,7 @@ function userLoggedMiddleware (req, res, next) {
 	} else {
 		console.log('no hay sesion');
 	}
+	console.log(req.session.userLogged);
 	next();
 }
 module.exports = userLoggedMiddleware;
