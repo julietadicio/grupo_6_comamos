@@ -28,9 +28,6 @@ module.exports = function (sequelize, DataTypes) {
     },
     avatar: {
         type: DataTypes.STRING
-    },
-    mapa: {
-        type: DataTypes.STRING
     }
     }
     let config = {

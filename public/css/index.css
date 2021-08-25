@@ -267,7 +267,9 @@ main form {
     box-shadow: 0 0 15px 0 white
 }
 .image-result, .image-result2 {
-    width: 90%;
+    width: 260px;
+    max-width: 90%;
+    height: 145px;
     border-radius: 5px;
 }
 .los-mas-elegidos {
@@ -395,8 +397,8 @@ main form {
     display: none;
 }
 #map {
-    height: 340PX;
-    width: 450px;
+    height: 400px;
+    width: 500px;
 }
 .logout-button {
     background-color: #b6b6b6;
@@ -641,7 +643,11 @@ footer ul, footer div {
     #busqueda2:hover {
         box-shadow: 0 0 15px 0 white
     }
-
+    #map {
+        height: 190px;
+        width: 300px;
+        margin: auto;
+    }
 
     .arrow {
         margin: 1%;
@@ -711,9 +717,9 @@ footer ul, footer div {
         flex-direction: column;
         width: 48%;
     }
-    iframe {
-        width: 430px;
-        height: 235px;
+    #map {
+        height: 260px;
+        width: 400px;
     }
     footer ul li a {
         font-size: 16px;
@@ -756,9 +762,9 @@ footer ul, footer div {
         font-size: 17px;
         font-weight: bold;
     }
-    iframe {
-        width: 580px;
-        height: 330px;
+    #map {
+        height: 400px;
+        width: 500px;
     }
     .fab {
     font-size: 22px;

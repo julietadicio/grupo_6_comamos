@@ -216,7 +216,6 @@ const controller = {
                 password: bcrypt.hashSync(req.body.password, 10),
                 perfil: 'negocio',
                 avatar: defaultImageProfile,
-                mapa: ''
         });
         return res.render('buisness-registerOk');
         }
