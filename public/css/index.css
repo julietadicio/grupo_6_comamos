@@ -394,6 +394,10 @@ main form {
 .map-style {
     display: none;
 }
+#map {
+    height: 340PX;
+    width: 450px;
+}
 .logout-button {
     background-color: #b6b6b6;
     color: white;
