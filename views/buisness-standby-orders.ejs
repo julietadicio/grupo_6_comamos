@@ -41,8 +41,8 @@
                     <h4 class="confirmed"><%= order.estado %> </h4>
                     <input type="submit" name="estado" class="none-decoration logout-button" value="Cancelar Reserva"></input>
                 <% } else if (order.estado == 'Pendiente') { %>
-                    <input type="submit" name="estado" class="none-decoration logout-button" value="Confirmar Reserva"></input>
-                    <input type="submit" name="estado" class="none-decoration logout-button" value="Cancelar Reserva"></input>
+                    <input type="submit" name="estado" class="none-decoration logout-button heartbeat1" value="Confirmar Reserva"></input>
+                    <input type="submit" name="estado" class="none-decoration logout-button heartbeat2" value="Cancelar Reserva"></input>
                 <% } %> 
                 </div>    
             </form>
