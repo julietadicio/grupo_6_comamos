@@ -10,7 +10,7 @@
 <body>
     <%- include partials/header %>
     <main class="main-order">
-        <form action="/user/account-buisness/capacity/new">
+        <form action="/buisness/account/capacity/new">
             <fieldset class="add-button">
                 <button type="submit" class="none-decoration2">Agregar</button>
             </fieldset>
@@ -35,10 +35,10 @@
                             <p id="<%= table.status == 'abierta'? 'green': 'red'; %>" >Estado: <%= table.status %></p>
                         </div>
                         <div class="buttons-tables">
-                            <form action="/user/account-buisness/capacity/edit/<%= table.idTable %>" method="GET" class="tables-button">
+                            <form action="/buisness/account/capacity/edit/<%= table.idTable %>" method="GET" class="tables-button">
                                 <button type="submit" class="none-decoration"><i class="far fa-edit"></i></button>
                             </form>
-                            <form action="/user/account-buisness/capacity/<%= table.idTable %>/delete?_method=DELETE" method="POST" class="tables-button">
+                            <form action="/buisness/account/capacity/<%= table.idTable %>/delete?_method=DELETE" method="POST" class="tables-button">
                                 <button type="submit" class="none-decoration"><i class="fas fa-times"></i></button>
                             </form>
                         </div>    
@@ -51,7 +51,7 @@
                         </section>
                         <% } %>
                     </section>
-                    <form action="/user/account-buisness">
+                    <form action="/buisness/account">
                         <fieldset class="logout-button center">
                             <button type="menu" class="none-decoration">Volver</button>
                         </fieldset>

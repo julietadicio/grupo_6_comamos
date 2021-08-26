@@ -27,7 +27,7 @@ const controller = {
         precio: req.body.precio,
         id_restaurant: req.session.userLogged.idRestaurant
         }) 
-        return res.redirect('/user/account-buisness/products');
+        return res.redirect('/buisness/account/products');
     },
     editFormProduct: async (req, res) => {
         const productSelect = await db.Product.findOne({
@@ -54,13 +54,13 @@ const controller = {
             },
             { where: {idPlato: req.params.idPlato} })
         }
-        return res.redirect('/user/account-buisness/products');
+        return res.redirect('/buisness/account/products');
     },
     deleteProduct: async (req, res) => {
         await db.Product.destroy({
             where: {idPlato: req.params.idPlato}
         })
-        return res.redirect(303, '/user/account-buisness/products');
+        return res.redirect(303, '/buisness/account/products');
     }
 }
 

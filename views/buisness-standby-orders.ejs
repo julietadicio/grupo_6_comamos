@@ -13,13 +13,13 @@
         <% if (restaurantOrders.length >= 1) { %>
      
         <% restaurantOrders.forEach(order => { %>
-            <form action="/user/account-buisness/orders/<%= order.idOrder %>?_method=PUT" method="POST" class="reserve-form">
+            <form action="/buisness/account/orders/<%= order.idOrder %>?_method=PUT" method="POST" class="reserve-form">
                 <div class="box-order1">
                     <img src="<%= order.users.avatar %>" alt="imagen usuario" class="image-result">
                     <h4 class="color-name"><%= order.users.nombre +' '+ order.users.apellido %></h4>
                 </div>    
                 <div class="left-separation box-order2">
-                    <a href="/user/account-buisness/order/<%= order.idOrder %>" class="order-title">
+                    <a href="/buisness/account/order/<%= order.idOrder %>" class="order-title">
                         <h4>Pedido #<%=order.idOrder %> </h4>
                     </a>
                     <ul>
@@ -49,11 +49,11 @@
         <%  }); %> 
         <% } else { %>
             <h2 class="no-orders">todavia no tenes pedidos...</h2>
-            <a href="/user/account-buisness/products">
+            <a href="/buisness/account/products">
                 <h2 class="no-orders">Te invitamos a ver los platos que tenes para ofrecer</h2>
             </a>
             <% } %>
-            <form action="/user/account-buisness">
+            <form action="/buisness/account">
                 <fieldset class="logout-button center">
                     <button type="menu" class="none-decoration">Volver</button>
                 </fieldset>

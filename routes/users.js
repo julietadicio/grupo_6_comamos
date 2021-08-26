@@ -26,7 +26,7 @@ router.post('/login', usersController.loginProcess);
 // Perfil de Usuario
 router.get('/account', authMiddleware, usersController.userAccount);
 // Logout
-router.get('/logout', usersController.logout);
+router.get('/logout', usersController.logoutUser);
 // Formulario de edición de la cuenta para los usuarios
 router.get('/account/edit', authMiddleware, usersController.userEditForm);
 router.put('/account/', uploadFile.single('avatar') , usersController.userEditAccount);
@@ -42,45 +42,6 @@ router.put('/account/my-order/:idOrder/cancel', usersController.userMyOrderCance
 router.get('/account/orders', authMiddleware, usersController.userOrders);
 // Rutas para administracion del carrito de usuarios
 router.get('/carrito', authMiddleware, usersController.carrito);
-
-
-// Rutas para login y administracion de negocios
-
-// Formulario de registro
-router.get('/register-buisness', guestMiddleware, usersController.registerBuisness);
-// Procesar el registro
-router.post('/register-buisness', uploadFile.single('avatar'), validateRegisterBuisness, usersController.createBuisness);
-// Formulario de login
-router.get('/login-buisness', guestMiddleware, usersController.loginBuisness);
-// Procesar el login
-router.post('/login-buisness', usersController.loginProcessBuisness);
-// Perfil de Usuario
-router.get('/account-buisness/', authBuisnessMiddleware, usersController.buisnessAccount);
-// Logout
-router.get('/logout-buisness', authBuisnessMiddleware, usersController.logout);
-// Formulario de edición de la cuenta para los negocios
-router.get('/account-buisness/edit', authBuisnessMiddleware, usersController.buisnessEditForm);
-router.put('/account-buisness/', uploadFile.single('avatar') , usersController.buisnessEditAccount);
-// Eliminar cuenta de negocio
-router.delete('/account-buisness/delete', usersController.buisnessDelete);
-// Consultar pedidos pendientes y confirmados, pero que aún no fueron al restaurante
-router.get('/account-buisness/orders', authBuisnessMiddleware, usersController.buisnessOrders);
-// Cancelar pedidos pendientes y confirmados
-router.put('/account-buisness/orders/:idOrder', authBuisnessMiddleware, usersController.buisnessEditOrders);
-// Listado de platos del negocio
-router.get('/account-buisness/products', authBuisnessMiddleware, usersController.buisnessProducts);
-// Consultar pedidos completados y cancelados
-router.get('/account-buisness/orders-history', authBuisnessMiddleware, usersController.buisnessHistoryOrders);
-// Listado de Mesas del Restaurante
-router.get('/account-buisness/capacity', authBuisnessMiddleware, usersController.buisnessCapacity);
-// Formulario para modificar una mesa
-router.get('/account-buisness/capacity/edit/:idMesa', authBuisnessMiddleware, usersController.buisnessFormTables);
-router.put('/account-buisness/capacity/edit/:idMesa/',usersController.buisnessEditCapacity);
-// Formulario para agregar una mesa
-router.get('/account-buisness/capacity/new', authBuisnessMiddleware, usersController.tablesCreateForm);
-router.post('/account-buisness/capacity/new-table', validateCreateTable, usersController.createTable);
-// Eliminar una mesa
-router.delete('/account-buisness/capacity/:idMesa/delete', usersController.TableDelete);
 
 
 module.exports = router;

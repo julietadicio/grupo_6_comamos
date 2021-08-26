@@ -6,14 +6,14 @@ const authBuisnessMiddleware = require('../middlewares/authBuisnessMiddleware');
 const productController = require('../controllers/productController');
 
 /* GET products home page. */
-router.get('/user/account-buisness/products', productController.productsList);
+router.get('/buisness/account/products', productController.productsList);
 router.get('/product/:idPlato', productController.detailProduct);
 
 /* rutas para crear, editar y eliminar platos */
-router.get('/user/account-buisness/products/new', authBuisnessMiddleware,productController.createFormProduct);
-router.get('/user/account-buisness/products/edit/:idPlato', authBuisnessMiddleware, productController.editFormProduct);
-router.post('/user/account-buisness/new-product', uploadFile.single('img-product') ,productController.createProduct);
-router.put('/user/account-buisness/edit-product/:idPlato', uploadFile.single('img-product') ,productController.editProduct);
-router.delete('/user/account-buisness/products/:idPlato/delete', productController.deleteProduct);
+router.get('/buisness/account/products/new', authBuisnessMiddleware,productController.createFormProduct);
+router.get('/buisness/account/products/edit/:idPlato', authBuisnessMiddleware, productController.editFormProduct);
+router.post('/buisness/account/new-product', uploadFile.single('img-product') ,productController.createProduct);
+router.put('/buisness/account/edit-product/:idPlato', uploadFile.single('img-product') ,productController.editProduct);
+router.delete('/buisness/account/products/:idPlato/delete', productController.deleteProduct);
 
 module.exports = router;

@@ -11,7 +11,7 @@
     <%- include partials/header %> 
     <main>
         <section class="box-space">
-            <form action="/user/account-buisness/capacity/edit/<%= table.idTable %>/?_method=PUT" method="POST">
+            <form action="/buisness/account/capacity/edit/<%= table.idTable %>/?_method=PUT" method="POST">
                 <div class="flex-column">
                     <label for="nombre">Nombre de la Mesa</label>
                     <input type="text" name="nombre" id="nombre" value="<%= table.name %>">
@@ -31,7 +31,7 @@
                     <button type="submit" class="none-decoration"><i class="fas fa-check"></i></button>
                 </fieldset>
             </form>
-            <form action="/user/account-buisness/capacity">
+            <form action="/buisness/account/capacity">
                 <fieldset class="logout-button">
                         <button type="menu" class="none-decoration">Volver</button>
                 </fieldset>    
