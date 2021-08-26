@@ -72,6 +72,18 @@ const controller = {
 				oldData: req.body
 			});
 		} else {
+            if (await db.User.findOne({
+            where: {email: req.body.email}
+        })) {
+            return res.render('user-register', {
+                oldData: req.body,
+                errors: {
+                    email: {
+                        msg: 'El email ya se encuentra registrado'
+                    }
+                }
+            });
+        } else {
             const defaultImageProfile = '/img/avatars/Usuario-registro.png'
             await db.User.create ({
             nombre: req.body.nombre,   
@@ -81,7 +93,8 @@ const controller = {
             perfil: 'usuario',
             avatar: defaultImageProfile,
         })
-        res.render('user-registerOk');
+            res.render('user-registerOk');
+        }
         }
     },
     userEditForm: (req, res) => {
@@ -207,6 +220,18 @@ const controller = {
 				oldData: req.body
 			});
 		} else {
+            if (await db.Restaurant.findOne({
+            where: {email: req.body.email}
+            })) {
+                return res.render('buisness-register', {
+                    oldData: req.body,
+                    errors: {
+                        email: {
+                            msg: 'El email ya se encuentra registrado'
+                        }
+                    }
+                });
+            } else {
             const defaultImageProfile = '/img/avatars/user-buisness-avatar.jpg'
             await db.Restaurant.create ({
                 nombre: req.body.nombre,   
@@ -216,8 +241,9 @@ const controller = {
                 password: bcrypt.hashSync(req.body.password, 10),
                 perfil: 'negocio',
                 avatar: defaultImageProfile,
-        });
-        return res.render('buisness-registerOk');
+            });
+            return res.render('buisness-registerOk');
+            }
         }
     },
     buisnessEditForm: (req, res) => {

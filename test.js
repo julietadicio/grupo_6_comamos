@@ -1,18 +1,15 @@
 bcrypt = require ('bcryptjs');
 const fs = require('fs');
-const productsFilePath = './data bases/productsDataFile.json';
-const productsDataBase = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-const restaurantFilePath = './data bases/restaurantDataFile.json';
-const restaurantDataBase = JSON.parse(fs.readFileSync(restaurantFilePath, 'utf-8'));
 
-/*
+
 passwordUser1 = 'hola1'
 passwordBuisness1 = 'hola2'
 passwordBuisness2 = 'hola3'
 
-newpassword = bcrypt.hashSync(passwordBuisness2, 10)
+newpassword = bcrypt.hashSync(passwordUser1, 10)
 
 console.log(newpassword);
+/*
 
 const random = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -39,7 +36,7 @@ restaurantDataBase[buisnessSelectId].mesas[tableSelect] = { ...restaurantDataBas
 fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));*/
 //const mesa = restaurantDataBase[1].mesas.findIndex (m => m.idMesa == 20);
 
-var mesas = [{idTable: 1, name: 'mesa 1', ubication: 'Exterior', capacity: 2, status: 'abierta', id_restaurant: '1'},
+/* var mesas = [{idTable: 1, name: 'mesa 1', ubication: 'Exterior', capacity: 2, status: 'abierta', id_restaurant: '1'},
 {idTable: 2, name: 'mesa 2', ubication: 'Exterior', capacity: 3, status: 'abierta', id_restaurant: '1'},
 {idTable: 3, name: 'mesa 2', ubication: 'Exterior', capacity: '5', status: 'abierta', id_restaurant: '1'}
 ]
@@ -48,4 +45,4 @@ var capacidadOcupada = mesas.reduce((sum, t) => {
     return sum + t.capacity
 }, 0)
 
-console.log(capacidadOcupada);
+console.log(capacidadOcupada); */
