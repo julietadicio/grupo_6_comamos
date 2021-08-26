@@ -109,5 +109,16 @@ Alejandro:
         1 - Agregar validación para que no permita registrar más de un usuario con el mismo correo.
         2 - agregar validacion para que no se puede agregar mas mesas en estado abierta si la capacidad del negocio esta al maximo
         3 - Agregar vista y controlador para que un negocio pueda consultar la informacion detallada de un pedido
+# Weekly 30/08
+Alejandro:
+    - Generación de nuevos archivos para rutas, controlador y adaptación de las vistas, para que usuarios y negocios estén separados.
+    - Incorporación de las APIs de google maps y geolocate para que cuando se ingresa a la vista de un producto, muestre un mapa con la ubicación del negocio.
+    - Agregué validación para que no se puedan crear usuarios ni negocios con el mismo email.
+    - Incorporación de vista y controlador para que un negocio pueda consultar la informacion detallada de un pedido
+     - En la proxima semana voy a avanzar con:
+        1 - Agregar mensaje de alerta para operaciones particulares (eliminar un usuario, mesa o producto)
+        2 - Crear el menu desplegable superior cuando el usuario esta logeado
+    - Pendiente: 
+        1 - Formatear fechas de los pedidos
     
     

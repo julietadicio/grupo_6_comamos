@@ -461,7 +461,13 @@ main div section ul li a h2 {
             animation-timing-function: ease-out;
   }
 }
-
+#map {
+    height: 200px;
+    width: 240px;
+}
+.order-form {
+    text-align: center;
+}
 /* Formato para gestion de reservas */
 
 /* Formato para la gestion de platos */
@@ -744,7 +750,7 @@ footer ul, footer div {
     }
     .box-order2 {
     width: 70%;
-    text-align: justify;
+    text-align: left;
     }
     .box-table {
     width: 100%;
@@ -921,5 +927,9 @@ footer ul, footer div {
     }
     .box-order1 {
         width: 25%;
+    }
+    #map {
+    height: 400px;
+    width: 500px;
     }
 }

@@ -16,38 +16,55 @@
                 </div>    
                 <div class="left-separation box-order2">
                     <a href="">
-                        <h4>
+                        <h4 class="order-title">
                             <%= orderSelect.restaurant.nombre %>
                         </h4>
                     </a>
                     <a href="" class="valoration">
-                        <h4>Valoración:</h4>
+                        <h4 class="color-name">Valoración:</h4>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="far fa-star"></i>
                         <i class="far fa-star"></i>
                     </a>
-                    <h4><%= orderSelect.restaurant.direccion %></h4>
+                    <h4 class="color-name"><%= orderSelect.restaurant.direccion %></h4>
                 </div>
-                <div class="map-style">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3396.5844055390476!2d-60.70814808428683!3d-31.645227514525796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b5a9bb2f7ecdb5%3A0x10e74127d3896538!2sRestaurant%20Espa%C3%B1a!5e0!3m2!1ses!2sar!4v1623693134066!5m2!1ses!2sar"
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <div id="map"></div>
+                <script>
+                    async function initMap () {
+                    const resp = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=<%= orderSelect.restaurant.direccion %>&key=AIzaSyAFOo6YZ_RiBv1vbXSOxAWR6UmMIMozn6M`)
+                    const data = await resp.json();
+                    const address = { lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng };
+                    const map = new google.maps.Map(document.getElementById("map"), {
+                        zoom: 16,
+                        center: address,
+                    });
+                    const marker = new google.maps.Marker({
+                        position: address,
+                        map: map,
+                    });
+                    }
+                </script>
+                <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+                <script
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFOo6YZ_RiBv1vbXSOxAWR6UmMIMozn6M&callback=initMap&libraries=&v=weekly"
+                async
+                ></script>
+                <div class="order-form">
+                    <h4 class="color-name">Platos Comprados: <br>
+                        <% orderSelect.products.forEach(product => { %>
+                            <a href="/product/<%= product.idPlato %> "><h4 class="products"><%= product.plato %></h4></a>
+                            <h4 class="products">(x<%= orderSelect.platos[orderSelect.platos.findIndex(i => i.idOrder == orderSelect.platos.idOrder)].cantidad %>)</h4>
+                        <% }) %> 
+                    </h4>
+                    <h5 class="color-name">Nº de comensales: <%= orderSelect.comensales %></h5>
+                    <h5 class="color-name">Fecha y hora de la reserva: <%= orderSelect.fecha_reserva %></h5>
+                    <h5 class="products">Total: $<%= orderSelect.total %></h5>
                 </div>
                 <form action="" method="POST" class="coment-button box-order3">
                     <button type="submit">Cancelar Reserva</button>
                 </form>
-            </article>
-            <article class="order-form">
-                <h4>Platos Comprados:
-                    <% orderSelect.products.forEach(product => { %>
-                        <a href="/product/<%= product.idPlato %> "><%= product.plato %></a>
-                        (x<%= orderSelect.platos[orderSelect.platos.findIndex(i => i.idOrder == orderSelect.platos.idOrder)].cantidad %>)
-                    <% }) %> 
-                </h4>
-                <h5>Nº de comensales: <%= orderSelect.comensales %></h5>
-                <h5>Fecha y hora de la reserva: <%= orderSelect.fecha_reserva %></h5>
-                <h5>Total: $<%= orderSelect.total %></h5>
             </article>
             <form action="/user/account/my-order">
                 <fieldset class="logout-button">
