@@ -279,6 +279,9 @@ body main a {
     padding: 5px;
     border-radius: 5px;
 }
+.flex-wrap {
+    flex-wrap: wrap;
+}
 .image-result {
     width: 100px;
     height: 90px;
@@ -749,7 +752,7 @@ footer ul, footer div {
     text-align: center;
     }
     .box-order2 {
-    width: 70%;
+    width: 30%;
     text-align: left;
     }
     .box-table {
@@ -929,7 +932,7 @@ footer ul, footer div {
         width: 25%;
     }
     #map {
-    height: 400px;
-    width: 500px;
+        height: 230px;
+        width: 350px;
     }
 }

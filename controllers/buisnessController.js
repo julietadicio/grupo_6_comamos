@@ -144,6 +144,13 @@ const controller = {
         })
         return res.render ('buisness-standby-orders', {user: req.session.userLogged, restaurantOrders});
     },
+    buisnessOrderSelect: async (req,res) =>{
+        const orderSelect = await db.Order.findByPk(
+            req.params.idOrder, 
+            {include: [{association: 'users'}, {association: 'platos'}, {association: 'products'}]}
+            )
+        return res.render ('buisness-id-order', {user: req.session.userLogged, orderSelect})
+    },
     buisnessEditOrders: async (req, res) => {
         if (req.body.estado == 'Cancelar Reserva') {
             await db.Order.update({

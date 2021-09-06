@@ -1,4 +1,4 @@
-bcrypt = require ('bcryptjs');
+/* bcrypt = require ('bcryptjs');
 const fs = require('fs');
 
 
@@ -8,7 +8,7 @@ passwordBuisness2 = 'hola3'
 
 newpassword = bcrypt.hashSync(passwordUser1, 10)
 
-console.log(newpassword);
+console.log(newpassword); */
 /*
 
 const random = (min, max) => {
@@ -46,3 +46,53 @@ var capacidadOcupada = mesas.reduce((sum, t) => {
 }, 0)
 
 console.log(capacidadOcupada); */
+
+var dateFormat = require("dateformat");
+dateFormat.i18n = {
+  dayNames: [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ],
+  monthNames: [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ],
+  timeNames: ["a", "p", "am", "pm", "A", "P", "AM", "PM"],
+};
+
+
+console.log(dateFormat(Date.now, "dddd, mmmm dS, yyyy, h:MM:ss TT"));

@@ -34,6 +34,7 @@ router.put('/account/', uploadFile.single('avatar') , buisnessController.buisnes
 router.delete('/account/delete', buisnessController.buisnessDelete);
 // Consultar pedidos pendientes y confirmados, pero que aún no fueron al restaurante
 router.get('/account/orders', authBuisnessMiddleware, buisnessController.buisnessOrders);
+router.get('/account/order/:idOrder', authBuisnessMiddleware, buisnessController.buisnessOrderSelect);
 // Cancelar pedidos pendientes y confirmados
 router.put('/account/orders/:idOrder', authBuisnessMiddleware, buisnessController.buisnessEditOrders);
 // Listado de platos del negocio
