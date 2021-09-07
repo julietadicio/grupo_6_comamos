@@ -21,6 +21,10 @@
                     <input type="text" name="ubicacion" id="ubicacion" value="<%= table.ubication %>">
                 </div>
                 <div class="flex-column">
+                    <label for="capacity">Capacidad</label>
+                    <input type="text" name="capacity" id="capacity" value="<%= table.capacity %>">
+                </div>
+                <div class="flex-column">
                     <label for="estado">Estado</label>
                     <select name="estado" id="estado">
                         <option value="abierta" <%= table.status == 'abierta'? 'selected': null;%> >Abierta</option>

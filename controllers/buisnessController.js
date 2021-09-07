@@ -212,7 +212,7 @@ const controller = {
         await db.Table.update({
             name: req.body.nombre,
             ubication: req.body.ubicacion,
-            capacity: req.body.capacidad,
+            capacity: req.body.capacity,
             status: req.body.estado,
         },
         {where: {idTable: req.params.idMesa}})

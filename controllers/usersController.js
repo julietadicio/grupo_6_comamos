@@ -168,7 +168,7 @@ const controller = {
     },
     carrito: (req, res) => {
         
-        return res.render ('carrito');
+        return res.render ('user-shop');
     }
 }
 
