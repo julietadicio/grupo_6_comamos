@@ -3,7 +3,9 @@
 
 <head>
     <%- include partials/head %>
+        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
         <link rel="stylesheet" href="./css/index.css">
+        <script src="/js/swiper.js"></script>
         <title>Comamos</title>
 </head>
 
@@ -57,23 +59,32 @@
             <div class="nuestras-sugerencias">
                 <div class="recomendations-format">
                     <h2 class="recomendations-title">Para ir con...</h2>
-                    <div class="index-recomendations">
-                        <button class="arrow"><i class="fas fa-arrow-left"></i></button>
-                        <img src="/img/Amigos-cenando.jpg" alt="por tu zona" class="image-result2">
-                        <button class="arrow"><i class="fas fa-arrow-right"></i></button>
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <% randomProducts.forEach(product => { %>
+                                <img src="<%= product.imagen %>" alt="para compartir con" id="image-result2" class="swiper-slide">                    
+                            <% }); %>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
                     </div>
                 </div>
                 <div class="recomendations-format">
                     <h2 class="recomendations-title">Por tu zona</h2>
-                    <div class="index-recomendations">
-                        <button class="arrow"><i class="fas fa-arrow-left"></i></button>
-                        <img src="/img/por tu zona.jpg" alt="para compartir con" class="image-result2">
-                        <button class="arrow"><i class="fas fa-arrow-right"></i></button>
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <% randomRestaurants.forEach(restaurant => { %>
+                                <img src="<%= restaurant.avatar %>" alt="para compartir con" id="image-result2" class="swiper-slide">                    
+                            <% }); %>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
                     </div>
                 </div>
             </div>
         </main>
         <%- include partials/footer %>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
 
 </html>
