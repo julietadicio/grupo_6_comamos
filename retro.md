@@ -68,7 +68,7 @@ Alejandro:
      (*) Actualice el tablero de trabajo con estas tareas y proyectos.
     https://trello.com/b/xbzGtulH
 
-    # Weekly 26/07
+# Weekly 26/07
 Alejandro:
     - Implementacion de una nav bar para dispositivos moviles
     - Ajustes estéticos para que el header quede igual en todas las vistas
@@ -81,5 +81,44 @@ Alejandro:
     - Pendiente: 
         1 - dar formato a los formularios de edicion, vista y creacion de mesas
         2 - agregar validacion para que no se puede agregar mas mesas en estado abierta si la capacidad del negocio esta al maximo
+
+# Weekly 02/08
+Alejandro:
+    - Ajuste en el header y footer para que se adapten segun el body esta vacio o no.
+    - Agregué las validaciones a los formularios de registro y de login.
+    - Tambien implementé validaciones en la creacion de usuarios, negocios y habilitacion de mesas.
+    - Agregue la funcionalidad de la administracion de mesas que luego va a ser utilizada en el carrito o bien, en el restaurant cuando el cliente ingresa.
+     - En la proxima semana voy a avanzar con:
+        1 - Crear las bases de datos sql y tablas
+        2 - Configurar Sequelize
+        3 - Crear el menu desplegable superior cuando el usuario esta logeado
+    - Pendiente: 
+        1 - Revisar el formato a los formularios de edicion, vista y creacion de mesas. Tambien seria bueno terminar de ver el header y footer para que sea homogeneo cuando un usuario esta logeado y cuando no lo esta.
+        2 - agregar validacion para que no se puede agregar mas mesas en estado abierta si la capacidad del negocio esta al maximo
+
+# Weekly 23/08
+Alejandro:
+    - Adaptación de todos los metódos del controlador para incorporar sequelize.
+    - Mejoras en la estética de la administración de las ordenes, tanto para usuarios como para negocios.
+    - Agregué link a los nombres de los productos para que en cualquier vista, permita haciendo click, consultar toda la información sobre los mismos.
+    - Incorporo la una función para poder ver la capacidad disponible en el negocio
+     - En la proxima semana voy a avanzar con:
+        1 - Agregar mensaje de alerta para operaciones particulares (eliminar un usuario, mesa o producto)
+        2 - Crear el menu desplegable superior cuando el usuario esta logeado
+    - Pendiente: 
+        1 - Agregar validación para que no permita registrar más de un usuario con el mismo correo.
+        2 - agregar validacion para que no se puede agregar mas mesas en estado abierta si la capacidad del negocio esta al maximo
+        3 - Agregar vista y controlador para que un negocio pueda consultar la informacion detallada de un pedido
+# Weekly 30/08
+Alejandro:
+    - Generación de nuevos archivos para rutas, controlador y adaptación de las vistas, para que usuarios y negocios estén separados.
+    - Incorporación de las APIs de google maps y geolocate para que cuando se ingresa a la vista de un producto, muestre un mapa con la ubicación del negocio.
+    - Agregué validación para que no se puedan crear usuarios ni negocios con el mismo email.
+    - Incorporación de vista y controlador para que un negocio pueda consultar la informacion detallada de un pedido
+     - En la proxima semana voy a avanzar con:
+        1 - Agregar mensaje de alerta para operaciones particulares (eliminar un usuario, mesa o producto)
+        2 - Crear el menu desplegable superior cuando el usuario esta logeado
+    - Pendiente: 
+        1 - Formatear fechas de los pedidos
     
     

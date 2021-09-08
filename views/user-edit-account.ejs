@@ -33,17 +33,17 @@
                 </div>
                 <div class="flex-column">
                     <label for="password">Contraseña</label>
-                    <input type="text" name="password" id="password">
+                    <input type="password" name="password" id="password">
                 </div>
-                <fieldset class="logout-button">
-                    <button type="submit" class="none-decoration">Editar</button>
-                </fieldset>
-            </form>
-            <form action="/user/account">
+                <div class="flex-rowReverse">
                     <fieldset class="logout-button">
-                        <button type="menu" class="none-decoration">Volver</button>
+                        <button type="submit" class="none-decoration">Editar</button>
                     </fieldset>
-                </form>    
+                    <div class="logout-button">
+                        <a href="/user/account" type="menu" class="none-decoration">Volver</a>
+                    </div>
+                </div>
+            </form>
         </section>
     </main>
     <%- include partials/footer %>     

@@ -126,14 +126,19 @@ width:300px;
 padding:16px;
 border-radius:28px;
 margin:auto;
-background-color: rgb(226, 221, 221, 75%);
-border: solid 1px rgb(112, 112, 112);
+background-color: white;
+box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
 body main input {
     border: none;
-    border-radius: 5px;
+    border-bottom: #656565 1px solid;
     width: 75%;
     background-color: white;
+    font-size: 16px;
+    padding: 5px;
+}
+body main button {
+    border: none;
 }
 .close {
     margin: 15px;
@@ -281,12 +286,10 @@ footer ul, footer div {
 
 
 /* Formato nuevo para login de usuarios */
-body input {
-    padding: 4px;
-}
 #recordarme {
     height: 15px;
     width: 5%;
+    margin: 0;
 }
 .rebember {
     display: flex;
@@ -452,16 +455,16 @@ main form div a i {
         font-size: 18px;
         line-height: 20px;
     }
-    main form {
-        width:400px;
-        height: 450px;
+    .format-form {
+        width:380px;
+        height: 400px;
         padding: 10px;
-        background-color: rgb(226, 221, 221, 85%);
         font-size: 20px;
         }
-    form input {
+    body main input {
         width: 75%;
-        height: 5%;
+        font-size: 18px;
+        margin-bottom: 10px;
     }
     center {
         width: 50%;
@@ -504,11 +507,11 @@ main form div a i {
 }
 @media (min-width: 1440px) {
     body main {
-    min-height: calc(100vh - 80px - 110px - 72px);
+    min-height: calc(100vh - 80px - 110px - 100px);
     }
-    main form {
+    .format-form {
         width: 400px;
-        height: 430px;
+        height: 400px;
     }
     .width48 {
         width: 44%;

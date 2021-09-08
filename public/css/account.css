@@ -52,6 +52,10 @@ main a h2:hover {
 .flex {
     display: flex;
 }
+.flex-rowReverse {
+    display: flex;
+    flex-direction: row-reverse;
+}
 .logo {
     width: 120px;
     height: 70px;
@@ -105,6 +109,12 @@ nav ul li {
 }
 #check:checked ~ ul{
     left: 0;
+}
+.user-menu {
+    display: none;
+}
+.user-menu:target {
+    display: block;
 }
 
 /* Nav bar para version mobile */
@@ -192,11 +202,17 @@ body main a {
 .align-image-user {
     width: 20%;
     margin: auto;
+    text-align: center;
+}
+.user-image-header {
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
 }
 .user-image {
     border-radius: 100%;
-    width: 100%;
-    height: 100%;
+    width: 80px;
+    height: 80px;
 }
 .product-image {
     max-width: 110px;
@@ -256,13 +272,15 @@ body main a {
 .reserve-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
     background-color: white;
     box-shadow: 0px 0px 10px rgb(201, 201, 201);
     width: 100%;
     margin: 1vh auto;
     padding: 5px;
     border-radius: 5px;
+}
+.flex-wrap {
+    flex-wrap: wrap;
 }
 .image-result {
     width: 100px;
@@ -345,6 +363,9 @@ main div section ul li a h2 {
 .more-space {
     width: 10%;
 }
+.box-order1, .box-order2 {
+    text-align: center;
+}
 /* Formato del main para cuenta restaurante */
 
 /* Formato para gestion de reservas */
@@ -353,6 +374,102 @@ main div section ul li a h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+.order-title {
+    text-shadow: 1px 1px 1px black;
+    color: #ED1B24;
+    font-size: 1.3rem;
+}
+.products {
+    text-shadow: 1px 1px 1px #b6b6b6;
+    color: black;
+    font-size: 0.9rem;
+}
+.color-name {
+    color: #656565;
+}
+.heartbeat1 {
+	-webkit-animation: heartbeat 3.5s ease-in-out infinite both;
+	        animation: heartbeat 3.5s ease-in-out infinite both;
+}
+.heartbeat2 {
+	-webkit-animation: heartbeat 3.5s ease-in-out 1.75s infinite both;
+	        animation: heartbeat 3.5s ease-in-out 1.75s infinite both;
+}
+@-webkit-keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+            transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+            transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+            transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+@keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+            transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+            transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+            transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+#map {
+    height: 200px;
+    width: 240px;
+}
+.order-form {
+    text-align: center;
 }
 /* Formato para gestion de reservas */
 
@@ -609,6 +726,10 @@ footer ul, footer div {
         justify-content: flex-end;
         width: 35%;
     }
+    .user-image-header {
+    width: 35px;
+    height: 35px;
+    }
 
 /* estilos para main */
     body main {
@@ -627,16 +748,22 @@ footer ul, footer div {
     flex-direction: row;
     }
     .box-order1 {
-    width: 15%;
+    width: 30%;
+    text-align: center;
     }
     .box-order2 {
-    width: 70%;
+    width: 30%;
+    text-align: left;
     }
     .box-table {
     width: 100%;
     }
     .box-order3 {
         width: 22%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
     }
     .more-space {
         width: 7%;
@@ -699,6 +826,11 @@ footer ul, footer div {
         width: 150px;
         height: 30px;
     }
+    .user-image {
+    border-radius: 100%;
+    width: 110px;
+    height: 110px;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -713,7 +845,7 @@ footer ul, footer div {
         text-align: center;
     }
     .logo-conteiner {
-        width: 13%;
+        width: 140px;
     }
     
     body main {
@@ -772,10 +904,15 @@ footer ul, footer div {
     .fab {
     font-size: 20px;
     }
+    .user-image {
+    border-radius: 100%;
+    width: 130px;
+    height: 130px;
+    }
 }
 @media (min-width: 1440px) {
     body main {
-    min-height: calc(100vh - 80px - 110px - 72px);
+    min-height: calc(100vh - 80px - 110px - 100px);
     }
     .capacity-form {
         width: 18%;
@@ -785,5 +922,17 @@ footer ul, footer div {
     }
     .footer {
         height: 110px;
+    }
+    .user-image {
+    border-radius: 100%;
+    width: 160px;
+    height: 160px;
+    }
+    .box-order1 {
+        width: 25%;
+    }
+    #map {
+        height: 230px;
+        width: 350px;
     }
 }

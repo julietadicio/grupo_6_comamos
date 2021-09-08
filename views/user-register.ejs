@@ -31,11 +31,11 @@
         </div>
     
         
-        <h2>Registrarse</h2>
+        <h2 id="padding">Registrarse</h2>
          <div>
           <div class="box-register">
-            <label class="alejar">Nombre</label>
-            <input type= "text" name= "nombre" id= "nombre" 
+            <!-- <label class="alejar">Nombre</label> -->
+            <input type= "text" name= "nombre" id= "nombre" placeholder="Nombre"
               class="<%= locals.errors && errors.nombre? 'is-invalid' : null %>"
               value="<%= locals.oldData ? oldData.nombre : null %>">
             </input>
@@ -47,8 +47,8 @@
           </div>
 
           <div class="box-register">
-            <label>Apellido</label>
-            <input type= "text" name= "apellido" id= "apellido"
+            <!-- <label>Apellido</label> -->
+            <input type= "text" name= "apellido" id= "apellido" placeholder="Apellido"
               class="<%= locals.errors && errors.apellido? 'is-invalid' : null %>"
               value="<%= locals.oldData ? oldData.apellido : null %>">
             </input>
@@ -60,8 +60,8 @@
           </div>
     
           <div class="box-register">
-            <label>Direccion de correo electronico</label>
-            <input type= "email" name= "email" id= "email"
+            <!-- <label>Direccion de correo electronico</label> -->
+            <input type= "email" name= "email" id= "email" placeholder="Email"
               class="<%= locals.errors && errors.email? 'is-invalid' : null %>"
               value="<%= locals.oldData ? oldData.email : null %>">
             </input>
@@ -73,8 +73,8 @@
           </div>
           
           <div class="box-register">
-            <label>Crear contraseña</label>
-            <input type= "password" name= "password" id= "contraseña"
+            <!-- <label>Crear contraseña</label> -->
+            <input type= "password" name= "password" id= "contraseña" placeholder="Contraseña"
               class="<%= locals.errors && errors.password? 'is-invalid' : null %>"
               value="<%= locals.oldData ? oldData.password : null %>">
             </input>
@@ -86,7 +86,7 @@
           </div>
         </div> 
           <div>  
-            <input class="center logout-button" type="submit" value="Crear cuenta"> </input>
+            <button class="center logout-button" type="submit">Crear Cuenta</button>
           </div>
       </form>
     

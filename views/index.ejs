@@ -11,7 +11,7 @@
     <%- include partials/header %>
         <main id="blur">
             <div class="parallax">
-                <h1 class="frase-main">Elegí tu plato en tu restaurante favorito, sentate y listo.</h1>
+                <h1 class="frase-main">Elegí tu plato en tu restaurante favorito, sentate y listo</h1>
                 <div class="search">
                     <form action="" method="">
 
@@ -33,7 +33,7 @@
             <section class="los-mas-elegidos">
             <h2 class="titulo-los-mas-elegidos">Los más elegidos</h2> 
             <div class="contenedor-1">
-                <% indexArray.forEach (product => { %> 
+                <% randomProducts.forEach (product => { %> 
                     <a href="/product/<%= product.idPlato %>" class="index-article">
                         <img src="<%= product.imagen %>" alt="imagen plato" class="image-result">
                         <h4 class="product-title"><%= product.plato %></h4>

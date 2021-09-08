@@ -14,6 +14,7 @@
         <% ordersUser.forEach(order => { %>
                 <article class="reserve-form">
                     <div class="box-order1">
+<<<<<<< HEAD
                         <img src="<%= userDataBase[userDataBase.findIndex(i => i.isUser == order.isUser)].avatar %>" alt="imagen restaurante" class="image-result">
                     </div>    
                     <div class="left-separation box-order2">
@@ -26,11 +27,29 @@
                         <h5>Nº de comensales: <%= order.comensales %></h5>
                         <h5>Fecha y hora de la reserva: <%= order.fecha_hora_reserva %></h5>
                         <h5>Total: $<%= order.precioTotal %></h5>
+=======
+                        <img src="<%= order.restaurant.avatar %>" alt="imagen restaurante" class="image-result">
+                        <a href="/"></a><h4 class="color-name"><%= order.restaurant.nombre %></h4>
+                    </div>    
+                    <div class="left-separation box-order2">
+                        <a href="/user/account/my-order/<%= order.idOrder %>" class="order-title">
+                            <h4>Pedido #<%=order.idOrder %> </h4>
+                        </a>
+                        <ul>
+                            <% order.products.forEach(product => { %>
+                                <li class="products">
+                                    <a href="/product/<%= product.idPlato %> " class="products">
+                                        <%= product.plato %>
+                                    </a>
+                                    (x<%= order.platos[order.platos.findIndex(i => i.idOrder == order.platos.idOrder)].cantidad %>)
+                                </li>
+                            <% }) %> 
+                        </ul>
+>>>>>>> main
                     </div>
                     <form action="" method="POST" class="coment-button box-order3">
                         <% if (order.estado == 'Completada') { %>
                             <input type="button" value="Dejar reseña" class="logout-button">
-                            <button type="submit"></button>
                             <h4 class="confirmed"><%= order.estado %> </h4>
                             <% } else if (order.estado == 'Cancelada') { %>
                                 <h4 class="cancel"><%= order.estado %> </h4>

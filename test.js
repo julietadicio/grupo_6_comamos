@@ -1,18 +1,15 @@
-bcrypt = require ('bcryptjs');
+/* bcrypt = require ('bcryptjs');
 const fs = require('fs');
-const productsFilePath = './data bases/productsDataFile.json';
-const productsDataBase = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-const restaurantFilePath = './data bases/restaurantDataFile.json';
-const restaurantDataBase = JSON.parse(fs.readFileSync(restaurantFilePath, 'utf-8'));
 
-/*
+
 passwordUser1 = 'hola1'
 passwordBuisness1 = 'hola2'
 passwordBuisness2 = 'hola3'
 
-newpassword = bcrypt.hashSync(passwordBuisness2, 10)
+newpassword = bcrypt.hashSync(passwordUser1, 10)
 
-console.log(newpassword);
+console.log(newpassword); */
+/*
 
 const random = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -39,19 +36,63 @@ restaurantDataBase[buisnessSelectId].mesas[tableSelect] = { ...restaurantDataBas
 fs.writeFileSync(restaurantFilePath, JSON.stringify(restaurantDataBase, null, 2));*/
 //const mesa = restaurantDataBase[1].mesas.findIndex (m => m.idMesa == 20);
 
-const indiceAleatorio = Math.floor(Math.random() * productsDataBase.length);
-const indice1 = indiceAleatorio;
+/* var mesas = [{idTable: 1, name: 'mesa 1', ubication: 'Exterior', capacity: 2, status: 'abierta', id_restaurant: '1'},
+{idTable: 2, name: 'mesa 2', ubication: 'Exterior', capacity: 3, status: 'abierta', id_restaurant: '1'},
+{idTable: 3, name: 'mesa 2', ubication: 'Exterior', capacity: '5', status: 'abierta', id_restaurant: '1'}
+]
 
-var quantity = productsDataBase.length
-var arr = [];
-while(arr.length < 7){
-    var r = Math.floor(Math.random() * quantity);
-    if(arr.indexOf(r) === -1) arr.push(r);
-}
+var capacidadOcupada = mesas.reduce((sum, t) => {
+    return sum + t.capacity
+}, 0)
 
-var newArray = productsDataBase[arr[0]];
-var newArray2 = arr.map (e => productsDataBase[e])
+console.log(capacidadOcupada); */
+
+var dateFormat = require("dateformat");
+dateFormat.i18n = {
+  dayNames: [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ],
+  monthNames: [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ],
+  timeNames: ["a", "p", "am", "pm", "A", "P", "AM", "PM"],
+};
 
 
-//console.log(newArray);
-console.log(newArray2);
+console.log(dateFormat(Date.now, "dddd, mmmm dS, yyyy, h:MM:ss TT"));

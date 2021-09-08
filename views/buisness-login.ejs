@@ -15,7 +15,7 @@
    
        
 
-        <form action="/user/login-buisness" method="POST" class="format-form">
+        <form action="/buisness/login" method="POST" class="format-form">
           
           <div class="exit">
             <a href="/" class="exit-button"><i class="fas fa-times"></i></a>
@@ -24,8 +24,8 @@
           
           <h2 class="close" id="padding">Login Negocio</h2> <div></div>
           <div>
-          <label class="alejar">Email</label><div></div>
-          <input type= "email" name= "email" id= "email"
+          <!-- <label class="alejar">Email</label><div></div> -->
+          <input type= "email" name= "email" id= "email" placeholder="Email"
             class="<%= locals.errors && errors.email? 'is-invalid' : null %>"
             value="<%= locals.oldData ? oldData.email : null %>">
           </input>
@@ -37,8 +37,8 @@
         </div>
         
         <div>
-          <label>Contraseña</label><div></div>
-          <input type= "password" name= "password" id= "contraseña"
+          <!-- <label>Contraseña</label><div></div> -->
+          <input type= "password" name= "password" id= "contraseña" placeholder="Contraseña"
             class="<%= locals.errors && errors.password? 'is-invalid' : null %>"
             value="<%= locals.oldData ? oldData.password : null %>">
           </input>
@@ -50,7 +50,7 @@
         </div>
 
         <div class="alejar">
-          <input class="center logout-button" type="submit" value="Login"></input>
+          <button class="center logout-button" type="submit">Login</button>
           <div class="rebember">
             <label for="recordarme" class="width48">Recordar usuario </label>
             <input type="checkbox" value="Recordarme" name= "recordarme" id="recordarme"></input>

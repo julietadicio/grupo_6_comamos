@@ -14,15 +14,15 @@
     </div>
           
     <div class="centro">
-      <form action="/user/register-buisness" method="POST"
+      <form action="/buisness/register" method="POST"
         class="<%= locals.errors? 'form-wide' : null %>">
         <div class="exit">
           <a href="/" class="exit-button"><i class="fas fa-times"></i></a>
         </div>
-        <h4 class="close" id="padding">Registrarse</h4>
+        <h2 class="close" id="padding">Registrarse</h2>
         <div>
-          <label>Nombre del restaurante</label>
-          <input type= "text" name= "nombre" id= "nombre"
+          <!-- <label>Nombre del restaurante</label> -->
+          <input type= "text" name= "nombre" id= "nombre" placeholder="Nombre"
             class="<%= locals.errors && errors.nombre? 'is-invalid' : null %>"
             value="<%= locals.oldData ? oldData.nombre : null %>">
           </input>
@@ -34,8 +34,8 @@
         </div>
 
         <div>
-            <label>Direccion</label> <div></div>
-            <input type= "text" name= "direccion" id= "direccion"
+            <!-- <label>Direccion</label> <div></div> -->
+            <input type= "text" name= "direccion" id= "direccion" placeholder="Direccion, Localidad"
               class="<%= locals.errors && errors.direccion? 'is-invalid' : null %>"
               value="<%= locals.oldData ? oldData.direccion : null %>">
             </input>
@@ -47,8 +47,8 @@
         </div>
 
         <div>
-          <label>Capacidad</label> <div></div>
-          <input type= "text" name= "capacidad" id= "capacidad"
+          <!-- <label>Capacidad</label> <div></div> -->
+          <input type= "text" name= "capacidad" id= "capacidad" placeholder="Capacidad"
             class="<%= locals.errors && errors.capacidad? 'is-invalid' : null %>"
             value="<%= locals.oldData ? oldData.capacidad : null %>">
           </input>
@@ -60,8 +60,8 @@
         </div>
   
         <div> 
-          <label>Direccion de correo electronico</label>
-          <input type= "email" name= "email" id= "email"
+          <!-- <label>Direccion de correo electronico</label> -->
+          <input type= "email" name= "email" id= "email" placeholder="Email"
             class="<%= locals.errors && errors.email? 'is-invalid' : null %>"
             value="<%= locals.oldData ? oldData.email : null %>">
           </input>
@@ -73,8 +73,8 @@
         </div>
         
         <div>
-          <label>Crear contraseña</label> <div></div>
-          <input type= "password" name= "password" id= "contraseña"
+          <!-- <label>Crear contraseña</label> <div></div> -->
+          <input type= "password" name= "password" id= "contraseña" placeholder="Contraseña"
             class="<%= locals.errors && errors.password? 'is-invalid' : null %>"
             value="<%= locals.oldData ? oldData.password : null %>">
           </input>
@@ -86,7 +86,7 @@
         </div>
 
         <div class="alejar">
-          <input class="center logout-button" type="submit" value="Crear cuenta"> </input>
+          <button class="center logout-button" type="submit">Crear cuenta</button>
         </div>
       </form>
 

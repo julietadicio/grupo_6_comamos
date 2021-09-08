@@ -11,8 +11,14 @@ const session = require('express-session');
 var indexRouter = require('./routes/main');
 var productRouter = require('./routes/product');
 var usersRouter = require('./routes/users');
+var buisnessRouter = require('./routes/buisness');
+var apiRouter = require('./routes/api');
 
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+<<<<<<< HEAD
+=======
+// const buisnessLoggedMiddleware = require('./middlewares/buisnessLoggedMiddleware');
+>>>>>>> main
 
 var app = express();
 
@@ -28,14 +34,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 app.use(session({
   secret: 'Clave secreta',
-  resave: false,
-  saveUninitialized: false
+  resave: true,
+  saveUninitialized: true
 }));
 app.use(userLoggedMiddleware);
+<<<<<<< HEAD
+=======
+// app.use(buisnessLoggedMiddleware);
+>>>>>>> main
 
 app.use('/', indexRouter);
 app.use('/', productRouter);
 app.use('/user', usersRouter);
+app.use('/buisness', buisnessRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
