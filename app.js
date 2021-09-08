@@ -13,6 +13,7 @@ var productRouter = require('./routes/product');
 var usersRouter = require('./routes/users');
 var buisnessRouter = require('./routes/buisness');
 var apiRouter = require('./routes/api');
+var apiBuisness = require('./routes/apisRoutes/buisnessApi');
 
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 // const buisnessLoggedMiddleware = require('./middlewares/buisnessLoggedMiddleware');
@@ -42,6 +43,7 @@ app.use('/', productRouter);
 app.use('/user', usersRouter);
 app.use('/buisness', buisnessRouter);
 app.use('/api', apiRouter);
+app.use('/api', apiBuisness);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
