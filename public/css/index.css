@@ -1,3 +1,8 @@
+:root {
+    --red: #ED1B24;
+    --light-color: #656565;
+    --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1)
+}
 * {
     box-sizing: border-box;
     font-family: 'Nunito Sans', sans-serif;
@@ -5,6 +10,7 @@
     padding: 0px;
     text-decoration: none;
     list-style: none;
+    transition: all .2s linear;
 }
 
 body {
@@ -277,7 +283,7 @@ main form {
     margin-top: 1vh;
     border-radius: 20px;
     padding: 15px;
-    width: 90%;
+    width: 95%;
     margin: auto;
     margin-top: 1%;
 }
@@ -293,10 +299,88 @@ main form {
 }
 
 .contenedor-1 {
-    display: flex;
+    display: grid;
     flex-direction: column;
     justify-content: space-around;
+    grid-template-columns: repeat(auto-fit, minmax(1, 1fr));
+    gap: 1.5rem;
 }
+.contenedor-1 .box {
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: .5rem;
+    border: .1rem solid rgba(0, 0, 0, .2);
+    box-shadow: var(--box-shadow);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+.contenedor-1 .box .fa-heart,
+.contenedor-1 .box .fa-eye {
+    position: absolute;
+    top: 1.5rem;
+    background: #eee;
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+    line-height: 4rem;
+    font-size: 2rem;
+    color: var(--light-color);
+}
+.contenedor-1 .box .fa-heart:hover,
+.contenedor-1 .box .fa-eye:hover {
+    background: var(--red);
+    color: #fff;
+}
+.contenedor-1 .box .fa-heart {
+    right: -15rem;
+}
+.contenedor-1 .box .fa-eye {
+    left: -15rem;
+}
+.contenedor-1 .box:hover .fa-heart {
+    right: 1.5rem;
+}
+.contenedor-1 .box:hover .fa-eye {
+    left: 1.5rem;
+}
+.contenedor-1 .box img {
+    height: auto;
+    width: 100%;
+    border-radius: .5rem;
+}
+.contenedor-1 .box h3 {
+    color: var(--light-color);
+    font-size: 1.2rem;
+}
+.contenedor-1 .box .stars {
+    padding: 1rem 0;
+}
+.contenedor-1 .box .stars i {
+    font-size: 1.4rem;
+    color: var(--red);
+}
+.contenedor-1 .box span {
+    color: var(--red);
+    font-weight: bolder;
+    margin-right: 1rem;
+    font-size: 1.6rem;
+}
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1.5rem;
+    color: #fff;
+    background: var(--light-color);
+    border-radius: .5rem;
+    cursor: pointer;
+    padding: .4rem .8rem;
+}
+.btn:hover {
+    background: var(--red);
+    letter-spacing: .1rem;
+}
+
 
 .index-article {
     border-radius: 15px;
@@ -613,9 +697,12 @@ footer ul, footer div {
         padding: 10px;
     }
     .titulo-los-mas-elegidos, .titulo-nuestras-sugerencias {
-    text-align: center;
-    font-size: 35px;
-    font-weight: 900;
+        text-align: center;
+        font-size: 35px;
+        font-weight: 900;
+    }
+    .contenedor-1 .box span {
+        font-size: 1.7rem;
     }
     .format-menu {
         font-size: 15px;
@@ -653,10 +740,9 @@ footer ul, footer div {
         margin: 1%;
     }
     .contenedor-1 {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        gap: 1.5rem;
     }
     .image-result2 {
         width: 80%;
@@ -688,6 +774,9 @@ footer ul, footer div {
     body main {
     min-height: calc(100vh - 80px - 100px - 51px);
     }
+    .los-mas-elegidos {
+        width: 90%;
+    }
     .format-menu {
         font-size: 18px;
         line-height: 20px;
@@ -711,6 +800,12 @@ footer ul, footer div {
     .image-result2 {
         width: 400px;
         height: 250px;
+    }
+    .contenedor-1 {
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    }
+    .contenedor-1 .box h3 {
+        height: 3rem;
     }
     .flex-column {
         display: flex;
@@ -753,6 +848,9 @@ footer ul, footer div {
     }
     .product-price {
         font-size: 20px;
+    }
+    .contenedor-1 {
+        grid-template-columns: repeat(4, 1fr);
     }
     .logout-button {
         width: 145px;

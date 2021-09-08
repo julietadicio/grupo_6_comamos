@@ -34,10 +34,21 @@
             <h2 class="titulo-los-mas-elegidos">Los más elegidos</h2> 
             <div class="contenedor-1">
                 <% randomProducts.forEach (product => { %> 
-                    <a href="/product/<%= product.idPlato %>" class="index-article">
-                        <img src="<%= product.imagen %>" alt="imagen plato" class="image-result">
-                        <h4 class="product-title"><%= product.plato %></h4>
-                    </a>
+                    <div class="box">
+                        <a href="" class="fas fa-heart"></a>
+                        <a href="/product/<%= product.idPlato %>" class="fas fa-eye"></a>
+                        <img src="<%= product.imagen %>" alt="">
+                        <h3><%= product.plato %> </h3>
+                        <!-- <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div> -->
+                        <span>$<%= product.precio %></span>
+                        <a href="#" class="btn">Reservar</a>
+                    </div>
                 <% }); %> 
             </div>
             </section>
