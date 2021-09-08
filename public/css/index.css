@@ -272,11 +272,11 @@ main form {
 #filtrar:hover {
     box-shadow: 0 0 15px 0 white
 }
-#image-result, #image-result2 {
-    border-radius: .5rem;
-}
-.swiper-button-next, .swiper-button-prev {
-    color: #ebebeb;
+.image-result, .image-result2 {
+    width: 260px;
+    max-width: 90%;
+    height: 145px;
+    border-radius: 5px;
 }
 .los-mas-elegidos {
     /* background-color: white; */
@@ -365,6 +365,9 @@ main form {
     font-weight: bolder;
     margin-right: 1rem;
     font-size: 1.6rem;
+}
+.swiper-button-next, .swiper-button-prev {
+    color: #ebebeb;
 }
 .btn {
     margin-top: 1rem;
@@ -701,9 +704,6 @@ footer ul, footer div {
         font-size: 35px;
         font-weight: 900;
     }
-    .swiper {
-        width: 75%;
-    }
     .contenedor-1 .box span {
         font-size: 1.7rem;
     }
@@ -747,8 +747,11 @@ footer ul, footer div {
         grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
         gap: 1.5rem;
     }
-    #image-result2 {
+    .image-result2 {
         width: 80%;
+    }
+    .swiper {
+        width: 75%;
     }
     .index-recomendations {
         justify-content: center;
@@ -800,9 +803,12 @@ footer ul, footer div {
     .recomendations-format {
         width: 48%;
     }
+    .image-result2 {
+        width: 400px;
+        height: 250px;
+    }
     .swiper {
         width: 90%;
-        min-height: 100%;
     }
     .contenedor-1 {
         grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));

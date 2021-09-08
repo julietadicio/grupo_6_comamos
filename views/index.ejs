@@ -62,7 +62,7 @@
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
                             <% randomProducts.forEach(product => { %>
-                                <img src="<%= product.imagen %>" alt="para compartir con" id="image-result2" class="swiper-slide">                    
+                                <img src="<%= product.imagen %>" alt="para compartir con" class="swiper-slide">
                             <% }); %>
                         </div>
                         <div class="swiper-button-next"></div>
@@ -73,8 +73,8 @@
                     <h2 class="recomendations-title">Por tu zona</h2>
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
-                            <% randomRestaurants.forEach(restaurant => { %>
-                                <img src="<%= restaurant.avatar %>" alt="para compartir con" id="image-result2" class="swiper-slide">                    
+                            <% randomRestaurants.forEach(restaurant => { %>                        
+                                <img src="<%= restaurant.avatar %>" alt="para compartir con" class="swiper-slide">
                             <% }); %>
                         </div>
                         <div class="swiper-button-next"></div>
