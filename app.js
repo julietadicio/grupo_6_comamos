@@ -15,10 +15,7 @@ var buisnessRouter = require('./routes/buisness');
 var apiRouter = require('./routes/api');
 
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
-<<<<<<< HEAD
-=======
 // const buisnessLoggedMiddleware = require('./middlewares/buisnessLoggedMiddleware');
->>>>>>> main
 
 var app = express();
 
@@ -38,10 +35,7 @@ app.use(session({
   saveUninitialized: true
 }));
 app.use(userLoggedMiddleware);
-<<<<<<< HEAD
-=======
 // app.use(buisnessLoggedMiddleware);
->>>>>>> main
 
 app.use('/', indexRouter);
 app.use('/', productRouter);
