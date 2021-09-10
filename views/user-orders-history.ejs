@@ -14,20 +14,6 @@
         <% ordersUser.forEach(order => { %>
                 <article class="reserve-form">
                     <div class="box-order1">
-<<<<<<< HEAD
-                        <img src="<%= userDataBase[userDataBase.findIndex(i => i.isUser == order.isUser)].avatar %>" alt="imagen restaurante" class="image-result">
-                    </div>    
-                    <div class="left-separation box-order2">
-                        <h4><%= userDataBase[userDataBase.findIndex(i => i.isUser == order.isUser)].nombre %></h4>
-                        <h4>Platos Comprados: <%  order.info_order.forEach(plato => { %>
-                            <%= productsDataBase[productsDataBase.findIndex(i => i.idPlato == plato.idPlato)].plato %> 
-                            Cantidad: <%= plato.cantidad %> 
-                            <% }); %>
-                        </h4>
-                        <h5>Nº de comensales: <%= order.comensales %></h5>
-                        <h5>Fecha y hora de la reserva: <%= order.fecha_hora_reserva %></h5>
-                        <h5>Total: $<%= order.precioTotal %></h5>
-=======
                         <img src="<%= order.restaurant.avatar %>" alt="imagen restaurante" class="image-result">
                         <a href="/"></a><h4 class="color-name"><%= order.restaurant.nombre %></h4>
                     </div>    
@@ -45,7 +31,6 @@
                                 </li>
                             <% }) %> 
                         </ul>
->>>>>>> main
                     </div>
                     <form action="" method="POST" class="coment-button box-order3">
                         <% if (order.estado == 'Completada') { %>

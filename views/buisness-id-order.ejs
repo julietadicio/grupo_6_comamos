@@ -5,6 +5,7 @@
     <%- include partials/head %>
     <link rel="stylesheet" href="/css/account.css">
     <script src="/js/googleMap.js"></script>
+    <script src="/js/loader.js"></script>
     <title>Pedido # <%=orderSelect.idOrder %></title>
 </head>
 
@@ -43,7 +44,7 @@
                     <h5 class="products">Total: $<%= orderSelect.total %></h5>
                 </div>
             </article>
-            <form action="/buisness/account/orders">
+            <form action="/buisness/account">
                 <fieldset class="logout-button">
                     <button type="menu" class="none-decoration">Volver</button>
                 </fieldset>
