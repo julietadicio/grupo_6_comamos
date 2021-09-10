@@ -54,6 +54,9 @@ const controller = {
         const user = await db.Restaurant.findOne ({
             where: {email: req.session.userLogged.email}
         })
+        /* const allUsers = await fetch('http://localhost:8000/api/buisness')
+        const jsonUsers = await res.json(allUsers);
+        let user = allUsers.find(u => u.email == req.session.userLogged.email); */
         return res.render ('buisness-account', {user});
     },
     logoutBuisness: (req, res) => {

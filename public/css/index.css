@@ -33,6 +33,8 @@ body {
     color: white;
     font-size: 4vw;
     margin: 9% 11% 2%;
+    font-weight: 400;
+    font-style: italic;
 }
 
 /* Nav bar para version mobile */
@@ -242,7 +244,6 @@ main form {
     padding: 1% 3%;
     font-style: italic;
     font-size: 15px;
-    font-weight: bold;
     color: rgb(214, 134, 102);
     transition: all 0.3s;
 }
@@ -289,13 +290,18 @@ main form {
 }
 
 .nuestras-sugerencias {
-    padding: 15px 0px 15px;
+    border-radius: .5rem;
+    width: 100%;
+    margin: auto;
+    padding: 1%;
+    background-color: white;
 }
 
 .titulo-los-mas-elegidos, .titulo-nuestras-sugerencias {
     text-align: center;
-    font-size: 24px;
-    font-weight: 500;
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-style: italic;
 }
 
 .contenedor-1 {
@@ -318,13 +324,13 @@ main form {
 .contenedor-1 .box .fa-heart,
 .contenedor-1 .box .fa-eye {
     position: absolute;
-    top: 1.5rem;
+    top: 2rem;
     background: #eee;
     border-radius: 50%;
-    height: 4rem;
-    width: 4rem;
-    line-height: 4rem;
-    font-size: 2rem;
+    height: 2.3rem;
+    width: 2.3rem;
+    line-height: 2.3rem;
+    font-size: 1.4rem;
     color: var(--light-color);
 }
 .contenedor-1 .box .fa-heart:hover,
@@ -339,10 +345,10 @@ main form {
     left: -15rem;
 }
 .contenedor-1 .box:hover .fa-heart {
-    right: 1.5rem;
+    right: 2.2rem;
 }
 .contenedor-1 .box:hover .fa-eye {
-    left: 1.5rem;
+    left: 2.2rem;
 }
 .contenedor-1 .box img {
     height: auto;
@@ -351,7 +357,7 @@ main form {
 }
 .contenedor-1 .box h3 {
     color: var(--light-color);
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 .contenedor-1 .box .stars {
     padding: 1rem 0;
@@ -364,15 +370,15 @@ main form {
     color: var(--red);
     font-weight: bolder;
     margin-right: 1rem;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
 }
 .swiper-button-next, .swiper-button-prev {
     color: #ebebeb;
 }
 .btn {
-    margin-top: 1rem;
+    margin-top: .8rem;
     display: inline-block;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #fff;
     background: var(--light-color);
     border-radius: .5rem;
@@ -383,21 +389,10 @@ main form {
     background: var(--red);
     letter-spacing: .04rem;
 }
-
-
-.index-article {
-    border-radius: 15px;
-    font-size: 12px;
-    text-align: center;
-    font-weight: 800;
-    margin-top: 5px;
-    padding: 5px;
+.swiper-slide {
+    border-radius: .5rem;
 }
-.index-article:hover {
-    box-shadow: 0px 0px 10px rgb(100, 100, 100);
-    padding: 2px;
-    transition: 0.5s;
-}
+
 .index-recomendations {
     border-radius: 15px;
     font-size: 12px;
@@ -725,12 +720,10 @@ footer ul, footer div {
         padding: 10px;
     }
     .titulo-los-mas-elegidos, .titulo-nuestras-sugerencias {
-        text-align: center;
-        font-size: 35px;
-        font-weight: 900;
+        font-size: 2.5rem;
     }
     .contenedor-1 .box span {
-        font-size: 1.7rem;
+        font-size: 1.4rem;
     }
     .format-menu {
         font-size: 15px;
@@ -748,7 +741,6 @@ footer ul, footer div {
         padding: 1% 3%;
         font-style: italic;
         font-size: 15px;
-        font-weight: bold;
         color: rgb(214, 134, 102);
         border: none;
         border-radius: 5px;
@@ -774,6 +766,9 @@ footer ul, footer div {
     }
     .image-result2 {
         width: 80%;
+    }
+    .contenedor-1 .box h3 {
+        font-size: 1.2rem;
     }
     .swiper {
         width: 75%;
@@ -804,6 +799,9 @@ footer ul, footer div {
 @media (min-width: 1024px) {
     body main {
     min-height: calc(100vh - 80px - 100px - 51px);
+    }
+    .titulo-los-mas-elegidos, .titulo-nuestras-sugerencias {
+        font-size: 2.8rem;
     }
     .los-mas-elegidos {
         width: 90%;

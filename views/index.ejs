@@ -55,34 +55,35 @@
                 <% }); %> 
             </div>
             </section>
-            <section class="los-mas-elegidos">
+            <section>
                 <h2 class="titulo-nuestras-sugerencias">Nuestras sugerencias</h2>
-            <div class="nuestras-sugerencias">
-                <div class="recomendations-format">
-                    <h2 class="recomendations-title">Para ir con...</h2>
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                            <% randomProducts.forEach(product => { %>
-                                <img src="<%= product.imagen %>" alt="para compartir con" class="swiper-slide">
-                            <% }); %>
+                <div class="nuestras-sugerencias">
+                    <div class="recomendations-format">
+                        <h2 class="recomendations-title">Para ir con...</h2>
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                                <% randomProducts.forEach(product => { %>
+                                    <img src="<%= product.imagen %>" alt="para compartir con" class="swiper-slide">
+                                <% }); %>
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
                         </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div class="recomendations-format">
+                        <h2 class="recomendations-title">Por tu zona</h2>
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                                <% randomRestaurants.forEach(restaurant => { %>                        
+                                    <img src="<%= restaurant.avatar %>" alt="para compartir con" class="swiper-slide">
+                                <% }); %>
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="recomendations-format">
-                    <h2 class="recomendations-title">Por tu zona</h2>
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                            <% randomRestaurants.forEach(restaurant => { %>                        
-                                <img src="<%= restaurant.avatar %>" alt="para compartir con" class="swiper-slide">
-                            <% }); %>
-                        </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
-                </div>
-            </div>
+            </section>
         </main>
         <%- include partials/footer %>
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

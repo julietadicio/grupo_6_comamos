@@ -12,8 +12,15 @@ const db = require ('../../database/models');
 const { Op } = require("sequelize");
 
 const controller = {
-    loginBuisness: (req, res) => {
-        return res.render ('buisness-login');
+    buisnessList: async (req, res) => {
+        const buisness = await db.Restaurant.findAll();
+        return res.json (buisness);
+    },
+    selectBuisness: async (req, res) => {
+        const buisness = await db.Restaurant.findOne({
+            where: {idRestaurant: req.params.idRestaurant}
+        });
+        return res.json (buisness);
     }
 }
 
