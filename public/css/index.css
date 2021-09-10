@@ -407,8 +407,9 @@ main form {
 }
 .recomendations-title {
     color: #656565;
-    font-size: 18px;
+    font-size: 1.3rem;
     text-align: center;
+    font-style: italic;
 }
 .contenedor-2 {
     display: flex;
@@ -672,6 +673,9 @@ footer ul, footer div {
         justify-content: flex-end;
         width: 35%;
     }
+    .recomendations-title {
+        font-size: 1.5rem;
+    }
     .user-image-header {
     width: 35px;
     height: 35px;
@@ -880,6 +884,9 @@ footer ul, footer div {
     }
     .product-price {
         font-size: 20px;
+    }
+    .recomendations-title {
+        font-size: 1.7rem;
     }
     .contenedor-1 {
         grid-template-columns: repeat(4, 1fr);
