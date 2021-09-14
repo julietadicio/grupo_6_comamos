@@ -26,9 +26,9 @@ const controller = {
             return res.render('index', { randomProducts });
         }
     },
-    listaRestaurantes: (req, res) => {
-
-        return res.render('lista-restaurantes')
+    listaRestaurantes: async (req, res) => {
+        const restaurantes = await db.Restaurant.findAll()
+        return res.render('lista-restaurantes', {restaurantes})
     },
     listaPlatos: async (req, res) => {
         const products = await db.Product.findAll()

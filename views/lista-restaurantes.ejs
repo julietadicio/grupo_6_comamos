@@ -14,6 +14,14 @@
 
             <h1 class="titulo">Restaurantes:</h1>
             <div class="todos">
+                <% restaurantes.forEach (resto=> { %>
+                    <div class="plato">
+                        <img src="<%= product.avatar %>" alt="" width="20%"> 
+                        <h4><%= resto.nombre %> </h4>
+                        <h5><%= resto.direccion %> </h5>
+                        <h5><%= resto.capacidad %> </h5>
+                    </div>
+                <% }) %>
                 <article class="resto">
                     <h2>Restaurante A</h2>
                     <img class="img-kansas" src="/img/avatars/kansas-fachada.jpg" alt="" width="20%" height="20%">

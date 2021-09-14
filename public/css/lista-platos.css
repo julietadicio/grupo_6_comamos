@@ -164,6 +164,18 @@ h2 {
     text-align: center;
 }
 
+h4 {
+    text-shadow: 1px 1px 1px black;
+    color: #ED1B24;
+    font-size: 1.3rem;
+}
+
+h5 {
+    text-shadow: 1px 1px 1px #b6b6b6;
+    color: black;
+    font-size: 0.9rem;
+}
+
 article {
     display: flex;
     justify-content: space-between;
