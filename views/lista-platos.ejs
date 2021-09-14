@@ -15,28 +15,16 @@
                 <article>
                     <h3>Entradas</h3>
                     <br>
-                    <a href="/product/<%= product.idPlato %>" class="index-article">
-                        <img src="<%= product.imagen %>" alt="imagen plato" class="image-result">
-                        <h4 class="product-title"><%= product.plato %></h4>
-                    </a>
-                    <div class="plato">
-                        <img src="img\Salmon-Kansas.jpg" alt="" width="20%">
-                        <h4>Entrada 1</h4>
-                        <h5>Precio</h5>
-                        <h5>Nombre restaurante</h5>
-                    </div>
-                    <div class="plato">
-                        <img src="img\Salmon-Kansas.jpg" alt="" width="20%">
-                        <h4>Entrada 2</h4>
-                        <h5>Precio</h5>
-                        <h5>Nombre restaurante</h5>
-                    </div>
-                    <div class="plato">
-                        <img src="img\Salmon-Kansas.jpg" alt="" width="20%">
-                        <h4>Entrada 3</h4>
-                        <h5>Precio</h5>
-                        <h5>Nombre restaurante</h5>
-                    </div>
+                    
+                    <% products.forEach (product=> { %>
+                        <div class="plato">
+                            <img src="<%= product.imagen %>" alt="" width="20%"> 
+                            <h4><%= product.plato %> </h4>
+                            <h5><%= product.precio %> </h5>
+                            <h5><%= product.productRestaurant.nombre %> </h5>
+                        </div>
+                    <% }) %> 
+
                     <button class="arrow"><i class="fas fa-arrow-left"></i></button>
                     <button class="arrow"><i class="fas fa-arrow-right"></i></button>
                 </article>
