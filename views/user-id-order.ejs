@@ -5,6 +5,7 @@
     <%- include partials/head %>
     <link rel="stylesheet" href="/css/account.css">
     <script src="/js/googleMap.js"></script>
+    <script src="/js/loader.js"></script>
     <title>Pedido # <%=orderSelect.idOrder %></title>
 </head>
 
@@ -80,7 +81,7 @@
                     <button type="submit">Cancelar Reserva</button>
                 </form>
             </article>
-            <form action="/user/account/my-order">
+            <form action="/user/account">
                 <fieldset class="logout-button">
                     <button type="menu" class="none-decoration">Volver</button>
                 </fieldset>

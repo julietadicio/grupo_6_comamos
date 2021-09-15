@@ -11,19 +11,28 @@ const controller = {
             const r = Math.floor(Math.random() * products.length);
             if (index.indexOf(r) === -1) index.push(r);
         }
-        const randomProducts = index.map(e => products[e]);
+        const randomProducts = index.map (e => products[e]);
+
+        const restaurants = await db.Restaurant.findAll();
+        const arrayRestaurants = [];
+        while(arrayRestaurants.length < 3){
+        const r = Math.floor(Math.random() * restaurants.length);
+        if(arrayRestaurants.indexOf(r) === -1) arrayRestaurants.push(r);
+        }
+        const randomRestaurants = arrayRestaurants.map (e => restaurants[e]);
+
         if (req.session.userLogged && req.session.userLogged.perfil == 'usuario') {
             const user = await db.User.findOne({
-                where: { email: req.session.userLogged.email }
-            })
-            return res.render('index', { randomProducts, user });
+                where: {email: req.session.userLogged.email}
+            })    
+            return res.render ('index', {randomProducts, randomRestaurants, user});
         } else if (req.session.userLogged && req.session.userLogged.perfil == 'negocio') {
             const user = await db.Restaurant.findOne({
-                where: { email: req.session.userLogged.email }
-            })
-            return res.render('index', { randomProducts, user });
+                where: {email: req.session.userLogged.email}
+            })    
+            return res.render ('index', {randomProducts, randomRestaurants, user});
         } else {
-            return res.render('index', { randomProducts });
+            return res.render ('index', {randomProducts, randomRestaurants});
         }
     },
     listaRestaurantes: async (req, res) => {

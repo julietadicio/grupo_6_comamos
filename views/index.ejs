@@ -3,7 +3,10 @@
 
 <head>
     <%- include partials/head %>
+        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
         <link rel="stylesheet" href="./css/index.css">
+        <script src="/js/swiper.js"></script>
+        <script src="/js/searchBar.js"></script>
         <title>Comamos</title>
 </head>
 
@@ -34,35 +37,56 @@
             <h2 class="titulo-los-mas-elegidos">Los más elegidos</h2> 
             <div class="contenedor-1">
                 <% randomProducts.forEach (product => { %> 
-                    <a href="/product/<%= product.idPlato %>" class="index-article">
-                        <img src="<%= product.imagen %>" alt="imagen plato" class="image-result">
-                        <h4 class="product-title"><%= product.plato %></h4>
-                    </a>
+                    <div class="box">
+                        <a href="" class="fas fa-heart"></a>
+                        <a href="/product/<%= product.idPlato %>" class="fas fa-eye"></a>
+                        <img src="<%= product.imagen %>" alt="">
+                        <h3><%= product.plato %> </h3>
+                        <!-- <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div> -->
+                        <span>$<%= product.precio %></span>
+                        <a href="#" class="btn">Reservar</a>
+                    </div>
                 <% }); %> 
             </div>
             </section>
-            <section class="los-mas-elegidos">
+            <section>
                 <h2 class="titulo-nuestras-sugerencias">Nuestras sugerencias</h2>
-            <div class="nuestras-sugerencias">
-                <div class="recomendations-format">
-                    <h2 class="recomendations-title">Para ir con...</h2>
-                    <div class="index-recomendations">
-                        <button class="arrow"><i class="fas fa-arrow-left"></i></button>
-                        <img src="/img/Amigos-cenando.jpg" alt="por tu zona" class="image-result2">
-                        <button class="arrow"><i class="fas fa-arrow-right"></i></button>
+                <div class="nuestras-sugerencias">
+                    <div class="recomendations-format">
+                        <h2 class="recomendations-title">Para ir con...</h2>
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                                <% randomProducts.forEach(product => { %>
+                                    <img src="<%= product.imagen %>" alt="para compartir con" class="swiper-slide">
+                                <% }); %>
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                    </div>
+                    <div class="recomendations-format">
+                        <h2 class="recomendations-title">Por tu zona</h2>
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                                <% randomRestaurants.forEach(restaurant => { %>                        
+                                    <img src="<%= restaurant.avatar %>" alt="para compartir con" class="swiper-slide">
+                                <% }); %>
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="recomendations-format">
-                    <h2 class="recomendations-title">Por tu zona</h2>
-                    <div class="index-recomendations">
-                        <button class="arrow"><i class="fas fa-arrow-left"></i></button>
-                        <img src="/img/por tu zona.jpg" alt="para compartir con" class="image-result2">
-                        <button class="arrow"><i class="fas fa-arrow-right"></i></button>
-                    </div>
-                </div>
-            </div>
+            </section>
         </main>
         <%- include partials/footer %>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
 
 </html>
