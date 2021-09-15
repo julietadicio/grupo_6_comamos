@@ -30,8 +30,9 @@ const controller = {
         
         return res.render('lista-restaurantes')
     },
-    listaPlatos: (req, res) => {
-        return res.render('lista-platos')
+    listaPlatos: async (req, res) => {
+        const products = await db.Product.findAll()
+        return res.render('lista-platos', {products})
     }
 }
 
