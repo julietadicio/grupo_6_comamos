@@ -151,11 +151,15 @@ body header div ul li a {
 /* Css para header */
 
 /*Css main*/
-.todos {
+
+img {
+    border-radius: 3%;
+}
+
+.contenedor {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 10px;
 }
 
 .resto {
