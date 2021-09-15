@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `comamos_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE  IF NOT EXISTS `comamos_db` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_bin */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `comamos_db`;
 -- MySQL dump 10.13  Distrib 8.0.25, for macos11 (x86_64)
 --
@@ -23,7 +23,7 @@ USE `comamos_db`;
 
 DROP TABLE IF EXISTS `orders`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `orders` (
   `idOrder` int NOT NULL AUTO_INCREMENT,
   `id_user` int NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE `orders` (
   `fecha_reserva` datetime NOT NULL,
   `total` int NOT NULL,
   PRIMARY KEY (`idOrder`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,14 +42,14 @@ CREATE TABLE `orders` (
 
 DROP TABLE IF EXISTS `orders_products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `orders_products` (
   `id` int NOT NULL AUTO_INCREMENT,
   `id_order` int NOT NULL,
   `id_product` int NOT NULL,
   `cantidad` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,7 +58,7 @@ CREATE TABLE `orders_products` (
 
 DROP TABLE IF EXISTS `products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `products` (
   `idPlato` int NOT NULL AUTO_INCREMENT,
   `plato` varchar(100) NOT NULL,
@@ -69,7 +69,7 @@ CREATE TABLE `products` (
   `id_restaurant` int NOT NULL,
   PRIMARY KEY (`idPlato`),
   KEY `restaurant_idx` (`id_restaurant`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -78,7 +78,7 @@ CREATE TABLE `products` (
 
 DROP TABLE IF EXISTS `restaurants`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `restaurants` (
   `idRestaurant` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
@@ -90,7 +90,7 @@ CREATE TABLE `restaurants` (
   `avatar` varchar(255) NOT NULL,
   `mapa` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idRestaurant`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,7 +99,7 @@ CREATE TABLE `restaurants` (
 
 DROP TABLE IF EXISTS `tables`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `tables` (
   `idTable` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
@@ -108,7 +108,7 @@ CREATE TABLE `tables` (
   `status` varchar(45) NOT NULL,
   `id_restaurant` int NOT NULL,
   PRIMARY KEY (`idTable`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,7 +117,7 @@ CREATE TABLE `tables` (
 
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `idUser` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
@@ -127,7 +127,7 @@ CREATE TABLE `users` (
   `perfil` varchar(10) NOT NULL,
   `avatar` varchar(255) NOT NULL,
   PRIMARY KEY (`idUser`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
