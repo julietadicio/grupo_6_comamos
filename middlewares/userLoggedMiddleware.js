@@ -69,6 +69,10 @@ const restaurantDataBase = JSON.parse(fs.readFileSync(restaurantFilePath, 'utf-8
 
 function userLoggedMiddleware(req, res, next) {
 	res.locals.isLogged = false;
+<<<<<<< HEAD
+	
+=======
+>>>>>>> main
 
 	let emailInCookie = req.cookies.userEmail;
 	if (emailInCookie) {
@@ -80,8 +84,14 @@ function userLoggedMiddleware(req, res, next) {
 	}
 	if (userFromCookie) {
 		req.session.userLogged = userFromCookie;
+<<<<<<< HEAD
+	}
+	
+	if (req.session.userLogged) {
+=======
 	} 
 	if (req.session.userLogged){
+>>>>>>> main
 		res.locals.isLogged = true;
 		res.locals.userLogged = req.session.userLogged;
 	}
