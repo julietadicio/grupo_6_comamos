@@ -169,6 +169,14 @@ background-color:#ccc;
 
 /* header y footer*/
 
+div.errores {
+    color: #ED1B24;
+    font-style: italic;
+    font-size: 14px;
+    list-style: circle;
+    margin-left: 10%;
+}
+
 body {
     background-color: #e7e7e7;
 }
@@ -330,6 +338,8 @@ main form div a i {
     text-decoration: none;
     color: #656565;
 }
+
+
 
 .is-invalid {
     border-color: #dc3545;

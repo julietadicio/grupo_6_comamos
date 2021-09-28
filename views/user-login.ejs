@@ -8,12 +8,17 @@
  
 </head>
 <body>
-
-    <%- include partials/header %> 
+<script src="/js/validator/login.js"></script>
+    
+<%- include partials/header %> 
 
 
   <main class="centro">
-    
+<div class="errores">
+  <ul>
+
+  </ul>
+</div>
     <form action="/user/login" method="POST" class="format-form">
       
       <div class="exit">

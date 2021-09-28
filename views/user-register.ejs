@@ -7,6 +7,8 @@
 </head>
 <body>
 
+  <script src="/js/validator/register.js"></script>
+
     <%- include partials/header %>
 
 
@@ -22,6 +24,13 @@
  
 
     <div class="centro">
+
+      <div class="errores">
+        <ul>
+          
+        </ul>
+      </div>
+      
 
       <form action="/user/register" method="POST" enctype="multipart/form-data"
         class="<%= locals.errors? 'form-wide2' : null %>">
