@@ -18,6 +18,18 @@ window.addEventListener('load', function () {
             errores.push("La descripción del plato debe tener mínimo 20 caracteres")
         }
 
+        // Categoría 
+        let campoCategoria = document.getElementById('categoria')
+        if (campoCategoria.value == "") {
+            errores.push("La categoría del plato debe estar completada")
+        }
+
+        // Precio 
+        let campoPrecio = document.getElementById('precio')
+        if (campoPrecio.value == undefined) {
+            errores.push("El precio del plato debe estar completado")
+        }
+
         //ERRORES
         if (errores.length > 0) {
             e.preventDefault();
