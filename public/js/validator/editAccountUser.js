@@ -32,12 +32,12 @@ window.addEventListener('load', function () {
 
         // Contraseña
 
-        let campoContraseña = document.getElementById('contraseña')
+        let campoContraseña = document.getElementById('password')
 
         if (campoContraseña.value == "") {
             errores.push("La contraseña debe estar completada")
 
-        } else if (campoContraseña.value.length < 8)
+        } else if (campoContraseña.value.length > 8)
             errores.push("La contraseña debe tener mínimo 8 caracteres")
 
 
@@ -54,4 +54,3 @@ window.addEventListener('load', function () {
 
     })
 })
-

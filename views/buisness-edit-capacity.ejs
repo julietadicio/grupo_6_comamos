@@ -8,9 +8,13 @@
 </head>
 
 <body>
+    <script src="/js/validator/editTable.js"></script>
     <%- include partials/header %> 
     <main>
         <section class="box-space">
+            <div class="errores">
+            <ul></ul>
+            </div>
             <form action="/buisness/account/capacity/edit/<%= table.idTable %>/?_method=PUT" method="POST">
                 <div class="flex-column">
                     <label for="nombre">Nombre de la Mesa</label>
