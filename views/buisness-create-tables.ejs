@@ -4,13 +4,21 @@
 <head>
     <%- include partials/head %>
     <link rel="stylesheet" href="/css/account.css">
-    <title>Agregar Plato</title>
+    <title>Agregar Mesa</title>
 </head>
 
 <body>
+    <script src="/js/validator/createTable.js"></script>
     <%- include partials/header %> 
     <main>
         <section class="box-space">
+            
+            <div class="errores">
+                <ul>
+
+                </ul>
+            </div>
+            
             <form action="/buisness/account/capacity/new-table" method="POST">
                 <div>
                     <label for="name">Nombre de la mesa</label>

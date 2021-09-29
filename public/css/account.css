@@ -121,6 +121,14 @@ nav ul li {
 
 /* Estilos para el header */
 
+div.errores {
+    color: #ED1B24;
+    font-style: italic;
+    font-size: 14px;
+    list-style: circle;
+    margin-left: 10%;
+}
+
 body header {
     width: 100%;
     display: flex;
