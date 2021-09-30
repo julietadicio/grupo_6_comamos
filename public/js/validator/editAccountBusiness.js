@@ -1,7 +1,7 @@
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     let formulario = document.querySelector('form')
 
-    formulario.addEventListener('submit', function(e){
+    formulario.addEventListener('submit', function (e) {
         let errores = []
 
         // Nombre
@@ -23,15 +23,23 @@ window.addEventListener('load', function() {
         let campoEmail = document.getElementById('email')
         if (campoEmail.value == "") {
             errores.push("El email debe estar completado")
-        }
+        } else if (!campoEmail.value.includes("@") && !campoEmail.value.includes(".com"))
+            errores.push('El email debe ser válido')
         //  Contraseña  
         let campoContraseña = document.getElementById('password')
         if (campoContraseña.value == "") {
             errores.push("La contraseña debe estar completada")
         }
+        // Avatar 
+        let campoAvatar = document.getElementById('avatar')
+        let archivosAceptados = ["JPG", "JPEG", "PNG", "GIF"]
+        if (campoAvatar.files[0] != archivosAceptados) {
+            errores.push('El avatar debe ser un archivo JPG, JPEG, PNG o GIF')
 
-
-        //ERRORES
+        }
+        console.log(campoAvatar.files);
+        
+        //  ERRORES
         if (errores.length > 0) {
             e.preventDefault();
 
