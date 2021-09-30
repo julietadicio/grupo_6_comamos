@@ -6,13 +6,18 @@
     <title>Comamos</title>
 </head>
 <body>
+  <script src="/js/validator/registerBusiness.js"></script>
   <%- include partials/header %>
   <main class="center">
+    <div class="errores">
+      <ul>
+    
+      </ul>
+    </div>
     <div class="margin-bottom">
       <h3 class="acercar">Estás a un paso de ser parte de </h3>
       <h3> la nueva comunidad de restaurantes...</h3>
     </div>
-          
       <form action="/buisness/register" method="POST"
         class="<%= locals.errors? 'form-wide' : null %>">
         <div class="exit">

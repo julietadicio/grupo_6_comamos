@@ -8,9 +8,16 @@
 </head>
 
 <body>
+    <script src="/js/validator/createProduct.js"></script>
     <%- include partials/header %> 
     <main>
         <section class="box-space">
+
+            <div class="errores">
+                <ul>
+                    
+                </ul>
+            </div>
             <form action="/buisness/account/new-product" method="POST" enctype="multipart/form-data">
                 <div class="hide-edit">
                     <label for="img-product">Agregar</label>

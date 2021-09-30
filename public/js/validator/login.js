@@ -8,7 +8,8 @@ window.addEventListener('load', function () {
         let campoEmail = document.getElementById('email')
         if (campoEmail.value == "") {
             errores.push("El email debe estar completado")
-        }
+        } else if (!campoEmail.value.includes("@") && !campoEmail.value.includes(".com"))
+        errores.push('El email debe ser válido')
 
         // Contraseña 
         let campoContraseña = document.getElementById('contraseña')
