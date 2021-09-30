@@ -3,7 +3,7 @@ window.addEventListener('load', function () {
 
     formulario.addEventListener('submit', function (e) {
         let errores = []
-
+        
         // Nombre
         let campoNombre = document.getElementById('nombre')
         if (campoNombre.value == "") {
@@ -32,12 +32,10 @@ window.addEventListener('load', function () {
         }
         // Avatar 
         let campoAvatar = document.getElementById('avatar')
-        let archivosAceptados = ["JPG", "JPEG", "PNG", "GIF"]
-        if (campoAvatar.files[0] != archivosAceptados) {
-            errores.push('El avatar debe ser un archivo JPG, JPEG, PNG o GIF')
+        if ((campoAvatar.files[0].name).split('.').pop() != ('jpg' || 'jpeg' || 'png' || 'gif')) {
+            errores.push('El avatar debe ser un archivo JPG, JPEG, PNG o GIF')        
 
         }
-        console.log(campoAvatar.files);
         
         //  ERRORES
         if (errores.length > 0) {
