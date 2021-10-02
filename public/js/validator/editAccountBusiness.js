@@ -4,7 +4,7 @@ window.addEventListener('load', function () {
     formulario.addEventListener('submit', function (e) {
         e.preventDefault();
         let errores = []
-
+        
         // Nombre
         let campoNombre = document.getElementById('nombre')
         if (campoNombre.value == "") {
@@ -33,9 +33,9 @@ window.addEventListener('load', function () {
         }
         // Avatar 
         let campoAvatar = document.getElementById('avatar')
-        
-        if ((campoAvatar.files[0].name).split('.').pop() == ('jpg' || 'jpeg' || 'png' || 'gif')) {
-            errores.push('El avatar debe ser un archivo JPG, JPEG, PNG o GIF')
+        if ((campoAvatar.files[0].name).split('.').pop() != ('jpg' || 'jpeg' || 'png' || 'gif')) {
+            errores.push('El avatar debe ser un archivo JPG, JPEG, PNG o GIF')        
+
         }
         
         //  ERRORES

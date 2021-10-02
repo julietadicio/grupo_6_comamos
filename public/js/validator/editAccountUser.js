@@ -28,8 +28,10 @@ window.addEventListener('load', function () {
 
         if (campoEmail.value == "") {
             errores.push("El email debe estar completado")
-        } else if (!campoEmail.value.includes("@") && !campoEmail.value.includes(".com"))
-        errores.push('El email debe ser válido')
+        } else if (!campoEmail.value.includes("@") && !campoEmail.value.includes(".com")) {
+            errores.push('El email debe ser válido')
+        }
+
 
         // Contraseña
 
@@ -38,9 +40,17 @@ window.addEventListener('load', function () {
         if (campoContraseña.value == "") {
             errores.push("La contraseña debe estar completada")
 
-        } else if (campoContraseña.value.length > 8)
+        } else if (campoContraseña.value.length > 8) {
             errores.push("La contraseña debe tener mínimo 8 caracteres")
+        }
 
+
+        // Avatar 
+        let campoAvatar = document.getElementById('avatar')
+        if ((campoAvatar.files[0].name).split('.').pop() != ('jpg' || 'jpeg' || 'png' || 'gif')) {
+            errores.push('El avatar debe ser un archivo JPG, JPEG, PNG o GIF')        
+
+        }
 
         //ERRORES
         if (errores.length > 0) {
