@@ -167,7 +167,6 @@ const controller = {
         return res.render ('user-orders-history', {user: req.session.userLogged, ordersUser})
     },
     carrito: (req, res) => {
-        
         return res.render ('user-shop');
     }
 }

@@ -2,20 +2,22 @@ window.addEventListener('load', async () => {
     let carts = document.querySelectorAll('.btn');
 
     let products = await (await fetch ('http://localhost:8000/api/products')).json();
-    let cartProducts = [];
+    /* let cartProducts = []; */
     
     for (let i= 0; i< carts.length; i++) {
-        carts[i].addEventListener('click', (e) => {
+        carts[i].addEventListener('click', () => {
             let nameProduct = carts[i].parentElement.querySelector('h3').innerText;
             let productSelect = products.filter(p => p.plato == nameProduct);
+            /* if(localStorage.getItem('cartItem')){
+                cartProducts = JSON.parse(localStorage.getItem('cartItem'));
+            }
             console.log(productSelect);
-            cartProducts.push(productSelect)
-            cartNumbers();
-            localStorage.setItem('cartItem', JSON.stringify(cartProducts))
-            //console.log(e.target.classList.value);
+            cartProducts.push(productSelect) */
+            localStorage.setItem('cartItem', JSON.stringify(productSelect))
+            window.location.href = 'http://localhost:8000/user/carrito';
         })     
     }
-    
+    /* 
     function onLoadCartNumbers () {
         let productNumbers = Number(localStorage.getItem('cartNumbers'));
         if (productNumbers) {
@@ -35,6 +37,6 @@ window.addEventListener('load', async () => {
         }
     }
     
-    onLoadCartNumbers();
+    onLoadCartNumbers(); */
 })
     

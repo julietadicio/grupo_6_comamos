@@ -13,28 +13,26 @@
         <div class="box-main">
             <section>
                 <h1>Detalle de la reserva</h1>
-                <h2>Restaurante</h3>
-                    <h3>Dirección</h3>
+                <h2 id="restaurant-name">Restaurante</h3>
+                    <h3 id="restaurant-address">Dirección</h3>
                     <div class="land-view">
-                        <h3>
-                            <div>
-                                <p>Día</p>
-                                <p>Horario</p>
-                                <p>Cantidad de personas</p>
-                            </div>
+                        <section>
+                            <form action="" method="POST">
+                                <label for="day">Día y horario</label>
+                                <input type="datetime-local" name="day" id="day">
+
+                                <!-- <label for="time">Horario</label>
+                                <input type="time" name="time" id="time"> -->
+
+                                <label for="quantity">Cantidad de personas</label>
+                                <input type="number" name="quantity" id="quantity">
+                                
+                            </form>
+                        </section>
                             <br>
-                            <div>
-                                <article>
-                                    <p>Producto 1</p><a href="">Quitar Producto</a>
-                                </article>
-                                <article>
-                                    <p>Producto 2</p><a href="">Quitar Producto</a>
-                                </article>
-                                <article>
-                                    <p>Producto 3</p><a href="">Quitar Producto</a>
-                                </article>
-                            </div>
-                        </h3>
+                        <section id="product-cart-section">
+                            
+                        </section>
                     </div>
             </section>
             <div class="map-style">
