@@ -6,8 +6,14 @@
     text-decoration: none;
     list-style: none;
 }
+html {
+    height: 100%;
+}
 body {
     background-color: #e7e7e7;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
 }
 
 /* Nav bar para version mobile */
@@ -209,7 +215,7 @@ button {
     width: 100%;
     padding: 7px;
     bottom: 0px;
-    margin-top: 2%;
+    margin-top: auto;
     justify-content: space-between;
 }
 #center-footer {
