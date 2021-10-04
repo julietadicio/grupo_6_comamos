@@ -149,11 +149,11 @@ INSERT INTO `restaurants` (`idRestaurant`, `nombre`, `direccion`, `capacidad`, `
 (1, 'Pizzeria Villa Crespo', 'Charcas 4636', 20, 'villacrespopizzas@hotmail.com', '$2a$10$4B2qWPeK3ein9E013fl3Vev58ZppujWlBWPIJ/5iVNk.1AzS8cWxi', 'negocio', '/img/avatars/1629662473335.jpg', ''),
 (3, 'Amalia Restaurante', 'Humberto 1º 299', 30, 'amaliarestaruante@hotmail.com', '$2a$10$4cgD2iW96V9pYju3nHeeH.DBcllA/z1uFT4v8zGMTD7dY0Pv6GP4G', 'negocio', '/img/avatars/1629579213776.jpg', ''),
 (4, 'Kotten, Nikkei and Veggie', 'Jorge Luis Borges 1891', 45, 'nandv@gmail.com', '$2a$10$23mkNPK6ChH9akfe52HYJOvWwQe2O1QgWHmZPAINgwpIWEDX78kE6', 'negocio', '/img/avatars/1629580091520.jpeg', ''),
-(9, 'la pizzada', 'Av. aconquija 1300', 50, 'lapizzada@gmail.com', '$2a$10$2JMbWVL6NCaGXZTl121Ls.zObI/pe2vHwEGswF5fKaoi5bhHPgdFK', 'negocio', '/img/avatars/user-buisness-avatar.jpg', NULL),
-(10, 'Tarantino', 'Av. Ejército del Norte 196', 80, 'tarantino@gmail.com', '$2a$10$zJsSrXMmi08miTK8ZgcbwOLDqVZQAp6tB1htKzd6/xFr3N8Kqtb/m', 'negocio', '/img/avatars/user-buisness-avatar.jpg', NULL),
-(11, 'Positano', 'Av. Mate de Luna 2890', 40, 'positano@gmail.com', '$2a$10$XuLDP0nC9zJsad7gDfhrVOfoLFlWx47j8/WpcRt8n6iZEMRoCiA/O', 'negocio', '/img/avatars/user-buisness-avatar.jpg', NULL),
-(12, 'Mexican Island', 'parana 839', 30, 'mexicanisland@gmail.com', '$2a$10$bTpO8SGV5JPvMBVxVbC6pOGkd3DqmELFbc/LTJowZTf8fDVCcuTn6', 'negocio', '/img/avatars/user-buisness-avatar.jpg', NULL),
-(13, 'Sao Sushi', 'Florida 37', 60, 'saosushi@gmail.com', '$2a$10$DwNobJf9QyYjQw2u80zPqeSlsWlhco7DwgpieCWhMGpN7a2venCKC', 'negocio', '/img/avatars/user-buisness-avatar.jpg', NULL);
+(10, 'la pizzada', 'Av. aconquija 1300', 50, 'lapizzada@gmail.com', '$2a$10$2JMbWVL6NCaGXZTl121Ls.zObI/pe2vHwEGswF5fKaoi5bhHPgdFK', 'negocio', '/img/avatars/user-buisness-avatar.jpg', NULL),
+(11, 'Tarantino', 'Av. Ejército del Norte 196', 80, 'tarantino@gmail.com', '$2a$10$zJsSrXMmi08miTK8ZgcbwOLDqVZQAp6tB1htKzd6/xFr3N8Kqtb/m', 'negocio', '/img/avatars/user-buisness-avatar.jpg', NULL),
+(12, 'Positano', 'Av. Mate de Luna 2890', 40, 'positano@gmail.com', '$2a$10$XuLDP0nC9zJsad7gDfhrVOfoLFlWx47j8/WpcRt8n6iZEMRoCiA/O', 'negocio', '/img/avatars/user-buisness-avatar.jpg', NULL),
+(13, 'Mexican Island', 'parana 839', 30, 'mexicanisland@gmail.com', '$2a$10$bTpO8SGV5JPvMBVxVbC6pOGkd3DqmELFbc/LTJowZTf8fDVCcuTn6', 'negocio', '/img/avatars/user-buisness-avatar.jpg', NULL),
+(14, 'Sao Sushi', 'Florida 37', 60, 'saosushi@gmail.com', '$2a$10$DwNobJf9QyYjQw2u80zPqeSlsWlhco7DwgpieCWhMGpN7a2venCKC', 'negocio', '/img/avatars/user-buisness-avatar.jpg', NULL);
 
 -- --------------------------------------------------------
 
