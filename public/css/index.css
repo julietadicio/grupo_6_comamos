@@ -684,7 +684,7 @@ footer ul, footer div {
     }
     #boton-buscar {
     color: aliceblue;
-    background-color: red;
+    background: linear-gradient(#ec4e55, #c02129);
     width: 12%;
     height: 60%;
     cursor: pointer;

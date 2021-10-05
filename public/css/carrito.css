@@ -88,7 +88,7 @@ nav ul li {
 /* Nav bar para version mobile */
 
 #quantity {
-width: 7%;
+width: 15%;
 border: none;
 padding: 7px;
 border-radius: 10%;
@@ -201,6 +201,17 @@ article a {
 .button {
     padding: 3px;
     border-radius: 5px;
+    background: linear-gradient(#ec4e55, #c02129);
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: white;
+    transition: all .3s;
+}
+
+.button:hover {
+    box-shadow: 0 0 15px 0 rgb(194, 89, 85)
+
 }
 .footer {
     background-color: rgba(237, 27, 36, 75%);
