@@ -71,4 +71,11 @@ window.addEventListener('load', async () => {
         productCartSection.appendChild(div)
         
     }
+
+    let shopCartButton = document.querySelector('#shop-cart');
+    shopCartButton.addEventListener('click', (e)=> {
+        e.preventDefault();
+        console.log('estoy enviando el formulario');
+    })
+
 })

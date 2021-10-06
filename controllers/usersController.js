@@ -168,6 +168,10 @@ const controller = {
     },
     carrito: (req, res) => {
         return res.render ('user-shop');
+    },
+    buyProcess: async (req, res) => {
+        
+        return res.render ('user-shop');
     }
 }
 
