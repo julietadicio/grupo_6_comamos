@@ -28,6 +28,8 @@ window.addEventListener('load', async () => {
             let input2 = document.createElement('input');
             let input3 = document.createElement('input');
             let date = document.createElement('input');
+            let deleteIcon = document.createElement('i');
+            let link = document.createElement('a');
             let br = document.createElement('br');
 
             input1.value = product.plato;
@@ -41,12 +43,30 @@ window.addEventListener('load', async () => {
             input3.placeholder = 'ingrese cantidad';
             date.type = 'datetime-local';
             date.name = 'date';
-
+            deleteIcon.classList = 'fas fa-times';
+            deleteIcon.id = product.idPlato;
+            
             div.appendChild(input1);
             div.appendChild(input2);
             div.appendChild(input3);
             div.appendChild(date);
+            div.appendChild(link);
+            link.appendChild(deleteIcon);
             div.appendChild(br);
+
+            link.addEventListener('click', (e)=> {
+                let newProducts = cartUser[i].products.filter(x => x.idPlato != e.target.id);
+                cartUser[i].products = newProducts;
+                if(cartUser[i].products.length == 0){
+                    let newCartUser = cartUser.filter(u => u.id != cartUser[i].id);
+                    localStorage.setItem('cartProducts', JSON.stringify(newCartUser));
+                } else {
+                    console.log('todavia tiene productos');
+                    localStorage.setItem('cartProducts', JSON.stringify(cartUser));
+                }
+                ((e.target.parentNode).parentNode).remove();
+                window.location.reload();
+            })
         }
         productCartSection.appendChild(div)
         
