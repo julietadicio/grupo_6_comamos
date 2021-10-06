@@ -87,6 +87,21 @@ nav ul li {
 
 /* Nav bar para version mobile */
 
+#quantity {
+width: 15%;
+border: none;
+padding: 7px;
+border-radius: 10%;
+cursor: pointer;
+}
+
+#day {
+border: none;
+padding: 7px;
+border-radius: 8%;
+cursor: pointer;
+}
+
 
 body header {
     width: 100%;
@@ -95,7 +110,6 @@ body header {
 }
 form {
     width: 100%;
-    text-align: center;
 }
 body main {
     width: 100%;
@@ -170,7 +184,6 @@ article {
     margin-top: 5%;
     padding: 5px;
     flex-wrap: wrap;
-    flex-direction: column;
     align-items: baseline;
 }
 article a {
@@ -188,6 +201,17 @@ article a {
 .button {
     padding: 3px;
     border-radius: 5px;
+    background: linear-gradient(#ec4e55, #c02129);
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: white;
+    transition: all .3s;
+}
+
+.button:hover {
+    box-shadow: 0 0 15px 0 rgb(194, 89, 85)
+
 }
 .footer {
     background-color: rgba(237, 27, 36, 75%);
@@ -295,7 +319,8 @@ footer ul, footer div {
     .box-main {
         margin-top: 3%;
         padding: 15px;
-        height: 60vh;
+        height: 68vh;
+        width: 70vw;
     }
     .land-view {
         display: flex;
