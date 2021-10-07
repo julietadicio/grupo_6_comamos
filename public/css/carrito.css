@@ -87,13 +87,6 @@ nav ul li {
 
 /* Nav bar para version mobile */
 
-#quantity {
-width: 15%;
-border: none;
-padding: 7px;
-border-radius: 10%;
-cursor: pointer;
-}
 
 #day {
 border: none;

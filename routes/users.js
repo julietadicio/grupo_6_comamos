@@ -43,7 +43,7 @@ router.get('/account/orders', authMiddleware, usersController.userOrders);
 // Rutas para administracion del carrito de usuarios
 router.get('/carrito', authMiddleware, usersController.carrito);
 // Ruta para procesar la compra
-router.get('/shop', authMiddleware, usersController.buyProcess);
+router.post('/shop', authMiddleware, usersController.buyProcess);
 
 
 module.exports = router;

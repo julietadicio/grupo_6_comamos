@@ -170,8 +170,20 @@ const controller = {
         return res.render ('user-shop');
     },
     buyProcess: async (req, res) => {
-        
-        return res.render ('user-shop');
+        await db.Order.create({
+            id_user: req.session.userLogged.idUser,
+            id_restaurant: req.body.id_restaurant,
+            estado: 'Pendiente',
+            comensales: req.body.comensales,
+            fecha_reserva: req.body.date,
+            total: 123
+        })
+        await db.OrderProduct.create({
+            id_order: 5,
+            id_product: req.body.idPlato,
+            cantidad: req.body.cantidad
+        })
+        return res.send (req.body);
     }
 }
 
