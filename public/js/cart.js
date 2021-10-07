@@ -58,6 +58,7 @@ window.addEventListener('load', async () => {
             input4.name = 'id_restaurant';
             input4.type = 'number';
             input4.value = product.id_restaurant;
+            input4.id = 'id_restaurant';
             input4.style.display = 'none';
             input5.id = 'total';
             input5.name = 'total-product';
@@ -94,19 +95,27 @@ window.addEventListener('load', async () => {
         
     }
     
-    
-    /* link.addEventListener('click', (e)=> {
-        let newProducts = cartUser[i].products.filter(x => x.idPlato != e.target.id);
-        cartUser[i].products = newProducts;
-        if(cartUser[i].products.length == 0){
-            let newCartUser = cartUser.filter(u => u.id != cartUser[i].id);
-            localStorage.setItem('cartProducts', JSON.stringify(newCartUser));
-        } else {
-            localStorage.setItem('cartProducts', JSON.stringify(cartUser));
-        }
-        ((e.target.parentNode).parentNode).remove();
-        window.location.reload();
-    }) */
+    let links = productCartSection.querySelectorAll('.fa-times');
+    for (let k = 0; k < links.length; k++) {
+        const link = links[k];
+        link.addEventListener('click', (e)=>{
+            
+            let restaurant = e.target.parentNode.parentNode.querySelector('#id_restaurant').value;
+            let index = cartUser.indexOf(cartUser.find( r => r.id == restaurant));
+            let newProducts = cartUser[index].products.filter(x => x.idPlato != e.target.id);
+            cartUser[index].products = newProducts;
+            if(cartUser[index].products.length == 0){
+                console.log(cartUser[index].products.length == 0);
+                let newCartUser = cartUser.filter(u => u.id != cartUser[index].id);
+                localStorage.setItem('cartProducts', JSON.stringify(newCartUser));
+                window.location.reload();
+            } else {
+                localStorage.setItem('cartProducts', JSON.stringify(cartUser));
+            }
+            ((e.target.parentNode).parentNode).remove();
+            
+        })
+    }
 
     let quantityFields = productCartSection.querySelectorAll('#quantity');
     for (let r = 0; r < quantityFields.length; r++) {
