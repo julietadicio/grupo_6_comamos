@@ -102,7 +102,51 @@ border-radius: 8%;
 cursor: pointer;
 }
 
+input {
+    padding: 10px;
+    border: none;
+    background-color: #ebebeb;
+    border-radius: 8%;
+    color: black;
+    margin-top: 5px;
+    transition: all .3s
+}
 
+input:hover {
+    box-shadow: 0 0 15px 0 #f0f0f0;
+}
+
+#order-detail {
+    text-align: center;
+    font-size: x-large;
+    transform-style: preserve-3d;
+    font-family: system-ui, sans-serif
+}
+
+#order-detail::before {  
+    transform: scaleX(0);
+    transform-origin: bottom right;
+  }
+  
+  #order-detail:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  #order-detail::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    inset: 0 0 0 0;
+    background: -webkit-linear-gradient(315deg,#fcdf8a,#f38381);
+    z-index: -1;
+    color: white;
+    transition: transform .3s ease;
+  }
+
+
+  
 body header {
     width: 100%;
     display: flex;
@@ -210,7 +254,7 @@ article a {
 }
 
 .button:hover {
-    box-shadow: 0 0 15px 0 rgb(194, 89, 85)
+    box-shadow: 0 0 15px 0 #f38381
 
 }
 .footer {
@@ -334,7 +378,7 @@ footer ul, footer div {
         width: 0;
     }
     .button {
-        width: 120px;
+        width: 20%;
     }
     footer ul li a {
         font-size: 12px;
@@ -353,6 +397,11 @@ footer ul, footer div {
         font-size: 14px;
         font-weight: bold;
         line-height: 15px;
+    }
+
+    .boton-contenedor {
+        display: flex;
+        justify-content: center;
     }
 }
 @media (min-width: 1024px) {
