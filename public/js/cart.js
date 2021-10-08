@@ -4,6 +4,7 @@ window.addEventListener('load', async () => {
     let cartUser = JSON.parse(localStorage.getItem('cartProducts'));
     let productCartSection = document.querySelector('#product-cart-section');
 
+
     let buisness = await (await fetch ('http://localhost:8000/api/buisness')).json();
 
     for (let i = 0; i < cartUser.length; i++) {
@@ -42,6 +43,7 @@ window.addEventListener('load', async () => {
 
             
             input0.name = 'idPlato';
+            input0.id = 'idPlato';
             input0.type = 'number';
             input0.value = product.idPlato;
             input0.style.display = 'none';
@@ -58,7 +60,7 @@ window.addEventListener('load', async () => {
 
             input3.name = 'quantity';
             input3.type = 'number';
-            input3.value = 1;
+            product.quantity? input3.value = product.quantity: input3.value = 1;
             input3.id = 'quantity';
             input3.style.width = '30px';
             input3.style.textAlign = 'center';
@@ -109,6 +111,21 @@ window.addEventListener('load', async () => {
         productCartSection.appendChild(div)
         
     }
+
+    let quantityFields = productCartSection.querySelectorAll('#quantity');
+    let input6 = document.createElement('input');
+    let formShopCart = document.querySelector('#shop-cart');
+    input6.type = 'number';
+    input6.name = 'total';
+    input6.disabled = true;
+    formShopCart.appendChild(input6);
+    let inputsCost = productCartSection.querySelectorAll('#total');
+    let totalCost = 0;
+    for (let l = 0; l < inputsCost.length; l++) {
+        const itemCost = Number(inputsCost[l].value);
+        totalCost += itemCost;
+    }
+    input6.value = Number(totalCost);
     
     //Event listener para boton de eliminar articulo del carrito y del localStorage
     let links = productCartSection.querySelectorAll('.fa-times');
@@ -124,23 +141,16 @@ window.addEventListener('load', async () => {
                 console.log(cartUser[index].products.length == 0);
                 let newCartUser = cartUser.filter(u => u.id != cartUser[index].id);
                 localStorage.setItem('cartProducts', JSON.stringify(newCartUser));
-                window.location.reload();
             } else {
                 localStorage.setItem('cartProducts', JSON.stringify(cartUser));
             }
             ((e.target.parentNode).parentNode).remove();
+            window.location.reload();
             
         })
     }
 
     // event listener para botones de sumar y restar cantidades
-    let quantityFields = productCartSection.querySelectorAll('#quantity');
-    let input6 = document.createElement('input');
-    let formShopCart = document.querySelector('#shop-cart');
-    input6.type = 'number';
-    input6.name = 'total';
-    input6.disabled = true;
-    formShopCart.appendChild(input6);
 
     let iconsPlus = document.querySelectorAll('.fa-plus-circle');
     for (let w = 0; w < iconsPlus.length; w++) {
@@ -148,6 +158,16 @@ window.addEventListener('load', async () => {
         iconPlus.addEventListener('click', (e)=>{
             let quantityPlus = Number(e.target.parentNode.querySelector('#quantity').value) + 1;
             e.target.parentNode.querySelector('#quantity').value = quantityPlus;
+
+            let buisness = e.target.parentNode.querySelector('#id_restaurant').value;
+            let idPlato = e.target.parentNode.querySelector('#idPlato').value;
+            let restaurantSelect = cartUser.find(b => b.id == buisness);
+            let restaurantIndex = cartUser.indexOf(restaurantSelect);
+            let productSelect = restaurantSelect.products.find(p => p.idPlato == idPlato);
+            let productIndex = cartUser[restaurantIndex].products.indexOf(productSelect);
+            
+            cartUser[restaurantIndex].products[productIndex].quantity = quantityPlus;
+            localStorage.setItem('cartProducts', JSON.stringify(cartUser));
 
             // Calculo de costo a partir de cambio de cantidades
             let productContainer = event.target.parentNode;
@@ -161,7 +181,6 @@ window.addEventListener('load', async () => {
                 totalCost += itemCost;
             }
             input6.value = Number(totalCost);
-            console.log(quantityPlus);
         })
     }
 
