@@ -35,6 +35,8 @@ window.addEventListener('load', async () => {
             let input4 = document.createElement('input');
             let input5 = document.createElement('input');
             let deleteIcon = document.createElement('i');
+            let plusIcon = document.createElement('i');
+            let minusIcon = document.createElement('i');
             let link = document.createElement('a');
             let br = document.createElement('br');
 
@@ -43,25 +45,36 @@ window.addEventListener('load', async () => {
             input0.type = 'number';
             input0.value = product.idPlato;
             input0.style.display = 'none';
-            input1.value = product.plato;
+
             input1.name = 'plato';
+            input1.value = product.plato;
             input1.disabled = true;
-            input2.value = product.precio;
+
             input2.name = 'precio';
+            input2.value = product.precio;
             input2.id = 'precio';
             input2.disabled = true;
             input2.type = 'number';
+
+            input3.name = 'quantity';
             input3.type = 'number';
             input3.value = 1;
-            input3.name = 'quantity';
             input3.id = 'quantity';
+            input3.style.width = '30px';
+            input3.style.textAlign = 'center';
+            plusIcon.classList = 'fas fa-plus-circle';
+            plusIcon.id = 'plus';
+            minusIcon.classList = 'fas fa-minus-circle';
+            minusIcon.id = 'minus';
+
             input4.name = 'id_restaurant';
             input4.type = 'number';
             input4.value = product.id_restaurant;
             input4.id = 'id_restaurant';
             input4.style.display = 'none';
-            input5.id = 'total';
+
             input5.name = 'total-product';
+            input5.id = 'total';
             input5.type = 'number';
             input5.value = input2.value * input3.value;
             input5.disabled = true;
@@ -72,7 +85,9 @@ window.addEventListener('load', async () => {
             boxProduct.appendChild(input0);
             boxProduct.appendChild(input1);
             boxProduct.appendChild(input2);
+            boxProduct.appendChild(minusIcon);
             boxProduct.appendChild(input3);
+            boxProduct.appendChild(plusIcon);
             boxProduct.appendChild(input4);
             boxProduct.appendChild(input5);
             boxProduct.appendChild(link);
@@ -95,6 +110,7 @@ window.addEventListener('load', async () => {
         
     }
     
+    //Event listener para boton de eliminar articulo del carrito y del localStorage
     let links = productCartSection.querySelectorAll('.fa-times');
     for (let k = 0; k < links.length; k++) {
         const link = links[k];
@@ -117,21 +133,67 @@ window.addEventListener('load', async () => {
         })
     }
 
+    // event listener para botones de sumar y restar cantidades
     let quantityFields = productCartSection.querySelectorAll('#quantity');
-    for (let r = 0; r < quantityFields.length; r++) {
-        const quantityItem = quantityFields[r];
-        quantityItem.addEventListener('change', (event)=> {
+    let input6 = document.createElement('input');
+    let formShopCart = document.querySelector('#shop-cart');
+    input6.type = 'number';
+    input6.name = 'total';
+    input6.disabled = true;
+    formShopCart.appendChild(input6);
+
+    let iconsPlus = document.querySelectorAll('.fa-plus-circle');
+    for (let w = 0; w < iconsPlus.length; w++) {
+        const iconPlus = iconsPlus[w];
+        iconPlus.addEventListener('click', (e)=>{
+            let quantityPlus = Number(e.target.parentNode.querySelector('#quantity').value) + 1;
+            e.target.parentNode.querySelector('#quantity').value = quantityPlus;
+
+            // Calculo de costo a partir de cambio de cantidades
             let productContainer = event.target.parentNode;
             let priceProduct = productContainer.querySelector('#precio');
             let costProduct = productContainer.querySelector('#total');
-            costProduct.value = Number(priceProduct.value) * Number(event.target.value);
+            costProduct.value = priceProduct.value * quantityPlus;
+            let inputsCost = productCartSection.querySelectorAll('#total');
+            let totalCost = 0;
+            for (let l = 0; l < inputsCost.length; l++) {
+                const itemCost = Number(inputsCost[l].value);
+                totalCost += itemCost;
+            }
+            input6.value = Number(totalCost);
+            console.log(quantityPlus);
         })
     }
 
+    let iconsMinus = document.querySelectorAll('.fa-minus-circle');
+    for (let g = 0; g < iconsMinus.length; g++) {
+        const iconMinus = iconsMinus[g];
+        iconMinus.addEventListener('click', (e)=>{
+            let quantityPlus = Number(e.target.parentNode.querySelector('#quantity').value) - 1;
+            e.target.parentNode.querySelector('#quantity').value = quantityPlus;
+
+            // Calculo de costo a partir de cambio de cantidades
+            let productContainer = event.target.parentNode;
+            let priceProduct = productContainer.querySelector('#precio');
+            let costProduct = productContainer.querySelector('#total');
+            costProduct.value = priceProduct.value * quantityPlus;
+            let inputsCost = productCartSection.querySelectorAll('#total');
+            let totalCost = 0;
+            for (let l = 0; l < inputsCost.length; l++) {
+                const itemCost = Number(inputsCost[l].value);
+                totalCost += itemCost;
+            }
+            input6.value = Number(totalCost);
+            console.log(quantityPlus);
+        })
+    }
+
+    
     let shopCartButton = document.querySelector('.pay-button');
+    
     shopCartButton.addEventListener('click', (e)=> {
-        e.preventDefault();
+        /* e.preventDefault(); */
         console.log('estoy enviando el formulario');
     })
-
+    
 })
