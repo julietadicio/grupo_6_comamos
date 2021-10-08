@@ -3,27 +3,31 @@
 
 <head>
     <%- include partials/head %>
-    <link rel="stylesheet" href="/css/carrito.css">
-    <title>Carrito</title>
+        <link rel="stylesheet" href="/css/carrito.css">
+        <title>Carrito</title>
 </head>
 
 <body>
-    <%- include partials/header %> 
-    <main>
-        <div class="box-main">
-            <form action="/user/shop" method="POST" id="shop-cart">
-                <h1 id="order-detail">Detalle de la reserva</h1>
-                <div class="land-view">
-                    <section id="product-cart-section">
-                        
+    <%- include partials/header %>
+        <main>
+            <div class="box-main">
+                <form action="/user/shop" method="POST" id="shop-cart">
+                    <section>
+                        <h1 id="order-detail">Detalle de la reserva</h1>
+                        <div class="land-view">
+                            <section id="product-cart-section">
+                            </section>
+                            <br>
+                        </div>
                     </section>
-                    <br>
-                </div>
-                <button class="button pay-button">Proceder al pago</button>
-            </form>
-        </div>
-    </main>
-    <%- include partials/footer %>     
+                    <div class="boton-contenedor"> 
+                        <button class="button pay-button">Proceder al pago</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <%- include partials/footer %>
 </body>
 <script src="/js/cart.js"></script>
+
 </html>
