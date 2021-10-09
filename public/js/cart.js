@@ -4,6 +4,31 @@ window.addEventListener('load', async () => {
     let cartUser = JSON.parse(localStorage.getItem('cartProducts'));
     let productCartSection = document.querySelector('#product-cart-section');
 
+    let cartQuantity = function (evento, quantity) {
+        let buisnessTarget = evento.target.parentNode.querySelector('#id_restaurant').value;
+        let idPlato = evento.target.parentNode.querySelector('#idPlato').value;
+        let restaurantSelect = cartUser.find(b => b.id == buisnessTarget);
+        let restaurantIndex = cartUser.indexOf(restaurantSelect);
+        let productSelect = restaurantSelect.products.find(p => p.idPlato == idPlato);
+        let productIndex = cartUser[restaurantIndex].products.indexOf(productSelect);
+        
+        cartUser[restaurantIndex].products[productIndex].quantity = quantity;
+        localStorage.setItem('cartProducts', JSON.stringify(cartUser));
+    }
+
+    let costCalculation = function (evento, quantity, input) {
+        let productContainer = evento.target.parentNode;
+        let priceProduct = productContainer.querySelector('#precio');
+        let costProduct = productContainer.querySelector('#total');
+        costProduct.value = priceProduct.value * quantity;
+        let inputsCost = productCartSection.querySelectorAll('#total');
+        let totalCost = 0;
+        for (let l = 0; l < inputsCost.length; l++) {
+            const itemCost = Number(inputsCost[l].value);
+            totalCost += itemCost;
+        }
+        input6.value = Number(totalCost);
+    }
 
     let buisness = await (await fetch ('http://localhost:8000/api/buisness')).json();
 
@@ -60,7 +85,11 @@ window.addEventListener('load', async () => {
 
             input3.name = 'quantity';
             input3.type = 'number';
-            product.quantity? input3.value = product.quantity: input3.value = 1;
+            if(product.quantity){
+              input3.value = product.quantity;
+            } else {
+                input3.value = 1;
+            }
             input3.id = 'quantity';
             input3.style.width = '30px';
             input3.style.textAlign = 'center';
@@ -112,20 +141,21 @@ window.addEventListener('load', async () => {
         
     }
 
-    let quantityFields = productCartSection.querySelectorAll('#quantity');
+    
     let input6 = document.createElement('input');
     let formShopCart = document.querySelector('#shop-cart');
     input6.type = 'number';
     input6.name = 'total';
     input6.disabled = true;
     formShopCart.appendChild(input6);
+    
+    let costProductSelect = 0;
     let inputsCost = productCartSection.querySelectorAll('#total');
-    let totalCost = 0;
     for (let l = 0; l < inputsCost.length; l++) {
         const itemCost = Number(inputsCost[l].value);
-        totalCost += itemCost;
+        costProductSelect += itemCost;
     }
-    input6.value = Number(totalCost);
+    input6.value = Number(costProductSelect);
     
     //Event listener para boton de eliminar articulo del carrito y del localStorage
     let links = productCartSection.querySelectorAll('.fa-times');
@@ -159,28 +189,11 @@ window.addEventListener('load', async () => {
             let quantityPlus = Number(e.target.parentNode.querySelector('#quantity').value) + 1;
             e.target.parentNode.querySelector('#quantity').value = quantityPlus;
 
-            let buisness = e.target.parentNode.querySelector('#id_restaurant').value;
-            let idPlato = e.target.parentNode.querySelector('#idPlato').value;
-            let restaurantSelect = cartUser.find(b => b.id == buisness);
-            let restaurantIndex = cartUser.indexOf(restaurantSelect);
-            let productSelect = restaurantSelect.products.find(p => p.idPlato == idPlato);
-            let productIndex = cartUser[restaurantIndex].products.indexOf(productSelect);
-            
-            cartUser[restaurantIndex].products[productIndex].quantity = quantityPlus;
-            localStorage.setItem('cartProducts', JSON.stringify(cartUser));
+            cartQuantity(e, quantityPlus);
 
             // Calculo de costo a partir de cambio de cantidades
-            let productContainer = event.target.parentNode;
-            let priceProduct = productContainer.querySelector('#precio');
-            let costProduct = productContainer.querySelector('#total');
-            costProduct.value = priceProduct.value * quantityPlus;
-            let inputsCost = productCartSection.querySelectorAll('#total');
-            let totalCost = 0;
-            for (let l = 0; l < inputsCost.length; l++) {
-                const itemCost = Number(inputsCost[l].value);
-                totalCost += itemCost;
-            }
-            input6.value = Number(totalCost);
+            costCalculation(e, quantityPlus, input6);
+
         })
     }
 
@@ -191,19 +204,11 @@ window.addEventListener('load', async () => {
             let quantityPlus = Number(e.target.parentNode.querySelector('#quantity').value) - 1;
             e.target.parentNode.querySelector('#quantity').value = quantityPlus;
 
+            cartQuantity(e, quantityPlus);
+
             // Calculo de costo a partir de cambio de cantidades
-            let productContainer = event.target.parentNode;
-            let priceProduct = productContainer.querySelector('#precio');
-            let costProduct = productContainer.querySelector('#total');
-            costProduct.value = priceProduct.value * quantityPlus;
-            let inputsCost = productCartSection.querySelectorAll('#total');
-            let totalCost = 0;
-            for (let l = 0; l < inputsCost.length; l++) {
-                const itemCost = Number(inputsCost[l].value);
-                totalCost += itemCost;
-            }
-            input6.value = Number(totalCost);
-            console.log(quantityPlus);
+            costCalculation(e, quantityPlus, input6);
+        
         })
     }
 
