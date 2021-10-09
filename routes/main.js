@@ -9,4 +9,7 @@ router.get('/', mainController.index );
 router.get('/lista-restaurantes', mainController.listaRestaurantes);
 router.get('/lista-platos', mainController.listaPlatos)
 
+// Search Bar
+router.get('/product/busqueda', mainController.searchBar)
+
 module.exports = router;

@@ -95,25 +95,34 @@ border-radius: 8%;
 cursor: pointer;
 }
 
-input {
+input[name="total"] {
+    text-align: center;
+    background: none;
+    margin: auto;
+    border: none;
+}
+
+input[name="plato"], input[name=precio], input[name="quantity"], input[name="total-product"], input[name="date"], input[name="comensales"]  {
     padding: 10px;
     border: none;
     background-color: #ebebeb;
     border-radius: 8%;
     color: black;
     margin-top: 5px;
-    transition: all .3s
 }
 
-input:hover {
-    box-shadow: 0 0 15px 0 #f0f0f0;
+.fa-plus-circle, .fa-minus-circle, .fa-times {
+    cursor: pointer;
+}
+
+input[name="date"], input[name="comensales"], input[name="quantity"] {
+    cursor: pointer;
 }
 
 #order-detail {
     text-align: center;
-    font-size: x-large;
+    font-size: xx-large;
     transform-style: preserve-3d;
-    font-family: system-ui, sans-serif
 }
 
 #order-detail::before {  
