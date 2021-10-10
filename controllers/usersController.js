@@ -184,7 +184,8 @@ const controller = {
             cantidad: req.body.cantidad
         }) */
         /* Input name=“productos[]” */
-        return res.send (req.body);
+        const ordersApi = await (await fetch('http://localhost:8000/api/orders')).json();
+        return res.send (ordersApi);
     }
 }
 
