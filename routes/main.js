@@ -10,6 +10,6 @@ router.get('/lista-restaurantes', mainController.listaRestaurantes);
 router.get('/lista-platos', mainController.listaPlatos)
 
 // Search Bar
-router.get('/product/busqueda', mainController.searchBar)
+router.get('/product/:plato', mainController.searchBar)
 
 module.exports = router;

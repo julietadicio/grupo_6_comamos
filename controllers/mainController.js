@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const db = require('../database/models');
-const Op = Sequelize.Op
-const Sequelize = require('sequelize')
+const { Op } = require("sequelize");
+
 
 const controller = {
     index: async (req, res) => {
@@ -48,7 +48,7 @@ const controller = {
     searchBar: async (req, res) => {
         const busqueda = await db.Product.findAll({
             where: {
-                [Op.Like]:'%req.params.plato%'
+                [Op.Like]:{plato: `%${req.params.plato}%`}
             }
         })
         res.render('lista-platos', {busqueda: busqueda})

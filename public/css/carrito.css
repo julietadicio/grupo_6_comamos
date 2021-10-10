@@ -98,9 +98,19 @@ cursor: pointer;
 input[name="total"] {
     text-align: center;
     background: none;
+    display: block;
     margin: auto;
     border: none;
+    margin-top: 1%;
+    color: black;
+    font-size: large;
 }
+
+#box-restaurant {
+    padding: 10px;
+    margin: 10px 0;
+}
+
 
 input[name="plato"], input[name=precio], input[name="quantity"], input[name="total-product"], input[name="date"], input[name="comensales"]  {
     padding: 10px;
@@ -162,10 +172,33 @@ body main {
     display: flex;
     justify-content: center;
 }
-h1 {
+.box-main h1 {
     font-size: 20px;
     color: black;
-}
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    position: relative;
+  }
+
+  .box-main h1:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #ffffff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  .box-main h1:hover:after { 
+    width: 100%; 
+    left: 0; 
+  }
+
+
 h2 {
     font-size: 18px;
     color: black;
@@ -241,7 +274,7 @@ article a {
 }
 .pay-button {
     width: 100%;
-    margin-top: 5%;
+    margin-top: 5px;
     width: 100%;
 }
 .button {
