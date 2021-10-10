@@ -33,11 +33,7 @@ nav ul li a {
     padding: 7px 13px;
     border-radius: 3px;
 }
-a:hover {
-    background: #991118;
-    color: #656565;
-    transition: .5s;
-}
+
 .flex {
     display: flex;
 }
@@ -138,14 +134,14 @@ input[name="date"], input[name="comensales"], input[name="quantity"] {
 #order-detail::before {  
     transform: scaleX(0);
     transform-origin: bottom right;
-  }
+}
   
-  #order-detail:hover::before {
+#order-detail:hover::before {
     transform: scaleX(1);
     transform-origin: bottom left;
-  }
+}
   
-  #order-detail::before {
+#order-detail::before {
     content: " ";
     display: block;
     position: absolute;
@@ -155,7 +151,7 @@ input[name="date"], input[name="comensales"], input[name="quantity"] {
     z-index: -1;
     color: white;
     transition: transform .3s ease;
-  }
+}
 
 
   

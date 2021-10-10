@@ -48,7 +48,7 @@ const controller = {
     searchBar: async (req, res) => {
         const busqueda = await db.Product.findAll({
             where: {
-                [Op.Like]:{plato: `%${req.params.plato}%`}
+                plato: {[Op.like]: '%req.params.plato%'}
             }
         })
         res.render('lista-platos', {busqueda: busqueda})
