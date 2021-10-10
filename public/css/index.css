@@ -259,7 +259,7 @@ main form {
 
 #boton-buscar:hover {
     background-color: #b66634;
-    box-shadow: 0 0 15px 0 white
+    box-shadow: 0 0 15px 0 rgb(255, 187, 187)
 }
 
 #filtrar {
@@ -693,6 +693,7 @@ footer ul, footer div {
     display: block;
     border-radius: 5px;
     border: none;
+    transition: all .3s;
     }
     .reserve-form-wide {
     display: flex;

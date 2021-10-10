@@ -16,84 +16,33 @@
                     <h3>Entradas</h3>
                     <br>
                     <button class="arrow"><i class="fas fa-arrow-left"></i></button>
+                    <div class="contenedor">
                     <% products.forEach(product => { %>
                         
                         <a class="plato" href="/product/<%= product.idPlato %> ">
                             <img src="<%= product.imagen %>" alt="" width="20%">
                             <h4><%= product.plato %></h4>
-                            <h5><%= product.precio %></h5>
+                            <h5>$<%= product.precio %></h5>
                             <h5>Nombre restaurante</h5>
                         </a>
-                    <% }); %> 
+                    <% }); %> </div>
                     <button class="arrow"><i class="fas fa-arrow-right"></i></button>
                 </article>
                 <article>
                     <h3>Platos principales</h3>
-                    <br>
-                    <div class="plato">
-                        <img src="img\Ribs-Kansas.jpg" alt="">
-                        <h4>Plato 1</h4>
-                        <h5>Precio</h5>
-                        <h5>Nombre restaurante</h5>
-                    </div>
-                    <div class="plato">
-                        <img src="img\Ribs-Kansas.jpg" alt="">
-                        <h4>Plato 2</h4>
-                        <h5>Precio</h5>
-                        <h5>Nombre restaurante</h5>
-                    </div>
-                    <div class="plato">
-                        <img src="img\Ribs-Kansas.jpg" alt="">
-                        <h4>Plato 3</h4>
-                        <h5>Precio</h5>
-                        <h5>Nombre restaurante</h5>
-                    </div>
+                    
                     <button class="arrow"><i class="fas fa-arrow-left"></i></button>
                     <button class="arrow"><i class="fas fa-arrow-right"></i></button>
                 </article>
                 <article>
                     <h3>Postres</h3>
-                    <div class="plato">
-                        <img src="img\postre_turron_chischoco1.jpg" alt="">
-                        <h4>Postre 1</h4>
-                        <h5>Precio</h5>
-                        <h5>Nombre restaurante</h5>
-                    </div>
-                    <div class="plato">
-                        <img src="img\postre_turron_chischoco1.jpg" alt="">
-                        <h4>Postre 2</h4>
-                        <h5>Precio</h5>
-                        <h5>Nombre restaurante</h5>
-                    </div>
-                    <div class="plato">
-                        <img src="img\postre_turron_chischoco1.jpg" alt="">
-                        <h4>Postre 3</h4>
-                        <h5>Precio</h5>
-                        <h5>Nombre restaurante</h5>
-                    </div>
+                    
                     <button class="arrow"><i class="fas fa-arrow-left"></i></button>
                     <button class="arrow"><i class="fas fa-arrow-right"></i></button>
                 </article>
                 <article>
                     <h3>Bebidas</h3>
-                    <div class="plato">
-                        <img src="\img\bebida.jpg" alt="">
-                        <h4>Bebida 1</h4>
-                        <h5>Precio</h5>
-                        <h5>Nombre restaurante</h5>
-                    </div>
-                    <div class="plato">
-                        <img src="img\bebida.jpg" alt="">
-                        <h4>Bebida 2</h4>
-                        <h5>Precio</h5>
-                        <h5>Nombre restaurante</h5>
-                    </div>
-                    <div class="plato">
-                        <img src="img\bebida.jpg" alt="">
-                        <h4>Bebida 3</h4>
-                        <h5>Precio</h5>
-                        <h5>Nombre restaurante</h5>
-                    </div>
+                    
                     <button class="arrow"><i class="fas fa-arrow-left"></i></button>
                     <button class="arrow"><i class="fas fa-arrow-right"></i></button>
                 </article>
