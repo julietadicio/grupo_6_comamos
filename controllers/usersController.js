@@ -167,7 +167,7 @@ const controller = {
         return res.render ('user-orders-history', {user: req.session.userLogged, ordersUser})
     },
     carrito: (req, res) => {
-        return res.render ('user-shop');
+        return res.render ('user-shop', {user: req.session.userLogged});
     },
     buyProcess: async (req, res) => {
         /* await db.Order.create({
