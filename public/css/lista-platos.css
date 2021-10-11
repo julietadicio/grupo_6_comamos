@@ -24,14 +24,16 @@ nav {
     width: 100%;
     box-shadow: 0 0 15px 0 gray;
 }
+header {
+    box-shadow: 0 0 15px 0 gray;
+}
 nav ul {
     float: right;
     margin-right: 20px;
 }
-nav ul li, .title {
+nav ul li {
     display: inline-block;
-    line-height: 80px;
-    margin: 0 5px;
+    margin: 45px 5px;
 }
 nav ul li a {
     color: white;
@@ -39,7 +41,11 @@ nav ul li a {
     padding: 7px 13px;
     border-radius: 3px;
 }
-
+header nav ul li a:hover {
+    background: #656565;
+    color: white;
+    transition: .5s;
+}
 .flex {
     display: flex;
 }
@@ -51,12 +57,23 @@ nav ul li a {
 .title {
     color: #ED1B24;
     font-size: 35px;
+    padding: 0 100px;
+    font-weight: bold;
+    font-family: 'Pacifico', cursive;
+    vertical-align: bottom;
+    display: none;
+    width: 75%;
+}
+.title-2 {
+    color: #ED1B24;
+    font-size: 35px;
     line-height: 80px;
     padding: 0 100px;
     font-weight: bold;
     font-family: 'Pacifico', cursive;
     vertical-align: bottom;
     display: none;
+    width: 90%;
 }
 .checkbtn {
     font-size: 30px;
@@ -83,21 +100,31 @@ header ul {
 nav ul li {
     display: block;
 }
-#check:checked ~ ul {
+#check:checked ~ ul{
     left: 0;
 }
 
 /* Nav bar para version mobile */
 
+/* Estilos para el header */
 
 body header {
     width: 100%;
     display: flex;
     align-items: center;
+    background-color: white;
 }
-body header div ul li a {
+body header a {
     text-decoration: none;
-    color: #ED1B24;
+    color: #656565;
+}
+.icon-align {
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+.icon-user {
+    margin: 10%;
 }
 #logo {
     max-width: 100%;
@@ -110,29 +137,8 @@ body header div ul li a {
     justify-content: space-evenly;
 }
 #align-header {
-    display: inline-flex;
-    width: 85%;
-}
-.title {
-    color: #ED1B24;
-    font-size: 35px;
-    padding: 0 100px;
-    font-weight: bold;
-    font-family: 'Pacifico', cursive;
-    vertical-align: bottom;
-    display: none;
-    width: 75%;
-}
-.title-2 {
-    color: #ED1B24;
-    font-size: 35px;
-    line-height: 80px;
-    padding: 0 100px;
-    font-weight: bold;
-    font-family: 'Pacifico', cursive;
-    vertical-align: bottom;
-    display: none;
-    width: 90%;
+    display: flex;
+    width: 88%;
 }
 .style-title {
     text-align: center;
@@ -143,10 +149,17 @@ body header div ul li a {
     font-weight: bold;
     font-family: 'Pacifico', cursive;
     font-size: 16px;
+    color: #ED1B24;
+}
+.user-image-header {
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
 }
 .burger-bar {
     display: inline-flex;
     align-items: center;
+    width: 10%;
 }
 .format-menu {
     width: 25%;
@@ -159,7 +172,8 @@ body header div ul li a {
 .box-mobile {
     display: none;
 }
-/* Css para header */
+
+/* Estilos para el header */
 
 /*CSS MAIN*/
 h2 {
@@ -342,11 +356,11 @@ footer ul, footer div {
         display: flex;
     }
     .flex {
-        width: 70%;
+        width: 55%;
     }
     header nav ul {
         display: flex;
-        width: 40%;
+        width: 45%;
         height: 80px;
         justify-content: space-evenly;
         align-items: center;
@@ -355,11 +369,22 @@ footer ul, footer div {
         background: white;
     }
     nav ul li {
-        line-height: normal;
-        margin: 0;
+        line-height: 13px;
     }
     nav ul li a {
         color: #656565;
+        font-size: 13px;
+        padding: 0;
+    }
+    body header div div a i {
+        font-size: 25px;
+    }
+    .logo-conteiner {
+        text-align: center;
+        width: 10%;
+    }
+    nav div a {
+        width: 20%;
     }
     .title {
         width: 80%;
@@ -375,8 +400,17 @@ footer ul, footer div {
     .style-title {
         font-size: 40px;
     }
-    .burger-bar {
-        display: none;
+   .icon-user {
+    display: flex;
+    width: 15%;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 5% 0 5% 5%;
+    }
+    .icon-align {
+        justify-content: flex-end;
+        width: 35%;
     }
     footer div ul li a {
         font-size: 12px;

@@ -52,7 +52,7 @@ const controller = {
             }
         })
         console.log(products);
-        res.render('lista-platos', {products})
+        res.render('lista-platos', {products, user:req.session.userLogged})
     },
 }
 
