@@ -303,7 +303,7 @@ window.addEventListener('load', async () => {
     let shopCartButton = document.querySelector('.pay-button');
     
     shopCartButton.addEventListener('click', async (e)=> {
-        /* e.preventDefault(); */
+        e.preventDefault();
         /* const users = await (await fetch('http://localhost:8000/api/users')).json(); */
         const ordersApi = await (await fetch('http://localhost:8000/api/orders')).json();
         const lastOrderId = ordersApi.length;
@@ -357,6 +357,7 @@ window.addEventListener('load', async () => {
             body: data
         }   
         fetch('/api/users/shop', options);
+        
     })
     
 })

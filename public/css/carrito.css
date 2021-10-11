@@ -206,7 +206,7 @@ input[name="total"] {
     color: #ed1b26;
     text-align: center;
 }
-#orden-detail {
+#order-detail {
     font-family: 'Pacifico', cursive;
 }
 input[name="plato"], input[name=precio], input[name="quantity"], input[name="total-product"], input[name="date"], input[name="comensales"]  {

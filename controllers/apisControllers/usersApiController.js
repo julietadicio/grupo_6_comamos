@@ -34,13 +34,13 @@ const controller = {
         }
         for (let s = 0; s < ordersProducts.length; s++) {
             const orderProduct = ordersProducts[s];
-            await db.orderProduct.create({
+            await db.OrderProduct.create({
                 id_order: orderProduct.id_order,
                 id_product: orderProduct.id_product,
                 cantidad: orderProduct.cantidad,
             })
         }
-        return redirect('carrito');
+        return res.json([orders, ordersProducts]);
     }
 }
 
