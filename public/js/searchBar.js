@@ -1,18 +1,13 @@
 
 window.addEventListener('load', () => {
-    let busqueda1 = document.querySelector('#busqueda1');
-    let botonBuscar = document.querySelector('#boton-buscar');
+    let searchButton = document.querySelector('#boton-buscar');
+    let searchBar = document.querySelector('#search-bar');
 
-    busqueda1.addEventListener('keyup', async (e) => {
-        let search = e.target.value;
-        /* const results = await db.Restaurant.findAll({
-            where: {
-                [Op.like]: {nombre: search}
-            }
-        }) */
-        console.log(search);
-
+    searchButton.addEventListener('click', (e)=>{
+        e.preventDefault();
+        let resultValue1 = e.target.parentNode.querySelector('#busqueda1').value;
+        e.target.parentNode.action = `http://localhost:8000/product/${resultValue1}`;
+        searchBar.submit();
     })
-
 
 })

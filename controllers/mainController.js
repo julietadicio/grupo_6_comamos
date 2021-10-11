@@ -46,12 +46,13 @@ const controller = {
         return res.render('lista-platos', {products})
     },
     searchBar: async (req, res) => {
-        const busqueda = await db.Product.findAll({
+        const products = await db.Product.findAll({
             where: {
-                plato: {[Op.like]: '%req.params.plato%'}
+                plato: {[Op.like]: `%${req.params.plato}%`}
             }
         })
-        res.render('lista-platos', {busqueda})
+        console.log(products);
+        res.render('lista-platos', {products})
     },
 }
 

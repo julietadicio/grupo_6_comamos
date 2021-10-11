@@ -133,7 +133,7 @@ window.addEventListener('load', async () => {
         date.id = 'date';
         date.type = 'datetime-local';
         
-
+        let dates 
         /* if(element.order){
             let dataOrder = element.order;
             for (let s = 0; s < dataOrder.length; s++) {
@@ -357,7 +357,8 @@ window.addEventListener('load', async () => {
             body: data
         }   
         fetch('/api/users/shop', options);
-        
+        // eliminar local storage
+        window.location.href = 'http://localhost:8000/';
     })
     
 })

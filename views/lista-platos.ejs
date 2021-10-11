@@ -14,19 +14,19 @@
             <div>
                 <article>
                     <h4>Resultados de la búsqueda</h4>
-                    <h5><%= busqueda %> </h5>
                     <h3>Entradas</h3>
                     <br>
                     <button class="arrow"><i class="fas fa-arrow-left"></i></button>
                     <div class="contenedor">
                     <% products.forEach(product => { %>
-                        
+                        <% if(product.categoria == 'Entradas') { %> 
                         <a class="plato" href="/product/<%= product.idPlato %> ">
                             <img src="<%= product.imagen %>" alt="" width="20%">
                             <h4><%= product.plato %></h4>
                             <h5>$<%= product.precio %></h5>
                             <h5>Nombre restaurante</h5>
                         </a>
+                        <% } %> 
                     <% }); %> </div>
                     <button class="arrow"><i class="fas fa-arrow-right"></i></button>
                 </article>
