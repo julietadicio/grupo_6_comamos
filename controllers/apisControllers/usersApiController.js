@@ -15,9 +15,6 @@ const controller = {
         return res.json (user);
     },
     userShop: async (req, res) => {
-        console.log(req.body);
-        console.log(req.body[0].order);
-        console.log(req.body[1].ordersProducts);
         const orders = req.body[0].order;
         const ordersProducts = req.body[1].ordersProducts;
         for (let a = 0; a < orders.length; a++) {

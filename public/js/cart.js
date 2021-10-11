@@ -329,7 +329,7 @@ window.addEventListener('load', async () => {
             }
             let total = order.products.reduce((sum, t) => {return sum + (t.precio * (t.quantity? t.quantity: 1))}, 0);
             orders.push({
-                idOrder: lastOrderId +1,
+                idOrder: lastOrderId +(1+a),
                 id_user: 1,
                 id_restaurant: cartUser[a].id,
                 estado: 'Pendiente',
@@ -340,7 +340,7 @@ window.addEventListener('load', async () => {
             for (let k = 0; k < order.products.length; k++) {
                 const product = order.products[k];
                 ordersProducts.push({
-                    id_order: lastOrderId + 1,
+                    id_order: lastOrderId + (1+a),
                     id_product: product.idPlato,
                     cantidad: (product.quantity? product.quantity: 1)
                 })
@@ -357,7 +357,7 @@ window.addEventListener('load', async () => {
             body: data
         }   
         fetch('/api/users/shop', options);
-        // eliminar local storage
+        localStorage.removeItem('cartProducts');
         window.location.href = 'http://localhost:8000/';
     })
     

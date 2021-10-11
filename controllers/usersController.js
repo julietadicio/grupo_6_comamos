@@ -171,7 +171,7 @@ const controller = {
     },
     buyProcess: async (req, res) => {
         await (await fetch('http://localhost:8000/api/orders')).json();
-        return res.redirect (303, '/user/account')
+        return res.redirect (303, '/user/account');
     }
 }
 
