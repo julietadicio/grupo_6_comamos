@@ -51,7 +51,7 @@ const controller = {
                 plato: {[Op.like]: '%req.params.plato%'}
             }
         })
-        res.render('lista-platos', {busqueda: busqueda})
+        res.render('lista-platos', {busqueda})
     },
 }
 
