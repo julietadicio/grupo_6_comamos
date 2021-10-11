@@ -9,7 +9,7 @@ const controller = {
     index: async (req, res) => {
         const products = await db.Product.findAll()
         const index = [];
-        while (index.length < 7) {
+        while (index.length < 8) {
             const r = Math.floor(Math.random() * products.length);
             if (index.indexOf(r) === -1) index.push(r);
         }
