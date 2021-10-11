@@ -13,13 +13,13 @@
             <h2>Platos</h2>
             <div>
                 <article>
-                    <h4>Resultados de la búsqueda</h4>
+
                     <h3>Entradas</h3>
                     <br>
-                    <button class="arrow"><i class="fas fa-arrow-left"></i></button>
+            
                     <div class="contenedor">
                     <% products.forEach(product => { %>
-                        <% if(product.categoria == 'Entradas') { %> 
+                        <% if(product.categoria == 'Entrada') { %> 
                         <a class="plato" href="/product/<%= product.idPlato %> ">
                             <img src="<%= product.imagen %>" alt="" width="20%">
                             <h4><%= product.plato %></h4>
@@ -28,25 +28,51 @@
                         </a>
                         <% } %> 
                     <% }); %> </div>
-                    <button class="arrow"><i class="fas fa-arrow-right"></i></button>
+                
                 </article>
                 <article>
                     <h3>Platos principales</h3>
-                    
-                    <button class="arrow"><i class="fas fa-arrow-left"></i></button>
-                    <button class="arrow"><i class="fas fa-arrow-right"></i></button>
+                    <div class="contenedor">
+                        <% products.forEach(product => { %>
+                            <% if(product.categoria == 'Plato Principal') { %> 
+                            <a class="plato" href="/product/<%= product.idPlato %> ">
+                                <img src="<%= product.imagen %>" alt="" width="20%">
+                                <h4><%= product.plato %></h4>
+                                <h5>$<%= product.precio %></h5>
+                                <h5>Nombre restaurante</h5>
+                            </a>
+                            <% } %> 
+                        <% }); %> </div>
                 </article>
                 <article>
                     <h3>Postres</h3>
                     
-                    <button class="arrow"><i class="fas fa-arrow-left"></i></button>
-                    <button class="arrow"><i class="fas fa-arrow-right"></i></button>
+                    <div class="contenedor">
+                        <% products.forEach(product => { %>
+                            <% if(product.categoria == 'Postre') { %> 
+                            <a class="plato" href="/product/<%= product.idPlato %> ">
+                                <img src="<%= product.imagen %>" alt="" width="20%">
+                                <h4><%= product.plato %></h4>
+                                <h5>$<%= product.precio %></h5>
+                                <h5>Nombre restaurante</h5>
+                            </a>
+                            <% } %> 
+                        <% }); %> </div>
                 </article>
                 <article>
                     <h3>Bebidas</h3>
                     
-                    <button class="arrow"><i class="fas fa-arrow-left"></i></button>
-                    <button class="arrow"><i class="fas fa-arrow-right"></i></button>
+                    <div class="contenedor">
+                        <% products.forEach(product => { %>
+                            <% if(product.categoria == 'Bebida') { %> 
+                            <a class="plato" href="/product/<%= product.idPlato %> ">
+                                <img src="<%= product.imagen %>" alt="" width="20%">
+                                <h4><%= product.plato %></h4>
+                                <h5>$<%= product.precio %></h5>
+                                <h5>Nombre restaurante</h5>
+                            </a>
+                            <% } %> 
+                        <% }); %> </div>
                 </article>
 
 
