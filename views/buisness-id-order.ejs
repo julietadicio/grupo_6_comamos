@@ -40,13 +40,13 @@
                         <% }) %> 
                     </h4>
                     <h5 class="color-name">Nº de comensales: <%= orderSelect.comensales %></h5>
-                    <h5 class="color-name">Fecha y hora de la reserva: <%= orderSelect.fecha_reserva %></h5>
+                    <h5 class="color-name">Fecha y hora de la reserva: <%= moment(orderSelect.fecha_reserva).format('DD/MM/YY, HH:mm') %></h5>
                     <h5 class="products">Total: $<%= orderSelect.total %></h5>
                 </div>
             </article>
             <form action="/buisness/account">
                 <fieldset class="logout-button">
-                    <button type="menu" class="none-decoration">Volver</button>
+                    <button action="action" type="submit" onclick="window.history.go(-1); return false;" class="none-decoration">Volver</button>
                 </fieldset>
             </form>
         </main>
