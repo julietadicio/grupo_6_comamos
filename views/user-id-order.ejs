@@ -32,7 +32,6 @@
                     </a>
                     <h4 class="color-name"><%= orderSelect.restaurant.direccion %></h4>
                 </div>
-                <!--The div element for the map -->
                 <div id="map"></div>
                 <script>
                     async function initMap () {
@@ -49,23 +48,10 @@
                     });
                     }
                 </script>
-                <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
                 <script
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFOo6YZ_RiBv1vbXSOxAWR6UmMIMozn6M&callback=initMap&libraries=&v=weekly"
                 async
                 ></script>
-                <!-- <div id="map"></div>
-                <script>
-                    async () => {
-                        const resp = await fetch('/api');
-                        const data = await resp.json();
-                    }
-                </script> -->
-                <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-                <!-- <script
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFOo6YZ_RiBv1vbXSOxAWR6UmMIMozn6M&callback=initMap&libraries=&v=weekly"
-                async
-                ></script> -->
                 <div class="order-form">
                     <h4 class="color-name">Platos Comprados: <br>
                         <% orderSelect.products.forEach(product => { %>
