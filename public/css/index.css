@@ -878,6 +878,9 @@ footer ul, footer div {
     body main {
     min-height: calc(100vh - 80px - 110px - 72px);
     }
+    .contenedor-1 .box img {
+        width: 80%;
+    }
     .product-title {
         font-size: 24px;
     }

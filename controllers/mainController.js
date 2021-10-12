@@ -39,17 +39,17 @@ const controller = {
     },
     listaRestaurantes: async (req, res) => {
         const restaurantes = await db.Restaurant.findAll()
-        return res.render('lista-restaurantes', {restaurantes})
+        return res.render('lista-restaurantes', {restaurantes, user:req.session.userLogged})
     },
     listaPlatos: async (req, res) => {
         const products = await db.Product.findAll()
-        return res.render('lista-platos', {products})
+        return res.render('lista-platos', {products, user:req.session.userLogged})
     },
     productsRestaurant: async (req, res) => {
         const products = await db.Product.findAll({
             where: {id_restaurant: req.params.idRestaurant}
         })
-        return res.render('lista-platos', {products})
+        return res.render('lista-platos', {products, user:req.session.userLogged})
     },
     searchBar: async (req, res) => {
         const products = await db.Product.findAll({
