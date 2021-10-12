@@ -45,6 +45,12 @@ const controller = {
         const products = await db.Product.findAll()
         return res.render('lista-platos', {products})
     },
+    productsRestaurant: async (req, res) => {
+        const products = await db.Product.findAll({
+            where: {id_restaurant: req.params.idRestaurant}
+        })
+        return res.render('lista-platos', {products})
+    },
     searchBar: async (req, res) => {
         const products = await db.Product.findAll({
             where: {

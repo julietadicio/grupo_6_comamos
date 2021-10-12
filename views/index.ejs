@@ -16,7 +16,7 @@
             <div class="parallax">
                 <h1 class="frase-main">Elegí tu plato en tu restaurante favorito, sentate y listo</h1>
                 <div class="search">
-                    <form action="/product/:plato" method="GET" id="search-bar">
+                    <form action="/product/search/:plato" method="GET" id="search-bar">
 
                         <label for="busqueda1"></label>
                         <input type="text" name="busqueda1" id="busqueda1" placeholder="Restaurante, tipo de comida...">
@@ -42,13 +42,6 @@
                         <a href="/product/<%= product.idPlato %>" class="fas fa-eye"></a>
                         <img src="<%= product.imagen %>" alt="">
                         <h3><%= product.plato %> </h3>
-                        <!-- <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div> -->
                         <span>$<%= product.precio %></span>
                         <a href="#" class="btn">Reservar</a>
                     </div>
@@ -63,7 +56,7 @@
                         <div class="swiper mySwiper">
                             <div class="swiper-wrapper">
                                 <% randomProducts.forEach(product => { %>
-                                    <img src="<%= product.imagen %>" alt="para compartir con" class="swiper-slide" class="claseImage">
+                                    <img src="<%= product.imagen %>" alt="para compartir con" class="swiper-slide" class="claseImage" onclick="window.location.href = '/product/<%= product.idPlato %>'">
                                 <% }); %>
                             </div>
                             <div class="swiper-button-next"></div>
@@ -75,7 +68,7 @@
                         <div class="swiper mySwiper">
                             <div class="swiper-wrapper">
                                 <% randomRestaurants.forEach(restaurant => { %>                        
-                                    <img src="<%= restaurant.avatar %>" alt="para compartir con" class="swiper-slide" class="claseImage">
+                                    <img src="<%= restaurant.avatar %>" alt="para compartir con" class="swiper-slide" class="claseImage" onclick="window.location.href = '/lista-platos/<%= restaurant.idRestaurant %>'">
                                 <% }); %>
                             </div>
                             <div class="swiper-button-next"></div>

@@ -394,8 +394,8 @@ main form {
 }
 .swiper-slide {
     border-radius: .5rem;
-    max-height: 55vh !important;
-    min-height: 55vh !important;
+    max-height: 30vh !important;
+    min-height: 30vh !important;
 }
 
 .index-recomendations {
@@ -837,7 +837,7 @@ footer ul, footer div {
         height: 250px;
     }
     .swiper {
-        width: 90%;
+        width: 55%;
     }
     .contenedor-1 {
         grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
