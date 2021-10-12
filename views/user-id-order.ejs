@@ -74,7 +74,7 @@
                         <% }) %> 
                     </h4>
                     <h5 class="color-name">Nº de comensales: <%= orderSelect.comensales %></h5>
-                    <h5 class="color-name">Fecha y hora de la reserva: <%= orderSelect.fecha_reserva %></h5>
+                    <h5 class="color-name">Fecha y hora de la reserva: <%= moment(orderSelect.fecha_reserva).format('Do MMMM YYYY, h:mm:ss a') %></h5>
                     <h5 class="products">Total: $<%= orderSelect.total %></h5>
                 </div>
                 <form action="" method="POST" class="coment-button box-order3">
@@ -88,7 +88,6 @@
             </form>
         </main>
     <%- include partials/footer %>
-    <!-- <script src="/js/formatDate.js"></script> -->     
 </body>
 
 </html>

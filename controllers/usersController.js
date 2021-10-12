@@ -1,12 +1,6 @@
-const express = require('express');
-const path = require('path');
-const router = express.Router ();
-const fs = require('fs');
-const { fileLoader } = require('ejs');
-const { FILE } = require('dns');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
-const e = require('express');
+const moment = require('moment');
 
 const db = require ('../database/models');
 const { Op } = require("sequelize");
@@ -147,7 +141,7 @@ const controller = {
             req.params.idOrder, 
             {include: [{association: 'restaurant'}, {association: 'platos'}, {association: 'products'}]}
             )
-        return res.render ('user-id-order', {user: req.session.userLogged, orderSelect})
+        return res.render ('user-id-order', {user: req.session.userLogged, orderSelect, moment})
     },
     userMyOrderCancel: async (req, res) => {
         await db.Order.update({
