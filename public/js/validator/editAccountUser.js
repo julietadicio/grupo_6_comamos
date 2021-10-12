@@ -32,7 +32,7 @@ window.addEventListener('load', function () {
             errores.push('El email debe ser válido')
         }
 
-
+        
         // Contraseña
 
         let campoContraseña = document.getElementById('password')
@@ -52,6 +52,7 @@ window.addEventListener('load', function () {
 
         }
 
+        formulario.submit();
         //ERRORES
         if (errores.length > 0) {
             e.preventDefault();

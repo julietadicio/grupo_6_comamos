@@ -37,7 +37,7 @@ window.addEventListener('load', function () {
             errores.push('El avatar debe ser un archivo JPG, JPEG, PNG o GIF')        
 
         }
-        
+        formulario.submit();
         //  ERRORES
         if (errores.length > 0) {
             e.preventDefault();

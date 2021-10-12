@@ -2,7 +2,7 @@ bcrypt = require ('bcryptjs');
 const fs = require('fs');
 
 
-passwordUser1 = 'hola123'
+passwordUser1 = 'lapizzada'
 passwordBuisness1 = 'hola2'
 passwordBuisness2 = 'hola3'
 
