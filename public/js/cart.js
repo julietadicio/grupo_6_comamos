@@ -332,7 +332,7 @@ window.addEventListener('load', async () => {
             let total = order.products.reduce((sum, t) => {return sum + (t.precio * (t.quantity? t.quantity: 1))}, 0);
             orders.push({
                 idOrder: lastOrderId +(1+a),
-                id_user: userLogged.idUser,
+                id_user: userLogged[0].idUser,
                 id_restaurant: cartUser[a].id,
                 estado: 'Pendiente',
                 comensales: cartUser[a].order[comensalesOrderIndex].comensales,
