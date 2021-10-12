@@ -304,9 +304,11 @@ window.addEventListener('load', async () => {
     
     shopCartButton.addEventListener('click', async (e)=> {
         e.preventDefault();
-        /* const users = await (await fetch('http://localhost:8000/api/users')).json(); */
         const ordersApi = await (await fetch('http://localhost:8000/api/orders')).json();
         const lastOrderId = ordersApi.length;
+        const usersApi = await (await fetch('http://localhost:8000/api/users')).json();
+        let emailCookie = getCookie('userEmail');
+        let userLogged = usersApi.filter(u => u.email == emailCookie);
 
         const orders = [];
         const ordersProducts = [];
@@ -330,7 +332,7 @@ window.addEventListener('load', async () => {
             let total = order.products.reduce((sum, t) => {return sum + (t.precio * (t.quantity? t.quantity: 1))}, 0);
             orders.push({
                 idOrder: lastOrderId +(1+a),
-                id_user: 1,
+                id_user: userLogged.idUser,
                 id_restaurant: cartUser[a].id,
                 estado: 'Pendiente',
                 comensales: cartUser[a].order[comensalesOrderIndex].comensales,
@@ -360,5 +362,19 @@ window.addEventListener('load', async () => {
         localStorage.removeItem('cartProducts');
         window.location.href = 'http://localhost:8000/';
     })
-    
+    function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
 })
