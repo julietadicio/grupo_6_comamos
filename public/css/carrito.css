@@ -26,6 +26,7 @@ nav {
 }
 header {
     box-shadow: 0 0 15px 0 gray;
+
 }
 nav ul {
     float: right;
@@ -257,36 +258,38 @@ form {
     width: 100%;
 }
 body main {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 2% auto;
+width: 100%;
+display: flex;
+justify-content: center;
+margin: 2% auto;
 }
+
 .box-main h1 {
-    font-size: 20px;
-    color: black;
-    text-transform: uppercase;
-    text-decoration: none;
-    letter-spacing: 2px;
-    position: relative;
-  }
+font-size: 20px;
+color: black;
+text-transform: uppercase;
+text-decoration: none;
+letter-spacing: 2px;
+position: relative;
+}
 
   .box-main h1:after {    
     background: none repeat scroll 0 0 transparent;
-    bottom: 0;
-    content: "";
-    display: block;
-    height: 2px;
-    left: 50%;
-    position: absolute;
-    background: #ffffff;
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    width: 0;
-  }
-  .box-main h1:hover:after { 
-    width: 100%; 
-    left: 0; 
-  }
+bottom: 0;
+content: "";
+display: block;
+height: 2px;
+left: 50%;
+position: absolute;
+background: #ffffff;
+transition: width 0.3s ease 0s, left 0.3s ease 0s;
+width: 0;
+}
+
+.box-main h1:hover:after { 
+width: 100%; 
+left: 0; 
+}
 
 
 h2 {
