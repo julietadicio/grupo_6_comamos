@@ -1,5 +1,5 @@
 window.addEventListener('load', async () => {
-    let carts = document.querySelectorAll('.btn');
+    let cartItem = document.querySelector('.btn');
 
     let products = await (await fetch ('http://localhost:8000/api/products')).json();
     let restaurants = await (await fetch ('http://localhost:8000/api/buisness')).json();
@@ -8,10 +8,13 @@ window.addEventListener('load', async () => {
         cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
     }
     
-    for (let i= 0; i< carts.length; i++) {
-        carts[i].addEventListener('click', () => {
-            let idProduct = carts[i].id;
+    
+        cartItem.addEventListener('click', () => {
+            let idProduct = cartItem.id;
+            console.log(idProduct);
+            
             let productSelect = products.find(p => p.idPlato == idProduct);
+            console.log(productSelect);
             
             let buisnessKey = restaurants.find(b => b.idRestaurant == productSelect.id_restaurant).idRestaurant;
             let cartByBuisness = {};
@@ -30,6 +33,6 @@ window.addEventListener('load', async () => {
             localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
             window.location.href = 'http://localhost:8000/user/carrito';
         })     
-    }
+    
 })
     

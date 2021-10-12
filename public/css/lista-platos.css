@@ -1,3 +1,8 @@
+:root {
+    --red: #ED1B24;
+    --light-color: #656565;
+    --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1)
+}
 * {
     box-sizing: border-box;
     font-family: 'Nunito Sans', sans-serif;
@@ -252,6 +257,52 @@ article {
     font-size: 20px;
     margin: 2px;
     cursor: pointer;
+}
+main {
+    margin: 3% 0;
+}
+.swiper {
+    width: 90vw !important;
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    margin: auto;
+    background-color: white;
+    margin-top: 10px;
+    padding: 10px 5% !important;
+}
+.swiper .swiper-wrapper .swiper-slide{
+    padding: 1%;
+}
+.swiper .swiper-wrapper .swiper-slide:hover {
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+    border-radius: 5px;
+}
+.swiper .swiper-wrapper img {
+    border-radius: .5rem;
+    border-radius: .5rem;
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 140px;
+    max-height: 140px;
+}
+.swiper .swiper-wrapper img:hover {
+    cursor: pointer;
+}
+.swiper-button-next, .swiper-button-prev {
+    color: var(--light-color) !important;
+}
+.category-title {
+    font-family: 'Pacifico', cursive;
+    color: var(--red);
+    font-size: 1.5rem;
+}
+.product-name {
+    text-shadow: 1px 1px 1px #b6b6b6;
+    color: black;
+    font-size: 0.9rem;
+}
+.product-price {
+    color: #656565;
 }
 
 /*CSS MAIN*/

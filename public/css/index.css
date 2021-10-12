@@ -513,6 +513,9 @@ main form {
 .logout-button:hover .none-decoration {
     background-color: #ED1B24;
 }
+.buttons-orders {
+    text-align: center;
+}
 
 /* Detalle de productos */
 

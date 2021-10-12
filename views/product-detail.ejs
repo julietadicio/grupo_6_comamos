@@ -72,14 +72,13 @@
                     <h4 class="product-price">Precio: $<%= productSelect.precio %></h4>
                 </div>
                 <div class="buttons-orders">
-                    <form action="/user/account-buisness/products/edit/<%= productSelect.idPlato %>" method="GET" class="logout-button">
-                        <button type="submit" class="none-decoration add-cart">Reservar</button>
-                    </form>
+                    <a href="#" id="<%= productSelect.idPlato %> " class="btn">Reservar</a>
                 </div>    
             </div>
         </article>
     </main>
-    <%- include partials/footer %>     
+    <%- include partials/footer %>
+    <script src="/js/shop-singleProduct.js"></script>
 </body>
 
 </html>

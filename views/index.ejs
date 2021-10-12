@@ -43,7 +43,7 @@
                         <img src="<%= product.imagen %>" alt="">
                         <h3><%= product.plato %> </h3>
                         <span>$<%= product.precio %></span>
-                        <a href="#" class="btn">Reservar</a>
+                        <a href="#" id="<%= product.idPlato %> " class="btn">Reservar</a>
                     </div>
                 <% }); %> 
             </div>
@@ -68,7 +68,7 @@
                         <div class="swiper mySwiper">
                             <div class="swiper-wrapper">
                                 <% randomRestaurants.forEach(restaurant => { %>                        
-                                    <img src="<%= restaurant.avatar %>" alt="para compartir con" class="swiper-slide" class="claseImage" onclick="window.location.href = '/lista-platos/<%= restaurant.idRestaurant %>'">
+                                    <img src="<%= restaurant.avatar %>" alt="para compartir con" class="swiper-slide claseImage" onclick="window.location.href = '/lista-platos/<%= restaurant.idRestaurant %>'">
                                 <% }); %>
                             </div>
                             <div class="swiper-button-next"></div>
