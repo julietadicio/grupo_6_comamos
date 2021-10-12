@@ -264,29 +264,27 @@ justify-content: center;
 margin: 2% auto;
 }
 
-.box-main h1 {
+#box-restaurant h1 {
 font-size: 20px;
-color: black;
-text-transform: uppercase;
 text-decoration: none;
 letter-spacing: 2px;
 position: relative;
 }
 
-  .box-main h1:after {    
-    background: none repeat scroll 0 0 transparent;
+#box-restaurant h1:after {    
+background: none repeat scroll 0 0 transparent;
 bottom: 0;
 content: "";
 display: block;
 height: 2px;
 left: 50%;
 position: absolute;
-background: #ffffff;
+background: #ed1b26;
 transition: width 0.3s ease 0s, left 0.3s ease 0s;
 width: 0;
 }
 
-.box-main h1:hover:after { 
+#box-restaurant:hover h1:after { 
 width: 100%; 
 left: 0; 
 }
