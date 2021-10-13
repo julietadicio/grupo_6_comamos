@@ -447,6 +447,7 @@ window.addEventListener('load', async () => {
         }   
         fetch('/api/users/shop', options);
         localStorage.removeItem(`cartProducts_${userLogged.idUser}`);
+        window.location.reload();
         window.location.href = 'http://localhost:8000/user/account/my-order';
     })
     function getCookie(cname) {

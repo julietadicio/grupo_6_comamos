@@ -65,8 +65,8 @@
                         <% }; %> 
                         <h5 class="products">Total: $<%= orderSelect.total %></h5>
                     </div>
-                    <form action="" method="POST" class="coment-button box-order3">
-                        <button type="submit" class="logout-button none-decoration">Cancelar Reserva</button>
+                    <form action="/user/account/my-order/<%= orderSelect.idOrder %>/cancel?_method=PUT" method="POST" class="coment-button box-order3">
+                        <input type="submit" name="estado" class="none-decoration logout-button" value="Cancelar Reserva"></input>
                     </form>
                 </div>
             </article>
