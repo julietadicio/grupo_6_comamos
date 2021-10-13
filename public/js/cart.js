@@ -437,8 +437,6 @@ window.addEventListener('load', async () => {
             }
         }
 
-        console.log(orders);
-        console.log(ordersProducts);
         const data = JSON.stringify([{order: orders}, {ordersProducts: ordersProducts}]);
         const options = {
             method: 'POST',
