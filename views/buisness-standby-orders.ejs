@@ -35,16 +35,29 @@
                     <h5 class="color-name">Nº de comensales: <%= order.comensales %></h5>
                 </div>
                 <div class="buttons-orders">
-                <label for="idOrder"></label>
-                <input type="text" name="idOrder" id="idOrder" class="hidden" value="<%= order.idOrder %>"></input>
+                    <label for="idOrder"></label>
+                    <input type="text" name="idOrder" id="idOrder" class="hidden" value="<%= order.idOrder %>"></input>
+                    <% if (order.estado == 'Confirmada') { %>
+                        <h4 class="confirmed"><%= order.estado %> </h4>
+                        <input type="submit" name="estado" class="none-decoration logout-button" value="Cancelar Reserva"></input>
+                    <% } else if (order.estado == 'Pendiente') { %>
+                        <input type="submit" name="estado" class="none-decoration logout-button heartbeat1" value="Confirmar Reserva"></input>
+                        <input type="submit" name="estado" class="none-decoration logout-button heartbeat2" value="Cancelar Reserva"></input>
+                    <% } %> 
+                </div>
                 <% if (order.estado == 'Confirmada') { %>
-                    <h4 class="confirmed"><%= order.estado %> </h4>
-                    <input type="submit" name="estado" class="none-decoration logout-button" value="Cancelar Reserva"></input>
-                <% } else if (order.estado == 'Pendiente') { %>
-                    <input type="submit" name="estado" class="none-decoration logout-button heartbeat1" value="Confirmar Reserva"></input>
-                    <input type="submit" name="estado" class="none-decoration logout-button heartbeat2" value="Cancelar Reserva"></input>
-                <% } %> 
-                </div>    
+                    <div class="tables-asign">
+                        <form action="" method="post">
+                            <label for="tables" class="tables-label">Mesa asignada:</label>
+                            <select name="tables" id="tables">
+                                <option value="-">-</option>
+                                <% tablesRestaurant.forEach( table => { %>
+                                    <option value="<%= table.idTable %> "><%= table.name %> (<%= table.capacity > 1? table.capacity + ' personas': table.capacity + ' persona'; %>)</option>
+                                <% }); %>
+                            </select>
+                        </form>
+                    </div>
+                <% }; %>     
             </form>
         <%  }); %> 
         <% } else { %>
@@ -59,7 +72,8 @@
                 </fieldset>
             </form> 
     </main>
-    <%- include partials/footer %>     
+    <%- include partials/footer %>
+    <script src="/js/tablesAsign.js"></script> 
 </body>
 
 </html>

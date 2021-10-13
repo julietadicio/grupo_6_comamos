@@ -139,7 +139,10 @@ const controller = {
             },
             include: [{association: 'users'}, {association: 'platos'}, {association: 'products'}]
         })
-        return res.render ('buisness-standby-orders', {user: req.session.userLogged, restaurantOrders});
+        const tablesRestaurant = await db.Table.findAll({
+            where: {id_restaurant: req.session.userLogged.idRestaurant}
+        })
+        return res.render ('buisness-standby-orders', {user: req.session.userLogged, restaurantOrders, tablesRestaurant});
     },
     buisnessOrderSelect: async (req,res) =>{
         const orderSelect = await db.Order.findByPk(

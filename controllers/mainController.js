@@ -9,11 +9,11 @@ const controller = {
     index: async (req, res) => {
         const products = await db.Product.findAll()
         const index = [];
-        while (index.length < 8) {
-            const r = Math.floor(Math.random() * products.length);
-            if (index.indexOf(r) === -1) index.push(r);
-        }
-        const randomProducts = index.map (e => products[e]);
+            while (index.length < 8) {
+                const r = Math.floor(Math.random() * products.length);
+                if (index.indexOf(r) === -1) index.push(r);
+            }
+            const randomProducts = index.map (e => products[e]);
 
         const restaurants = await db.Restaurant.findAll();
         const arrayRestaurants = [];
@@ -57,7 +57,6 @@ const controller = {
                 plato: {[Op.like]: `%${req.params.plato}%`}
             }
         })
-        console.log(products);
         res.render('lista-platos', {products, user:req.session.userLogged})
     },
 }

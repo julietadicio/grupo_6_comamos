@@ -12,60 +12,60 @@
 <body>
     <%- include partials/header %> 
         <main class="main-order">
-            <article class="reserve-form flex-wrap">
-                <div class="box-order1">
-                    <img src="<%= orderSelect.restaurant.avatar %>" alt="imagen restaurante" class="image-result">
-                </div>    
-                <div class="left-separation box-order2">
-                    <a href="">
-                        <h4 class="order-title">
-                            <%= orderSelect.restaurant.nombre %>
+            <article class="reserve-form2 flex-wrap">
+                <div class="container-1">
+                    <div class="box-order1">
+                        <img src="<%= orderSelect.restaurant.avatar %>" alt="imagen restaurante" class="image-result">
+                    </div>    
+                    <div class="left-separation box-order2">
+                        <a href="">
+                            <h4 class="order-title">
+                                <%= orderSelect.restaurant.nombre %>
+                            </h4>
+                        </a>
+                        <h4 class="color-name"><%= orderSelect.restaurant.direccion %></h4>
+                    </div>
+                    <div id="map"></div>
+                    <script>
+                        async function initMap () {
+                        const resp = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=<%= orderSelect.restaurant.direccion %>&key=AIzaSyAFOo6YZ_RiBv1vbXSOxAWR6UmMIMozn6M`)
+                        const data = await resp.json();
+                        const address = { lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng };
+                        const map = new google.maps.Map(document.getElementById("map"), {
+                            zoom: 16,
+                            center: address,
+                        });
+                        const marker = new google.maps.Marker({
+                            position: address,
+                            map: map,
+                        });
+                        }
+                    </script>
+                    <script
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFOo6YZ_RiBv1vbXSOxAWR6UmMIMozn6M&callback=initMap&libraries=&v=weekly"
+                    async
+                    ></script>
+                </div>
+                <div class="container-2">
+                    <div class="order-form">
+                        <h4 class="color-name">Platos Comprados:
+                            <div id="product-detail-container">
+                                <% orderSelect.products.forEach(product => { %>
+                                    <dv id="product-quantity">
+                                        <a href="/product/<%= product.idPlato %> "><h4 class="products"><%= product.plato %></h4></a>
+                                        <h4 class="products">(x<%= orderSelect.platos[orderSelect.platos.findIndex(i => i.id_product == product.idPlato)].cantidad %>)</h4>
+                                    </dv>
+                                <% }) %> 
+                            </div>
                         </h4>
-                    </a>
-                    <a href="" class="valoration">
-                        <h4 class="color-name">Valoración:</h4>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </a>
-                    <h4 class="color-name"><%= orderSelect.restaurant.direccion %></h4>
+                        <h5 class="color-name">Nº de comensales: <%= orderSelect.comensales %></h5>
+                        <h5 class="color-name">Fecha y hora de la reserva: <%= moment(orderSelect.fecha_reserva).format('DD/MM/YY, HH:mm') %></h5>
+                        <h5 class="products">Total: $<%= orderSelect.total %></h5>
+                    </div>
+                    <form action="" method="POST" class="coment-button box-order3">
+                        <button type="submit" class="logout-button none-decoration">Cancelar Reserva</button>
+                    </form>
                 </div>
-                <div id="map"></div>
-                <script>
-                    async function initMap () {
-                    const resp = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=<%= orderSelect.restaurant.direccion %>&key=AIzaSyAFOo6YZ_RiBv1vbXSOxAWR6UmMIMozn6M`)
-                    const data = await resp.json();
-                    const address = { lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng };
-                    const map = new google.maps.Map(document.getElementById("map"), {
-                        zoom: 16,
-                        center: address,
-                    });
-                    const marker = new google.maps.Marker({
-                        position: address,
-                        map: map,
-                    });
-                    }
-                </script>
-                <script
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFOo6YZ_RiBv1vbXSOxAWR6UmMIMozn6M&callback=initMap&libraries=&v=weekly"
-                async
-                ></script>
-                <div class="order-form">
-                    <h4 class="color-name">Platos Comprados: <br>
-                        <% orderSelect.products.forEach(product => { %>
-                            <a href="/product/<%= product.idPlato %> "><h4 class="products"><%= product.plato %></h4></a>
-                            <h4 class="products">(x<%= orderSelect.platos[orderSelect.platos.findIndex(i => i.idOrder == orderSelect.platos.idOrder)].cantidad %>)</h4>
-                        <% }) %> 
-                    </h4>
-                    <h5 class="color-name">Nº de comensales: <%= orderSelect.comensales %></h5>
-                    <h5 class="color-name">Fecha y hora de la reserva: <%= moment(orderSelect.fecha_reserva).format('DD/MM/YY, HH:mm') %></h5>
-                    <h5 class="products">Total: $<%= orderSelect.total %></h5>
-                </div>
-                <form action="" method="POST" class="coment-button box-order3">
-                    <button type="submit">Cancelar Reserva</button>
-                </form>
             </article>
             <form action="/user/account">
                 <fieldset class="logout-button">
