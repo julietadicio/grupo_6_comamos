@@ -14,6 +14,6 @@ router.get('/lista-platos/:idRestaurant', mainController.productsRestaurant)
 router.get('/product/search/:plato', mainController.searchBar)
 
 // Search Bar Location
-router.get('/restaurant/search/:restaurant', mainController.searchLocation)
+router.get('/product/search/:restaurant', mainController.searchLocation)
 
 module.exports = router;
