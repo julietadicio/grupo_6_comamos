@@ -21,6 +21,15 @@ const controller = {
             where: {idRestaurant: req.params.idRestaurant}
         });
         return res.json (buisness);
+    },
+    assignTable: async (req, res) => {
+        let selectTable = req.body.idMesa;
+        let orderSelect = req.body.idOrder;
+        const order = await db.Order.update({
+            id_table: selectTable}
+            , {where: {idOrder: orderSelect}
+        });
+        return res.json(order)
     }
 }
 

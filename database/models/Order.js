@@ -23,6 +23,9 @@ module.exports = function (sequelize, DataTypes) {
     fecha_reserva: {
         type: DataTypes.DATE
     },
+    id_table: {
+        type: DataTypes.INTEGER
+    },
     total: {
         type: DataTypes.INTEGER
     }

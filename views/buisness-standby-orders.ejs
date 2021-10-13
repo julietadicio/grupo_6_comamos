@@ -46,16 +46,14 @@
                     <% } %> 
                 </div>
                 <% if (order.estado == 'Confirmada') { %>
-                    <div class="tables-asign">
-                        <form action="" method="post">
-                            <label for="tables" class="tables-label">Mesa asignada:</label>
-                            <select name="tables" id="tables">
-                                <option value="-">-</option>
-                                <% tablesRestaurant.forEach( table => { %>
-                                    <option value="<%= table.idTable %> "><%= table.name %> (<%= table.capacity > 1? table.capacity + ' personas': table.capacity + ' persona'; %>)</option>
-                                <% }); %>
-                            </select>
-                        </form>
+                    <div class="tables-asign" id="<%= order.idOrder %>">
+                        <label for="tables" class="tables-label">Mesa asignada:</label>
+                        <select name="tables" id="tables">
+                            <option value="-">-</option>
+                            <% tablesRestaurant.forEach( table => { %>
+                                <option value="<%= table.idTable %>" id="<%= table.idTable %>"><%= table.name %> (<%= table.capacity > 1? table.capacity + ' personas': table.capacity + ' persona'; %>)</option>
+                            <% }); %>
+                        </select>
                     </div>
                 <% }; %>     
             </form>

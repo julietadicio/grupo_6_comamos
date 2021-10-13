@@ -5,5 +5,7 @@ const buisnessController = require('../../controllers/apisControllers/buisnessAp
 
 router.get('/buisness',  buisnessController.buisnessList);
 router.get('/buisness/:idRestaurant',  buisnessController.selectBuisness);
+// Asignar una mesa a un pedido
+router.post('/buisness/assignTable', buisnessController.assignTable);
 
 module.exports = router;
