@@ -4,7 +4,7 @@ window.addEventListener('load', async () => {
     let emailCookie = getCookie('userEmail');
     const userLogged = usersApi.find(u => u.email == emailCookie);
     
-    if(!localStorage.getItem(`cartProducts_${userLogged.idUser}`)){
+    if(!localStorage.getItem(`cartProducts_${userLogged.idUser}` || (`cartProducts_${userLogged.idUser}` == []))){
         let emptyProductsMessage = document.createElement("h1");
         emptyProductsMessage.innerText = 'Aún no tienes productos en el carrito';
         emptyProductsMessage.style.color = 'black';

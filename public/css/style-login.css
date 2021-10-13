@@ -15,9 +15,6 @@ body {
     flex-direction: column;
     min-height: 100%;
 }
-body main {
-    min-height: calc(100vh - 80px - 45px - 16px);
-}
 
 /* Nav bar para version mobile */
 
@@ -105,8 +102,8 @@ nav ul li {
     /* display: flex; */
     justify-content: center;
     align-items: center;
-    margin: 2% auto;
-    }
+    margin: auto;
+}
 
     .center {
         text-align: center;
@@ -398,9 +395,6 @@ main form div a i {
     body {
         font-size: 20px;
     }
-    body main {
-    min-height: calc(100vh - 80px - 75px - 38px);
-    }
     .box-mobile {
         display: inline-flex;
         width: 60%;
@@ -490,9 +484,6 @@ main form div a i {
     body {
         font-size: 24px;
     }
-    body main {
-    min-height: calc(100vh - 80px - 100px - 51px);
-    }
     .format-menu {
         font-size: 18px;
         line-height: 20px;
@@ -548,9 +539,6 @@ main form div a i {
     }
 }
 @media (min-width: 1440px) {
-    body main {
-    min-height: calc(100vh - 80px - 110px - 100px);
-    }
     .format-form {
         width: 400px;
         height: 400px;

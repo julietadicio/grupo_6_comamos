@@ -49,7 +49,10 @@ const controller = {
         const products = await db.Product.findAll({
             where: {id_restaurant: req.params.idRestaurant}
         })
-        return res.render('lista-platos', {products, user:req.session.userLogged})
+        const buisness = await db.Restaurant.findOne({
+            where: {idRestaurant: req.params.idRestaurant}
+        })
+        return res.render('restaurant-detail', {products, user:req.session.userLogged, buisness})
     },
     searchBar: async (req, res) => {
         const products = await db.Product.findAll({

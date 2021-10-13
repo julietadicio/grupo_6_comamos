@@ -36,8 +36,6 @@
                         </ul>
                     </div>
                     <form action="" method="POST" class="coment-button box-order3">
-                        <input type="button" value="Calificar Usuario" class="user-raiting">
-        
                         <% if (order.estado == 'Completada') { %>
                             <h4 class="confirmed"><%= order.estado %> </h4>
                             <% } else if (order.estado == 'Cancelada') { %>

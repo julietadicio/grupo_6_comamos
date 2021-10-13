@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include partials/head %>
+        <link rel="stylesheet" href="/css/lista-platos.css">
+        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+        <script src="/js/googleMap.js"></script>
+        <title>Platos</title>
+</head>
+
+<body>
+    <% include partials/header %>
+        <main>
+            <div class="reserve-form-wide">
+                <div class="box-order1">
+                    <img src="<%= buisness.avatar %>" alt="imagen plato" class="image-restaurant">
+                    <h2 class="product-title"><%= buisness.nombre %></h2>
+                </div>
+                <div class="map-style">
+                    <!--The div element for the map -->
+                    <div id="map"></div>
+                    <script>
+                        async function initMap () {
+                        const resp = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=<%= buisness.direccion %>&key=AIzaSyAFOo6YZ_RiBv1vbXSOxAWR6UmMIMozn6M`)
+                        const data = await resp.json();
+                        const address = { lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng };
+                        const map = new google.maps.Map(document.getElementById("map"), {
+                            zoom: 16,
+                            center: address,
+                        });
+                        const marker = new google.maps.Marker({
+                            position: address,
+                            map: map,
+                        });
+                        }
+                    </script>
+                    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+                    <script
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFOo6YZ_RiBv1vbXSOxAWR6UmMIMozn6M&callback=initMap&libraries=&v=weekly"
+                    async
+                    ></script>
+                    <h2 class="product-title"><%= buisness.direccion %></h2>
+                </div>
+            </div>
+            <h2>Platos</h2>
+            <div>
+                <div class="swiper platos">
+                    <h3 class="category-title">Entradas</h3>
+                    <div class="swiper-wrapper">
+                        <% products.forEach(product => { %>
+                            <% if(product.categoria == 'Entrada') { %>
+                                <div class="swiper-slide">
+                                    <img src="<%= product.imagen %>" alt="" onclick="window.location.href = '/product/<%= product.idPlato %>'">
+                                    <h4 class="product-name"><%= product.plato %></h4>
+                                    <h5 class="product-price">$<%= product.precio %></h5>
+                                </div>
+                            <% } %> 
+                        <% }); %>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+                <div class="swiper platos">
+                    <h3 class="category-title">Platos Principales</h3>
+                    <div class="swiper-wrapper">
+                        <% products.forEach(product => { %>
+                            <% if(product.categoria == 'Plato Principal') { %>
+                                <div class="swiper-slide">
+                                    <img src="<%= product.imagen %>" alt="" onclick="window.location.href = '/product/<%= product.idPlato %>'">
+                                    <h4 class="product-name"><%= product.plato %></h4>
+                                    <h5 class="product-price">$<%= product.precio %></h5>
+                                </div>
+                            <% } %> 
+                        <% }); %>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+                <div class="swiper platos">
+                    <h3 class="category-title">Postres</h3>
+                    <div class="swiper-wrapper">
+                        <% products.forEach(product => { %>
+                            <% if(product.categoria == 'Postre') { %>
+                                <div class="swiper-slide">
+                                    <img src="<%= product.imagen %>" alt="" onclick="window.location.href = '/product/<%= product.idPlato %>'">
+                                    <h4 class="product-name"><%= product.plato %></h4>
+                                    <h5 class="product-price">$<%= product.precio %></h5>
+                                </div>
+                            <% } %> 
+                        <% }); %>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+                <div class="swiper platos">
+                    <h3 class="category-title">Bebidas</h3>
+                    <div class="swiper-wrapper">
+                        <% products.forEach(product => { %>
+                            <% if(product.categoria == 'Bebida') { %>
+                                <div class="swiper-slide">
+                                    <img src="<%= product.imagen %>" alt="" onclick="window.location.href = '/product/<%= product.idPlato %>'">
+                                    <h4 class="product-name"><%= product.plato %></h4>
+                                    <h5 class="product-price">$<%= product.precio %></h5>
+                                </div>
+                            <% } %> 
+                        <% }); %>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </main>
+        <% include partials/footer %>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="/js/swiperRestaurantProducts.js"></script>
+</body>
+
+</html>

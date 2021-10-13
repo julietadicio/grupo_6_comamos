@@ -813,6 +813,11 @@ footer ul, footer div {
     width: 30%;
     text-align: center;
     }
+    .box-order-product {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .box-order2 {
     width: 30%;
     text-align: left;
