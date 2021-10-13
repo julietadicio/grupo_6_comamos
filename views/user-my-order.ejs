@@ -27,7 +27,7 @@
                                         <a href="/product/<%= product.idPlato %> " class="products">
                                             <%= product.plato %>
                                         </a>
-                                        (x<%= order.platos[order.platos.findIndex(i => i.idOrder == order.platos.idOrder)].cantidad %>)
+                                        (x<%= order.platos[order.platos.findIndex(i => i.id_product == product.idPlato)].cantidad %>)
                                     </li>
                                 <% }) %> 
                             </ul>
