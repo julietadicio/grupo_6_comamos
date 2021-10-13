@@ -25,11 +25,10 @@ const controller = {
     assignTable: async (req, res) => {
         let selectTable = req.body.idMesa;
         let orderSelect = req.body.idOrder;
-        const order = await db.Order.findOne({
-            where: {idOrder: orderSelect}
+        const order = await db.Order.update({
+            id_table: selectTable}
+            , {where: {idOrder: orderSelect}
         });
-        //hacer un update
-        order.dataValues.id_table = selectTable;
         return res.json(order)
     }
 }
