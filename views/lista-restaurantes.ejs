@@ -16,7 +16,7 @@
             <div class="contenedor">
                 <% restaurantes.forEach (resto=> { %>
                     <div class="resto">
-                        <img src="<%= resto.avatar %>" alt="" width="20%">
+                        <img src="<%= resto.avatar %>" alt="" width="20%"  onclick="window.location.href = '/lista-platos/<%= resto.idRestaurant %>'">
                         <h3>
                             <%= resto.nombre %>
                         </h3>
@@ -26,7 +26,7 @@
                         <h5>Capacidad:
                             <%= resto.capacidad %>
                         comensales</h5>
-                        <button>Ver más</button>
+                        <button onclick="window.location.href='/lista-platos/<%= resto.idRestaurant %>'">Ver más</button>
                     </div>
                     <% }) %>
             </div>

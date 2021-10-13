@@ -59,6 +59,15 @@ const controller = {
         })
         res.render('lista-platos', {products, user:req.session.userLogged})
     },
+
+    searchLocation: async (req, res) => {
+        const location = await db.Restaurant.findAll({
+            where: {
+                restaurant: {[Op.like]: `%${req.params.restaurant}%`}
+            }
+        })
+        res.render('lista-restaurantes', {location, user:req.session.userLogged})
+    }
 }
 
 module.exports = controller;
