@@ -1,3 +1,8 @@
+:root {
+    --red: #ED1B24;
+    --light-color: #656565;
+    --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1)
+}
 * {
     box-sizing: border-box;
     font-family: 'Nunito Sans', sans-serif;
@@ -187,10 +192,8 @@ cursor: pointer;
 input[name="total"] {
     text-align: center;
     background: none;
-    display: block;
-    margin: auto;
     border: none;
-    margin-top: 1%;
+    width: 50px;
     color: black;
     font-size: large;
 }
@@ -211,7 +214,7 @@ input[name="plato"], input[name=precio], input[name="quantity"], input[name="tot
     padding: 10px;
     border: none;
     background-color: #ebebeb;
-    border-radius: 8%;
+    border-radius: .5rem;
     color: black;
     margin-top: 5px;
 }
@@ -532,8 +535,41 @@ footer ul, footer div {
         height: 68vh;
         width: 70vw;
     }
-    .land-view {
+    #product-cart-section #box-restaurant #box-product input,  #product-cart-section #box-restaurant input {
+        margin: .3rem .5rem;
+        text-align: center;
+    }
+    #box-product {
         display: flex;
+        justify-content: flex-start;
+    }
+    .divElement {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .divElementRow, .divElementRow3 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .divElementRow3 {
+        justify-content: center;
+    }
+    #containerProduct {
+        display: flex;
+        flex-direction: column;
+    }
+    #div-reserve {
+        display: flex;
+        justify-content: space-between;
+    }
+    #box-reserve {
+        display: flex;
+        align-items: center;
+    }
+    label {
+        color: var(--light-color);
     }
     .map-style {
         width: 60%;
