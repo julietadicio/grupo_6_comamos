@@ -39,7 +39,7 @@
                             <button type="submit" class="none-decoration"><i class="far fa-edit"></i></button>
                         </form>
                         <form action="/buisness/account/capacity/<%= table.idTable %>/delete?_method=DELETE" method="POST" class="tables-button">
-                            <button type="submit" class="none-decoration"><i class="fas fa-times"></i></button>
+                            <button type="submit" class="none-decoration" id="delete-table"><i class="fas fa-times"></i></button>
                         </form>
                     </div>    
                 </article>
@@ -57,7 +57,9 @@
             </fieldset>
         </form> 
     </main>
-    <%- include partials/footer %>     
+    <%- include partials/footer %>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/sweetAlertDeleteTables.js"></script>
 </body>
 
 </html>

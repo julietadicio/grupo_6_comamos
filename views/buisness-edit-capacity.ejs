@@ -15,7 +15,7 @@
             <div class="errores">
             <ul></ul>
             </div>
-            <form action="/buisness/account/capacity/edit/<%= table.idTable %>/?_method=PUT" method="POST">
+            <form action="/buisness/account/capacity/edit/<%= table.idTable %>/?_method=PUT" method="POST" id="edit-operations-form">
                 <div class="flex-column">
                     <label for="nombre">Nombre de la Mesa</label>
                     <input type="text" name="nombre" id="nombre" value="<%= table.name %>">
@@ -36,7 +36,7 @@
                     </select>
                 </div>
                 <fieldset class="logout-button">
-                    <button type="submit" class="none-decoration"><i class="fas fa-check"></i></button>
+                    <button type="submit" class="none-decoration btn-check"><i class="fas fa-check"></i></button>
                 </fieldset>
             </form>
             <form action="/buisness/account/capacity">
@@ -46,7 +46,10 @@
             </form>
         </section>
     </main>
-    <%- include partials/footer %>     
+    <%- include partials/footer %>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/sweetAlertEdit.js"></script>
+    <script src="/js/loader.js"></script>
 </body>
 
 </html>

@@ -16,7 +16,7 @@
             <div class="errores">
                 <ul></ul>
             </div>
-            <form action="/user/account/?_method=PUT" method="POST" enctype="multipart/form-data">
+            <form action="/user/account/?_method=PUT" method="POST" enctype="multipart/form-data" id="edit-operations-form">
                 <div class="align-image-user">
                     <img src="<%= user.avatar %>" alt="user image" class="user-image">
                 </div>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="flex-rowReverse">
                     <fieldset class="logout-button">
-                        <button type="submit" class="none-decoration">Editar</button>
+                        <button type="submit" class="none-decoration btn-check">Editar</button>
                     </fieldset>
                     <div class="logout-button">
                         <a href="/user/account" type="menu" class="none-decoration">Volver</a>
@@ -51,7 +51,9 @@
             </form>
         </section>
     </main>
-    <%- include partials/footer %>     
+    <%- include partials/footer %>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/sweetAlertEdit.js"></script>
 </body>
 
 </html>

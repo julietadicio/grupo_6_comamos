@@ -22,6 +22,7 @@
     "mysql2": "^2.2.5",
     "node-fetch": "^2.6.1",
     "sequelize": "^6.6.5",
+    "sweetalert2": "^11.1.7",
     "swiper": "^7.0.4"
   }
 }

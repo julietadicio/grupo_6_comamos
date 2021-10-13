@@ -33,9 +33,9 @@
                             <h2>Gestionar Cupones</h2>
                         </a>
                     </li>
-                    <form action="/buisness/account/delete?_method=DELETE" method="POST">
+                    <form action="/buisness/account/delete?_method=DELETE" method="POST" id="delete-form">
                         <fieldset class="logout-button">
-                            <button type="submit" class="none-decoration">Eliminar Cuenta</button>
+                            <button type="submit" class="none-decoration" id="delete-user">Eliminar Cuenta</button>
                             <i class="fas fa-user-times none-decoration"></i>
                         </fieldset>
                     </form>
@@ -89,7 +89,9 @@
             </fieldset>
         </form>
     </main>
-    <%- include partials/footer %>     
+    <%- include partials/footer %>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/sweetAlertDelete-user.js"></script>
 </body>
 
 </html>

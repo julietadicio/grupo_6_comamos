@@ -782,6 +782,9 @@ footer ul, footer div {
     .swiper {
         width: 75%;
     }
+    .swiper .swiper-wrapper img:hover {
+        cursor: pointer;
+    }
     .index-recomendations {
         justify-content: center;
     }

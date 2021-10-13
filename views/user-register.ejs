@@ -25,12 +25,6 @@
 
     <div class="centro">
 
-      <div class="errores">
-        <ul>
-          
-        </ul>
-      </div>
-      
 
       <form action="/user/register" method="POST" enctype="multipart/form-data"
         class="<%= locals.errors? 'form-wide2' : null %>">
@@ -93,6 +87,11 @@
 									</div>
 								<% } %>
           </div>
+        </div>
+        <div class="errores">
+          <ul>
+            
+          </ul>
         </div> 
           <div>  
             <button class="center logout-button" type="submit">Crear Cuenta</button>

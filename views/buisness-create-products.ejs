@@ -18,7 +18,7 @@
                     
                 </ul>
             </div>
-            <form action="/buisness/account/new-product" method="POST" enctype="multipart/form-data">
+            <form action="/buisness/account/new-product" method="POST" enctype="multipart/form-data" id="add-operations-form">
                 <div class="hide-edit">
                     <label for="img-product">Agregar</label>
                     <input type="file" name="img-product" id="img-product">
@@ -40,7 +40,7 @@
                     <input type="number" name="precio" id="precio" value="">
                 </div>
                 <fieldset class="logout-button">
-                    <button type="submit" class="none-decoration">Confirmar</button>
+                    <button type="submit" class="none-decoration btn-check">Confirmar</button>
                 </fieldset>
             </form>
             <form action="/buisness/account/products">
@@ -50,7 +50,10 @@
             </form>
         </section>
     </main>
-    <%- include partials/footer %>     
+    <%- include partials/footer %>
+    <script src="/js/loader.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/sweetAlertConfirm.js"></script>
 </body>
 
 </html>

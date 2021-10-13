@@ -19,7 +19,7 @@
                 </ul>
             </div>
             
-            <form action="/buisness/account/capacity/new-table" method="POST">
+            <form action="/buisness/account/capacity/new-table" method="POST" id="add-operations-form">
                 <div>
                     <label for="name">Nombre de la mesa</label>
                     <input type="text" name="name" id="name" 
@@ -64,7 +64,7 @@
                     </select>
                 </div>
                 <fieldset class="logout-button">
-                    <button type="submit" class="none-decoration">Confirmar</button>
+                    <button type="submit" class="none-decoration btn-check">Confirmar</button>
                 </fieldset>
             </form>
             <form action="/buisness/account/capacity">
@@ -74,7 +74,10 @@
             </form>
         </section>
     </main>
-    <%- include partials/footer %>     
+    <%- include partials/footer %>
+    <script src="/js/loader.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/sweetAlertConfirm-tables.js"></script>
 </body>
 
 </html>

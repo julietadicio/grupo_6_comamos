@@ -1,7 +1,23 @@
 
 window.addEventListener('load', async () => {
+    const usersApi = await (await fetch('http://localhost:8000/api/users')).json();
+    let emailCookie = getCookie('userEmail');
+    const userLogged = usersApi.find(u => u.email == emailCookie);
+    
+    if(!localStorage.getItem(`cartProducts_${userLogged.idUser}`)){
+        let emptyProductsMessage = document.createElement("h1");
+        emptyProductsMessage.innerText = 'Aún no tienes productos en el carrito';
+        emptyProductsMessage.style.color = 'black';
+        emptyProductsMessage.style.textAlign = 'center';
+        emptyProductsMessage.style.fontStyle = 'italic';
+        let sectionForm = document.querySelector('#shop-cart section')
+        sectionForm.appendChild(emptyProductsMessage);
+        let buttonContainer = document.querySelector('.boton-contenedor');
+        buttonContainer.style.display = 'none';
+    }
 
-    let cartUser = JSON.parse(localStorage.getItem('cartProducts'));
+
+    let cartUser = JSON.parse(localStorage.getItem(`cartProducts_${userLogged.idUser}`));
     let productCartSection = document.querySelector('#product-cart-section');
 
     let cartQuantity = function (evento, quantity) {
@@ -13,7 +29,7 @@ window.addEventListener('load', async () => {
         let productIndex = cartUser[restaurantIndex].products.indexOf(productSelect);
         
         cartUser[restaurantIndex].products[productIndex].quantity = quantity;
-        localStorage.setItem('cartProducts', JSON.stringify(cartUser));
+        localStorage.setItem(`cartProducts_${userLogged.idUser}`, JSON.stringify(cartUser));
     }
 
     let costCalculation = function (evento, quantity, input) {
@@ -27,7 +43,7 @@ window.addEventListener('load', async () => {
             const itemCost = Number(inputsCost[l].value);
             totalCost += itemCost;
         }
-        input6.value = Number(totalCost);
+        input.value = Number(totalCost);
     }
 
     let buisness = await (await fetch ('http://localhost:8000/api/buisness')).json();
@@ -183,11 +199,10 @@ window.addEventListener('load', async () => {
             let newProducts = cartUser[index].products.filter(x => x.idPlato != e.target.id);
             cartUser[index].products = newProducts;
             if(cartUser[index].products.length == 0){
-                console.log(cartUser[index].products.length == 0);
                 let newCartUser = cartUser.filter(u => u.id != cartUser[index].id);
-                localStorage.setItem('cartProducts', JSON.stringify(newCartUser));
+                localStorage.setItem(`cartProducts_${userLogged.idUser}`, JSON.stringify(newCartUser));
             } else {
-                localStorage.setItem('cartProducts', JSON.stringify(cartUser));
+                localStorage.setItem(`cartProducts_${userLogged.idUser}`, JSON.stringify(cartUser));
             }
             ((e.target.parentNode).parentNode).remove();
             window.location.reload();
@@ -265,7 +280,7 @@ window.addEventListener('load', async () => {
                     }
                 }
             }
-            localStorage.setItem('cartProducts', JSON.stringify(cartUser));
+            localStorage.setItem(`cartProducts_${userLogged.idUser}`, JSON.stringify(cartUser));
         })
     }
 
@@ -296,7 +311,7 @@ window.addEventListener('load', async () => {
                     }
                 }
             }
-            localStorage.setItem('cartProducts', JSON.stringify(cartUser));
+            localStorage.setItem(`cartProducts_${userLogged.idUser}`, JSON.stringify(cartUser));
         })
     }
     
@@ -306,9 +321,6 @@ window.addEventListener('load', async () => {
         e.preventDefault();
         const ordersApi = await (await fetch('http://localhost:8000/api/orders')).json();
         const lastOrderId = ordersApi.length;
-        const usersApi = await (await fetch('http://localhost:8000/api/users')).json();
-        let emailCookie = getCookie('userEmail');
-        let userLogged = usersApi.filter(u => u.email == emailCookie);
 
         const orders = [];
         const ordersProducts = [];
@@ -359,7 +371,7 @@ window.addEventListener('load', async () => {
             body: data
         }   
         fetch('/api/users/shop', options);
-        localStorage.removeItem('cartProducts');
+        localStorage.removeItem(`cartProducts_${userLogged[0].idUser}`);
         window.location.href = 'http://localhost:8000/user/account/my-order';
     })
     function getCookie(cname) {

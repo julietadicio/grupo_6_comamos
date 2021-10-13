@@ -32,8 +32,8 @@
                         <form action="/buisness/account/products/edit/<%= product.idPlato %>" method="GET" class="logout-button">
                             <button type="submit" class="none-decoration">Editar</button>
                         </form>
-                        <form action="/buisness/account/products/<%= product.idPlato %>/delete?_method=DELETE" method="POST" class="logout-button">
-                            <button type="submit" class="none-decoration">Eliminar</button>
+                        <form action="/buisness/account/products/<%= product.idPlato %>/delete?_method=DELETE" method="POST" class="logout-button" id="delete-form">
+                            <button type="submit" class="none-decoration" id="delete-product">Eliminar</button>
                         </form>
                     </div>    
                 </article>
@@ -48,7 +48,9 @@
                         </fieldset>
                     </form> 
     </main>
-    <%- include partials/footer %>     
+    <%- include partials/footer %>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/sweetAlertDeleteProduct.js"></script>
 </body>
 
 </html>
