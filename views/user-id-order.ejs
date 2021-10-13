@@ -59,7 +59,8 @@
                             </div>
                         </h4>
                         <h5 class="color-name">Nº de comensales: <%= orderSelect.comensales %></h5>
-                        <h5 class="color-name">Fecha y hora de la reserva: <%= moment(orderSelect.fecha_reserva).format('DD/MM/YY, HH:mm') %></h5>
+                        <h5 class="color-name">Fecha y hora de la reserva: <%= moment(orderSelect.fecha_reserva).format('DD/MM/YY HH:mm') %></h5>
+                        <h5 class="color-name"><%= orderSelect.table.name %></h5>
                         <h5 class="products">Total: $<%= orderSelect.total %></h5>
                     </div>
                     <form action="" method="POST" class="coment-button box-order3">

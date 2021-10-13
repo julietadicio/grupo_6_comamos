@@ -26,7 +26,9 @@ const controller = {
         let selectTable = req.body.idMesa;
         let orderSelect = req.body.idOrder;
         const order = await db.Order.update({
-            id_table: selectTable}
+            id_table: selectTable,
+            estado: 'Completada'
+        }
             , {where: {idOrder: orderSelect}
         });
         return res.json(order)

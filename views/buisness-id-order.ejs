@@ -15,32 +15,23 @@
             <article class="reserve-form">
                 <div class="box-order1">
                     <img src="<%= orderSelect.users.avatar %>" alt="imagen restaurante" class="image-result">
+                    <h4 class="order-title">
+                        <%= orderSelect.users.nombre %>
+                        <%= orderSelect.users.apellido %>
+                    </h4>
                 </div>    
-                <div class="left-separation box-order2">
-                    <a href="">
-                        <h4 class="order-title">
-                            <%= orderSelect.users.nombre %>
-                            <%= orderSelect.users.apellido %>
-                        </h4>
-                    </a>
-                    <a href="" class="valoration">
-                        <h4 class="color-name">Valoración:</h4>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </a>
-                </div>
                 <div class="order-form">
                     <h4 class="color-name">Platos Comprados: <br>
                         <% orderSelect.products.forEach(product => { %>
-                            <a href="/product/<%= product.idPlato %> "><h4 class="products"><%= product.plato %></h4></a>
-                            <h4 class="products">(x<%= orderSelect.platos[orderSelect.platos.findIndex(i => i.idOrder == orderSelect.platos.idOrder)].cantidad %>)</h4>
+                            <dv id="product-quantity">
+                                <a href="/product/<%= product.idPlato %> "><h4 class="products"><%= product.plato %></h4></a>
+                                <h4 class="products">(x<%= orderSelect.platos[orderSelect.platos.findIndex(i => i.idOrder == orderSelect.platos.idOrder)].cantidad %>)</h4>
+                            </dv>
                         <% }) %> 
                     </h4>
                     <h5 class="color-name">Nº de comensales: <%= orderSelect.comensales %></h5>
-                    <h5 class="color-name">Fecha y hora de la reserva: <%= moment(orderSelect.fecha_reserva).format('DD/MM/YY, HH:mm') %></h5>
+                    <h5 class="color-name">Fecha y hora de la reserva: <%= moment(orderSelect.fecha_reserva).format('DD/MM/YY HH:mm') %></h5>
+                    <h5 class="color-name"><%= orderSelect.table.name %></h5>
                     <h5 class="products">Total: $<%= orderSelect.total %></h5>
                 </div>
             </article>

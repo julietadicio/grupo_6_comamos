@@ -139,7 +139,7 @@ const controller = {
     userOrder: async (req, res) => {
         const orderSelect = await db.Order.findByPk(
             req.params.idOrder, 
-            {include: [{association: 'restaurant'}, {association: 'platos'}, {association: 'products'}]}
+            {include: [{association: 'restaurant'}, {association: 'platos'}, {association: 'products'}, {association: 'table'}]}
             )
         return res.render ('user-id-order', {user: req.session.userLogged, orderSelect, moment})
     },

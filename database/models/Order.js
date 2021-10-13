@@ -47,6 +47,11 @@ module.exports = function (sequelize, DataTypes) {
             foreignKey: 'id_user'
         });
 
+        Order.belongsTo(models.Table, {
+            as: 'table',
+            foreignKey: 'id_table'
+        });
+
         Order.hasMany(models.OrderProduct, {
             as: 'platos',
             foreignKey: 'id_order'
