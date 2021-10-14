@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include partials/head %>
+        <link rel="stylesheet" href="/css/lista-platos.css">
+        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+        <title>Platos</title>
+</head>
+
+<body>
+    <% include partials/header %>
+        <main>
+            <h2>Platos</h2>
+            <div>
+                <div class="swiper platos">
+                    <h3 class="category-title" id="Entrada">Entradas</h3>
+                    <div class="swiper-wrapper">
+                        
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+                <div class="swiper platos">
+                    <h3 class="category-title" id="Plato-Principal">Platos Principales</h3>
+                    <div class="swiper-wrapper">
+                        
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+                <div class="swiper platos">
+                    <h3 class="category-title" id="Postre">Postres</h3>
+                    <div class="swiper-wrapper">
+                        
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+                <div class="swiper platos">
+                    <h3 class="category-title" id="Bebida">Bebidas</h3>
+                    <div class="swiper-wrapper">
+                        
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </main>
+        <% include partials/footer %>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="/js/swiperRestaurantProducts.js"></script>
+        <script src="/js/searchBar.js"></script>
+</body>
+
+</html>

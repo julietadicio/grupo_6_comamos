@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const fs = require('fs');
+const fetch = require('node-fetch');
 const db = require('../database/models');
 const { Op } = require("sequelize");
 
@@ -54,23 +54,12 @@ const controller = {
         })
         return res.render('restaurant-detail', {products, user:req.session.userLogged, buisness})
     },
-    searchBar: async (req, res) => {
-        const products = await db.Product.findAll({
-            where: {
-                plato: {[Op.like]: `%${req.params.plato}%`}
-            }
-        })
-        res.render('lista-platos', {products, user:req.session.userLogged})
-    },
-
-    searchLocation: async (req, res) => {
-        const restaurantes = await db.Restaurant.findAll({
-            where: {
-                restaurant: {[Op.like]: `%${req.params.restaurant}%`}
-            }
-        })
-        res.render('lista-restaurantes', {restaurantes, user:req.session.userLogged})
+    searchBar: (req, res) => {
+        /* const products = await (await fetch('http://localhost:8000/api/products/search')).json();
+        console.log(products); */
+        return res.render('lista-platos-search', {user:req.session.userLogged})
     }
+    
 }
 
 module.exports = controller;

@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
         <link rel="stylesheet" href="./css/index.css">
         <script src="/js/swiper.js"></script>
-        <script src="/js/searchBar.js"></script>
         <title>Comamos</title>
 </head>
 
@@ -16,17 +15,20 @@
             <div class="parallax">
                 <h1 class="frase-main">Elegí tu plato en tu restaurante favorito, sentate y listo</h1>
                 <div class="search">
-                    <form action="/product/search/:plato" method="GET" id="search-bar">
+                    <form action="/product/search" method="GET" id="search-bar">
 
                         <label for="busqueda1"></label>
                         <input type="text" name="busqueda1" id="busqueda1" placeholder="Restaurante, tipo de comida...">
 
                         <label for="busqueda2"></label>
-                        <input type="text" name="busqueda2" class="box-mobile" id="busqueda2"
-                            placeholder="Cerca de mi dirección">
+                        <input type="text" name="busqueda2" class="box-mobile" id="busqueda2" placeholder="Cerca de mi dirección">
 
                         <select name="filtrar" id="filtrar" class="box-mobile">
                             <option value="filtra">Filtra tu búsqueda</option>
+                            <option value="Entrada">Entrada</option>
+                            <option value="Plato Principal">Plato Principal</option>
+                            <option value="Postre">Postre</option>
+                            <option value="Bebida">Bebida</option>
                         </select>
                         <button type="submit" name="buscar" id="boton-buscar">Buscar</button>
                         <i class="fas fa-search" id="boton-lupa"></i>
