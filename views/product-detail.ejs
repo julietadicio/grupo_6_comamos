@@ -11,22 +11,7 @@
 <body>
     <%- include partials/header %> 
     <main class="product-view">
-        <div class="search">
-            <form action="" method="">
-
-                <label for="busqueda1"></label>
-                <input type="text" name="busqueda1" id="busqueda1" placeholder="Restaurante, tipo de comida...">
-
-                <label for="busqueda2"></label>
-                <input type="text" name="busqueda2" class="box-mobile" id="busqueda2" placeholder="Cerca de mi dirección">
-
-                <select name="filtrar" id="filtrar" class="box-mobile">
-                    <option value="filtra">Filtra tu búsqueda</option>
-                </select>
-                <button type="submit" name="buscar" id="boton-buscar">Buscar</button>
-                <i class="fas fa-search" id="boton-lupa"></i>
-            </form>
-        </div>
+        
         <div class="reserve-form-wide">
             <div class="box-order1">
                 <img src="<%= productSelect.productRestaurant.avatar %>" alt="imagen plato" class="image-restaurant">
