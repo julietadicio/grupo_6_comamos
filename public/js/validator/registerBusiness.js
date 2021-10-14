@@ -1,5 +1,5 @@
 window.addEventListener('load', function(){
-    let formulario = querySelector('form')
+    let formulario = document.querySelector('form')
 
     formulario.addEventListener('submit', function(e){
         let errores = [];

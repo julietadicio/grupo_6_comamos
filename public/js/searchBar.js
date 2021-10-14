@@ -68,10 +68,20 @@ window.addEventListener('load', async () => {
             let h5Product = document.createElement('h5');
             h5Product.classList = 'product-price';
             h5Product.innerText = plato.precio;
+            let divButton = document.createElement('div');
+            let reserveLink = document.createElement('a');
+            divButton.classList = 'buttons-orders';
+            reserveLink.id = plato.idPlato;
+            reserveLink.classList = 'btn';
+            reserveLink.innerText = 'Reservar';
+            reserveLink.href = '#';
+
+            divButton.appendChild(reserveLink);
 
             swiperSlide.appendChild(imgProduct);
             swiperSlide.appendChild(h4Product);
             swiperSlide.appendChild(h5Product);
+            swiperSlide.appendChild(divButton);
 
             swiperElement.appendChild(swiperSlide);
         }

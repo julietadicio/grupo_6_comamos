@@ -22,6 +22,7 @@ for (let i = 0; i < selectTables.length; i++) {
                 break
             }
         }
+        window.location.reload();
     })
     
 }

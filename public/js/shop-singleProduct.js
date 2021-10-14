@@ -1,11 +1,32 @@
-window.addEventListener('load', async () => {
+function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+    
+    window.addEventListener('load', async () => {
     let cartItem = document.querySelector('.btn');
+    console.log(cartItem);
+    
+    const usersApi = await (await fetch('http://localhost:8000/api/users')).json();
+    let emailCookie = getCookie('userEmail');
+    const userLogged = usersApi.find(u => u.email == emailCookie);
 
     let products = await (await fetch ('http://localhost:8000/api/products')).json();
     let restaurants = await (await fetch ('http://localhost:8000/api/buisness')).json();
     let cartProducts = [];
-    if(localStorage.getItem('cartProducts')){
-        cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
+    if(localStorage.getItem(`cartProducts_${userLogged.idUser}`)){
+        cartProducts = JSON.parse(localStorage.getItem(`cartProducts_${userLogged.idUser}`));
     }
     
     
@@ -30,7 +51,7 @@ window.addEventListener('load', async () => {
                 };
                 cartProducts.push(cartByBuisness)
             }
-            localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+            localStorage.setItem(`cartProducts_${userLogged.idUser}`, JSON.stringify(cartProducts));
             window.location.href = 'http://localhost:8000/user/carrito';
         })     
     

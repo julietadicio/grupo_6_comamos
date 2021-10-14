@@ -1,6 +1,5 @@
 window.addEventListener('load', async () => {
-    let carts = document.querySelectorAll('.btn');
-
+    
     function getCookie(cname) {
         let name = cname + "=";
         let decodedCookie = decodeURIComponent(document.cookie);
@@ -8,20 +7,22 @@ window.addEventListener('load', async () => {
         for(let i = 0; i <ca.length; i++) {
             let c = ca[i];
             while (c.charAt(0) == ' ') {
-            c = c.substring(1);
+                c = c.substring(1);
             }
             if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
+                return c.substring(name.length, c.length);
             }
         }
         return "";
     }
-
+    
     let products = await (await fetch ('http://localhost:8000/api/products')).json();
     let restaurants = await (await fetch ('http://localhost:8000/api/buisness')).json();
     const usersApi = await (await fetch('http://localhost:8000/api/users')).json();
     let emailCookie = getCookie('userEmail');
-    let userLogged = usersApi.find(u => u.email == emailCookie);
+    const userLogged = usersApi.find(u => u.email == emailCookie);
+    
+    let carts = document.querySelectorAll('.btn');
     let cartProducts = [];
     if(localStorage.getItem(`cartProducts_${userLogged.idUser}`)){
         cartProducts = JSON.parse(localStorage.getItem(`cartProducts_${userLogged.idUser}`));

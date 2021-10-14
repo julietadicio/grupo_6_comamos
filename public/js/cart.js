@@ -53,18 +53,22 @@ window.addEventListener('load', async () => {
         const products = cartUser[i].products;
         let buisnessItem = buisness.find(e => e.idRestaurant == element.id);
         
+        let restaurantLink = document.createElement("a");
         let restaurantName = document.createElement("h1");
         let restaurantAddress = document.createElement("h3");
         let divReserve = document.createElement("div");
         divReserve.id = 'div-reserve';
         
+        restaurantLink.href = `/lista-platos/${buisnessItem.idRestaurant}`;
+        restaurantLink.style.color = '#ED1B24';
         restaurantName.innerText = buisnessItem.nombre;
         restaurantAddress.innerText = buisnessItem.direccion;
         
         
         let boxRestaurant = document.createElement('div');
-        boxRestaurant.id = 'box-restaurant'
-        boxRestaurant.appendChild(restaurantName);
+        boxRestaurant.id = 'box-restaurant';
+        restaurantLink.appendChild(restaurantName);
+        boxRestaurant.appendChild(restaurantLink);
         boxRestaurant.appendChild(restaurantAddress);
         boxRestaurant.appendChild(divReserve);
         let containerProduct = document.createElement('div');
@@ -269,22 +273,24 @@ window.addEventListener('load', async () => {
     for (let k = 0; k < links.length; k++) {
         const link = links[k];
         link.addEventListener('click', (e)=>{
-            let restaurant = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('#id_restaurant').value;
+            let restaurant = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('#id_restaurant').value;
             let index = cartUser.indexOf(cartUser.find( r => r.id == restaurant));
             let newProducts = cartUser[index].products.filter(x => x.idPlato != e.target.id);
             cartUser[index].products = newProducts;
-            if(cartUser[index].products.length == 0){
+            console.log('cart lenth es', cartUser.length);
+            console.log('de este negocio quedan estos productos', cartUser[index].products.length);
+            if (cartUser[index].products.length == 0){
                 let newCartUser = cartUser.filter(u => u.id != cartUser[index].id);
                 localStorage.setItem(`cartProducts_${userLogged.idUser}`, JSON.stringify(newCartUser));
-            } else {
-                localStorage.setItem(`cartProducts_${userLogged.idUser}`, JSON.stringify(cartUser));
+                if(newCartUser.length == 0){
+                    localStorage.removeItem(`cartProducts_${userLogged.idUser}`);
+                } 
+                window.location.reload();
             }
-            ((e.target.parentNode).parentNode).remove();
-            window.location.reload();
+            (e.target.parentNode.parentNode.parentNode.parentNode).remove();
             
         })
     }
-
     // event listener para botones de sumar y restar cantidades
 
     let iconsPlus = document.querySelectorAll('.fa-plus-circle');

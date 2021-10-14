@@ -25,29 +25,8 @@
                         </a>
                         <h4 class="color-name"><%= orderSelect.restaurant.direccion %></h4>
                     </div>
-                    <div id="map"></div>
-                    <script>
-                        async function initMap () {
-                        const resp = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=<%= orderSelect.restaurant.direccion %>&key=AIzaSyAFOo6YZ_RiBv1vbXSOxAWR6UmMIMozn6M`)
-                        const data = await resp.json();
-                        const address = { lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng };
-                        const map = new google.maps.Map(document.getElementById("map"), {
-                            zoom: 16,
-                            center: address,
-                        });
-                        const marker = new google.maps.Marker({
-                            position: address,
-                            map: map,
-                        });
-                        }
-                    </script>
-                    <script
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFOo6YZ_RiBv1vbXSOxAWR6UmMIMozn6M&callback=initMap&libraries=&v=weekly"
-                    async
-                    ></script>
-                </div>
-                <div class="container-2">
                     <div class="order-form">
+                        <h4 class="order-title">Pedido #<%=orderSelect.idOrder %> </h4>
                         <h4 class="color-name">Platos Comprados:
                             <div id="product-detail-container">
                                 <% orderSelect.products.forEach(product => { %>
@@ -64,6 +43,29 @@
                             <h5 class="color-name"><%= orderSelect.table.name %></h5>
                         <% }; %> 
                         <h5 class="products">Total: $<%= orderSelect.total %></h5>
+                    </div>
+                    
+                <div class="container-2">
+                    <div id="map"></div>
+                        <script>
+                            async function initMap () {
+                            const resp = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=<%= orderSelect.restaurant.direccion %>&key=AIzaSyAFOo6YZ_RiBv1vbXSOxAWR6UmMIMozn6M`)
+                            const data = await resp.json();
+                            const address = { lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng };
+                            const map = new google.maps.Map(document.getElementById("map"), {
+                                zoom: 16,
+                                center: address,
+                            });
+                            const marker = new google.maps.Marker({
+                                position: address,
+                                map: map,
+                            });
+                            }
+                        </script>
+                        <script
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFOo6YZ_RiBv1vbXSOxAWR6UmMIMozn6M&callback=initMap&libraries=&v=weekly"
+                        async
+                        ></script>
                     </div>
                     <form action="/user/account/my-order/<%= orderSelect.idOrder %>/cancel?_method=PUT" method="POST" class="coment-button box-order3">
                         <input type="submit" name="estado" class="none-decoration logout-button" value="Cancelar Reserva"></input>

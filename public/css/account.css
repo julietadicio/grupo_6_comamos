@@ -712,9 +712,6 @@ footer ul, footer div {
 
 
 @media (min-width: 768px) {
-    body main {
-    min-height: calc(100vh - 80px - 75px - 38px);
-    }
     .box-mobile {
         display: inline-flex;
         width: 60%;
@@ -805,9 +802,13 @@ footer ul, footer div {
     }
     .container-1, .container-2 {
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
     }
     .container-2 {
         justify-content: space-around;
+        
     }
     .box-order1 {
     width: 30%;
@@ -941,7 +942,10 @@ footer ul, footer div {
         margin-left: 100%;
     }
     .main-order {
-        width: 70%;
+        width: 85%;
+    }
+    .container-1 {
+        flex-direction: row;
     }
     .flex-row {
         width: 90%;

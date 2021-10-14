@@ -303,6 +303,20 @@ main {
     color: #656565;
     text-align: center;
 }
+.btn {
+    margin-top: .8rem;
+    display: inline-block;
+    font-size: 1.2rem;
+    color: #fff;
+    background: var(--light-color);
+    border-radius: .5rem;
+    cursor: pointer;
+    padding: .4rem .8rem;
+}
+.btn:hover {
+    background: var(--red);
+    letter-spacing: .04rem;
+}
 
 /*CSS MAIN*/
 
