@@ -203,6 +203,14 @@ body header a {
 
 /* Index */
 
+.titulo-detalle {
+    margin-top: 5vh;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Pacifico', cursive;
+    color: #ED1B24;
+}
+
 main form {
     width: 90%;
     display: flex;
