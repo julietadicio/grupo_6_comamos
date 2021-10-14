@@ -18,7 +18,11 @@ window.addEventListener('load', async () => {
         let swiperElement = categoryHtml.parentNode.querySelector('.swiper-wrapper');
 
         if(searchRestaurant != ''){
-            let buisnessFilter = buisnessApi.filter( b=> ((b.nombre.toLocaleLowerCase()).includes(searchRestaurant.toLocaleLowerCase())))
+            let buisnessFilter = buisnessApi.filter( b=> (
+                (b.nombre.toLocaleLowerCase()).includes(searchRestaurant.toLocaleLowerCase())
+                || (b.direccion.toLocaleLowerCase()).includes(searchRestaurant.toLocaleLowerCase())
+                )
+            )
             let arrayBuisnessId = [];
             for (let r = 0; r < buisnessFilter.length; r++) {
                 const buisness = buisnessFilter[r];
@@ -40,7 +44,11 @@ window.addEventListener('load', async () => {
 
         let productsFilter = [];
         if(searchProduct != ''){
-            productsFilter = productsCategory.filter(z => (z.plato.toLowerCase()).includes(searchProduct.toLocaleLowerCase()))
+            productsFilter = productsCategory.filter(z => (
+                (z.plato.toLowerCase()).includes(searchProduct.toLocaleLowerCase())
+                || (z.descripcion.toLowerCase()).includes(searchProduct.toLocaleLowerCase())
+                )
+            )
         } else {
             productsFilter = productsCategory;
         }
