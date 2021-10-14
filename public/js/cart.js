@@ -398,63 +398,93 @@ window.addEventListener('load', async () => {
     }
     
     let shopCartButton = document.querySelector('.pay-button');
+    const ordersApi = await (await fetch('http://localhost:8000/api/orders')).json();
+    const lastOrderId = ordersApi.length;
     
     shopCartButton.addEventListener('click', async (e)=> {
         e.preventDefault();
-        const ordersApi = await (await fetch('http://localhost:8000/api/orders')).json();
-        const lastOrderId = ordersApi.length;
-
-        const orders = [];
-        const ordersProducts = [];
-
-        for (let a = 0; a < cartUser.length; a++) { 
-            const order = cartUser[a];
-            for (let s = 0; s < order.order.length; s++) {
-                let data = order.order[s];
-                if(Object.keys(data) == 'fecha_reserva'){
-                    var fechaOrderIndex = s;
-                    break;
-                }
+        Swal.fire({
+            title: 'Confirma reserva?',
+            text: "La reserva quedará pendiente de confirmación por el restaurante",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: 'rgb(35, 253, 6)',
+            cancelButtonColor: '#ED1B24',
+            confirmButtonText: 'Confirmar'
+            }).then((result) => {
+            if (result.isConfirmed) {
+            Swal.fire(
+            'Felicitaciones!',
+            'Tu reserva ha sido solicitada',
+            'success'
+            )
             }
-            for (let t = 0; t < order.order.length; t++) {
-                let data = order.order[t];
-                if(Object.keys(data) == 'comensales'){
-                    var comensalesOrderIndex = t;
-                    break;
+        })
+            let confirmButton = document.querySelector('.swal2-styled.swal2-confirm');
+            let cancelButton = document.querySelector('.swal2-styled.swal2-cancel');
+            confirmButton.addEventListener('click', ()=>{
+            console.log('primera confirmacion');
+            let confirmButton2 = document.querySelector('.swal2-styled.swal2-confirm');
+            confirmButton2.addEventListener('click', ()=>{
+                console.log('segunda confirmacion');
+
+                const orders = [];
+                const ordersProducts = [];
+
+                for (let a = 0; a < cartUser.length; a++) { 
+                    const order = cartUser[a];
+                    for (let s = 0; s < order.order.length; s++) {
+                        let data = order.order[s];
+                        if(Object.keys(data) == 'fecha_reserva'){
+                            var fechaOrderIndex = s;
+                            break;
+                        }
+                    }
+                    for (let t = 0; t < order.order.length; t++) {
+                        let data = order.order[t];
+                        if(Object.keys(data) == 'comensales'){
+                            var comensalesOrderIndex = t;
+                            break;
+                        }
+                    }
+                    let total = order.products.reduce((sum, t) => {return sum + (t.precio * (t.quantity? t.quantity: 1))}, 0);
+                    orders.push({
+                        idOrder: lastOrderId +(1+a),
+                        id_user: userLogged.idUser,
+                        id_restaurant: cartUser[a].id,
+                        estado: 'Pendiente',
+                        comensales: cartUser[a].order[comensalesOrderIndex].comensales,
+                        fecha_reserva: cartUser[a].order[fechaOrderIndex].fecha_reserva,
+                        total: total
+                    })
+                    for (let k = 0; k < order.products.length; k++) {
+                        const product = order.products[k];
+                        ordersProducts.push({
+                            id_order: lastOrderId + (1+a),
+                            id_product: product.idPlato,
+                            cantidad: (product.quantity? product.quantity: 1)
+                        })
+                    }
                 }
-            }
-            let total = order.products.reduce((sum, t) => {return sum + (t.precio * (t.quantity? t.quantity: 1))}, 0);
-            orders.push({
-                idOrder: lastOrderId +(1+a),
-                id_user: userLogged.idUser,
-                id_restaurant: cartUser[a].id,
-                estado: 'Pendiente',
-                comensales: cartUser[a].order[comensalesOrderIndex].comensales,
-                fecha_reserva: cartUser[a].order[fechaOrderIndex].fecha_reserva,
-                total: total
+
+                const data = JSON.stringify([{order: orders}, {ordersProducts: ordersProducts}]);
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: data
+                }   
+                fetch('/api/users/shop', options);
+                setTimeout(function(){
+                    window.location.href = 'http://localhost:8000/user/account/my-order';
+                }, 1200);
             })
-            for (let k = 0; k < order.products.length; k++) {
-                const product = order.products[k];
-                ordersProducts.push({
-                    id_order: lastOrderId + (1+a),
-                    id_product: product.idPlato,
-                    cantidad: (product.quantity? product.quantity: 1)
-                })
-            }
-        }
-
-        const data = JSON.stringify([{order: orders}, {ordersProducts: ordersProducts}]);
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: data
-        }   
-        fetch('/api/users/shop', options);
-        localStorage.removeItem(`cartProducts_${userLogged.idUser}`);
-        window.location.reload();
-        window.location.href = 'http://localhost:8000/user/account/my-order';
+        })
+            cancelButton.addEventListener('click', ()=>{
+            e.preventDefault();
+        })
+        
     })
     function getCookie(cname) {
         let name = cname + "=";
