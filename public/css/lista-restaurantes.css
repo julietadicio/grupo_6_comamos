@@ -152,6 +152,7 @@ body header div ul li a {
 }
 
 
+
 /* Css para header */
 
 /*Css main*/
@@ -206,6 +207,11 @@ button {
     padding: 5px;
     margin-top: 5px;
     cursor: pointer;
+    transition: all .3s;
+}
+
+button:hover {
+    letter-spacing: .04rem;
 }
 
 
