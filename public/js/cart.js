@@ -278,6 +278,16 @@ window.addEventListener('load', async () => {
             let newProducts = cartUser[index].products.filter(x => x.idPlato != e.target.id);
             cartUser[index].products = newProducts;
             localStorage.setItem(`cartProducts_${userLogged.idUser}`, JSON.stringify(cartUser));
+            
+            (e.target.parentNode.parentNode.parentNode.parentNode).remove();
+            inputsCost = productCartSection.querySelectorAll('#total');
+            let totalCost = 0;
+            for (let l = 0; l < inputsCost.length; l++) {
+                const itemCost = Number(inputsCost[l].value);
+                totalCost += itemCost;
+            }
+            input6.value = Number(totalCost);
+
             if (cartUser[index].products.length == 0){
                 let newCartUser = cartUser.filter(u => u.id != cartUser[index].id);
                 localStorage.setItem(`cartProducts_${userLogged.idUser}`, JSON.stringify(newCartUser));
@@ -286,7 +296,6 @@ window.addEventListener('load', async () => {
                 } 
                 window.location.reload();
             }
-            (e.target.parentNode.parentNode.parentNode.parentNode).remove();
             
         })
     }
