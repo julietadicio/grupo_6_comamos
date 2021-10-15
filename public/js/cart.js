@@ -277,8 +277,7 @@ window.addEventListener('load', async () => {
             let index = cartUser.indexOf(cartUser.find( r => r.id == restaurant));
             let newProducts = cartUser[index].products.filter(x => x.idPlato != e.target.id);
             cartUser[index].products = newProducts;
-            console.log('cart lenth es', cartUser.length);
-            console.log('de este negocio quedan estos productos', cartUser[index].products.length);
+            localStorage.setItem(`cartProducts_${userLogged.idUser}`, JSON.stringify(cartUser));
             if (cartUser[index].products.length == 0){
                 let newCartUser = cartUser.filter(u => u.id != cartUser[index].id);
                 localStorage.setItem(`cartProducts_${userLogged.idUser}`, JSON.stringify(newCartUser));
@@ -400,7 +399,6 @@ window.addEventListener('load', async () => {
     let shopCartButton = document.querySelector('.pay-button');
     const ordersApi = await (await fetch('http://localhost:8000/api/orders')).json();
     const lastOrderId = ordersApi.length;
-    
     shopCartButton.addEventListener('click', async (e)=> {
         e.preventDefault();
         Swal.fire({

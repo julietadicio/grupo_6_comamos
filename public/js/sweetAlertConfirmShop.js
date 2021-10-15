@@ -1,9 +1,9 @@
 
-let buyButton = document.querySelector('.pay-button');
+let payButton = document.querySelector('.pay-button');
 
 
   
-  buyButton.addEventListener('click', (e)=>{
+  payButton.addEventListener('click', (e)=>{
     e.preventDefault();
     Swal.fire({
       title: 'Confirma reserva?',
